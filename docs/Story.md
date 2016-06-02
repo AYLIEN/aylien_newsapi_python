@@ -24,6 +24,6 @@ Name | Type | Description | Notes
 **published_at** | **datetime** | Published date of the story | [optional] 
 **links** | [**StoryLinks**](StoryLinks.md) | Links which is related to the story | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.rst#documentation-for-models) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to README]](../README.rst)
 
 

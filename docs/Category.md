@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **confident** | **bool** | It defines whether the extracted category is confident or not | [optional] 
 **links** | [**CategoryLinks**](CategoryLinks.md) | Related links for the category | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.rst#documentation-for-models) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to README]](../README.rst)
 
 

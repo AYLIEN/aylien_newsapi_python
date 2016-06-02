@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **published_at_start** | **datetime** | The start published date of the time series | [optional] 
 **published_at_end** | **datetime** | The end published date of the time series | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.rst#documentation-for-models) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to README]](../README.rst)
 
 

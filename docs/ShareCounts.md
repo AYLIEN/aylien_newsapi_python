@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **linkedin** | [**list[ShareCount]**](ShareCount.md) | LinkedIn shares count | [optional] 
 **reddit** | [**list[ShareCount]**](ShareCount.md) | Reddit shares count | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.rst#documentation-for-models) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to README]](../README.rst)
 
 

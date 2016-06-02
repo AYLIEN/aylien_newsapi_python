@@ -61,14 +61,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 
 # **list_coverages**
 > Coverages list_coverages(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, _return=_return, story_id=story_id, story_url=story_url, story_title=story_title, story_body=story_body, story_published_at=story_published_at, story_language=story_language, per_page=per_page)
@@ -188,14 +188,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 
 # **list_histograms**
 > Histograms list_histograms(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, interval_start=interval_start, interval_end=interval_end, interval_width=interval_width, field=field)
@@ -307,14 +307,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 
 # **list_related_stories**
 > RelatedStories list_related_stories(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, _return=_return, story_id=story_id, story_url=story_url, story_title=story_title, story_body=story_body, boost_by=boost_by, story_language=story_language, per_page=per_page)
@@ -434,14 +434,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 
 # **list_stories**
 > Stories list_stories(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, cluster=cluster, cluster_algorithm=cluster_algorithm, _return=_return, sort_by=sort_by, sort_direction=sort_direction, cursor=cursor, per_page=per_page)
@@ -559,14 +559,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 
 # **list_time_series**
 > TimeSeriesList list_time_series(id=id, title=title, body=body, text=text, language=language, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, published_at_start=published_at_start, published_at_end=published_at_end, period=period)
@@ -672,14 +672,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 
 # **list_trends**
 > Trends list_trends(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, field=field)
@@ -785,12 +785,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_key](../README.md#app_key), [app_id](../README.md#app_id)
+[app_key](../README.rst#app_key), [app_id](../README.rst#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/xml
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to Model list]](../README.rst#documentation-for-models) [[Back to README]](../README.rst)
 

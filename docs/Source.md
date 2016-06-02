@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **locations** | [**list[Location]**](Location.md) | The source locations which are tend to be the physical locations of the source, e.g. BBC headquarter is located in London. | [optional] 
 **scopes** | [**list[Scope]**](Scope.md) | The source scopes which is tend to be scope locations of the source, e.g. BBC scopes is international.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.rst#documentation-for-models) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to README]](../README.rst)
 
 

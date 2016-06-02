@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **links** | [**EntityLinks**](EntityLinks.md) | Related links to the entity | [optional] 
 **indices** | **list[list[int]]** | The indices of the entity text | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.rst#documentation-for-models) [[Back to API list]](../README.rst#documentation-for-api-endpoints) [[Back to README]](../README.rst)
 
 
