@@ -6,6 +6,8 @@ syndicating analyzed and enriched news content. If you haven't already
 done so, you will need to `sign
 up <https://newsapi.aylien.com/signup>`__.
 
+Visit our `interactive documentation <https://newsapi.aylien.com/docs/#api_info>`__ to familiarize yourself with the API.
+
 Requirements.
 -------------
 
