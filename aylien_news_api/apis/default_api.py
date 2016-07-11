@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import re
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -56,9 +57,39 @@ class DefaultApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str type: This parameter is used for defining the type of autocompletes. (required)
-        :param str term: This parameter is used for finding autocomplete objects whose contains the specified value. (required)
+        :param str term: This parameter is used for finding autocomplete objects that contain the specified value. (required)
         :param str language: This parameter is used for autocompletes whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param int per_page: This parameter is used for specifying number of the items in each page.
+        :param int per_page: This parameter is used for specifying number of items in each page.
+        :return: Autocompletes
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_autocompletes_with_http_info(type, term, **kwargs)
+        else:
+            (data) = self.list_autocompletes_with_http_info(type, term, **kwargs)
+            return data
+
+    def list_autocompletes_with_http_info(self, type, term, **kwargs):
+        """
+        List autocompletes
+        This endpoint is used for getting list of autocompletes by providing a specific term and type.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_autocompletes_with_http_info(type, term, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str type: This parameter is used for defining the type of autocompletes. (required)
+        :param str term: This parameter is used for finding autocomplete objects that contain the specified value. (required)
+        :param str language: This parameter is used for autocompletes whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param int per_page: This parameter is used for specifying number of items in each page.
         :return: Autocompletes
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,6 +97,7 @@ class DefaultApi(object):
 
         all_params = ['type', 'term', 'language', 'per_page']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -76,7 +108,6 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
-
         # verify the required parameter 'type' is set
         if ('type' not in params) or (params['type'] is None):
             raise ValueError("Missing the required parameter `type` when calling `list_autocompletes`")
@@ -84,6 +115,12 @@ class DefaultApi(object):
         if ('term' not in params) or (params['term'] is None):
             raise ValueError("Missing the required parameter `term` when calling `list_autocompletes`")
 
+        if 'term' in params and len(params['term']) < 1:
+            raise ValueError("Invalid value for parameter `term` when calling `list_autocompletes`, length must be greater than or equal to `1`")
+        if 'per_page' in params and params['per_page'] > 100.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value less than or equal to  `100.0`")
+        if 'per_page' in params and params['per_page'] < 1.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value greater than or equal to `1.0`")
         resource_path = '/autocompletes'.replace('{format}', 'json')
         path_params = {}
 
@@ -117,7 +154,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -126,13 +163,13 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='Autocompletes',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
 
     def list_coverages(self, **kwargs):
         """
         List coverages
-        This endpoint is used for finding story coverages based on provided parameters. The number of coverages to return, up to a maximum of 100.
+        This endpoint is used for finding story coverages based on the parameters provided. The maximum number of related stories returned is 100.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -149,47 +186,125 @@ class DefaultApi(object):
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str published_at_start: This parameter is used for finding stories whose published at is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str published_at_end: This parameter is used for finding stories whose published at is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining type of the taxonomy for the rest of categories queries.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
         :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories whose categories id is the specified value.
-        :param list[int] categories_level: This parameter is used for finding stories whose categories level is the specified value.
-        :param list[str] entities_title_text: This parameter is used for finding stories whose entities text in title is the specified value.
-        :param list[str] entities_title_type: This parameter is used for finding stories whose entities type in title is the specified value.
-        :param list[str] entities_title_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in title is the specified value.
-        :param list[str] entities_body_text: This parameter is used for finding stories whose entities text in body is the specified value.
-        :param list[str] entities_body_type: This parameter is used for finding stories whose entities type in body is the specified value.
-        :param list[str] entities_body_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in body is the specified value.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
         :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
         :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
         :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
         :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
-        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value.
-        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value.
-        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes state/province is the specified value.
-        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes city is the specified value.
-        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes level is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes  is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param bool cluster: This parameter enables clustering for the returned stories.
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
         :param int story_id: A story id
         :param str story_url: An article or webpage
         :param str story_title: Title of the article
         :param str story_body: Body of the article
-        :param datetime story_published_at: Publish date of the article. If you use url or title and body for getting coverages, this parameter is required. The format used is a restricted form of the canonical representation of dateTime in the [XML Schema specification (ISO 8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
-        :param str story_language: This parameter is used for setting language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param int per_page: This parameter is used for specifying number of the items in each page.
+        :param datetime story_published_at: Publish date of the article. If you use a url or title and body of an article for getting coverages, this parameter is required. The format used is a restricted form of the canonical representation of dateTime in the [XML Schema specification (ISO 8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
+        :param str story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param int per_page: This parameter is used for specifying number of items in each page.
+        :return: Coverages
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_coverages_with_http_info(**kwargs)
+        else:
+            (data) = self.list_coverages_with_http_info(**kwargs)
+            return data
+
+    def list_coverages_with_http_info(self, **kwargs):
+        """
+        List coverages
+        This endpoint is used for finding story coverages based on the parameters provided. The maximum number of related stories returned is 100.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_coverages_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
+        :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
+        :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
+        :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
+        :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
+        :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
+        :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes  is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param bool cluster: This parameter enables clustering for the returned stories.
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param list[str] _return: This parameter is used for specifying return fields.
+        :param int story_id: A story id
+        :param str story_url: An article or webpage
+        :param str story_title: Title of the article
+        :param str story_body: Body of the article
+        :param datetime story_published_at: Publish date of the article. If you use a url or title and body of an article for getting coverages, this parameter is required. The format used is a restricted form of the canonical representation of dateTime in the [XML Schema specification (ISO 8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
+        :param str story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param int per_page: This parameter is used for specifying number of items in each page.
         :return: Coverages
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -201,7 +316,18 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-
+        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'per_page' in params and params['per_page'] > 100.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value less than or equal to  `100.0`")
+        if 'per_page' in params and params['per_page'] < 1.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value greater than or equal to `1.0`")
         resource_path = '/coverages'.replace('{format}', 'json')
         path_params = {}
 
@@ -249,6 +375,14 @@ class DefaultApi(object):
             form_params.append(('sentiment.title.polarity', params['sentiment_title_polarity']))
         if 'sentiment_body_polarity' in params:
             form_params.append(('sentiment.body.polarity', params['sentiment_body_polarity']))
+        if 'media_images_count_min' in params:
+            form_params.append(('media.images.count.min', params['media_images_count_min']))
+        if 'media_images_count_max' in params:
+            form_params.append(('media.images.count.max', params['media_images_count_max']))
+        if 'media_videos_count_min' in params:
+            form_params.append(('media.videos.count.min', params['media_videos_count_min']))
+        if 'media_videos_count_max' in params:
+            form_params.append(('media.videos.count.max', params['media_videos_count_max']))
         if 'author_id' in params:
             form_params.append(('author.id[]', params['author_id']))
         if 'author_name' in params:
@@ -273,6 +407,10 @@ class DefaultApi(object):
             form_params.append(('source.scopes.city[]', params['source_scopes_city']))
         if 'source_scopes_level' in params:
             form_params.append(('source.scopes.level[]', params['source_scopes_level']))
+        if 'cluster' in params:
+            form_params.append(('cluster', params['cluster']))
+        if 'cluster_algorithm' in params:
+            form_params.append(('cluster.algorithm', params['cluster_algorithm']))
         if '_return' in params:
             form_params.append(('return[]', params['_return']))
         if 'story_id' in params:
@@ -305,7 +443,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -314,13 +452,13 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='Coverages',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
 
     def list_histograms(self, **kwargs):
         """
         List histograms
-        This endpoint is used for getting histograms based on the field parameter is passed.
+        This endpoint is used for getting histograms based on the `field` parameter passed to the API.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -337,32 +475,101 @@ class DefaultApi(object):
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str published_at_start: This parameter is used for finding stories whose published at is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str published_at_end: This parameter is used for finding stories whose published at is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining type of the taxonomy for the rest of categories queries.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
         :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories whose categories id is the specified value.
-        :param list[int] categories_level: This parameter is used for finding stories whose categories level is the specified value.
-        :param list[str] entities_title_text: This parameter is used for finding stories whose entities text in title is the specified value.
-        :param list[str] entities_title_type: This parameter is used for finding stories whose entities type in title is the specified value.
-        :param list[str] entities_title_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in title is the specified value.
-        :param list[str] entities_body_text: This parameter is used for finding stories whose entities text in body is the specified value.
-        :param list[str] entities_body_type: This parameter is used for finding stories whose entities type in body is the specified value.
-        :param list[str] entities_body_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in body is the specified value.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
         :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
         :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
         :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
         :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
-        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value.
-        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value.
-        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes state/province is the specified value.
-        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes city is the specified value.
-        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes level is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int interval_start: This parameter is used for setting the start data point of histogram intervals.
+        :param int interval_end: This parameter is used for setting the end data point of histogram intervals.
+        :param int interval_width: This parameter is used for setting the width of histogram intervals.
+        :param str field: This parameter is used for specifying the y-axis variable for the histogram.
+        :return: Histograms
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_histograms_with_http_info(**kwargs)
+        else:
+            (data) = self.list_histograms_with_http_info(**kwargs)
+            return data
+
+    def list_histograms_with_http_info(self, **kwargs):
+        """
+        List histograms
+        This endpoint is used for getting histograms based on the `field` parameter passed to the API.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_histograms_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
+        :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
+        :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
+        :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
+        :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
+        :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
+        :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param int interval_start: This parameter is used for setting the start data point of histogram intervals.
         :param int interval_end: This parameter is used for setting the end data point of histogram intervals.
         :param int interval_width: This parameter is used for setting the width of histogram intervals.
@@ -372,8 +579,9 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'interval_start', 'interval_end', 'interval_width', 'field']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'interval_start', 'interval_end', 'interval_width', 'field']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -385,7 +593,14 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-
+        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
         resource_path = '/histograms'.replace('{format}', 'json')
         path_params = {}
 
@@ -428,6 +643,14 @@ class DefaultApi(object):
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
             query_params['sentiment.body.polarity'] = params['sentiment_body_polarity']
+        if 'media_images_count_min' in params:
+            query_params['media.images.count.min'] = params['media_images_count_min']
+        if 'media_images_count_max' in params:
+            query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_videos_count_min' in params:
+            query_params['media.videos.count.min'] = params['media_videos_count_min']
+        if 'media_videos_count_max' in params:
+            query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
         if 'author_name' in params:
@@ -481,7 +704,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -490,13 +713,13 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='Histograms',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
 
     def list_related_stories(self, **kwargs):
         """
         List related stories
-        This endpoint is used for finding related stories based on provided parameters. The number of related stories to return, up to a maximum of 100.
+        This endpoint is used for finding related stories based on the parameters provided. The maximum number of related stories returned is 100.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -513,47 +736,125 @@ class DefaultApi(object):
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str published_at_start: This parameter is used for finding stories whose published at is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str published_at_end: This parameter is used for finding stories whose published at is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining type of the taxonomy for the rest of categories queries.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
         :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories whose categories id is the specified value.
-        :param list[int] categories_level: This parameter is used for finding stories whose categories level is the specified value.
-        :param list[str] entities_title_text: This parameter is used for finding stories whose entities text in title is the specified value.
-        :param list[str] entities_title_type: This parameter is used for finding stories whose entities type in title is the specified value.
-        :param list[str] entities_title_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in title is the specified value.
-        :param list[str] entities_body_text: This parameter is used for finding stories whose entities text in body is the specified value.
-        :param list[str] entities_body_type: This parameter is used for finding stories whose entities type in body is the specified value.
-        :param list[str] entities_body_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in body is the specified value.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
         :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
         :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
         :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
         :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
-        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value.
-        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value.
-        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes state/province is the specified value.
-        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes city is the specified value.
-        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes level is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes  is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param bool cluster: This parameter enables clustering for the returned stories.
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
         :param int story_id: A story id
         :param str story_url: An article or webpage
         :param str story_title: Title of the article
         :param str story_body: Body of the article
-        :param str boost_by: This parameter is used for boosting result by the specified value.
-        :param str story_language: This parameter is used for setting language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param int per_page: This parameter is used for specifying number of the items in each page.
+        :param str boost_by: This parameter is used for boosting the result by the specified value.
+        :param str story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param int per_page: This parameter is used for specifying number of items in each page.
+        :return: RelatedStories
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_related_stories_with_http_info(**kwargs)
+        else:
+            (data) = self.list_related_stories_with_http_info(**kwargs)
+            return data
+
+    def list_related_stories_with_http_info(self, **kwargs):
+        """
+        List related stories
+        This endpoint is used for finding related stories based on the parameters provided. The maximum number of related stories returned is 100.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_related_stories_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
+        :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
+        :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
+        :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
+        :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
+        :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
+        :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes  is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param bool cluster: This parameter enables clustering for the returned stories.
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param list[str] _return: This parameter is used for specifying return fields.
+        :param int story_id: A story id
+        :param str story_url: An article or webpage
+        :param str story_title: Title of the article
+        :param str story_body: Body of the article
+        :param str boost_by: This parameter is used for boosting the result by the specified value.
+        :param str story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param int per_page: This parameter is used for specifying number of items in each page.
         :return: RelatedStories
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -565,7 +866,18 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-
+        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'per_page' in params and params['per_page'] > 100.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value less than or equal to  `100.0`")
+        if 'per_page' in params and params['per_page'] < 1.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value greater than or equal to `1.0`")
         resource_path = '/related_stories'.replace('{format}', 'json')
         path_params = {}
 
@@ -613,6 +925,14 @@ class DefaultApi(object):
             form_params.append(('sentiment.title.polarity', params['sentiment_title_polarity']))
         if 'sentiment_body_polarity' in params:
             form_params.append(('sentiment.body.polarity', params['sentiment_body_polarity']))
+        if 'media_images_count_min' in params:
+            form_params.append(('media.images.count.min', params['media_images_count_min']))
+        if 'media_images_count_max' in params:
+            form_params.append(('media.images.count.max', params['media_images_count_max']))
+        if 'media_videos_count_min' in params:
+            form_params.append(('media.videos.count.min', params['media_videos_count_min']))
+        if 'media_videos_count_max' in params:
+            form_params.append(('media.videos.count.max', params['media_videos_count_max']))
         if 'author_id' in params:
             form_params.append(('author.id[]', params['author_id']))
         if 'author_name' in params:
@@ -637,6 +957,10 @@ class DefaultApi(object):
             form_params.append(('source.scopes.city[]', params['source_scopes_city']))
         if 'source_scopes_level' in params:
             form_params.append(('source.scopes.level[]', params['source_scopes_level']))
+        if 'cluster' in params:
+            form_params.append(('cluster', params['cluster']))
+        if 'cluster_algorithm' in params:
+            form_params.append(('cluster.algorithm', params['cluster_algorithm']))
         if '_return' in params:
             form_params.append(('return[]', params['_return']))
         if 'story_id' in params:
@@ -669,7 +993,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -678,13 +1002,13 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='RelatedStories',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
 
     def list_stories(self, **kwargs):
         """
         List Stories
-        This endpoint is used for getting list of stories.
+        This endpoint is used for getting a list of stories.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -701,46 +1025,119 @@ class DefaultApi(object):
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str published_at_start: This parameter is used for finding stories whose published at is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str published_at_end: This parameter is used for finding stories whose published at is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining type of the taxonomy for the rest of categories queries.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
         :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories whose categories id is the specified value.
-        :param list[int] categories_level: This parameter is used for finding stories whose categories level is the specified value.
-        :param list[str] entities_title_text: This parameter is used for finding stories whose entities text in title is the specified value.
-        :param list[str] entities_title_type: This parameter is used for finding stories whose entities type in title is the specified value.
-        :param list[str] entities_title_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in title is the specified value.
-        :param list[str] entities_body_text: This parameter is used for finding stories whose entities text in body is the specified value.
-        :param list[str] entities_body_type: This parameter is used for finding stories whose entities type in body is the specified value.
-        :param list[str] entities_body_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in body is the specified value.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
         :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
         :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
         :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
         :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
-        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value.
-        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value.
-        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes state/province is the specified value.
-        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes city is the specified value.
-        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes level is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
-        :param str sort_by: This parameter is used for changing the order column of the result.
+        :param str sort_by: This parameter is used for changing the order column of the results.
         :param str sort_direction: This parameter is used for changing the order direction of the result.
         :param str cursor: This parameter is used for finding a specific page.
-        :param int per_page: This parameter is used for specifying number of the items in each page.
+        :param int per_page: This parameter is used for specifying number of items in each page.
+        :return: Stories
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_stories_with_http_info(**kwargs)
+        else:
+            (data) = self.list_stories_with_http_info(**kwargs)
+            return data
+
+    def list_stories_with_http_info(self, **kwargs):
+        """
+        List Stories
+        This endpoint is used for getting a list of stories.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_stories_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
+        :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
+        :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
+        :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
+        :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
+        :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
+        :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param bool cluster: This parameter enables clustering for the returned stories.
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param list[str] _return: This parameter is used for specifying return fields.
+        :param str sort_by: This parameter is used for changing the order column of the results.
+        :param str sort_direction: This parameter is used for changing the order direction of the result.
+        :param str cursor: This parameter is used for finding a specific page.
+        :param int per_page: This parameter is used for specifying number of items in each page.
         :return: Stories
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -752,7 +1149,18 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-
+        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'per_page' in params and params['per_page'] > 100.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value less than or equal to  `100.0`")
+        if 'per_page' in params and params['per_page'] < 1.0:
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value greater than or equal to `1.0`")
         resource_path = '/stories'.replace('{format}', 'json')
         path_params = {}
 
@@ -795,6 +1203,14 @@ class DefaultApi(object):
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
             query_params['sentiment.body.polarity'] = params['sentiment_body_polarity']
+        if 'media_images_count_min' in params:
+            query_params['media.images.count.min'] = params['media_images_count_min']
+        if 'media_images_count_max' in params:
+            query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_videos_count_min' in params:
+            query_params['media.videos.count.min'] = params['media_videos_count_min']
+        if 'media_videos_count_max' in params:
+            query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
         if 'author_name' in params:
@@ -854,7 +1270,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -863,8 +1279,8 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='Stories',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
 
     def list_time_series(self, **kwargs):
         """
@@ -886,40 +1302,107 @@ class DefaultApi(object):
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str categories_taxonomy: This parameter is used for defining type of the taxonomy for the rest of categories queries.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
         :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories whose categories id is the specified value.
-        :param list[int] categories_level: This parameter is used for finding stories whose categories level is the specified value.
-        :param list[str] entities_title_text: This parameter is used for finding stories whose entities text in title is the specified value.
-        :param list[str] entities_title_type: This parameter is used for finding stories whose entities type in title is the specified value.
-        :param list[str] entities_title_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in title is the specified value.
-        :param list[str] entities_body_text: This parameter is used for finding stories whose entities text in body is the specified value.
-        :param list[str] entities_body_type: This parameter is used for finding stories whose entities type in body is the specified value.
-        :param list[str] entities_body_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in body is the specified value.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
         :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
         :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
         :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
         :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
-        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value.
-        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value.
-        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes state/province is the specified value.
-        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes city is the specified value.
-        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes level is the specified value.
-        :param str published_at_start: This parameter is used for finding stories whose published at is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str published_at_end: This parameter is used for finding stories whose published at is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str period: The size of each date range expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param str published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str period: The size of each date range is expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
+        :return: TimeSeriesList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_time_series_with_http_info(**kwargs)
+        else:
+            (data) = self.list_time_series_with_http_info(**kwargs)
+            return data
+
+    def list_time_series_with_http_info(self, **kwargs):
+        """
+        List time series
+        This endpoint is used for getting time series by stories.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_time_series_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
+        :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
+        :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
+        :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
+        :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
+        :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
+        :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param str published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str period: The size of each date range is expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
         :return: TimeSeriesList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'published_at_start', 'published_at_end', 'period']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'published_at_start', 'published_at_end', 'period']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -931,7 +1414,14 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-
+        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
         resource_path = '/time_series'.replace('{format}', 'json')
         path_params = {}
 
@@ -970,6 +1460,14 @@ class DefaultApi(object):
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
             query_params['sentiment.body.polarity'] = params['sentiment_body_polarity']
+        if 'media_images_count_min' in params:
+            query_params['media.images.count.min'] = params['media_images_count_min']
+        if 'media_images_count_max' in params:
+            query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_videos_count_min' in params:
+            query_params['media.videos.count.min'] = params['media_videos_count_min']
+        if 'media_videos_count_max' in params:
+            query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
         if 'author_name' in params:
@@ -1021,7 +1519,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -1030,13 +1528,13 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='TimeSeriesList',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
 
     def list_trends(self, **kwargs):
         """
         List trends
-        This endpoint is used for finding news trendings based on stories resource.
+        This endpoint is used for finding trends based on stories.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1053,40 +1551,107 @@ class DefaultApi(object):
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str published_at_start: This parameter is used for finding stories whose published at is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str published_at_end: This parameter is used for finding stories whose published at is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining type of the taxonomy for the rest of categories queries.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
         :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories whose categories id is the specified value.
-        :param list[int] categories_level: This parameter is used for finding stories whose categories level is the specified value.
-        :param list[str] entities_title_text: This parameter is used for finding stories whose entities text in title is the specified value.
-        :param list[str] entities_title_type: This parameter is used for finding stories whose entities type in title is the specified value.
-        :param list[str] entities_title_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in title is the specified value.
-        :param list[str] entities_body_text: This parameter is used for finding stories whose entities text in body is the specified value.
-        :param list[str] entities_body_type: This parameter is used for finding stories whose entities type in body is the specified value.
-        :param list[str] entities_body_links_dbpedia: This parameter is used for finding stories whose entities dbpedia url in body is the specified value.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
         :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
         :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
         :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
         :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
-        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value.
-        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value.
-        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes state/province is the specified value.
-        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes city is the specified value.
-        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes level is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param str field: This parameter is used to specify the trend field.
+        :return: Trends
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_trends_with_http_info(**kwargs)
+        else:
+            (data) = self.list_trends_with_http_info(**kwargs)
+            return data
+
+    def list_trends_with_http_info(self, **kwargs):
+        """
+        List trends
+        This endpoint is used for finding trends based on stories.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_trends_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
+        :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
+        :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
+        :param list[str] categories_id: This parameter is used for finding stories by categories id.
+        :param list[int] categories_level: This parameter is used for finding stories by categories level.
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
+        :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
+        :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
+        :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
+        :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
+        :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
+        :param str author_name: This parameter is used for finding stories whose author full name contains the specified value.
+        :param list[int] source_id: This parameter is used for finding stories whose source id is the specified value.
+        :param list[str] source_name: This parameter is used for finding stories whose source name contains the specified value.
+        :param list[str] source_domain: This parameter is used for finding stories whose source domain is the specified value.
+        :param list[str] source_locations_country: This parameter is used for finding stories whose source country is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_state: This parameter is used for finding stories whose source state/province is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_locations_city: This parameter is used for finding stories whose source city is the specified value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_country: This parameter is used for finding stories whose source scopes is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param str field: This parameter is used to specify the trend field.
         :return: Trends
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'field']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'field']
         all_params.append('callback')
+        all_params.append('_return_http_data_only')
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -1098,7 +1663,14 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-
+        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
         resource_path = '/trends'.replace('{format}', 'json')
         path_params = {}
 
@@ -1141,6 +1713,14 @@ class DefaultApi(object):
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
             query_params['sentiment.body.polarity'] = params['sentiment_body_polarity']
+        if 'media_images_count_min' in params:
+            query_params['media.images.count.min'] = params['media_images_count_min']
+        if 'media_images_count_max' in params:
+            query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_videos_count_min' in params:
+            query_params['media.videos.count.min'] = params['media_videos_count_min']
+        if 'media_videos_count_max' in params:
+            query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
         if 'author_name' in params:
@@ -1188,7 +1768,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = ['app_key', 'app_id']
 
-        response = self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'GET',
                                             path_params,
                                             query_params,
                                             header_params,
@@ -1197,5 +1777,5 @@ class DefaultApi(object):
                                             files=local_var_files,
                                             response_type='Trends',
                                             auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))

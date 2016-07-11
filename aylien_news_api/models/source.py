@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Source(object):
-    def __init__(self):
+    def __init__(self, id=None, name=None, domain=None, logo_url=None, locations=None, scopes=None):
         """
         Source - a model defined in News API
 
@@ -46,12 +47,12 @@ class Source(object):
             'scopes': 'scopes'
         }
 
-        self._id = None
-        self._name = None
-        self._domain = None
-        self._logo_url = None
-        self._locations = None
-        self._scopes = None
+        self._id = id
+        self._name = name
+        self._domain = domain
+        self._logo_url = logo_url
+        self._locations = locations
+        self._scopes = scopes
 
     @property
     def id(self):
@@ -73,6 +74,7 @@ class Source(object):
         :param id: The id of this Source.
         :type: int
         """
+
         self._id = id
 
     @property
@@ -95,6 +97,7 @@ class Source(object):
         :param name: The name of this Source.
         :type: str
         """
+
         self._name = name
 
     @property
@@ -117,6 +120,7 @@ class Source(object):
         :param domain: The domain of this Source.
         :type: str
         """
+
         self._domain = domain
 
     @property
@@ -139,6 +143,7 @@ class Source(object):
         :param logo_url: The logo_url of this Source.
         :type: str
         """
+
         self._logo_url = logo_url
 
     @property
@@ -161,6 +166,7 @@ class Source(object):
         :param locations: The locations of this Source.
         :type: list[Location]
         """
+
         self._locations = locations
 
     @property
@@ -183,6 +189,7 @@ class Source(object):
         :param scopes: The scopes of this Source.
         :type: list[Scope]
         """
+
         self._scopes = scopes
 
     def to_dict(self):
@@ -234,4 +241,3 @@ class Source(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

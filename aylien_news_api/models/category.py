@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Category(object):
-    def __init__(self):
+    def __init__(self, id=None, taxonomy=None, level=None, score=None, confident=None, links=None):
         """
         Category - a model defined in News API
 
@@ -46,12 +47,12 @@ class Category(object):
             'links': 'links'
         }
 
-        self._id = None
-        self._taxonomy = None
-        self._level = None
-        self._score = None
-        self._confident = None
-        self._links = None
+        self._id = id
+        self._taxonomy = taxonomy
+        self._level = level
+        self._score = score
+        self._confident = confident
+        self._links = links
 
     @property
     def id(self):
@@ -73,6 +74,7 @@ class Category(object):
         :param id: The id of this Category.
         :type: str
         """
+
         self._id = id
 
     @property
@@ -101,6 +103,7 @@ class Category(object):
                 "Invalid value for `taxonomy`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._taxonomy = taxonomy
 
     @property
@@ -123,6 +126,7 @@ class Category(object):
         :param level: The level of this Category.
         :type: int
         """
+
         self._level = level
 
     @property
@@ -145,6 +149,7 @@ class Category(object):
         :param score: The score of this Category.
         :type: float
         """
+
         self._score = score
 
     @property
@@ -167,6 +172,7 @@ class Category(object):
         :param confident: The confident of this Category.
         :type: bool
         """
+
         self._confident = confident
 
     @property
@@ -189,6 +195,7 @@ class Category(object):
         :param links: The links of this Category.
         :type: CategoryLinks
         """
+
         self._links = links
 
     def to_dict(self):
@@ -240,4 +247,3 @@ class Category(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

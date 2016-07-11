@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class CategoryLinks(object):
-    def __init__(self):
+    def __init__(self, _self=None, parent=None):
         """
         CategoryLinks - a model defined in News API
 
@@ -38,14 +39,14 @@ class CategoryLinks(object):
             'parent': 'parent'
         }
 
-        self.__self = None
-        self._parent = None
+        self.__self = _self
+        self._parent = parent
 
     @property
     def _self(self):
         """
         Gets the _self of this CategoryLinks.
-        A URL points to the category
+        A URL pointing to the category
 
         :return: The _self of this CategoryLinks.
         :rtype: str
@@ -56,18 +57,19 @@ class CategoryLinks(object):
     def _self(self, _self):
         """
         Sets the _self of this CategoryLinks.
-        A URL points to the category
+        A URL pointing to the category
 
         :param _self: The _self of this CategoryLinks.
         :type: str
         """
+
         self.__self = _self
 
     @property
     def parent(self):
         """
         Gets the parent of this CategoryLinks.
-        A URL points to the parent category
+        A URL pointing to the parent category
 
         :return: The parent of this CategoryLinks.
         :rtype: str
@@ -78,11 +80,12 @@ class CategoryLinks(object):
     def parent(self, parent):
         """
         Sets the parent of this CategoryLinks.
-        A URL points to the parent category
+        A URL pointing to the parent category
 
         :param parent: The parent of this CategoryLinks.
         :type: str
         """
+
         self._parent = parent
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class CategoryLinks(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Summary(object):
-    def __init__(self):
+    def __init__(self, sentences=None):
         """
         Summary - a model defined in News API
 
@@ -36,7 +37,7 @@ class Summary(object):
             'sentences': 'sentences'
         }
 
-        self._sentences = None
+        self._sentences = sentences
 
     @property
     def sentences(self):
@@ -58,6 +59,7 @@ class Summary(object):
         :param sentences: The sentences of this Summary.
         :type: list[str]
         """
+
         self._sentences = sentences
 
     def to_dict(self):
@@ -109,4 +111,3 @@ class Summary(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

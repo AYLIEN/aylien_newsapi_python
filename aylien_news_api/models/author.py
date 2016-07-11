@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Author(object):
-    def __init__(self):
+    def __init__(self, id=None, name=None, avatar_url=None):
         """
         Author - a model defined in News API
 
@@ -40,9 +41,9 @@ class Author(object):
             'avatar_url': 'avatar_url'
         }
 
-        self._id = None
-        self._name = None
-        self._avatar_url = None
+        self._id = id
+        self._name = name
+        self._avatar_url = avatar_url
 
     @property
     def id(self):
@@ -64,6 +65,7 @@ class Author(object):
         :param id: The id of this Author.
         :type: int
         """
+
         self._id = id
 
     @property
@@ -86,6 +88,7 @@ class Author(object):
         :param name: The name of this Author.
         :type: str
         """
+
         self._name = name
 
     @property
@@ -108,6 +111,7 @@ class Author(object):
         :param avatar_url: The avatar_url of this Author.
         :type: str
         """
+
         self._avatar_url = avatar_url
 
     def to_dict(self):
@@ -159,4 +163,3 @@ class Author(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

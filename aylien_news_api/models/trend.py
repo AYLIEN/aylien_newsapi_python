@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Trend(object):
-    def __init__(self):
+    def __init__(self, value=None, count=None):
         """
         Trend - a model defined in News API
 
@@ -38,8 +39,8 @@ class Trend(object):
             'count': 'count'
         }
 
-        self._value = None
-        self._count = None
+        self._value = value
+        self._count = count
 
     @property
     def value(self):
@@ -61,6 +62,7 @@ class Trend(object):
         :param value: The value of this Trend.
         :type: str
         """
+
         self._value = value
 
     @property
@@ -83,6 +85,7 @@ class Trend(object):
         :param count: The count of this Trend.
         :type: int
         """
+
         self._count = count
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class Trend(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

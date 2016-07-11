@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Histograms(object):
-    def __init__(self):
+    def __init__(self, intervals=None, interval_start=None, interval_end=None, interval_width=None, field=None):
         """
         Histograms - a model defined in News API
 
@@ -44,11 +45,11 @@ class Histograms(object):
             'field': 'field'
         }
 
-        self._intervals = None
-        self._interval_start = None
-        self._interval_end = None
-        self._interval_width = None
-        self._field = None
+        self._intervals = intervals
+        self._interval_start = interval_start
+        self._interval_end = interval_end
+        self._interval_width = interval_width
+        self._field = field
 
     @property
     def intervals(self):
@@ -70,6 +71,7 @@ class Histograms(object):
         :param intervals: The intervals of this Histograms.
         :type: list[HistogramInterval]
         """
+
         self._intervals = intervals
 
     @property
@@ -92,6 +94,7 @@ class Histograms(object):
         :param interval_start: The interval_start of this Histograms.
         :type: int
         """
+
         self._interval_start = interval_start
 
     @property
@@ -114,6 +117,7 @@ class Histograms(object):
         :param interval_end: The interval_end of this Histograms.
         :type: int
         """
+
         self._interval_end = interval_end
 
     @property
@@ -136,6 +140,7 @@ class Histograms(object):
         :param interval_width: The interval_width of this Histograms.
         :type: int
         """
+
         self._interval_width = interval_width
 
     @property
@@ -158,6 +163,7 @@ class Histograms(object):
         :param field: The field of this Histograms.
         :type: str
         """
+
         self._field = field
 
     def to_dict(self):
@@ -209,4 +215,3 @@ class Histograms(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

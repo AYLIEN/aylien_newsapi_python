@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Story(object):
-    def __init__(self):
+    def __init__(self, id=None, title=None, body=None, summary=None, source=None, author=None, entities=None, keywords=None, hashtags=None, characters_count=None, words_count=None, sentences_count=None, paragraphs_count=None, categories=None, social_shares_count=None, media=None, sentiment=None, language=None, published_at=None, links=None):
         """
         Story - a model defined in News API
 
@@ -74,32 +75,32 @@ class Story(object):
             'links': 'links'
         }
 
-        self._id = None
-        self._title = None
-        self._body = None
-        self._summary = None
-        self._source = None
-        self._author = None
-        self._entities = None
-        self._keywords = None
-        self._hashtags = None
-        self._characters_count = None
-        self._words_count = None
-        self._sentences_count = None
-        self._paragraphs_count = None
-        self._categories = None
-        self._social_shares_count = None
-        self._media = None
-        self._sentiment = None
-        self._language = None
-        self._published_at = None
-        self._links = None
+        self._id = id
+        self._title = title
+        self._body = body
+        self._summary = summary
+        self._source = source
+        self._author = author
+        self._entities = entities
+        self._keywords = keywords
+        self._hashtags = hashtags
+        self._characters_count = characters_count
+        self._words_count = words_count
+        self._sentences_count = sentences_count
+        self._paragraphs_count = paragraphs_count
+        self._categories = categories
+        self._social_shares_count = social_shares_count
+        self._media = media
+        self._sentiment = sentiment
+        self._language = language
+        self._published_at = published_at
+        self._links = links
 
     @property
     def id(self):
         """
         Gets the id of this Story.
-        ID of the story which is unique identification
+        ID of the story which is a unique identification
 
         :return: The id of this Story.
         :rtype: int
@@ -110,11 +111,12 @@ class Story(object):
     def id(self, id):
         """
         Sets the id of this Story.
-        ID of the story which is unique identification
+        ID of the story which is a unique identification
 
         :param id: The id of this Story.
         :type: int
         """
+
         self._id = id
 
     @property
@@ -137,6 +139,7 @@ class Story(object):
         :param title: The title of this Story.
         :type: str
         """
+
         self._title = title
 
     @property
@@ -159,6 +162,7 @@ class Story(object):
         :param body: The body of this Story.
         :type: str
         """
+
         self._body = body
 
     @property
@@ -181,6 +185,7 @@ class Story(object):
         :param summary: The summary of this Story.
         :type: Summary
         """
+
         self._summary = summary
 
     @property
@@ -203,6 +208,7 @@ class Story(object):
         :param source: The source of this Story.
         :type: Source
         """
+
         self._source = source
 
     @property
@@ -225,6 +231,7 @@ class Story(object):
         :param author: The author of this Story.
         :type: Author
         """
+
         self._author = author
 
     @property
@@ -247,6 +254,7 @@ class Story(object):
         :param entities: The entities of this Story.
         :type: Entities
         """
+
         self._entities = entities
 
     @property
@@ -269,6 +277,7 @@ class Story(object):
         :param keywords: The keywords of this Story.
         :type: list[str]
         """
+
         self._keywords = keywords
 
     @property
@@ -291,13 +300,14 @@ class Story(object):
         :param hashtags: The hashtags of this Story.
         :type: list[str]
         """
+
         self._hashtags = hashtags
 
     @property
     def characters_count(self):
         """
         Gets the characters_count of this Story.
-        Characters count of the story body
+        Character count of the story body
 
         :return: The characters_count of this Story.
         :rtype: int
@@ -308,18 +318,19 @@ class Story(object):
     def characters_count(self, characters_count):
         """
         Sets the characters_count of this Story.
-        Characters count of the story body
+        Character count of the story body
 
         :param characters_count: The characters_count of this Story.
         :type: int
         """
+
         self._characters_count = characters_count
 
     @property
     def words_count(self):
         """
         Gets the words_count of this Story.
-        Words count of the story body
+        Word count of the story body
 
         :return: The words_count of this Story.
         :rtype: int
@@ -330,18 +341,19 @@ class Story(object):
     def words_count(self, words_count):
         """
         Sets the words_count of this Story.
-        Words count of the story body
+        Word count of the story body
 
         :param words_count: The words_count of this Story.
         :type: int
         """
+
         self._words_count = words_count
 
     @property
     def sentences_count(self):
         """
         Gets the sentences_count of this Story.
-        Sentences count of the story body
+        Sentence count of the story body
 
         :return: The sentences_count of this Story.
         :rtype: int
@@ -352,18 +364,19 @@ class Story(object):
     def sentences_count(self, sentences_count):
         """
         Sets the sentences_count of this Story.
-        Sentences count of the story body
+        Sentence count of the story body
 
         :param sentences_count: The sentences_count of this Story.
         :type: int
         """
+
         self._sentences_count = sentences_count
 
     @property
     def paragraphs_count(self):
         """
         Gets the paragraphs_count of this Story.
-        Paragraphs count of the story body
+        Paragraph count of the story body
 
         :return: The paragraphs_count of this Story.
         :rtype: int
@@ -374,11 +387,12 @@ class Story(object):
     def paragraphs_count(self, paragraphs_count):
         """
         Sets the paragraphs_count of this Story.
-        Paragraphs count of the story body
+        Paragraph count of the story body
 
         :param paragraphs_count: The paragraphs_count of this Story.
         :type: int
         """
+
         self._paragraphs_count = paragraphs_count
 
     @property
@@ -401,6 +415,7 @@ class Story(object):
         :param categories: The categories of this Story.
         :type: list[Category]
         """
+
         self._categories = categories
 
     @property
@@ -423,6 +438,7 @@ class Story(object):
         :param social_shares_count: The social_shares_count of this Story.
         :type: ShareCounts
         """
+
         self._social_shares_count = social_shares_count
 
     @property
@@ -445,6 +461,7 @@ class Story(object):
         :param media: The media of this Story.
         :type: list[Media]
         """
+
         self._media = media
 
     @property
@@ -467,6 +484,7 @@ class Story(object):
         :param sentiment: The sentiment of this Story.
         :type: Sentiments
         """
+
         self._sentiment = sentiment
 
     @property
@@ -489,6 +507,7 @@ class Story(object):
         :param language: The language of this Story.
         :type: str
         """
+
         self._language = language
 
     @property
@@ -511,6 +530,7 @@ class Story(object):
         :param published_at: The published_at of this Story.
         :type: datetime
         """
+
         self._published_at = published_at
 
     @property
@@ -533,6 +553,7 @@ class Story(object):
         :param links: The links of this Story.
         :type: StoryLinks
         """
+
         self._links = links
 
     def to_dict(self):
@@ -584,4 +605,3 @@ class Story(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

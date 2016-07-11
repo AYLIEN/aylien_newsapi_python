@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoryCluster(object):
-    def __init__(self):
+    def __init__(self, id=None, phrases=None, size=None, stories=None, score=None):
         """
         StoryCluster - a model defined in News API
 
@@ -44,11 +45,11 @@ class StoryCluster(object):
             'score': 'score'
         }
 
-        self._id = None
-        self._phrases = None
-        self._size = None
-        self._stories = None
-        self._score = None
+        self._id = id
+        self._phrases = phrases
+        self._size = size
+        self._stories = stories
+        self._score = score
 
     @property
     def id(self):
@@ -70,6 +71,7 @@ class StoryCluster(object):
         :param id: The id of this StoryCluster.
         :type: int
         """
+
         self._id = id
 
     @property
@@ -92,6 +94,7 @@ class StoryCluster(object):
         :param phrases: The phrases of this StoryCluster.
         :type: list[str]
         """
+
         self._phrases = phrases
 
     @property
@@ -114,6 +117,7 @@ class StoryCluster(object):
         :param size: The size of this StoryCluster.
         :type: int
         """
+
         self._size = size
 
     @property
@@ -136,6 +140,7 @@ class StoryCluster(object):
         :param stories: The stories of this StoryCluster.
         :type: list[int]
         """
+
         self._stories = stories
 
     @property
@@ -158,6 +163,7 @@ class StoryCluster(object):
         :param score: The score of this StoryCluster.
         :type: float
         """
+
         self._score = score
 
     def to_dict(self):
@@ -209,4 +215,3 @@ class StoryCluster(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

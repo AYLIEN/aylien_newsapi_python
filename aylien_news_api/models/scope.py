@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Scope(object):
-    def __init__(self):
+    def __init__(self, country=None, state=None, city=None, level=None):
         """
         Scope - a model defined in News API
 
@@ -42,16 +43,16 @@ class Scope(object):
             'level': 'level'
         }
 
-        self._country = None
-        self._state = None
-        self._city = None
-        self._level = None
+        self._country = country
+        self._state = state
+        self._city = city
+        self._level = level
 
     @property
     def country(self):
         """
         Gets the country of this Scope.
-        The country code of the scope. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
+        The source scope by country code. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
 
         :return: The country of this Scope.
         :rtype: str
@@ -62,18 +63,19 @@ class Scope(object):
     def country(self, country):
         """
         Sets the country of this Scope.
-        The country code of the scope. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
+        The source scope by country code. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
 
         :param country: The country of this Scope.
         :type: str
         """
+
         self._country = country
 
     @property
     def state(self):
         """
         Gets the state of this Scope.
-        The state of the scope
+        The scope by state
 
         :return: The state of this Scope.
         :rtype: str
@@ -84,18 +86,19 @@ class Scope(object):
     def state(self, state):
         """
         Sets the state of this Scope.
-        The state of the scope
+        The scope by state
 
         :param state: The state of this Scope.
         :type: str
         """
+
         self._state = state
 
     @property
     def city(self):
         """
         Gets the city of this Scope.
-        The city of the scope
+        The scope by city
 
         :return: The city of this Scope.
         :rtype: str
@@ -106,18 +109,19 @@ class Scope(object):
     def city(self, city):
         """
         Sets the city of this Scope.
-        The city of the scope
+        The scope by city
 
         :param city: The city of this Scope.
         :type: str
         """
+
         self._city = city
 
     @property
     def level(self):
         """
         Gets the level of this Scope.
-        The level of the scope
+        The scope by level
 
         :return: The level of this Scope.
         :rtype: str
@@ -128,7 +132,7 @@ class Scope(object):
     def level(self, level):
         """
         Sets the level of this Scope.
-        The level of the scope
+        The scope by level
 
         :param level: The level of this Scope.
         :type: str
@@ -139,6 +143,7 @@ class Scope(object):
                 "Invalid value for `level`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._level = level
 
     def to_dict(self):
@@ -190,4 +195,3 @@ class Scope(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

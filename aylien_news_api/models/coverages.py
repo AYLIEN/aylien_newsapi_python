@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Coverages(object):
-    def __init__(self):
+    def __init__(self, story_title=None, story_body=None, story_published_at=None, story_language=None, coverages=None, clusters=None):
         """
         Coverages - a model defined in News API
 
@@ -33,7 +34,8 @@ class Coverages(object):
             'story_body': 'str',
             'story_published_at': 'datetime',
             'story_language': 'str',
-            'coverages': 'list[Story]'
+            'coverages': 'list[Story]',
+            'clusters': 'list[StoryCluster]'
         }
 
         self.attribute_map = {
@@ -41,14 +43,16 @@ class Coverages(object):
             'story_body': 'story_body',
             'story_published_at': 'story_published_at',
             'story_language': 'story_language',
-            'coverages': 'coverages'
+            'coverages': 'coverages',
+            'clusters': 'clusters'
         }
 
-        self._story_title = None
-        self._story_body = None
-        self._story_published_at = None
-        self._story_language = None
-        self._coverages = None
+        self._story_title = story_title
+        self._story_body = story_body
+        self._story_published_at = story_published_at
+        self._story_language = story_language
+        self._coverages = coverages
+        self._clusters = clusters
 
     @property
     def story_title(self):
@@ -70,6 +74,7 @@ class Coverages(object):
         :param story_title: The story_title of this Coverages.
         :type: str
         """
+
         self._story_title = story_title
 
     @property
@@ -92,6 +97,7 @@ class Coverages(object):
         :param story_body: The story_body of this Coverages.
         :type: str
         """
+
         self._story_body = story_body
 
     @property
@@ -114,6 +120,7 @@ class Coverages(object):
         :param story_published_at: The story_published_at of this Coverages.
         :type: datetime
         """
+
         self._story_published_at = story_published_at
 
     @property
@@ -136,6 +143,7 @@ class Coverages(object):
         :param story_language: The story_language of this Coverages.
         :type: str
         """
+
         self._story_language = story_language
 
     @property
@@ -158,7 +166,31 @@ class Coverages(object):
         :param coverages: The coverages of this Coverages.
         :type: list[Story]
         """
+
         self._coverages = coverages
+
+    @property
+    def clusters(self):
+        """
+        Gets the clusters of this Coverages.
+        An array of clusters
+
+        :return: The clusters of this Coverages.
+        :rtype: list[StoryCluster]
+        """
+        return self._clusters
+
+    @clusters.setter
+    def clusters(self, clusters):
+        """
+        Sets the clusters of this Coverages.
+        An array of clusters
+
+        :param clusters: The clusters of this Coverages.
+        :type: list[StoryCluster]
+        """
+
+        self._clusters = clusters
 
     def to_dict(self):
         """
@@ -209,4 +241,3 @@ class Coverages(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

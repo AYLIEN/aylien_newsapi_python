@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class TimeSeries(object):
-    def __init__(self):
+    def __init__(self, published_at=None, count=None):
         """
         TimeSeries - a model defined in News API
 
@@ -38,8 +39,8 @@ class TimeSeries(object):
             'count': 'count'
         }
 
-        self._published_at = None
-        self._count = None
+        self._published_at = published_at
+        self._count = count
 
     @property
     def published_at(self):
@@ -61,6 +62,7 @@ class TimeSeries(object):
         :param published_at: The published_at of this TimeSeries.
         :type: datetime
         """
+
         self._published_at = published_at
 
     @property
@@ -83,6 +85,7 @@ class TimeSeries(object):
         :param count: The count of this TimeSeries.
         :type: int
         """
+
         self._count = count
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class TimeSeries(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

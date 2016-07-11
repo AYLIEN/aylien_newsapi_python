@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ErrorLinks(object):
-    def __init__(self):
+    def __init__(self, about=None):
         """
         ErrorLinks - a model defined in News API
 
@@ -36,7 +37,7 @@ class ErrorLinks(object):
             'about': 'about'
         }
 
-        self._about = None
+        self._about = about
 
     @property
     def about(self):
@@ -58,6 +59,7 @@ class ErrorLinks(object):
         :param about: The about of this ErrorLinks.
         :type: str
         """
+
         self._about = about
 
     def to_dict(self):
@@ -109,4 +111,3 @@ class ErrorLinks(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

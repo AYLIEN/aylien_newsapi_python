@@ -64,7 +64,6 @@ class Configuration(object):
         # Password for HTTP basic authentication
         self.password = ""
 
-
         # Logging Settings
         self.logger = {}
         self.logger["package_logger"] = logging.getLogger("aylien_news_api")

@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Error(object):
-    def __init__(self):
+    def __init__(self, id=None, links=None, status=None, code=None, title=None, detail=None):
         """
         Error - a model defined in News API
 
@@ -46,12 +47,12 @@ class Error(object):
             'detail': 'detail'
         }
 
-        self._id = None
-        self._links = None
-        self._status = None
-        self._code = None
-        self._title = None
-        self._detail = None
+        self._id = id
+        self._links = links
+        self._status = status
+        self._code = code
+        self._title = title
+        self._detail = detail
 
     @property
     def id(self):
@@ -73,6 +74,7 @@ class Error(object):
         :param id: The id of this Error.
         :type: str
         """
+
         self._id = id
 
     @property
@@ -95,6 +97,7 @@ class Error(object):
         :param links: The links of this Error.
         :type: ErrorLinks
         """
+
         self._links = links
 
     @property
@@ -117,6 +120,7 @@ class Error(object):
         :param status: The status of this Error.
         :type: str
         """
+
         self._status = status
 
     @property
@@ -139,6 +143,7 @@ class Error(object):
         :param code: The code of this Error.
         :type: str
         """
+
         self._code = code
 
     @property
@@ -161,6 +166,7 @@ class Error(object):
         :param title: The title of this Error.
         :type: str
         """
+
         self._title = title
 
     @property
@@ -183,6 +189,7 @@ class Error(object):
         :param detail: The detail of this Error.
         :type: str
         """
+
         self._detail = detail
 
     def to_dict(self):
@@ -234,4 +241,3 @@ class Error(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

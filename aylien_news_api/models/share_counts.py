@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ShareCounts(object):
-    def __init__(self):
+    def __init__(self, facebook=None, google_plus=None, linkedin=None, reddit=None):
         """
         ShareCounts - a model defined in News API
 
@@ -42,10 +43,10 @@ class ShareCounts(object):
             'reddit': 'reddit'
         }
 
-        self._facebook = None
-        self._google_plus = None
-        self._linkedin = None
-        self._reddit = None
+        self._facebook = facebook
+        self._google_plus = google_plus
+        self._linkedin = linkedin
+        self._reddit = reddit
 
     @property
     def facebook(self):
@@ -67,6 +68,7 @@ class ShareCounts(object):
         :param facebook: The facebook of this ShareCounts.
         :type: list[ShareCount]
         """
+
         self._facebook = facebook
 
     @property
@@ -89,6 +91,7 @@ class ShareCounts(object):
         :param google_plus: The google_plus of this ShareCounts.
         :type: list[ShareCount]
         """
+
         self._google_plus = google_plus
 
     @property
@@ -111,6 +114,7 @@ class ShareCounts(object):
         :param linkedin: The linkedin of this ShareCounts.
         :type: list[ShareCount]
         """
+
         self._linkedin = linkedin
 
     @property
@@ -133,6 +137,7 @@ class ShareCounts(object):
         :param reddit: The reddit of this ShareCounts.
         :type: list[ShareCount]
         """
+
         self._reddit = reddit
 
     def to_dict(self):
@@ -184,4 +189,3 @@ class ShareCounts(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

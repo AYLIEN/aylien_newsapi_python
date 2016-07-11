@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Sentiment(object):
-    def __init__(self):
+    def __init__(self, polarity=None, score=None):
         """
         Sentiment - a model defined in News API
 
@@ -38,8 +39,8 @@ class Sentiment(object):
             'score': 'score'
         }
 
-        self._polarity = None
-        self._score = None
+        self._polarity = polarity
+        self._score = score
 
     @property
     def polarity(self):
@@ -67,6 +68,7 @@ class Sentiment(object):
                 "Invalid value for `polarity`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._polarity = polarity
 
     @property
@@ -89,6 +91,14 @@ class Sentiment(object):
         :param score: The score of this Sentiment.
         :type: float
         """
+
+        if not score:
+            raise ValueError("Invalid value for `score`, must not be `None`")
+        if score > 1.0:
+            raise ValueError("Invalid value for `score`, must be a value less than or equal to `1.0`")
+        if score < 0.0:
+            raise ValueError("Invalid value for `score`, must be a value greater than or equal to `0.0`")
+
         self._score = score
 
     def to_dict(self):
@@ -140,4 +150,3 @@ class Sentiment(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

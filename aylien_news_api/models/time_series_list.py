@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class TimeSeriesList(object):
-    def __init__(self):
+    def __init__(self, time_series=None, period=None, published_at_start=None, published_at_end=None):
         """
         TimeSeriesList - a model defined in News API
 
@@ -42,10 +43,10 @@ class TimeSeriesList(object):
             'published_at_end': 'published_at.end'
         }
 
-        self._time_series = None
-        self._period = None
-        self._published_at_start = None
-        self._published_at_end = None
+        self._time_series = time_series
+        self._period = period
+        self._published_at_start = published_at_start
+        self._published_at_end = published_at_end
 
     @property
     def time_series(self):
@@ -67,6 +68,7 @@ class TimeSeriesList(object):
         :param time_series: The time_series of this TimeSeriesList.
         :type: list[TimeSeries]
         """
+
         self._time_series = time_series
 
     @property
@@ -89,6 +91,7 @@ class TimeSeriesList(object):
         :param period: The period of this TimeSeriesList.
         :type: str
         """
+
         self._period = period
 
     @property
@@ -111,6 +114,7 @@ class TimeSeriesList(object):
         :param published_at_start: The published_at_start of this TimeSeriesList.
         :type: datetime
         """
+
         self._published_at_start = published_at_start
 
     @property
@@ -133,6 +137,7 @@ class TimeSeriesList(object):
         :param published_at_end: The published_at_end of this TimeSeriesList.
         :type: datetime
         """
+
         self._published_at_end = published_at_end
 
     def to_dict(self):
@@ -184,4 +189,3 @@ class TimeSeriesList(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class RelatedStories(object):
-    def __init__(self):
+    def __init__(self, story_title=None, story_body=None, story_language=None, related_stories=None, clusters=None):
         """
         RelatedStories - a model defined in News API
 
@@ -32,20 +33,23 @@ class RelatedStories(object):
             'story_title': 'str',
             'story_body': 'str',
             'story_language': 'str',
-            'related_stories': 'list[Story]'
+            'related_stories': 'list[Story]',
+            'clusters': 'list[StoryCluster]'
         }
 
         self.attribute_map = {
             'story_title': 'story_title',
             'story_body': 'story_body',
             'story_language': 'story_language',
-            'related_stories': 'related_stories'
+            'related_stories': 'related_stories',
+            'clusters': 'clusters'
         }
 
-        self._story_title = None
-        self._story_body = None
-        self._story_language = None
-        self._related_stories = None
+        self._story_title = story_title
+        self._story_body = story_body
+        self._story_language = story_language
+        self._related_stories = related_stories
+        self._clusters = clusters
 
     @property
     def story_title(self):
@@ -67,6 +71,7 @@ class RelatedStories(object):
         :param story_title: The story_title of this RelatedStories.
         :type: str
         """
+
         self._story_title = story_title
 
     @property
@@ -89,6 +94,7 @@ class RelatedStories(object):
         :param story_body: The story_body of this RelatedStories.
         :type: str
         """
+
         self._story_body = story_body
 
     @property
@@ -111,6 +117,7 @@ class RelatedStories(object):
         :param story_language: The story_language of this RelatedStories.
         :type: str
         """
+
         self._story_language = story_language
 
     @property
@@ -133,7 +140,31 @@ class RelatedStories(object):
         :param related_stories: The related_stories of this RelatedStories.
         :type: list[Story]
         """
+
         self._related_stories = related_stories
+
+    @property
+    def clusters(self):
+        """
+        Gets the clusters of this RelatedStories.
+        An array of clusters
+
+        :return: The clusters of this RelatedStories.
+        :rtype: list[StoryCluster]
+        """
+        return self._clusters
+
+    @clusters.setter
+    def clusters(self, clusters):
+        """
+        Sets the clusters of this RelatedStories.
+        An array of clusters
+
+        :param clusters: The clusters of this RelatedStories.
+        :type: list[StoryCluster]
+        """
+
+        self._clusters = clusters
 
     def to_dict(self):
         """
@@ -184,4 +215,3 @@ class RelatedStories(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

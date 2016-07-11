@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Media(object):
-    def __init__(self):
+    def __init__(self, type=None, url=None):
         """
         Media - a model defined in News API
 
@@ -38,14 +39,14 @@ class Media(object):
             'url': 'url'
         }
 
-        self._type = None
-        self._url = None
+        self._type = type
+        self._url = url
 
     @property
     def type(self):
         """
         Gets the type of this Media.
-        Type of the media
+        The type of media
 
         :return: The type of this Media.
         :rtype: str
@@ -56,7 +57,7 @@ class Media(object):
     def type(self, type):
         """
         Sets the type of this Media.
-        Type of the media
+        The type of media
 
         :param type: The type of this Media.
         :type: str
@@ -67,6 +68,7 @@ class Media(object):
                 "Invalid value for `type`, must be one of {0}"
                 .format(allowed_values)
             )
+
         self._type = type
 
     @property
@@ -89,6 +91,7 @@ class Media(object):
         :param url: The url of this Media.
         :type: str
         """
+
         self._url = url
 
     def to_dict(self):
@@ -140,4 +143,3 @@ class Media(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

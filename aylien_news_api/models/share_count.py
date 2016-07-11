@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class ShareCount(object):
-    def __init__(self):
+    def __init__(self, count=None, fetched_at=None):
         """
         ShareCount - a model defined in News API
 
@@ -38,8 +39,8 @@ class ShareCount(object):
             'fetched_at': 'fetched_at'
         }
 
-        self._count = None
-        self._fetched_at = None
+        self._count = count
+        self._fetched_at = fetched_at
 
     @property
     def count(self):
@@ -61,6 +62,7 @@ class ShareCount(object):
         :param count: The count of this ShareCount.
         :type: int
         """
+
         self._count = count
 
     @property
@@ -83,6 +85,7 @@ class ShareCount(object):
         :param fetched_at: The fetched_at of this ShareCount.
         :type: datetime
         """
+
         self._fetched_at = fetched_at
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class ShareCount(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

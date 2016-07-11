@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Autocompletes(object):
-    def __init__(self):
+    def __init__(self, autocompletes=None):
         """
         Autocompletes - a model defined in News API
 
@@ -36,7 +37,7 @@ class Autocompletes(object):
             'autocompletes': 'autocompletes'
         }
 
-        self._autocompletes = None
+        self._autocompletes = autocompletes
 
     @property
     def autocompletes(self):
@@ -58,6 +59,7 @@ class Autocompletes(object):
         :param autocompletes: The autocompletes of this Autocompletes.
         :type: list[Autocomplete]
         """
+
         self._autocompletes = autocompletes
 
     def to_dict(self):
@@ -109,4 +111,3 @@ class Autocompletes(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

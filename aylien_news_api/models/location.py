@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Location(object):
-    def __init__(self):
+    def __init__(self, country=None, state=None, city=None):
         """
         Location - a model defined in News API
 
@@ -40,9 +41,9 @@ class Location(object):
             'city': 'city'
         }
 
-        self._country = None
-        self._state = None
-        self._city = None
+        self._country = country
+        self._state = state
+        self._city = city
 
     @property
     def country(self):
@@ -64,6 +65,7 @@ class Location(object):
         :param country: The country of this Location.
         :type: str
         """
+
         self._country = country
 
     @property
@@ -86,6 +88,7 @@ class Location(object):
         :param state: The state of this Location.
         :type: str
         """
+
         self._state = state
 
     @property
@@ -108,6 +111,7 @@ class Location(object):
         :param city: The city of this Location.
         :type: str
         """
+
         self._city = city
 
     def to_dict(self):
@@ -159,4 +163,3 @@ class Location(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

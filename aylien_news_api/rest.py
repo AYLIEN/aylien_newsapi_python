@@ -14,10 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-Credit: this file (rest.py) is modified based on rest.py in Dropbox Python SDK:
-https://www.dropbox.com/developers/core/sdks/python
-"""
 from __future__ import absolute_import
 
 import sys
@@ -118,7 +114,6 @@ class RESTClientObject(object):
                             `application/x-www-form-urlencode`
                             and `multipart/form-data`
         """
-        
         method = method.upper()
         assert method in ['GET', 'HEAD', 'DELETE', 'POST', 'PUT', 'PATCH', 'OPTIONS']
 
@@ -129,7 +124,7 @@ class RESTClientObject(object):
 
         post_params = post_params or {}
         headers = headers or {}
-        
+
         if 'Content-Type' not in headers:
             headers['Content-Type'] = 'application/json'
 
@@ -139,8 +134,11 @@ class RESTClientObject(object):
                 if query_params:
                     url += '?' + urlencode(query_params, True)
                 if headers['Content-Type'] == 'application/json':
+                    request_body = None
+                    if body:
+                        request_body = json.dumps(body)
                     r = self.pool_manager.request(method, url,
-                                                  body=json.dumps(body),
+                                                  body=request_body,
                                                   headers=headers)
                 if headers['Content-Type'] == 'application/x-www-form-urlencoded':
                     r = self.pool_manager.request(method, url,

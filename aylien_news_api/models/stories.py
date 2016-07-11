@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Stories(object):
-    def __init__(self):
+    def __init__(self, stories=None, clusters=None, next_page_cursor=None):
         """
         Stories - a model defined in News API
 
@@ -40,9 +41,9 @@ class Stories(object):
             'next_page_cursor': 'next_page_cursor'
         }
 
-        self._stories = None
-        self._clusters = None
-        self._next_page_cursor = None
+        self._stories = stories
+        self._clusters = clusters
+        self._next_page_cursor = next_page_cursor
 
     @property
     def stories(self):
@@ -64,6 +65,7 @@ class Stories(object):
         :param stories: The stories of this Stories.
         :type: list[Story]
         """
+
         self._stories = stories
 
     @property
@@ -86,6 +88,7 @@ class Stories(object):
         :param clusters: The clusters of this Stories.
         :type: list[StoryCluster]
         """
+
         self._clusters = clusters
 
     @property
@@ -108,6 +111,7 @@ class Stories(object):
         :param next_page_cursor: The next_page_cursor of this Stories.
         :type: str
         """
+
         self._next_page_cursor = next_page_cursor
 
     def to_dict(self):
@@ -159,4 +163,3 @@ class Stories(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

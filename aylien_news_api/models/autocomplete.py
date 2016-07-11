@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Autocomplete(object):
-    def __init__(self):
+    def __init__(self, id=None, text=None):
         """
         Autocomplete - a model defined in News API
 
@@ -38,8 +39,8 @@ class Autocomplete(object):
             'text': 'text'
         }
 
-        self._id = None
-        self._text = None
+        self._id = id
+        self._text = text
 
     @property
     def id(self):
@@ -61,6 +62,7 @@ class Autocomplete(object):
         :param id: The id of this Autocomplete.
         :type: str
         """
+
         self._id = id
 
     @property
@@ -83,6 +85,7 @@ class Autocomplete(object):
         :param text: The text of this Autocomplete.
         :type: str
         """
+
         self._text = text
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class Autocomplete(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

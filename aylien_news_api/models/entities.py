@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Entities(object):
-    def __init__(self):
+    def __init__(self, title=None, body=None):
         """
         Entities - a model defined in News API
 
@@ -38,8 +39,8 @@ class Entities(object):
             'body': 'body'
         }
 
-        self._title = None
-        self._body = None
+        self._title = title
+        self._body = body
 
     @property
     def title(self):
@@ -61,6 +62,7 @@ class Entities(object):
         :param title: The title of this Entities.
         :type: list[Entity]
         """
+
         self._title = title
 
     @property
@@ -83,6 +85,7 @@ class Entities(object):
         :param body: The body of this Entities.
         :type: list[Entity]
         """
+
         self._body = body
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class Entities(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class StoryLinks(object):
-    def __init__(self):
+    def __init__(self, permalink=None, related_stories=None, coverages=None):
         """
         StoryLinks - a model defined in News API
 
@@ -40,9 +41,9 @@ class StoryLinks(object):
             'coverages': 'coverages'
         }
 
-        self._permalink = None
-        self._related_stories = None
-        self._coverages = None
+        self._permalink = permalink
+        self._related_stories = related_stories
+        self._coverages = coverages
 
     @property
     def permalink(self):
@@ -64,6 +65,7 @@ class StoryLinks(object):
         :param permalink: The permalink of this StoryLinks.
         :type: str
         """
+
         self._permalink = permalink
 
     @property
@@ -86,6 +88,7 @@ class StoryLinks(object):
         :param related_stories: The related_stories of this StoryLinks.
         :type: str
         """
+
         self._related_stories = related_stories
 
     @property
@@ -108,6 +111,7 @@ class StoryLinks(object):
         :param coverages: The coverages of this StoryLinks.
         :type: str
         """
+
         self._coverages = coverages
 
     def to_dict(self):
@@ -159,4 +163,3 @@ class StoryLinks(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

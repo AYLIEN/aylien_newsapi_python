@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class HistogramInterval(object):
-    def __init__(self):
+    def __init__(self, bin=None, count=None):
         """
         HistogramInterval - a model defined in News API
 
@@ -38,8 +39,8 @@ class HistogramInterval(object):
             'count': 'count'
         }
 
-        self._bin = None
-        self._count = None
+        self._bin = bin
+        self._count = count
 
     @property
     def bin(self):
@@ -61,6 +62,7 @@ class HistogramInterval(object):
         :param bin: The bin of this HistogramInterval.
         :type: int
         """
+
         self._bin = bin
 
     @property
@@ -83,6 +85,7 @@ class HistogramInterval(object):
         :param count: The count of this HistogramInterval.
         :type: int
         """
+
         self._count = count
 
     def to_dict(self):
@@ -134,4 +137,3 @@ class HistogramInterval(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

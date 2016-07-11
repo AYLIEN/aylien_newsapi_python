@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Entity(object):
-    def __init__(self):
+    def __init__(self, text=None, score=None, types=None, links=None, indices=None):
         """
         Entity - a model defined in News API
 
@@ -44,11 +45,11 @@ class Entity(object):
             'indices': 'indices'
         }
 
-        self._text = None
-        self._score = None
-        self._types = None
-        self._links = None
-        self._indices = None
+        self._text = text
+        self._score = score
+        self._types = types
+        self._links = links
+        self._indices = indices
 
     @property
     def text(self):
@@ -70,6 +71,7 @@ class Entity(object):
         :param text: The text of this Entity.
         :type: str
         """
+
         self._text = text
 
     @property
@@ -92,6 +94,14 @@ class Entity(object):
         :param score: The score of this Entity.
         :type: float
         """
+
+        if not score:
+            raise ValueError("Invalid value for `score`, must not be `None`")
+        if score > 1.0:
+            raise ValueError("Invalid value for `score`, must be a value less than or equal to `1.0`")
+        if score < 0.0:
+            raise ValueError("Invalid value for `score`, must be a value greater than or equal to `0.0`")
+
         self._score = score
 
     @property
@@ -114,6 +124,7 @@ class Entity(object):
         :param types: The types of this Entity.
         :type: list[str]
         """
+
         self._types = types
 
     @property
@@ -136,6 +147,7 @@ class Entity(object):
         :param links: The links of this Entity.
         :type: EntityLinks
         """
+
         self._links = links
 
     @property
@@ -158,6 +170,7 @@ class Entity(object):
         :param indices: The indices of this Entity.
         :type: list[list[int]]
         """
+
         self._indices = indices
 
     def to_dict(self):
@@ -209,4 +222,3 @@ class Entity(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

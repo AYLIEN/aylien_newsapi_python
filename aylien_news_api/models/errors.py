@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class Errors(object):
-    def __init__(self):
+    def __init__(self, errors=None):
         """
         Errors - a model defined in News API
 
@@ -36,7 +37,7 @@ class Errors(object):
             'errors': 'errors'
         }
 
-        self._errors = None
+        self._errors = errors
 
     @property
     def errors(self):
@@ -58,6 +59,7 @@ class Errors(object):
         :param errors: The errors of this Errors.
         :type: list[Error]
         """
+
         self._errors = errors
 
     def to_dict(self):
@@ -109,4 +111,3 @@ class Errors(object):
         Returns true if both objects are not equal
         """
         return not self == other
-

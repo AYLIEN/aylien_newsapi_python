@@ -16,10 +16,11 @@
 
 from pprint import pformat
 from six import iteritems
+import re
 
 
 class EntityLinks(object):
-    def __init__(self):
+    def __init__(self, dbpedia=None):
         """
         EntityLinks - a model defined in News API
 
@@ -36,7 +37,7 @@ class EntityLinks(object):
             'dbpedia': 'dbpedia'
         }
 
-        self._dbpedia = None
+        self._dbpedia = dbpedia
 
     @property
     def dbpedia(self):
@@ -58,6 +59,7 @@ class EntityLinks(object):
         :param dbpedia: The dbpedia of this EntityLinks.
         :type: str
         """
+
         self._dbpedia = dbpedia
 
     def to_dict(self):
@@ -109,4 +111,3 @@ class EntityLinks(object):
         Returns true if both objects are not equal
         """
         return not self == other
-
