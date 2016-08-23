@@ -14,4 +14,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__version__ = '0.2.0'
+from __future__ import absolute_import
+
+import os
+import sys
+import unittest
+
+import aylien_news_api
+from aylien_news_api.rest import ApiException
+from aylien_news_api.models.rank import Rank
+
+
+class TestRank(unittest.TestCase):
+    """ Rank unit test stubs """
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def testRank(self):
+        """
+        Test Rank
+        """
+        model = aylien_news_api.models.rank.Rank()
+
+
+if __name__ == '__main__':
+    unittest.main()

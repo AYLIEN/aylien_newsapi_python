@@ -33,6 +33,8 @@ from .models.histogram_interval import HistogramInterval
 from .models.histograms import Histograms
 from .models.location import Location
 from .models.media import Media
+from .models.rank import Rank
+from .models.rankings import Rankings
 from .models.related_stories import RelatedStories
 from .models.scope import Scope
 from .models.sentiment import Sentiment

@@ -48,6 +48,7 @@ class Scope(object):
         self._city = city
         self._level = level
 
+
     @property
     def country(self):
         """
@@ -140,8 +141,8 @@ class Scope(object):
         allowed_values = ["international", "national", "local"]
         if level not in allowed_values:
             raise ValueError(
-                "Invalid value for `level`, must be one of {0}"
-                .format(allowed_values)
+                "Invalid value for `level` ({0}), must be one of {1}"
+                .format(level, allowed_values)
             )
 
         self._level = level

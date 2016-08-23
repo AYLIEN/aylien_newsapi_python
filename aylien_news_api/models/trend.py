@@ -42,6 +42,7 @@ class Trend(object):
         self._value = value
         self._count = count
 
+
     @property
     def value(self):
         """

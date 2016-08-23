@@ -54,6 +54,7 @@ class Coverages(object):
         self._coverages = coverages
         self._clusters = clusters
 
+
     @property
     def story_title(self):
         """

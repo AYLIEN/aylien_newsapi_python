@@ -48,6 +48,7 @@ class TimeSeriesList(object):
         self._published_at_start = published_at_start
         self._published_at_end = published_at_end
 
+
     @property
     def time_series(self):
         """

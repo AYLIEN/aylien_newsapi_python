@@ -51,6 +51,7 @@ class StoryCluster(object):
         self._stories = stories
         self._score = score
 
+
     @property
     def id(self):
         """

@@ -42,6 +42,7 @@ class Media(object):
         self._type = type
         self._url = url
 
+
     @property
     def type(self):
         """
@@ -65,8 +66,8 @@ class Media(object):
         allowed_values = ["image", "video"]
         if type not in allowed_values:
             raise ValueError(
-                "Invalid value for `type`, must be one of {0}"
-                .format(allowed_values)
+                "Invalid value for `type` ({0}), must be one of {1}"
+                .format(type, allowed_values)
             )
 
         self._type = type

@@ -33,6 +33,8 @@ from .histogram_interval import HistogramInterval
 from .histograms import Histograms
 from .location import Location
 from .media import Media
+from .rank import Rank
+from .rankings import Rankings
 from .related_stories import RelatedStories
 from .scope import Scope
 from .sentiment import Sentiment

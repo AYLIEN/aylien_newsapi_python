@@ -42,6 +42,7 @@ class TimeSeries(object):
         self._published_at = published_at
         self._count = count
 
+
     @property
     def published_at(self):
         """

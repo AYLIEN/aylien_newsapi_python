@@ -54,6 +54,7 @@ class Category(object):
         self._confident = confident
         self._links = links
 
+
     @property
     def id(self):
         """
@@ -100,8 +101,8 @@ class Category(object):
         allowed_values = ["iab-qag", "iptc-subjectcode"]
         if taxonomy not in allowed_values:
             raise ValueError(
-                "Invalid value for `taxonomy`, must be one of {0}"
-                .format(allowed_values)
+                "Invalid value for `taxonomy` ({0}), must be one of {1}"
+                .format(taxonomy, allowed_values)
             )
 
         self._taxonomy = taxonomy

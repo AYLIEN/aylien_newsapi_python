@@ -45,6 +45,7 @@ class Author(object):
         self._name = name
         self._avatar_url = avatar_url
 
+
     @property
     def id(self):
         """

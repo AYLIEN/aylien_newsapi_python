@@ -39,6 +39,7 @@ class Autocompletes(object):
 
         self._autocompletes = autocompletes
 
+
     @property
     def autocompletes(self):
         """

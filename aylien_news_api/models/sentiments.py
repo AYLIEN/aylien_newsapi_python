@@ -42,6 +42,7 @@ class Sentiments(object):
         self._title = title
         self._body = body
 
+
     @property
     def title(self):
         """

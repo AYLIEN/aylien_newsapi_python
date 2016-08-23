@@ -19,10 +19,10 @@ from six import iteritems
 import re
 
 
-class ShareCount(object):
-    def __init__(self, count=None, fetched_at=None):
+class Rank(object):
+    def __init__(self, rank=None, country=None, fetched_at=None):
         """
-        ShareCount - a model defined in News API
+        Rank - a model defined in News API
 
         :param dict apiTypes: The key is attribute name
                                   and the value is attribute type.
@@ -30,49 +30,75 @@ class ShareCount(object):
                                   and the value is json key in definition.
         """
         self.api_types = {
-            'count': 'int',
+            'rank': 'int',
+            'country': 'str',
             'fetched_at': 'datetime'
         }
 
         self.attribute_map = {
-            'count': 'count',
+            'rank': 'rank',
+            'country': 'country',
             'fetched_at': 'fetched_at'
         }
 
-        self._count = count
+        self._rank = rank
+        self._country = country
         self._fetched_at = fetched_at
 
 
     @property
-    def count(self):
+    def rank(self):
         """
-        Gets the count of this ShareCount.
-        The number of shares
+        Gets the rank of this Rank.
+        The rank
 
-        :return: The count of this ShareCount.
+        :return: The rank of this Rank.
         :rtype: int
         """
-        return self._count
+        return self._rank
 
-    @count.setter
-    def count(self, count):
+    @rank.setter
+    def rank(self, rank):
         """
-        Sets the count of this ShareCount.
-        The number of shares
+        Sets the rank of this Rank.
+        The rank
 
-        :param count: The count of this ShareCount.
+        :param rank: The rank of this Rank.
         :type: int
         """
 
-        self._count = count
+        self._rank = rank
+
+    @property
+    def country(self):
+        """
+        Gets the country of this Rank.
+        The country code which the rank is in it
+
+        :return: The country of this Rank.
+        :rtype: str
+        """
+        return self._country
+
+    @country.setter
+    def country(self, country):
+        """
+        Sets the country of this Rank.
+        The country code which the rank is in it
+
+        :param country: The country of this Rank.
+        :type: str
+        """
+
+        self._country = country
 
     @property
     def fetched_at(self):
         """
-        Gets the fetched_at of this ShareCount.
-        The fetched date of the shares
+        Gets the fetched_at of this Rank.
+        The fetched date of the rank
 
-        :return: The fetched_at of this ShareCount.
+        :return: The fetched_at of this Rank.
         :rtype: datetime
         """
         return self._fetched_at
@@ -80,10 +106,10 @@ class ShareCount(object):
     @fetched_at.setter
     def fetched_at(self, fetched_at):
         """
-        Sets the fetched_at of this ShareCount.
-        The fetched date of the shares
+        Sets the fetched_at of this Rank.
+        The fetched date of the rank
 
-        :param fetched_at: The fetched_at of this ShareCount.
+        :param fetched_at: The fetched_at of this Rank.
         :type: datetime
         """
 

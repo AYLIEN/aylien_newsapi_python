@@ -20,7 +20,7 @@ import re
 
 
 class Source(object):
-    def __init__(self, id=None, name=None, domain=None, logo_url=None, locations=None, scopes=None):
+    def __init__(self, id=None, name=None, title=None, description=None, links_in_count=None, home_page_url=None, domain=None, logo_url=None, locations=None, scopes=None, rankings=None):
         """
         Source - a model defined in News API
 
@@ -32,27 +32,43 @@ class Source(object):
         self.api_types = {
             'id': 'int',
             'name': 'str',
+            'title': 'str',
+            'description': 'str',
+            'links_in_count': 'int',
+            'home_page_url': 'str',
             'domain': 'str',
             'logo_url': 'str',
             'locations': 'list[Location]',
-            'scopes': 'list[Scope]'
+            'scopes': 'list[Scope]',
+            'rankings': 'Rankings'
         }
 
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
+            'title': 'title',
+            'description': 'description',
+            'links_in_count': 'links_in_count',
+            'home_page_url': 'home_page_url',
             'domain': 'domain',
             'logo_url': 'logo_url',
             'locations': 'locations',
-            'scopes': 'scopes'
+            'scopes': 'scopes',
+            'rankings': 'rankings'
         }
 
         self._id = id
         self._name = name
+        self._title = title
+        self._description = description
+        self._links_in_count = links_in_count
+        self._home_page_url = home_page_url
         self._domain = domain
         self._logo_url = logo_url
         self._locations = locations
         self._scopes = scopes
+        self._rankings = rankings
+
 
     @property
     def id(self):
@@ -101,10 +117,102 @@ class Source(object):
         self._name = name
 
     @property
+    def title(self):
+        """
+        Gets the title of this Source.
+        The title of the home page URL
+
+        :return: The title of this Source.
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """
+        Sets the title of this Source.
+        The title of the home page URL
+
+        :param title: The title of this Source.
+        :type: str
+        """
+
+        self._title = title
+
+    @property
+    def description(self):
+        """
+        Gets the description of this Source.
+        A general explanation about the source
+
+        :return: The description of this Source.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this Source.
+        A general explanation about the source
+
+        :param description: The description of this Source.
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def links_in_count(self):
+        """
+        Gets the links_in_count of this Source.
+        The number of websites that link to the source
+
+        :return: The links_in_count of this Source.
+        :rtype: int
+        """
+        return self._links_in_count
+
+    @links_in_count.setter
+    def links_in_count(self, links_in_count):
+        """
+        Sets the links_in_count of this Source.
+        The number of websites that link to the source
+
+        :param links_in_count: The links_in_count of this Source.
+        :type: int
+        """
+
+        self._links_in_count = links_in_count
+
+    @property
+    def home_page_url(self):
+        """
+        Gets the home_page_url of this Source.
+        The home page URL of the source
+
+        :return: The home_page_url of this Source.
+        :rtype: str
+        """
+        return self._home_page_url
+
+    @home_page_url.setter
+    def home_page_url(self, home_page_url):
+        """
+        Sets the home_page_url of this Source.
+        The home page URL of the source
+
+        :param home_page_url: The home_page_url of this Source.
+        :type: str
+        """
+
+        self._home_page_url = home_page_url
+
+    @property
     def domain(self):
         """
         Gets the domain of this Source.
-        Domain name of the source which is extracted from the source URL
+        The domain name of the source which is extracted from the source URL
 
         :return: The domain of this Source.
         :rtype: str
@@ -115,7 +223,7 @@ class Source(object):
     def domain(self, domain):
         """
         Sets the domain of this Source.
-        Domain name of the source which is extracted from the source URL
+        The domain name of the source which is extracted from the source URL
 
         :param domain: The domain of this Source.
         :type: str
@@ -173,7 +281,7 @@ class Source(object):
     def scopes(self):
         """
         Gets the scopes of this Source.
-        The source scopes which is tend to be scope locations of the source, e.g. BBC scopes is international. 
+        The source scopes which is tend to be scope locations of the source, e.g. BBC scopes is international.
 
         :return: The scopes of this Source.
         :rtype: list[Scope]
@@ -184,13 +292,36 @@ class Source(object):
     def scopes(self, scopes):
         """
         Sets the scopes of this Source.
-        The source scopes which is tend to be scope locations of the source, e.g. BBC scopes is international. 
+        The source scopes which is tend to be scope locations of the source, e.g. BBC scopes is international.
 
         :param scopes: The scopes of this Source.
         :type: list[Scope]
         """
 
         self._scopes = scopes
+
+    @property
+    def rankings(self):
+        """
+        Gets the rankings of this Source.
+        The web rankings of the source
+
+        :return: The rankings of this Source.
+        :rtype: Rankings
+        """
+        return self._rankings
+
+    @rankings.setter
+    def rankings(self, rankings):
+        """
+        Sets the rankings of this Source.
+        The web rankings of the source
+
+        :param rankings: The rankings of this Source.
+        :type: Rankings
+        """
+
+        self._rankings = rankings
 
     def to_dict(self):
         """

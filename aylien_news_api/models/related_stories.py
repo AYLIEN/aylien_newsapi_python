@@ -51,6 +51,7 @@ class RelatedStories(object):
         self._related_stories = related_stories
         self._clusters = clusters
 
+
     @property
     def story_title(self):
         """

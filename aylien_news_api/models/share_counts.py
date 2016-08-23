@@ -48,6 +48,7 @@ class ShareCounts(object):
         self._linkedin = linkedin
         self._reddit = reddit
 
+
     @property
     def facebook(self):
         """

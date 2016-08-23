@@ -45,6 +45,7 @@ class StoryLinks(object):
         self._related_stories = related_stories
         self._coverages = coverages
 
+
     @property
     def permalink(self):
         """

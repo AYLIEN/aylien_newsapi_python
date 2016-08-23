@@ -42,6 +42,7 @@ class CategoryLinks(object):
         self.__self = _self
         self._parent = parent
 
+
     @property
     def _self(self):
         """

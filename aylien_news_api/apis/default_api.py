@@ -216,6 +216,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param bool cluster: This parameter enables clustering for the returned stories.
         :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
@@ -287,6 +292,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param bool cluster: This parameter enables clustering for the returned stories.
         :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
@@ -302,7 +312,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -324,6 +334,14 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value less than or equal to  `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
@@ -407,6 +425,16 @@ class DefaultApi(object):
             form_params.append(('source.scopes.city[]', params['source_scopes_city']))
         if 'source_scopes_level' in params:
             form_params.append(('source.scopes.level[]', params['source_scopes_level']))
+        if 'source_links_in_count_min' in params:
+            form_params.append(('source.links_in_count.min', params['source_links_in_count_min']))
+        if 'source_links_in_count_max' in params:
+            form_params.append(('source.links_in_count.max', params['source_links_in_count_max']))
+        if 'source_rankings_alexa_rank_min' in params:
+            form_params.append(('source.rankings.alexa.rank.min', params['source_rankings_alexa_rank_min']))
+        if 'source_rankings_alexa_rank_max' in params:
+            form_params.append(('source.rankings.alexa.rank.max', params['source_rankings_alexa_rank_max']))
+        if 'source_rankings_alexa_country' in params:
+            form_params.append(('source.rankings.alexa.country[]', params['source_rankings_alexa_country']))
         if 'cluster' in params:
             form_params.append(('cluster', params['cluster']))
         if 'cluster_algorithm' in params:
@@ -505,6 +533,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param int interval_start: This parameter is used for setting the start data point of histogram intervals.
         :param int interval_end: This parameter is used for setting the end data point of histogram intervals.
         :param int interval_width: This parameter is used for setting the width of histogram intervals.
@@ -570,6 +603,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param int interval_start: This parameter is used for setting the start data point of histogram intervals.
         :param int interval_end: This parameter is used for setting the end data point of histogram intervals.
         :param int interval_width: This parameter is used for setting the width of histogram intervals.
@@ -579,7 +617,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'interval_start', 'interval_end', 'interval_width', 'field']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'interval_start', 'interval_end', 'interval_width', 'field']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -601,6 +639,14 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
         resource_path = '/histograms'.replace('{format}', 'json')
         path_params = {}
 
@@ -675,6 +721,16 @@ class DefaultApi(object):
             query_params['source.scopes.city[]'] = params['source_scopes_city']
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+        if 'source_links_in_count_min' in params:
+            query_params['source.links_in_count.min'] = params['source_links_in_count_min']
+        if 'source_links_in_count_max' in params:
+            query_params['source.links_in_count.max'] = params['source_links_in_count_max']
+        if 'source_rankings_alexa_rank_min' in params:
+            query_params['source.rankings.alexa.rank.min'] = params['source_rankings_alexa_rank_min']
+        if 'source_rankings_alexa_rank_max' in params:
+            query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
+        if 'source_rankings_alexa_country' in params:
+            query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
         if 'interval_start' in params:
             query_params['interval.start'] = params['interval_start']
         if 'interval_end' in params:
@@ -766,6 +822,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param bool cluster: This parameter enables clustering for the returned stories.
         :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
@@ -837,6 +898,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param bool cluster: This parameter enables clustering for the returned stories.
         :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
@@ -852,7 +918,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -874,6 +940,14 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value less than or equal to  `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
@@ -957,6 +1031,16 @@ class DefaultApi(object):
             form_params.append(('source.scopes.city[]', params['source_scopes_city']))
         if 'source_scopes_level' in params:
             form_params.append(('source.scopes.level[]', params['source_scopes_level']))
+        if 'source_links_in_count_min' in params:
+            form_params.append(('source.links_in_count.min', params['source_links_in_count_min']))
+        if 'source_links_in_count_max' in params:
+            form_params.append(('source.links_in_count.max', params['source_links_in_count_max']))
+        if 'source_rankings_alexa_rank_min' in params:
+            form_params.append(('source.rankings.alexa.rank.min', params['source_rankings_alexa_rank_min']))
+        if 'source_rankings_alexa_rank_max' in params:
+            form_params.append(('source.rankings.alexa.rank.max', params['source_rankings_alexa_rank_max']))
+        if 'source_rankings_alexa_country' in params:
+            form_params.append(('source.rankings.alexa.country[]', params['source_rankings_alexa_country']))
         if 'cluster' in params:
             form_params.append(('cluster', params['cluster']))
         if 'cluster_algorithm' in params:
@@ -1055,6 +1139,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param bool cluster: This parameter enables clustering for the returned stories.
         :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
@@ -1123,6 +1212,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param bool cluster: This parameter enables clustering for the returned stories.
         :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
         :param list[str] _return: This parameter is used for specifying return fields.
@@ -1135,7 +1229,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'cluster', 'cluster_algorithm', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'cluster', 'cluster_algorithm', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1157,6 +1251,14 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value less than or equal to  `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
@@ -1235,6 +1337,16 @@ class DefaultApi(object):
             query_params['source.scopes.city[]'] = params['source_scopes_city']
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+        if 'source_links_in_count_min' in params:
+            query_params['source.links_in_count.min'] = params['source_links_in_count_min']
+        if 'source_links_in_count_max' in params:
+            query_params['source.links_in_count.max'] = params['source_links_in_count_max']
+        if 'source_rankings_alexa_rank_min' in params:
+            query_params['source.rankings.alexa.rank.min'] = params['source_rankings_alexa_rank_min']
+        if 'source_rankings_alexa_rank_max' in params:
+            query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
+        if 'source_rankings_alexa_country' in params:
+            query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
         if 'cluster' in params:
             query_params['cluster'] = params['cluster']
         if 'cluster_algorithm' in params:
@@ -1330,6 +1442,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param str published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str period: The size of each date range is expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
@@ -1392,6 +1509,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param str published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str period: The size of each date range is expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
@@ -1400,7 +1522,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'published_at_start', 'published_at_end', 'period']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'published_at_start', 'published_at_end', 'period']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1422,6 +1544,14 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
         resource_path = '/time_series'.replace('{format}', 'json')
         path_params = {}
 
@@ -1492,6 +1622,16 @@ class DefaultApi(object):
             query_params['source.scopes.city[]'] = params['source_scopes_city']
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+        if 'source_links_in_count_min' in params:
+            query_params['source.links_in_count.min'] = params['source_links_in_count_min']
+        if 'source_links_in_count_max' in params:
+            query_params['source.links_in_count.max'] = params['source_links_in_count_max']
+        if 'source_rankings_alexa_rank_min' in params:
+            query_params['source.rankings.alexa.rank.min'] = params['source_rankings_alexa_rank_min']
+        if 'source_rankings_alexa_rank_max' in params:
+            query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
+        if 'source_rankings_alexa_country' in params:
+            query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
         if 'published_at_start' in params:
             query_params['published_at.start'] = params['published_at_start']
         if 'published_at_end' in params:
@@ -1581,6 +1721,11 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param str field: This parameter is used to specify the trend field.
         :return: Trends
                  If the method is called asynchronously,
@@ -1643,13 +1788,18 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
         :param str field: This parameter is used to specify the trend field.
         :return: Trends
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'field']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'field']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1671,6 +1821,14 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
         resource_path = '/trends'.replace('{format}', 'json')
         path_params = {}
 
@@ -1745,6 +1903,16 @@ class DefaultApi(object):
             query_params['source.scopes.city[]'] = params['source_scopes_city']
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+        if 'source_links_in_count_min' in params:
+            query_params['source.links_in_count.min'] = params['source_links_in_count_min']
+        if 'source_links_in_count_max' in params:
+            query_params['source.links_in_count.max'] = params['source_links_in_count_max']
+        if 'source_rankings_alexa_rank_min' in params:
+            query_params['source.rankings.alexa.rank.min'] = params['source_rankings_alexa_rank_min']
+        if 'source_rankings_alexa_rank_max' in params:
+            query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
+        if 'source_rankings_alexa_country' in params:
+            query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
         if 'field' in params:
             query_params['field'] = params['field']
 

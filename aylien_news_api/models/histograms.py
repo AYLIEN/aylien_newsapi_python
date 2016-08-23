@@ -51,6 +51,7 @@ class Histograms(object):
         self._interval_width = interval_width
         self._field = field
 
+
     @property
     def intervals(self):
         """

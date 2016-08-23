@@ -39,6 +39,7 @@ class EntityLinks(object):
 
         self._dbpedia = dbpedia
 
+
     @property
     def dbpedia(self):
         """

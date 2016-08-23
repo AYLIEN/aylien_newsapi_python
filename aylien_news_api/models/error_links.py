@@ -39,6 +39,7 @@ class ErrorLinks(object):
 
         self._about = about
 
+
     @property
     def about(self):
         """

@@ -45,6 +45,7 @@ class Stories(object):
         self._clusters = clusters
         self._next_page_cursor = next_page_cursor
 
+
     @property
     def stories(self):
         """

@@ -42,6 +42,7 @@ class Trends(object):
         self._trends = trends
         self._field = field
 
+
     @property
     def trends(self):
         """

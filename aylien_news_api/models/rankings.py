@@ -19,10 +19,10 @@ from six import iteritems
 import re
 
 
-class ShareCount(object):
-    def __init__(self, count=None, fetched_at=None):
+class Rankings(object):
+    def __init__(self, alexa=None):
         """
-        ShareCount - a model defined in News API
+        Rankings - a model defined in News API
 
         :param dict apiTypes: The key is attribute name
                                   and the value is attribute type.
@@ -30,64 +30,38 @@ class ShareCount(object):
                                   and the value is json key in definition.
         """
         self.api_types = {
-            'count': 'int',
-            'fetched_at': 'datetime'
+            'alexa': 'list[Rank]'
         }
 
         self.attribute_map = {
-            'count': 'count',
-            'fetched_at': 'fetched_at'
+            'alexa': 'alexa'
         }
 
-        self._count = count
-        self._fetched_at = fetched_at
+        self._alexa = alexa
 
 
     @property
-    def count(self):
+    def alexa(self):
         """
-        Gets the count of this ShareCount.
-        The number of shares
+        Gets the alexa of this Rankings.
 
-        :return: The count of this ShareCount.
-        :rtype: int
+
+        :return: The alexa of this Rankings.
+        :rtype: list[Rank]
         """
-        return self._count
+        return self._alexa
 
-    @count.setter
-    def count(self, count):
+    @alexa.setter
+    def alexa(self, alexa):
         """
-        Sets the count of this ShareCount.
-        The number of shares
+        Sets the alexa of this Rankings.
 
-        :param count: The count of this ShareCount.
-        :type: int
-        """
 
-        self._count = count
-
-    @property
-    def fetched_at(self):
-        """
-        Gets the fetched_at of this ShareCount.
-        The fetched date of the shares
-
-        :return: The fetched_at of this ShareCount.
-        :rtype: datetime
-        """
-        return self._fetched_at
-
-    @fetched_at.setter
-    def fetched_at(self, fetched_at):
-        """
-        Sets the fetched_at of this ShareCount.
-        The fetched date of the shares
-
-        :param fetched_at: The fetched_at of this ShareCount.
-        :type: datetime
+        :param alexa: The alexa of this Rankings.
+        :type: list[Rank]
         """
 
-        self._fetched_at = fetched_at
+        self._alexa = alexa
 
     def to_dict(self):
         """

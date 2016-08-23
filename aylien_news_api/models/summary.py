@@ -39,6 +39,7 @@ class Summary(object):
 
         self._sentences = sentences
 
+
     @property
     def sentences(self):
         """

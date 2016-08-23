@@ -42,6 +42,7 @@ class Autocomplete(object):
         self._id = id
         self._text = text
 
+
     @property
     def id(self):
         """

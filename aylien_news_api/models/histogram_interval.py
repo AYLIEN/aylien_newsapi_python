@@ -42,6 +42,7 @@ class HistogramInterval(object):
         self._bin = bin
         self._count = count
 
+
     @property
     def bin(self):
         """

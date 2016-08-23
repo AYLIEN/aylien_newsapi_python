@@ -51,6 +51,7 @@ class Entity(object):
         self._links = links
         self._indices = indices
 
+
     @property
     def text(self):
         """

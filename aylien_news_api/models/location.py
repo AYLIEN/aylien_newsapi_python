@@ -45,6 +45,7 @@ class Location(object):
         self._state = state
         self._city = city
 
+
     @property
     def country(self):
         """

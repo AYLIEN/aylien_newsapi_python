@@ -42,6 +42,7 @@ class Sentiment(object):
         self._polarity = polarity
         self._score = score
 
+
     @property
     def polarity(self):
         """
@@ -65,8 +66,8 @@ class Sentiment(object):
         allowed_values = ["positive", "neutral", "negative"]
         if polarity not in allowed_values:
             raise ValueError(
-                "Invalid value for `polarity`, must be one of {0}"
-                .format(allowed_values)
+                "Invalid value for `polarity` ({0}), must be one of {1}"
+                .format(polarity, allowed_values)
             )
 
         self._polarity = polarity

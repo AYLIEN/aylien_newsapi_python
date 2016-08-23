@@ -54,6 +54,7 @@ class Error(object):
         self._title = title
         self._detail = detail
 
+
     @property
     def id(self):
         """

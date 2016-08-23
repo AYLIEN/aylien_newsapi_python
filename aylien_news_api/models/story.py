@@ -96,6 +96,7 @@ class Story(object):
         self._published_at = published_at
         self._links = links
 
+
     @property
     def id(self):
         """
