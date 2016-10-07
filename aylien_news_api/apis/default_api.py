@@ -118,9 +118,12 @@ class DefaultApi(object):
         if 'term' in params and len(params['term']) < 1:
             raise ValueError("Invalid value for parameter `term` when calling `list_autocompletes`, length must be greater than or equal to `1`")
         if 'per_page' in params and params['per_page'] > 100.0:
-            raise ValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value less than or equal to  `100.0`")
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value greater than or equal to `1.0`")
+
+        collection_formats = {}
+
         resource_path = '/autocompletes'.replace('{format}', 'json')
         path_params = {}
 
@@ -164,7 +167,8 @@ class DefaultApi(object):
                                             response_type='Autocompletes',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)
 
     def list_coverages(self, **kwargs):
         """
@@ -326,26 +330,29 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_coverages`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_min' in params and params['media_images_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_coverages`, must be a value greater than `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
-            raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value less than or equal to  `100.0`")
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value greater than or equal to `1.0`")
+
+        collection_formats = {}
+
         resource_path = '/coverages'.replace('{format}', 'json')
         path_params = {}
 
@@ -357,6 +364,7 @@ class DefaultApi(object):
         local_var_files = {}
         if 'id' in params:
             form_params.append(('id[]', params['id']))
+            collection_formats['id[]'] = 'multi'
         if 'title' in params:
             form_params.append(('title', params['title']))
         if 'body' in params:
@@ -365,6 +373,7 @@ class DefaultApi(object):
             form_params.append(('text', params['text']))
         if 'language' in params:
             form_params.append(('language[]', params['language']))
+            collection_formats['language[]'] = 'multi'
         if 'published_at_start' in params:
             form_params.append(('published_at.start', params['published_at_start']))
         if 'published_at_end' in params:
@@ -375,20 +384,28 @@ class DefaultApi(object):
             form_params.append(('categories.confident', params['categories_confident']))
         if 'categories_id' in params:
             form_params.append(('categories.id[]', params['categories_id']))
+            collection_formats['categories.id[]'] = 'multi'
         if 'categories_level' in params:
             form_params.append(('categories.level[]', params['categories_level']))
+            collection_formats['categories.level[]'] = 'multi'
         if 'entities_title_text' in params:
             form_params.append(('entities.title.text[]', params['entities_title_text']))
+            collection_formats['entities.title.text[]'] = 'multi'
         if 'entities_title_type' in params:
             form_params.append(('entities.title.type[]', params['entities_title_type']))
+            collection_formats['entities.title.type[]'] = 'multi'
         if 'entities_title_links_dbpedia' in params:
             form_params.append(('entities.title.links.dbpedia[]', params['entities_title_links_dbpedia']))
+            collection_formats['entities.title.links.dbpedia[]'] = 'multi'
         if 'entities_body_text' in params:
             form_params.append(('entities.body.text[]', params['entities_body_text']))
+            collection_formats['entities.body.text[]'] = 'multi'
         if 'entities_body_type' in params:
             form_params.append(('entities.body.type[]', params['entities_body_type']))
+            collection_formats['entities.body.type[]'] = 'multi'
         if 'entities_body_links_dbpedia' in params:
             form_params.append(('entities.body.links.dbpedia[]', params['entities_body_links_dbpedia']))
+            collection_formats['entities.body.links.dbpedia[]'] = 'multi'
         if 'sentiment_title_polarity' in params:
             form_params.append(('sentiment.title.polarity', params['sentiment_title_polarity']))
         if 'sentiment_body_polarity' in params:
@@ -403,28 +420,39 @@ class DefaultApi(object):
             form_params.append(('media.videos.count.max', params['media_videos_count_max']))
         if 'author_id' in params:
             form_params.append(('author.id[]', params['author_id']))
+            collection_formats['author.id[]'] = 'multi'
         if 'author_name' in params:
             form_params.append(('author.name', params['author_name']))
         if 'source_id' in params:
             form_params.append(('source.id[]', params['source_id']))
+            collection_formats['source.id[]'] = 'multi'
         if 'source_name' in params:
             form_params.append(('source.name[]', params['source_name']))
+            collection_formats['source.name[]'] = 'multi'
         if 'source_domain' in params:
             form_params.append(('source.domain[]', params['source_domain']))
+            collection_formats['source.domain[]'] = 'multi'
         if 'source_locations_country' in params:
             form_params.append(('source.locations.country[]', params['source_locations_country']))
+            collection_formats['source.locations.country[]'] = 'multi'
         if 'source_locations_state' in params:
             form_params.append(('source.locations.state[]', params['source_locations_state']))
+            collection_formats['source.locations.state[]'] = 'multi'
         if 'source_locations_city' in params:
             form_params.append(('source.locations.city[]', params['source_locations_city']))
+            collection_formats['source.locations.city[]'] = 'multi'
         if 'source_scopes_country' in params:
             form_params.append(('source.scopes.country[]', params['source_scopes_country']))
+            collection_formats['source.scopes.country[]'] = 'multi'
         if 'source_scopes_state' in params:
             form_params.append(('source.scopes.state[]', params['source_scopes_state']))
+            collection_formats['source.scopes.state[]'] = 'multi'
         if 'source_scopes_city' in params:
             form_params.append(('source.scopes.city[]', params['source_scopes_city']))
+            collection_formats['source.scopes.city[]'] = 'multi'
         if 'source_scopes_level' in params:
             form_params.append(('source.scopes.level[]', params['source_scopes_level']))
+            collection_formats['source.scopes.level[]'] = 'multi'
         if 'source_links_in_count_min' in params:
             form_params.append(('source.links_in_count.min', params['source_links_in_count_min']))
         if 'source_links_in_count_max' in params:
@@ -435,12 +463,14 @@ class DefaultApi(object):
             form_params.append(('source.rankings.alexa.rank.max', params['source_rankings_alexa_rank_max']))
         if 'source_rankings_alexa_country' in params:
             form_params.append(('source.rankings.alexa.country[]', params['source_rankings_alexa_country']))
+            collection_formats['source.rankings.alexa.country[]'] = 'multi'
         if 'cluster' in params:
             form_params.append(('cluster', params['cluster']))
         if 'cluster_algorithm' in params:
             form_params.append(('cluster.algorithm', params['cluster_algorithm']))
         if '_return' in params:
             form_params.append(('return[]', params['_return']))
+            collection_formats['return[]'] = 'multi'
         if 'story_id' in params:
             form_params.append(('story_id', params['story_id']))
         if 'story_url' in params:
@@ -481,7 +511,8 @@ class DefaultApi(object):
                                             response_type='Coverages',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)
 
     def list_histograms(self, **kwargs):
         """
@@ -631,28 +662,32 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_histograms`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_min' in params and params['media_images_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_histograms`, must be a value greater than `0.0`")
+
+        collection_formats = {}
+
         resource_path = '/histograms'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
         if 'id' in params:
             query_params['id[]'] = params['id']
+            collection_formats['id[]'] = 'multi'
         if 'title' in params:
             query_params['title'] = params['title']
         if 'body' in params:
@@ -661,6 +696,7 @@ class DefaultApi(object):
             query_params['text'] = params['text']
         if 'language' in params:
             query_params['language[]'] = params['language']
+            collection_formats['language[]'] = 'multi'
         if 'published_at_start' in params:
             query_params['published_at.start'] = params['published_at_start']
         if 'published_at_end' in params:
@@ -671,20 +707,28 @@ class DefaultApi(object):
             query_params['categories.confident'] = params['categories_confident']
         if 'categories_id' in params:
             query_params['categories.id[]'] = params['categories_id']
+            collection_formats['categories.id[]'] = 'multi'
         if 'categories_level' in params:
             query_params['categories.level[]'] = params['categories_level']
+            collection_formats['categories.level[]'] = 'multi'
         if 'entities_title_text' in params:
             query_params['entities.title.text[]'] = params['entities_title_text']
+            collection_formats['entities.title.text[]'] = 'multi'
         if 'entities_title_type' in params:
             query_params['entities.title.type[]'] = params['entities_title_type']
+            collection_formats['entities.title.type[]'] = 'multi'
         if 'entities_title_links_dbpedia' in params:
             query_params['entities.title.links.dbpedia[]'] = params['entities_title_links_dbpedia']
+            collection_formats['entities.title.links.dbpedia[]'] = 'multi'
         if 'entities_body_text' in params:
             query_params['entities.body.text[]'] = params['entities_body_text']
+            collection_formats['entities.body.text[]'] = 'multi'
         if 'entities_body_type' in params:
             query_params['entities.body.type[]'] = params['entities_body_type']
+            collection_formats['entities.body.type[]'] = 'multi'
         if 'entities_body_links_dbpedia' in params:
             query_params['entities.body.links.dbpedia[]'] = params['entities_body_links_dbpedia']
+            collection_formats['entities.body.links.dbpedia[]'] = 'multi'
         if 'sentiment_title_polarity' in params:
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
@@ -699,28 +743,39 @@ class DefaultApi(object):
             query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
+            collection_formats['author.id[]'] = 'multi'
         if 'author_name' in params:
             query_params['author.name'] = params['author_name']
         if 'source_id' in params:
             query_params['source.id[]'] = params['source_id']
+            collection_formats['source.id[]'] = 'multi'
         if 'source_name' in params:
             query_params['source.name[]'] = params['source_name']
+            collection_formats['source.name[]'] = 'multi'
         if 'source_domain' in params:
             query_params['source.domain[]'] = params['source_domain']
+            collection_formats['source.domain[]'] = 'multi'
         if 'source_locations_country' in params:
             query_params['source.locations.country[]'] = params['source_locations_country']
+            collection_formats['source.locations.country[]'] = 'multi'
         if 'source_locations_state' in params:
             query_params['source.locations.state[]'] = params['source_locations_state']
+            collection_formats['source.locations.state[]'] = 'multi'
         if 'source_locations_city' in params:
             query_params['source.locations.city[]'] = params['source_locations_city']
+            collection_formats['source.locations.city[]'] = 'multi'
         if 'source_scopes_country' in params:
             query_params['source.scopes.country[]'] = params['source_scopes_country']
+            collection_formats['source.scopes.country[]'] = 'multi'
         if 'source_scopes_state' in params:
             query_params['source.scopes.state[]'] = params['source_scopes_state']
+            collection_formats['source.scopes.state[]'] = 'multi'
         if 'source_scopes_city' in params:
             query_params['source.scopes.city[]'] = params['source_scopes_city']
+            collection_formats['source.scopes.city[]'] = 'multi'
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+            collection_formats['source.scopes.level[]'] = 'multi'
         if 'source_links_in_count_min' in params:
             query_params['source.links_in_count.min'] = params['source_links_in_count_min']
         if 'source_links_in_count_max' in params:
@@ -731,6 +786,7 @@ class DefaultApi(object):
             query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
+            collection_formats['source.rankings.alexa.country[]'] = 'multi'
         if 'interval_start' in params:
             query_params['interval.start'] = params['interval_start']
         if 'interval_end' in params:
@@ -770,7 +826,8 @@ class DefaultApi(object):
                                             response_type='Histograms',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)
 
     def list_related_stories(self, **kwargs):
         """
@@ -932,26 +989,29 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_related_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_min' in params and params['media_images_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_related_stories`, must be a value greater than `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
-            raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value less than or equal to  `100.0`")
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value greater than or equal to `1.0`")
+
+        collection_formats = {}
+
         resource_path = '/related_stories'.replace('{format}', 'json')
         path_params = {}
 
@@ -963,6 +1023,7 @@ class DefaultApi(object):
         local_var_files = {}
         if 'id' in params:
             form_params.append(('id[]', params['id']))
+            collection_formats['id[]'] = 'multi'
         if 'title' in params:
             form_params.append(('title', params['title']))
         if 'body' in params:
@@ -971,6 +1032,7 @@ class DefaultApi(object):
             form_params.append(('text', params['text']))
         if 'language' in params:
             form_params.append(('language[]', params['language']))
+            collection_formats['language[]'] = 'multi'
         if 'published_at_start' in params:
             form_params.append(('published_at.start', params['published_at_start']))
         if 'published_at_end' in params:
@@ -981,20 +1043,28 @@ class DefaultApi(object):
             form_params.append(('categories.confident', params['categories_confident']))
         if 'categories_id' in params:
             form_params.append(('categories.id[]', params['categories_id']))
+            collection_formats['categories.id[]'] = 'multi'
         if 'categories_level' in params:
             form_params.append(('categories.level[]', params['categories_level']))
+            collection_formats['categories.level[]'] = 'multi'
         if 'entities_title_text' in params:
             form_params.append(('entities.title.text[]', params['entities_title_text']))
+            collection_formats['entities.title.text[]'] = 'multi'
         if 'entities_title_type' in params:
             form_params.append(('entities.title.type[]', params['entities_title_type']))
+            collection_formats['entities.title.type[]'] = 'multi'
         if 'entities_title_links_dbpedia' in params:
             form_params.append(('entities.title.links.dbpedia[]', params['entities_title_links_dbpedia']))
+            collection_formats['entities.title.links.dbpedia[]'] = 'multi'
         if 'entities_body_text' in params:
             form_params.append(('entities.body.text[]', params['entities_body_text']))
+            collection_formats['entities.body.text[]'] = 'multi'
         if 'entities_body_type' in params:
             form_params.append(('entities.body.type[]', params['entities_body_type']))
+            collection_formats['entities.body.type[]'] = 'multi'
         if 'entities_body_links_dbpedia' in params:
             form_params.append(('entities.body.links.dbpedia[]', params['entities_body_links_dbpedia']))
+            collection_formats['entities.body.links.dbpedia[]'] = 'multi'
         if 'sentiment_title_polarity' in params:
             form_params.append(('sentiment.title.polarity', params['sentiment_title_polarity']))
         if 'sentiment_body_polarity' in params:
@@ -1009,28 +1079,39 @@ class DefaultApi(object):
             form_params.append(('media.videos.count.max', params['media_videos_count_max']))
         if 'author_id' in params:
             form_params.append(('author.id[]', params['author_id']))
+            collection_formats['author.id[]'] = 'multi'
         if 'author_name' in params:
             form_params.append(('author.name', params['author_name']))
         if 'source_id' in params:
             form_params.append(('source.id[]', params['source_id']))
+            collection_formats['source.id[]'] = 'multi'
         if 'source_name' in params:
             form_params.append(('source.name[]', params['source_name']))
+            collection_formats['source.name[]'] = 'multi'
         if 'source_domain' in params:
             form_params.append(('source.domain[]', params['source_domain']))
+            collection_formats['source.domain[]'] = 'multi'
         if 'source_locations_country' in params:
             form_params.append(('source.locations.country[]', params['source_locations_country']))
+            collection_formats['source.locations.country[]'] = 'multi'
         if 'source_locations_state' in params:
             form_params.append(('source.locations.state[]', params['source_locations_state']))
+            collection_formats['source.locations.state[]'] = 'multi'
         if 'source_locations_city' in params:
             form_params.append(('source.locations.city[]', params['source_locations_city']))
+            collection_formats['source.locations.city[]'] = 'multi'
         if 'source_scopes_country' in params:
             form_params.append(('source.scopes.country[]', params['source_scopes_country']))
+            collection_formats['source.scopes.country[]'] = 'multi'
         if 'source_scopes_state' in params:
             form_params.append(('source.scopes.state[]', params['source_scopes_state']))
+            collection_formats['source.scopes.state[]'] = 'multi'
         if 'source_scopes_city' in params:
             form_params.append(('source.scopes.city[]', params['source_scopes_city']))
+            collection_formats['source.scopes.city[]'] = 'multi'
         if 'source_scopes_level' in params:
             form_params.append(('source.scopes.level[]', params['source_scopes_level']))
+            collection_formats['source.scopes.level[]'] = 'multi'
         if 'source_links_in_count_min' in params:
             form_params.append(('source.links_in_count.min', params['source_links_in_count_min']))
         if 'source_links_in_count_max' in params:
@@ -1041,12 +1122,14 @@ class DefaultApi(object):
             form_params.append(('source.rankings.alexa.rank.max', params['source_rankings_alexa_rank_max']))
         if 'source_rankings_alexa_country' in params:
             form_params.append(('source.rankings.alexa.country[]', params['source_rankings_alexa_country']))
+            collection_formats['source.rankings.alexa.country[]'] = 'multi'
         if 'cluster' in params:
             form_params.append(('cluster', params['cluster']))
         if 'cluster_algorithm' in params:
             form_params.append(('cluster.algorithm', params['cluster_algorithm']))
         if '_return' in params:
             form_params.append(('return[]', params['_return']))
+            collection_formats['return[]'] = 'multi'
         if 'story_id' in params:
             form_params.append(('story_id', params['story_id']))
         if 'story_url' in params:
@@ -1087,7 +1170,8 @@ class DefaultApi(object):
                                             response_type='RelatedStories',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)
 
     def list_stories(self, **kwargs):
         """
@@ -1243,32 +1327,36 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_stories`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_stories`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_min' in params and params['media_images_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_stories`, must be a value greater than `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
-            raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value less than or equal to  `100.0`")
+            raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value greater than or equal to `1.0`")
+
+        collection_formats = {}
+
         resource_path = '/stories'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
         if 'id' in params:
             query_params['id[]'] = params['id']
+            collection_formats['id[]'] = 'multi'
         if 'title' in params:
             query_params['title'] = params['title']
         if 'body' in params:
@@ -1277,6 +1365,7 @@ class DefaultApi(object):
             query_params['text'] = params['text']
         if 'language' in params:
             query_params['language[]'] = params['language']
+            collection_formats['language[]'] = 'multi'
         if 'published_at_start' in params:
             query_params['published_at.start'] = params['published_at_start']
         if 'published_at_end' in params:
@@ -1287,20 +1376,28 @@ class DefaultApi(object):
             query_params['categories.confident'] = params['categories_confident']
         if 'categories_id' in params:
             query_params['categories.id[]'] = params['categories_id']
+            collection_formats['categories.id[]'] = 'multi'
         if 'categories_level' in params:
             query_params['categories.level[]'] = params['categories_level']
+            collection_formats['categories.level[]'] = 'multi'
         if 'entities_title_text' in params:
             query_params['entities.title.text[]'] = params['entities_title_text']
+            collection_formats['entities.title.text[]'] = 'multi'
         if 'entities_title_type' in params:
             query_params['entities.title.type[]'] = params['entities_title_type']
+            collection_formats['entities.title.type[]'] = 'multi'
         if 'entities_title_links_dbpedia' in params:
             query_params['entities.title.links.dbpedia[]'] = params['entities_title_links_dbpedia']
+            collection_formats['entities.title.links.dbpedia[]'] = 'multi'
         if 'entities_body_text' in params:
             query_params['entities.body.text[]'] = params['entities_body_text']
+            collection_formats['entities.body.text[]'] = 'multi'
         if 'entities_body_type' in params:
             query_params['entities.body.type[]'] = params['entities_body_type']
+            collection_formats['entities.body.type[]'] = 'multi'
         if 'entities_body_links_dbpedia' in params:
             query_params['entities.body.links.dbpedia[]'] = params['entities_body_links_dbpedia']
+            collection_formats['entities.body.links.dbpedia[]'] = 'multi'
         if 'sentiment_title_polarity' in params:
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
@@ -1315,28 +1412,39 @@ class DefaultApi(object):
             query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
+            collection_formats['author.id[]'] = 'multi'
         if 'author_name' in params:
             query_params['author.name'] = params['author_name']
         if 'source_id' in params:
             query_params['source.id[]'] = params['source_id']
+            collection_formats['source.id[]'] = 'multi'
         if 'source_name' in params:
             query_params['source.name[]'] = params['source_name']
+            collection_formats['source.name[]'] = 'multi'
         if 'source_domain' in params:
             query_params['source.domain[]'] = params['source_domain']
+            collection_formats['source.domain[]'] = 'multi'
         if 'source_locations_country' in params:
             query_params['source.locations.country[]'] = params['source_locations_country']
+            collection_formats['source.locations.country[]'] = 'multi'
         if 'source_locations_state' in params:
             query_params['source.locations.state[]'] = params['source_locations_state']
+            collection_formats['source.locations.state[]'] = 'multi'
         if 'source_locations_city' in params:
             query_params['source.locations.city[]'] = params['source_locations_city']
+            collection_formats['source.locations.city[]'] = 'multi'
         if 'source_scopes_country' in params:
             query_params['source.scopes.country[]'] = params['source_scopes_country']
+            collection_formats['source.scopes.country[]'] = 'multi'
         if 'source_scopes_state' in params:
             query_params['source.scopes.state[]'] = params['source_scopes_state']
+            collection_formats['source.scopes.state[]'] = 'multi'
         if 'source_scopes_city' in params:
             query_params['source.scopes.city[]'] = params['source_scopes_city']
+            collection_formats['source.scopes.city[]'] = 'multi'
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+            collection_formats['source.scopes.level[]'] = 'multi'
         if 'source_links_in_count_min' in params:
             query_params['source.links_in_count.min'] = params['source_links_in_count_min']
         if 'source_links_in_count_max' in params:
@@ -1347,12 +1455,14 @@ class DefaultApi(object):
             query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
+            collection_formats['source.rankings.alexa.country[]'] = 'multi'
         if 'cluster' in params:
             query_params['cluster'] = params['cluster']
         if 'cluster_algorithm' in params:
             query_params['cluster.algorithm'] = params['cluster_algorithm']
         if '_return' in params:
             query_params['return[]'] = params['_return']
+            collection_formats['return[]'] = 'multi'
         if 'sort_by' in params:
             query_params['sort_by'] = params['sort_by']
         if 'sort_direction' in params:
@@ -1392,7 +1502,8 @@ class DefaultApi(object):
                                             response_type='Stories',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)
 
     def list_time_series(self, **kwargs):
         """
@@ -1536,28 +1647,32 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_time_series`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_min' in params and params['media_images_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_time_series`, must be a value greater than `0.0`")
+
+        collection_formats = {}
+
         resource_path = '/time_series'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
         if 'id' in params:
             query_params['id[]'] = params['id']
+            collection_formats['id[]'] = 'multi'
         if 'title' in params:
             query_params['title'] = params['title']
         if 'body' in params:
@@ -1566,26 +1681,35 @@ class DefaultApi(object):
             query_params['text'] = params['text']
         if 'language' in params:
             query_params['language[]'] = params['language']
+            collection_formats['language[]'] = 'multi'
         if 'categories_taxonomy' in params:
             query_params['categories.taxonomy'] = params['categories_taxonomy']
         if 'categories_confident' in params:
             query_params['categories.confident'] = params['categories_confident']
         if 'categories_id' in params:
             query_params['categories.id[]'] = params['categories_id']
+            collection_formats['categories.id[]'] = 'multi'
         if 'categories_level' in params:
             query_params['categories.level[]'] = params['categories_level']
+            collection_formats['categories.level[]'] = 'multi'
         if 'entities_title_text' in params:
             query_params['entities.title.text[]'] = params['entities_title_text']
+            collection_formats['entities.title.text[]'] = 'multi'
         if 'entities_title_type' in params:
             query_params['entities.title.type[]'] = params['entities_title_type']
+            collection_formats['entities.title.type[]'] = 'multi'
         if 'entities_title_links_dbpedia' in params:
             query_params['entities.title.links.dbpedia[]'] = params['entities_title_links_dbpedia']
+            collection_formats['entities.title.links.dbpedia[]'] = 'multi'
         if 'entities_body_text' in params:
             query_params['entities.body.text[]'] = params['entities_body_text']
+            collection_formats['entities.body.text[]'] = 'multi'
         if 'entities_body_type' in params:
             query_params['entities.body.type[]'] = params['entities_body_type']
+            collection_formats['entities.body.type[]'] = 'multi'
         if 'entities_body_links_dbpedia' in params:
             query_params['entities.body.links.dbpedia[]'] = params['entities_body_links_dbpedia']
+            collection_formats['entities.body.links.dbpedia[]'] = 'multi'
         if 'sentiment_title_polarity' in params:
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
@@ -1600,28 +1724,39 @@ class DefaultApi(object):
             query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
+            collection_formats['author.id[]'] = 'multi'
         if 'author_name' in params:
             query_params['author.name'] = params['author_name']
         if 'source_id' in params:
             query_params['source.id[]'] = params['source_id']
+            collection_formats['source.id[]'] = 'multi'
         if 'source_name' in params:
             query_params['source.name[]'] = params['source_name']
+            collection_formats['source.name[]'] = 'multi'
         if 'source_domain' in params:
             query_params['source.domain[]'] = params['source_domain']
+            collection_formats['source.domain[]'] = 'multi'
         if 'source_locations_country' in params:
             query_params['source.locations.country[]'] = params['source_locations_country']
+            collection_formats['source.locations.country[]'] = 'multi'
         if 'source_locations_state' in params:
             query_params['source.locations.state[]'] = params['source_locations_state']
+            collection_formats['source.locations.state[]'] = 'multi'
         if 'source_locations_city' in params:
             query_params['source.locations.city[]'] = params['source_locations_city']
+            collection_formats['source.locations.city[]'] = 'multi'
         if 'source_scopes_country' in params:
             query_params['source.scopes.country[]'] = params['source_scopes_country']
+            collection_formats['source.scopes.country[]'] = 'multi'
         if 'source_scopes_state' in params:
             query_params['source.scopes.state[]'] = params['source_scopes_state']
+            collection_formats['source.scopes.state[]'] = 'multi'
         if 'source_scopes_city' in params:
             query_params['source.scopes.city[]'] = params['source_scopes_city']
+            collection_formats['source.scopes.city[]'] = 'multi'
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+            collection_formats['source.scopes.level[]'] = 'multi'
         if 'source_links_in_count_min' in params:
             query_params['source.links_in_count.min'] = params['source_links_in_count_min']
         if 'source_links_in_count_max' in params:
@@ -1632,6 +1767,7 @@ class DefaultApi(object):
             query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
+            collection_formats['source.rankings.alexa.country[]'] = 'multi'
         if 'published_at_start' in params:
             query_params['published_at.start'] = params['published_at_start']
         if 'published_at_end' in params:
@@ -1669,7 +1805,8 @@ class DefaultApi(object):
                                             response_type='TimeSeriesList',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)
 
     def list_trends(self, **kwargs):
         """
@@ -1813,28 +1950,32 @@ class DefaultApi(object):
             params[key] = val
         del params['kwargs']
 
-        if 'media_images_count_min' in params and params['media_images_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'media_images_count_max' in params and params['media_images_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_min' in params and params['media_videos_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'media_videos_count_max' in params and params['media_videos_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_trends`, must be a value greater than or equal to `0.0`")
-        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] < 0.0:
-            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_trends`, must be a value greater than or equal to `0.0`")
+        if 'media_images_count_min' in params and params['media_images_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_videos_count_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'source_links_in_count_min' in params and params['source_links_in_count_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'source_links_in_count_max' in params and params['source_links_in_count_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_min' in params and params['source_rankings_alexa_rank_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_trends`, must be a value greater than `0.0`")
+
+        collection_formats = {}
+
         resource_path = '/trends'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
         if 'id' in params:
             query_params['id[]'] = params['id']
+            collection_formats['id[]'] = 'multi'
         if 'title' in params:
             query_params['title'] = params['title']
         if 'body' in params:
@@ -1843,6 +1984,7 @@ class DefaultApi(object):
             query_params['text'] = params['text']
         if 'language' in params:
             query_params['language[]'] = params['language']
+            collection_formats['language[]'] = 'multi'
         if 'published_at_start' in params:
             query_params['published_at.start'] = params['published_at_start']
         if 'published_at_end' in params:
@@ -1853,20 +1995,28 @@ class DefaultApi(object):
             query_params['categories.confident'] = params['categories_confident']
         if 'categories_id' in params:
             query_params['categories.id[]'] = params['categories_id']
+            collection_formats['categories.id[]'] = 'multi'
         if 'categories_level' in params:
             query_params['categories.level[]'] = params['categories_level']
+            collection_formats['categories.level[]'] = 'multi'
         if 'entities_title_text' in params:
             query_params['entities.title.text[]'] = params['entities_title_text']
+            collection_formats['entities.title.text[]'] = 'multi'
         if 'entities_title_type' in params:
             query_params['entities.title.type[]'] = params['entities_title_type']
+            collection_formats['entities.title.type[]'] = 'multi'
         if 'entities_title_links_dbpedia' in params:
             query_params['entities.title.links.dbpedia[]'] = params['entities_title_links_dbpedia']
+            collection_formats['entities.title.links.dbpedia[]'] = 'multi'
         if 'entities_body_text' in params:
             query_params['entities.body.text[]'] = params['entities_body_text']
+            collection_formats['entities.body.text[]'] = 'multi'
         if 'entities_body_type' in params:
             query_params['entities.body.type[]'] = params['entities_body_type']
+            collection_formats['entities.body.type[]'] = 'multi'
         if 'entities_body_links_dbpedia' in params:
             query_params['entities.body.links.dbpedia[]'] = params['entities_body_links_dbpedia']
+            collection_formats['entities.body.links.dbpedia[]'] = 'multi'
         if 'sentiment_title_polarity' in params:
             query_params['sentiment.title.polarity'] = params['sentiment_title_polarity']
         if 'sentiment_body_polarity' in params:
@@ -1881,28 +2031,39 @@ class DefaultApi(object):
             query_params['media.videos.count.max'] = params['media_videos_count_max']
         if 'author_id' in params:
             query_params['author.id[]'] = params['author_id']
+            collection_formats['author.id[]'] = 'multi'
         if 'author_name' in params:
             query_params['author.name'] = params['author_name']
         if 'source_id' in params:
             query_params['source.id[]'] = params['source_id']
+            collection_formats['source.id[]'] = 'multi'
         if 'source_name' in params:
             query_params['source.name[]'] = params['source_name']
+            collection_formats['source.name[]'] = 'multi'
         if 'source_domain' in params:
             query_params['source.domain[]'] = params['source_domain']
+            collection_formats['source.domain[]'] = 'multi'
         if 'source_locations_country' in params:
             query_params['source.locations.country[]'] = params['source_locations_country']
+            collection_formats['source.locations.country[]'] = 'multi'
         if 'source_locations_state' in params:
             query_params['source.locations.state[]'] = params['source_locations_state']
+            collection_formats['source.locations.state[]'] = 'multi'
         if 'source_locations_city' in params:
             query_params['source.locations.city[]'] = params['source_locations_city']
+            collection_formats['source.locations.city[]'] = 'multi'
         if 'source_scopes_country' in params:
             query_params['source.scopes.country[]'] = params['source_scopes_country']
+            collection_formats['source.scopes.country[]'] = 'multi'
         if 'source_scopes_state' in params:
             query_params['source.scopes.state[]'] = params['source_scopes_state']
+            collection_formats['source.scopes.state[]'] = 'multi'
         if 'source_scopes_city' in params:
             query_params['source.scopes.city[]'] = params['source_scopes_city']
+            collection_formats['source.scopes.city[]'] = 'multi'
         if 'source_scopes_level' in params:
             query_params['source.scopes.level[]'] = params['source_scopes_level']
+            collection_formats['source.scopes.level[]'] = 'multi'
         if 'source_links_in_count_min' in params:
             query_params['source.links_in_count.min'] = params['source_links_in_count_min']
         if 'source_links_in_count_max' in params:
@@ -1913,6 +2074,7 @@ class DefaultApi(object):
             query_params['source.rankings.alexa.rank.max'] = params['source_rankings_alexa_rank_max']
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
+            collection_formats['source.rankings.alexa.country[]'] = 'multi'
         if 'field' in params:
             query_params['field'] = params['field']
 
@@ -1946,4 +2108,5 @@ class DefaultApi(object):
                                             response_type='Trends',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
+                                            _return_http_data_only=params.get('_return_http_data_only'),
+                                            collection_formats=collection_formats)

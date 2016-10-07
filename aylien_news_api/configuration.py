@@ -15,19 +15,14 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import base64
-import urllib3
 
-try:
-    import httplib
-except ImportError:
-    # for python3
-    import http.client as httplib
+import urllib3
 
 import sys
 import logging
 
 from six import iteritems
+from six.moves import http_client as httplib
 from .version import __version__
 
 def singleton(cls, *args, **kw):
@@ -205,19 +200,19 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
-            'app_key':
-                {
-                    'type': 'api_key',
-                    'in': 'header',
-                    'key': 'X-AYLIEN-NewsAPI-Application-Key',
-                    'value': self.get_api_key_with_prefix('X-AYLIEN-NewsAPI-Application-Key')
-                },
             'app_id':
                 {
                     'type': 'api_key',
                     'in': 'header',
                     'key': 'X-AYLIEN-NewsAPI-Application-ID',
                     'value': self.get_api_key_with_prefix('X-AYLIEN-NewsAPI-Application-ID')
+                },
+            'app_key':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'X-AYLIEN-NewsAPI-Application-Key',
+                    'value': self.get_api_key_with_prefix('X-AYLIEN-NewsAPI-Application-Key')
                 },
 
         }

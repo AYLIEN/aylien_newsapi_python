@@ -27,8 +27,6 @@ exec(open('aylien_news_api/version.py').read())
 
 NAME = "aylien_news_api"
 VERSION = __version__
-HOMEPAGE = "https://github.com/AYLIEN/aylien_newsapi_python"
-
 
 # To install the library, run the following
 #
@@ -45,8 +43,8 @@ setup(
     description="AYLIEN News API Client Library for Python",
     author="AYLIEN Inc., Hamed Ramezanian Nik",
     author_email="support@aylien.com, hamed.r.nik@gmail.com",
-    url=HOMEPAGE,
-    download_url = HOMEPAGE + "/tarball/v" + VERSION,
+    url="https://newsapi.aylien.com/",
+    download_url = "https://github.com/AYLIEN/aylien_newsapi_python/tarball/v" + VERSION,
     keywords="aylien news api client",
     install_requires=REQUIRES,
     packages=find_packages(),

@@ -22,17 +22,23 @@ This endpoint is used for getting list of autocompletes by providing a specific 
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 type = 'type_example' # str | This parameter is used for defining the type of autocompletes.
 term = 'term_example' # str | This parameter is used for finding autocomplete objects that contain the specified value.
 language = 'en' # str | This parameter is used for autocompletes whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. (optional) (default to en)
@@ -41,7 +47,7 @@ per_page = 3 # int | This parameter is used for specifying number of items in ea
 try: 
     # List autocompletes
     api_response = api_instance.list_autocompletes(type, term, language=language, per_page=per_page)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_autocompletes: %s\n" % e)
 ```
@@ -79,17 +85,23 @@ This endpoint is used for finding story coverages based on the parameters provid
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 id = [56] # list[int] | This parameter is used for finding stroies by story id. (optional)
 title = 'title_example' # str | This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
 body = 'body_example' # str | This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
@@ -144,7 +156,7 @@ per_page = 3 # int | This parameter is used for specifying number of items in ea
 try: 
     # List coverages
     api_response = api_instance.list_coverages(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, media_images_count_min=media_images_count_min, media_images_count_max=media_images_count_max, media_videos_count_min=media_videos_count_min, media_videos_count_max=media_videos_count_max, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, source_links_in_count_min=source_links_in_count_min, source_links_in_count_max=source_links_in_count_max, source_rankings_alexa_rank_min=source_rankings_alexa_rank_min, source_rankings_alexa_rank_max=source_rankings_alexa_rank_max, source_rankings_alexa_country=source_rankings_alexa_country, cluster=cluster, cluster_algorithm=cluster_algorithm, _return=_return, story_id=story_id, story_url=story_url, story_title=story_title, story_body=story_body, story_published_at=story_published_at, story_language=story_language, per_page=per_page)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_coverages: %s\n" % e)
 ```
@@ -228,17 +240,23 @@ This endpoint is used for getting histograms based on the `field` parameter pass
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 id = [56] # list[int] | This parameter is used for finding stroies by story id. (optional)
 title = 'title_example' # str | This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
 body = 'body_example' # str | This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
@@ -287,7 +305,7 @@ field = 'social_shares_count' # str | This parameter is used for specifying the 
 try: 
     # List histograms
     api_response = api_instance.list_histograms(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, media_images_count_min=media_images_count_min, media_images_count_max=media_images_count_max, media_videos_count_min=media_videos_count_min, media_videos_count_max=media_videos_count_max, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, source_links_in_count_min=source_links_in_count_min, source_links_in_count_max=source_links_in_count_max, source_rankings_alexa_rank_min=source_rankings_alexa_rank_min, source_rankings_alexa_rank_max=source_rankings_alexa_rank_max, source_rankings_alexa_country=source_rankings_alexa_country, interval_start=interval_start, interval_end=interval_end, interval_width=interval_width, field=field)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_histograms: %s\n" % e)
 ```
@@ -365,17 +383,23 @@ This endpoint is used for finding related stories based on the parameters provid
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 id = [56] # list[int] | This parameter is used for finding stroies by story id. (optional)
 title = 'title_example' # str | This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
 body = 'body_example' # str | This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
@@ -430,7 +454,7 @@ per_page = 3 # int | This parameter is used for specifying number of items in ea
 try: 
     # List related stories
     api_response = api_instance.list_related_stories(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, media_images_count_min=media_images_count_min, media_images_count_max=media_images_count_max, media_videos_count_min=media_videos_count_min, media_videos_count_max=media_videos_count_max, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, source_links_in_count_min=source_links_in_count_min, source_links_in_count_max=source_links_in_count_max, source_rankings_alexa_rank_min=source_rankings_alexa_rank_min, source_rankings_alexa_rank_max=source_rankings_alexa_rank_max, source_rankings_alexa_country=source_rankings_alexa_country, cluster=cluster, cluster_algorithm=cluster_algorithm, _return=_return, story_id=story_id, story_url=story_url, story_title=story_title, story_body=story_body, boost_by=boost_by, story_language=story_language, per_page=per_page)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_related_stories: %s\n" % e)
 ```
@@ -514,17 +538,23 @@ This endpoint is used for getting a list of stories.
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 id = [56] # list[int] | This parameter is used for finding stroies by story id. (optional)
 title = 'title_example' # str | This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
 body = 'body_example' # str | This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
@@ -576,7 +606,7 @@ per_page = 10 # int | This parameter is used for specifying number of items in e
 try: 
     # List Stories
     api_response = api_instance.list_stories(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, media_images_count_min=media_images_count_min, media_images_count_max=media_images_count_max, media_videos_count_min=media_videos_count_min, media_videos_count_max=media_videos_count_max, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, source_links_in_count_min=source_links_in_count_min, source_links_in_count_max=source_links_in_count_max, source_rankings_alexa_rank_min=source_rankings_alexa_rank_min, source_rankings_alexa_rank_max=source_rankings_alexa_rank_max, source_rankings_alexa_country=source_rankings_alexa_country, cluster=cluster, cluster_algorithm=cluster_algorithm, _return=_return, sort_by=sort_by, sort_direction=sort_direction, cursor=cursor, per_page=per_page)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_stories: %s\n" % e)
 ```
@@ -657,17 +687,23 @@ This endpoint is used for getting time series by stories.
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 id = [56] # list[int] | This parameter is used for finding stroies by story id. (optional)
 title = 'title_example' # str | This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
 body = 'body_example' # str | This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
@@ -713,7 +749,7 @@ period = '+1DAY' # str | The size of each date range is expressed as an interval
 try: 
     # List time series
     api_response = api_instance.list_time_series(id=id, title=title, body=body, text=text, language=language, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, media_images_count_min=media_images_count_min, media_images_count_max=media_images_count_max, media_videos_count_min=media_videos_count_min, media_videos_count_max=media_videos_count_max, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, source_links_in_count_min=source_links_in_count_min, source_links_in_count_max=source_links_in_count_max, source_rankings_alexa_rank_min=source_rankings_alexa_rank_min, source_rankings_alexa_rank_max=source_rankings_alexa_rank_max, source_rankings_alexa_country=source_rankings_alexa_country, published_at_start=published_at_start, published_at_end=published_at_end, period=period)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_time_series: %s\n" % e)
 ```
@@ -788,17 +824,23 @@ This endpoint is used for finding trends based on stories.
 
 ### Example 
 ```python
+from __future__ import print_statement
+import time
 import aylien_news_api
 from aylien_news_api.rest import ApiException
+from pprint import pprint
 
-# Configure API key authorization: app_id
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
 # Configure API key authorization: app_key
-aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
+# Configure API key authorization: app_id
+aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# aylien_news_api.configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = aylien_news_api.DefaultApi()
-
 id = [56] # list[int] | This parameter is used for finding stroies by story id. (optional)
 title = 'title_example' # str | This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
 body = 'body_example' # str | This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). (optional)
@@ -844,7 +886,7 @@ field = 'field_example' # str | This parameter is used to specify the trend fiel
 try: 
     # List trends
     api_response = api_instance.list_trends(id=id, title=title, body=body, text=text, language=language, published_at_start=published_at_start, published_at_end=published_at_end, categories_taxonomy=categories_taxonomy, categories_confident=categories_confident, categories_id=categories_id, categories_level=categories_level, entities_title_text=entities_title_text, entities_title_type=entities_title_type, entities_title_links_dbpedia=entities_title_links_dbpedia, entities_body_text=entities_body_text, entities_body_type=entities_body_type, entities_body_links_dbpedia=entities_body_links_dbpedia, sentiment_title_polarity=sentiment_title_polarity, sentiment_body_polarity=sentiment_body_polarity, media_images_count_min=media_images_count_min, media_images_count_max=media_images_count_max, media_videos_count_min=media_videos_count_min, media_videos_count_max=media_videos_count_max, author_id=author_id, author_name=author_name, source_id=source_id, source_name=source_name, source_domain=source_domain, source_locations_country=source_locations_country, source_locations_state=source_locations_state, source_locations_city=source_locations_city, source_scopes_country=source_scopes_country, source_scopes_state=source_scopes_state, source_scopes_city=source_scopes_city, source_scopes_level=source_scopes_level, source_links_in_count_min=source_links_in_count_min, source_links_in_count_max=source_links_in_count_max, source_rankings_alexa_rank_min=source_rankings_alexa_rank_min, source_rankings_alexa_rank_max=source_rankings_alexa_rank_max, source_rankings_alexa_country=source_rankings_alexa_country, field=field)
-    print(api_response)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_trends: %s\n" % e)
 ```
