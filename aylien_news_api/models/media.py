@@ -20,7 +20,7 @@ import re
 
 
 class Media(object):
-    def __init__(self, type=None, url=None):
+    def __init__(self, type=None, url=None, format=None, content_length=None, width=None, height=None):
         """
         Media - a model defined in News API
 
@@ -31,16 +31,28 @@ class Media(object):
         """
         self.api_types = {
             'type': 'str',
-            'url': 'str'
+            'url': 'str',
+            'format': 'str',
+            'content_length': 'int',
+            'width': 'int',
+            'height': 'int'
         }
 
         self.attribute_map = {
             'type': 'type',
-            'url': 'url'
+            'url': 'url',
+            'format': 'format',
+            'content_length': 'content_length',
+            'width': 'width',
+            'height': 'height'
         }
 
         self._type = type
         self._url = url
+        self._format = format
+        self._content_length = content_length
+        self._width = width
+        self._height = height
 
 
     @property
@@ -94,6 +106,104 @@ class Media(object):
         """
 
         self._url = url
+
+    @property
+    def format(self):
+        """
+        Gets the format of this Media.
+        The format of media
+
+        :return: The format of this Media.
+        :rtype: str
+        """
+        return self._format
+
+    @format.setter
+    def format(self, format):
+        """
+        Sets the format of this Media.
+        The format of media
+
+        :param format: The format of this Media.
+        :type: str
+        """
+        allowed_values = ["BMP", "GIF", "JPEG", "PNG", "TIFF", "PSD", "ICO", "CUR", "WEBP", "SVG"]
+        if format not in allowed_values:
+            raise ValueError(
+                "Invalid value for `format` ({0}), must be one of {1}"
+                .format(format, allowed_values)
+            )
+
+        self._format = format
+
+    @property
+    def content_length(self):
+        """
+        Gets the content_length of this Media.
+        The content length of media
+
+        :return: The content_length of this Media.
+        :rtype: int
+        """
+        return self._content_length
+
+    @content_length.setter
+    def content_length(self, content_length):
+        """
+        Sets the content_length of this Media.
+        The content length of media
+
+        :param content_length: The content_length of this Media.
+        :type: int
+        """
+
+        self._content_length = content_length
+
+    @property
+    def width(self):
+        """
+        Gets the width of this Media.
+        The width of media
+
+        :return: The width of this Media.
+        :rtype: int
+        """
+        return self._width
+
+    @width.setter
+    def width(self, width):
+        """
+        Sets the width of this Media.
+        The width of media
+
+        :param width: The width of this Media.
+        :type: int
+        """
+
+        self._width = width
+
+    @property
+    def height(self):
+        """
+        Gets the height of this Media.
+        The height of media
+
+        :return: The height of this Media.
+        :rtype: int
+        """
+        return self._height
+
+    @height.setter
+    def height(self, height):
+        """
+        Sets the height of this Media.
+        The height of media
+
+        :param height: The height of this Media.
+        :type: int
+        """
+
+        self._height = height
 
     def to_dict(self):
         """

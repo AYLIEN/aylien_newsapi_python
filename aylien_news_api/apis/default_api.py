@@ -146,7 +146,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 
@@ -185,27 +185,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -220,13 +227,21 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
+        :param bool cluster: This parameter enables clustering for the returned stories. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
         :param list[str] _return: This parameter is used for specifying return fields.
         :param int story_id: A story id
         :param str story_url: An article or webpage
@@ -261,27 +276,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -296,13 +318,21 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
+        :param bool cluster: This parameter enables clustering for the returned stories. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
         :param list[str] _return: This parameter is used for specifying return fields.
         :param int story_id: A story id
         :param str story_url: An article or webpage
@@ -316,7 +346,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -334,6 +364,18 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_coverages`, must be a value greater than `0.0`")
         if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_width_min' in params and params['media_images_width_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_width_max' in params and params['media_images_width_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_height_min' in params and params['media_images_height_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_height_max' in params and params['media_images_height_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_content_length_min' in params and params['media_images_content_length_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'media_images_content_length_max' in params and params['media_images_content_length_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_coverages`, must be a value greater than `0.0`")
         if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_coverages`, must be a value greater than `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
@@ -346,6 +388,22 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_coverages`, must be a value greater than `0.0`")
         if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_min' in params and params['social_shares_count_facebook_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_max' in params and params['social_shares_count_facebook_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_min' in params and params['social_shares_count_google_plus_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_max' in params and params['social_shares_count_google_plus_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_min' in params and params['social_shares_count_linkedin_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_max' in params and params['social_shares_count_linkedin_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_min' in params and params['social_shares_count_reddit_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_coverages`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_max' in params and params['social_shares_count_reddit_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_coverages`, must be a value greater than `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
@@ -414,6 +472,21 @@ class DefaultApi(object):
             form_params.append(('media.images.count.min', params['media_images_count_min']))
         if 'media_images_count_max' in params:
             form_params.append(('media.images.count.max', params['media_images_count_max']))
+        if 'media_images_width_min' in params:
+            form_params.append(('media.images.width.min', params['media_images_width_min']))
+        if 'media_images_width_max' in params:
+            form_params.append(('media.images.width.max', params['media_images_width_max']))
+        if 'media_images_height_min' in params:
+            form_params.append(('media.images.height.min', params['media_images_height_min']))
+        if 'media_images_height_max' in params:
+            form_params.append(('media.images.height.max', params['media_images_height_max']))
+        if 'media_images_content_length_min' in params:
+            form_params.append(('media.images.content_length.min', params['media_images_content_length_min']))
+        if 'media_images_content_length_max' in params:
+            form_params.append(('media.images.content_length.max', params['media_images_content_length_max']))
+        if 'media_images_format' in params:
+            form_params.append(('media.images.format[]', params['media_images_format']))
+            collection_formats['media.images.format[]'] = 'multi'
         if 'media_videos_count_min' in params:
             form_params.append(('media.videos.count.min', params['media_videos_count_min']))
         if 'media_videos_count_max' in params:
@@ -464,6 +537,22 @@ class DefaultApi(object):
         if 'source_rankings_alexa_country' in params:
             form_params.append(('source.rankings.alexa.country[]', params['source_rankings_alexa_country']))
             collection_formats['source.rankings.alexa.country[]'] = 'multi'
+        if 'social_shares_count_facebook_min' in params:
+            form_params.append(('social_shares_count.facebook.min', params['social_shares_count_facebook_min']))
+        if 'social_shares_count_facebook_max' in params:
+            form_params.append(('social_shares_count.facebook.max', params['social_shares_count_facebook_max']))
+        if 'social_shares_count_google_plus_min' in params:
+            form_params.append(('social_shares_count.google_plus.min', params['social_shares_count_google_plus_min']))
+        if 'social_shares_count_google_plus_max' in params:
+            form_params.append(('social_shares_count.google_plus.max', params['social_shares_count_google_plus_max']))
+        if 'social_shares_count_linkedin_min' in params:
+            form_params.append(('social_shares_count.linkedin.min', params['social_shares_count_linkedin_min']))
+        if 'social_shares_count_linkedin_max' in params:
+            form_params.append(('social_shares_count.linkedin.max', params['social_shares_count_linkedin_max']))
+        if 'social_shares_count_reddit_min' in params:
+            form_params.append(('social_shares_count.reddit.min', params['social_shares_count_reddit_min']))
+        if 'social_shares_count_reddit_max' in params:
+            form_params.append(('social_shares_count.reddit.max', params['social_shares_count_reddit_max']))
         if 'cluster' in params:
             form_params.append(('cluster', params['cluster']))
         if 'cluster_algorithm' in params:
@@ -490,7 +579,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 
@@ -529,27 +618,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -564,11 +660,19 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
         :param int interval_start: This parameter is used for setting the start data point of histogram intervals.
         :param int interval_end: This parameter is used for setting the end data point of histogram intervals.
         :param int interval_width: This parameter is used for setting the width of histogram intervals.
@@ -599,27 +703,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -634,11 +745,19 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
         :param int interval_start: This parameter is used for setting the start data point of histogram intervals.
         :param int interval_end: This parameter is used for setting the end data point of histogram intervals.
         :param int interval_width: This parameter is used for setting the width of histogram intervals.
@@ -648,7 +767,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'interval_start', 'interval_end', 'interval_width', 'field']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'interval_start', 'interval_end', 'interval_width', 'field']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -666,6 +785,18 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_histograms`, must be a value greater than `0.0`")
         if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_width_min' in params and params['media_images_width_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_width_max' in params and params['media_images_width_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_height_min' in params and params['media_images_height_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_height_max' in params and params['media_images_height_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_content_length_min' in params and params['media_images_content_length_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'media_images_content_length_max' in params and params['media_images_content_length_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_histograms`, must be a value greater than `0.0`")
         if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_histograms`, must be a value greater than `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
@@ -678,6 +809,22 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_histograms`, must be a value greater than `0.0`")
         if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_min' in params and params['social_shares_count_facebook_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_max' in params and params['social_shares_count_facebook_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_min' in params and params['social_shares_count_google_plus_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_max' in params and params['social_shares_count_google_plus_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_min' in params and params['social_shares_count_linkedin_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_max' in params and params['social_shares_count_linkedin_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_min' in params and params['social_shares_count_reddit_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_histograms`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_max' in params and params['social_shares_count_reddit_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_histograms`, must be a value greater than `0.0`")
 
         collection_formats = {}
 
@@ -737,6 +884,21 @@ class DefaultApi(object):
             query_params['media.images.count.min'] = params['media_images_count_min']
         if 'media_images_count_max' in params:
             query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_images_width_min' in params:
+            query_params['media.images.width.min'] = params['media_images_width_min']
+        if 'media_images_width_max' in params:
+            query_params['media.images.width.max'] = params['media_images_width_max']
+        if 'media_images_height_min' in params:
+            query_params['media.images.height.min'] = params['media_images_height_min']
+        if 'media_images_height_max' in params:
+            query_params['media.images.height.max'] = params['media_images_height_max']
+        if 'media_images_content_length_min' in params:
+            query_params['media.images.content_length.min'] = params['media_images_content_length_min']
+        if 'media_images_content_length_max' in params:
+            query_params['media.images.content_length.max'] = params['media_images_content_length_max']
+        if 'media_images_format' in params:
+            query_params['media.images.format[]'] = params['media_images_format']
+            collection_formats['media.images.format[]'] = 'multi'
         if 'media_videos_count_min' in params:
             query_params['media.videos.count.min'] = params['media_videos_count_min']
         if 'media_videos_count_max' in params:
@@ -787,6 +949,22 @@ class DefaultApi(object):
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
             collection_formats['source.rankings.alexa.country[]'] = 'multi'
+        if 'social_shares_count_facebook_min' in params:
+            query_params['social_shares_count.facebook.min'] = params['social_shares_count_facebook_min']
+        if 'social_shares_count_facebook_max' in params:
+            query_params['social_shares_count.facebook.max'] = params['social_shares_count_facebook_max']
+        if 'social_shares_count_google_plus_min' in params:
+            query_params['social_shares_count.google_plus.min'] = params['social_shares_count_google_plus_min']
+        if 'social_shares_count_google_plus_max' in params:
+            query_params['social_shares_count.google_plus.max'] = params['social_shares_count_google_plus_max']
+        if 'social_shares_count_linkedin_min' in params:
+            query_params['social_shares_count.linkedin.min'] = params['social_shares_count_linkedin_min']
+        if 'social_shares_count_linkedin_max' in params:
+            query_params['social_shares_count.linkedin.max'] = params['social_shares_count_linkedin_max']
+        if 'social_shares_count_reddit_min' in params:
+            query_params['social_shares_count.reddit.min'] = params['social_shares_count_reddit_min']
+        if 'social_shares_count_reddit_max' in params:
+            query_params['social_shares_count.reddit.max'] = params['social_shares_count_reddit_max']
         if 'interval_start' in params:
             query_params['interval.start'] = params['interval_start']
         if 'interval_end' in params:
@@ -805,7 +983,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 
@@ -844,27 +1022,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -879,13 +1064,21 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
+        :param bool cluster: This parameter enables clustering for the returned stories. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
         :param list[str] _return: This parameter is used for specifying return fields.
         :param int story_id: A story id
         :param str story_url: An article or webpage
@@ -920,27 +1113,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -955,13 +1155,21 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes  is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
+        :param bool cluster: This parameter enables clustering for the returned stories. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
         :param list[str] _return: This parameter is used for specifying return fields.
         :param int story_id: A story id
         :param str story_url: An article or webpage
@@ -975,7 +1183,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'cluster', 'cluster_algorithm', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -993,6 +1201,18 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_related_stories`, must be a value greater than `0.0`")
         if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_width_min' in params and params['media_images_width_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_width_max' in params and params['media_images_width_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_height_min' in params and params['media_images_height_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_height_max' in params and params['media_images_height_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_content_length_min' in params and params['media_images_content_length_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'media_images_content_length_max' in params and params['media_images_content_length_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_related_stories`, must be a value greater than `0.0`")
         if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_related_stories`, must be a value greater than `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
@@ -1005,6 +1225,22 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_related_stories`, must be a value greater than `0.0`")
         if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_min' in params and params['social_shares_count_facebook_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_max' in params and params['social_shares_count_facebook_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_min' in params and params['social_shares_count_google_plus_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_max' in params and params['social_shares_count_google_plus_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_min' in params and params['social_shares_count_linkedin_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_max' in params and params['social_shares_count_linkedin_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_min' in params and params['social_shares_count_reddit_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_related_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_max' in params and params['social_shares_count_reddit_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_related_stories`, must be a value greater than `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
@@ -1073,6 +1309,21 @@ class DefaultApi(object):
             form_params.append(('media.images.count.min', params['media_images_count_min']))
         if 'media_images_count_max' in params:
             form_params.append(('media.images.count.max', params['media_images_count_max']))
+        if 'media_images_width_min' in params:
+            form_params.append(('media.images.width.min', params['media_images_width_min']))
+        if 'media_images_width_max' in params:
+            form_params.append(('media.images.width.max', params['media_images_width_max']))
+        if 'media_images_height_min' in params:
+            form_params.append(('media.images.height.min', params['media_images_height_min']))
+        if 'media_images_height_max' in params:
+            form_params.append(('media.images.height.max', params['media_images_height_max']))
+        if 'media_images_content_length_min' in params:
+            form_params.append(('media.images.content_length.min', params['media_images_content_length_min']))
+        if 'media_images_content_length_max' in params:
+            form_params.append(('media.images.content_length.max', params['media_images_content_length_max']))
+        if 'media_images_format' in params:
+            form_params.append(('media.images.format[]', params['media_images_format']))
+            collection_formats['media.images.format[]'] = 'multi'
         if 'media_videos_count_min' in params:
             form_params.append(('media.videos.count.min', params['media_videos_count_min']))
         if 'media_videos_count_max' in params:
@@ -1123,6 +1374,22 @@ class DefaultApi(object):
         if 'source_rankings_alexa_country' in params:
             form_params.append(('source.rankings.alexa.country[]', params['source_rankings_alexa_country']))
             collection_formats['source.rankings.alexa.country[]'] = 'multi'
+        if 'social_shares_count_facebook_min' in params:
+            form_params.append(('social_shares_count.facebook.min', params['social_shares_count_facebook_min']))
+        if 'social_shares_count_facebook_max' in params:
+            form_params.append(('social_shares_count.facebook.max', params['social_shares_count_facebook_max']))
+        if 'social_shares_count_google_plus_min' in params:
+            form_params.append(('social_shares_count.google_plus.min', params['social_shares_count_google_plus_min']))
+        if 'social_shares_count_google_plus_max' in params:
+            form_params.append(('social_shares_count.google_plus.max', params['social_shares_count_google_plus_max']))
+        if 'social_shares_count_linkedin_min' in params:
+            form_params.append(('social_shares_count.linkedin.min', params['social_shares_count_linkedin_min']))
+        if 'social_shares_count_linkedin_max' in params:
+            form_params.append(('social_shares_count.linkedin.max', params['social_shares_count_linkedin_max']))
+        if 'social_shares_count_reddit_min' in params:
+            form_params.append(('social_shares_count.reddit.min', params['social_shares_count_reddit_min']))
+        if 'social_shares_count_reddit_max' in params:
+            form_params.append(('social_shares_count.reddit.max', params['social_shares_count_reddit_max']))
         if 'cluster' in params:
             form_params.append(('cluster', params['cluster']))
         if 'cluster_algorithm' in params:
@@ -1149,7 +1416,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 
@@ -1188,27 +1455,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -1223,18 +1497,26 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
+        :param bool cluster: This parameter enables clustering for the returned stories. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
         :param list[str] _return: This parameter is used for specifying return fields.
         :param str sort_by: This parameter is used for changing the order column of the results.
         :param str sort_direction: This parameter is used for changing the order direction of the result.
-        :param str cursor: This parameter is used for finding a specific page.
-        :param int per_page: This parameter is used for specifying number of items in each page.
+        :param str cursor: This parameter is used for finding a specific page. You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results).
+        :param int per_page: This parameter is used for specifying number of items in each page You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results)
         :return: Stories
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1261,27 +1543,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -1296,24 +1585,32 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param bool cluster: This parameter enables clustering for the returned stories.
-        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
+        :param bool cluster: This parameter enables clustering for the returned stories. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        :param str cluster_algorithm: This parameter is used for specifying the clustering algorithm you wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms. You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering).
         :param list[str] _return: This parameter is used for specifying return fields.
         :param str sort_by: This parameter is used for changing the order column of the results.
         :param str sort_direction: This parameter is used for changing the order direction of the result.
-        :param str cursor: This parameter is used for finding a specific page.
-        :param int per_page: This parameter is used for specifying number of items in each page.
+        :param str cursor: This parameter is used for finding a specific page. You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results).
+        :param int per_page: This parameter is used for specifying number of items in each page You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results)
         :return: Stories
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'cluster', 'cluster_algorithm', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'cluster', 'cluster_algorithm', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1331,6 +1628,18 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_stories`, must be a value greater than `0.0`")
         if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_width_min' in params and params['media_images_width_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_width_max' in params and params['media_images_width_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_height_min' in params and params['media_images_height_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_height_max' in params and params['media_images_height_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_content_length_min' in params and params['media_images_content_length_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'media_images_content_length_max' in params and params['media_images_content_length_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_stories`, must be a value greater than `0.0`")
         if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_stories`, must be a value greater than `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
@@ -1343,6 +1652,22 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_stories`, must be a value greater than `0.0`")
         if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_min' in params and params['social_shares_count_facebook_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_max' in params and params['social_shares_count_facebook_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_min' in params and params['social_shares_count_google_plus_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_max' in params and params['social_shares_count_google_plus_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_min' in params and params['social_shares_count_linkedin_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_max' in params and params['social_shares_count_linkedin_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_min' in params and params['social_shares_count_reddit_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_stories`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_max' in params and params['social_shares_count_reddit_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_stories`, must be a value greater than `0.0`")
         if 'per_page' in params and params['per_page'] > 100.0:
             raise ValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value less than or equal to `100.0`")
         if 'per_page' in params and params['per_page'] < 1.0:
@@ -1406,6 +1731,21 @@ class DefaultApi(object):
             query_params['media.images.count.min'] = params['media_images_count_min']
         if 'media_images_count_max' in params:
             query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_images_width_min' in params:
+            query_params['media.images.width.min'] = params['media_images_width_min']
+        if 'media_images_width_max' in params:
+            query_params['media.images.width.max'] = params['media_images_width_max']
+        if 'media_images_height_min' in params:
+            query_params['media.images.height.min'] = params['media_images_height_min']
+        if 'media_images_height_max' in params:
+            query_params['media.images.height.max'] = params['media_images_height_max']
+        if 'media_images_content_length_min' in params:
+            query_params['media.images.content_length.min'] = params['media_images_content_length_min']
+        if 'media_images_content_length_max' in params:
+            query_params['media.images.content_length.max'] = params['media_images_content_length_max']
+        if 'media_images_format' in params:
+            query_params['media.images.format[]'] = params['media_images_format']
+            collection_formats['media.images.format[]'] = 'multi'
         if 'media_videos_count_min' in params:
             query_params['media.videos.count.min'] = params['media_videos_count_min']
         if 'media_videos_count_max' in params:
@@ -1456,6 +1796,22 @@ class DefaultApi(object):
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
             collection_formats['source.rankings.alexa.country[]'] = 'multi'
+        if 'social_shares_count_facebook_min' in params:
+            query_params['social_shares_count.facebook.min'] = params['social_shares_count_facebook_min']
+        if 'social_shares_count_facebook_max' in params:
+            query_params['social_shares_count.facebook.max'] = params['social_shares_count_facebook_max']
+        if 'social_shares_count_google_plus_min' in params:
+            query_params['social_shares_count.google_plus.min'] = params['social_shares_count_google_plus_min']
+        if 'social_shares_count_google_plus_max' in params:
+            query_params['social_shares_count.google_plus.max'] = params['social_shares_count_google_plus_max']
+        if 'social_shares_count_linkedin_min' in params:
+            query_params['social_shares_count.linkedin.min'] = params['social_shares_count_linkedin_min']
+        if 'social_shares_count_linkedin_max' in params:
+            query_params['social_shares_count.linkedin.max'] = params['social_shares_count_linkedin_max']
+        if 'social_shares_count_reddit_min' in params:
+            query_params['social_shares_count.reddit.min'] = params['social_shares_count_reddit_min']
+        if 'social_shares_count_reddit_max' in params:
+            query_params['social_shares_count.reddit.max'] = params['social_shares_count_reddit_max']
         if 'cluster' in params:
             query_params['cluster'] = params['cluster']
         if 'cluster_algorithm' in params:
@@ -1481,7 +1837,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 
@@ -1520,25 +1876,32 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -1553,11 +1916,19 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
         :param str published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str period: The size of each date range is expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
@@ -1587,25 +1958,32 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -1620,11 +1998,19 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
         :param str published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str period: The size of each date range is expressed as an interval to be added to the lower bound. It supports Date Math Syntax. Valid options are `+` following an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
@@ -1633,7 +2019,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'published_at_start', 'published_at_end', 'period']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'published_at_start', 'published_at_end', 'period']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1651,6 +2037,18 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_time_series`, must be a value greater than `0.0`")
         if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_width_min' in params and params['media_images_width_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_width_max' in params and params['media_images_width_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_height_min' in params and params['media_images_height_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_height_max' in params and params['media_images_height_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_content_length_min' in params and params['media_images_content_length_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'media_images_content_length_max' in params and params['media_images_content_length_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_time_series`, must be a value greater than `0.0`")
         if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_time_series`, must be a value greater than `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
@@ -1663,6 +2061,22 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_time_series`, must be a value greater than `0.0`")
         if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_min' in params and params['social_shares_count_facebook_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_max' in params and params['social_shares_count_facebook_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_min' in params and params['social_shares_count_google_plus_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_max' in params and params['social_shares_count_google_plus_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_min' in params and params['social_shares_count_linkedin_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_max' in params and params['social_shares_count_linkedin_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_min' in params and params['social_shares_count_reddit_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_time_series`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_max' in params and params['social_shares_count_reddit_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_time_series`, must be a value greater than `0.0`")
 
         collection_formats = {}
 
@@ -1718,6 +2132,21 @@ class DefaultApi(object):
             query_params['media.images.count.min'] = params['media_images_count_min']
         if 'media_images_count_max' in params:
             query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_images_width_min' in params:
+            query_params['media.images.width.min'] = params['media_images_width_min']
+        if 'media_images_width_max' in params:
+            query_params['media.images.width.max'] = params['media_images_width_max']
+        if 'media_images_height_min' in params:
+            query_params['media.images.height.min'] = params['media_images_height_min']
+        if 'media_images_height_max' in params:
+            query_params['media.images.height.max'] = params['media_images_height_max']
+        if 'media_images_content_length_min' in params:
+            query_params['media.images.content_length.min'] = params['media_images_content_length_min']
+        if 'media_images_content_length_max' in params:
+            query_params['media.images.content_length.max'] = params['media_images_content_length_max']
+        if 'media_images_format' in params:
+            query_params['media.images.format[]'] = params['media_images_format']
+            collection_formats['media.images.format[]'] = 'multi'
         if 'media_videos_count_min' in params:
             query_params['media.videos.count.min'] = params['media_videos_count_min']
         if 'media_videos_count_max' in params:
@@ -1768,6 +2197,22 @@ class DefaultApi(object):
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
             collection_formats['source.rankings.alexa.country[]'] = 'multi'
+        if 'social_shares_count_facebook_min' in params:
+            query_params['social_shares_count.facebook.min'] = params['social_shares_count_facebook_min']
+        if 'social_shares_count_facebook_max' in params:
+            query_params['social_shares_count.facebook.max'] = params['social_shares_count_facebook_max']
+        if 'social_shares_count_google_plus_min' in params:
+            query_params['social_shares_count.google_plus.min'] = params['social_shares_count_google_plus_min']
+        if 'social_shares_count_google_plus_max' in params:
+            query_params['social_shares_count.google_plus.max'] = params['social_shares_count_google_plus_max']
+        if 'social_shares_count_linkedin_min' in params:
+            query_params['social_shares_count.linkedin.min'] = params['social_shares_count_linkedin_min']
+        if 'social_shares_count_linkedin_max' in params:
+            query_params['social_shares_count.linkedin.max'] = params['social_shares_count_linkedin_max']
+        if 'social_shares_count_reddit_min' in params:
+            query_params['social_shares_count.reddit.min'] = params['social_shares_count_reddit_min']
+        if 'social_shares_count_reddit_max' in params:
+            query_params['social_shares_count.reddit.max'] = params['social_shares_count_reddit_max']
         if 'published_at_start' in params:
             query_params['published_at.start'] = params['published_at_start']
         if 'published_at_end' in params:
@@ -1784,7 +2229,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 
@@ -1823,27 +2268,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -1858,11 +2310,19 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
         :param str field: This parameter is used to specify the trend field.
         :return: Trends
                  If the method is called asynchronously,
@@ -1890,27 +2350,34 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param list[int] id: This parameter is used for finding stroies by story id.
+        :param list[int] id: This parameter is used for finding stories by story id.
         :param str title: This parameter is used for finding stories whose title contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str body: This parameter is used for finding stories whose body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param str text: This parameter is used for finding stories whose title or body contains a specfic keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators).
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
-        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries.
-        :param bool categories_confident: This parameter is used for finding stories whose categories are confident.
-        :param list[str] categories_id: This parameter is used for finding stories by categories id.
-        :param list[int] categories_level: This parameter is used for finding stories by categories level.
-        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles.
-        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles.
-        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles.
-        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories.
-        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories.
-        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories.
+        :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param bool categories_confident: This parameter is used for finding stories whose categories are confident. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] categories_id: This parameter is used for finding stories by categories id. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[int] categories_level: This parameter is used for finding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories).
+        :param list[str] entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_type: This parameter is used to find stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_type: This parameter is used to find stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        :param list[str] entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities).
         :param str sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value.
         :param str sentiment_body_polarity: This parameter is used for finding stories whose body sentiment is the specified value.
         :param int media_images_count_min: This parameter is used for finding stories whose number of images is greater than or equal to the specified value.
         :param int media_images_count_max: This parameter is used for finding stories whose number of images is less than or equal to the specified value.
+        :param int media_images_width_min: This parameter is used for finding stories whose width of images are greater than or equal to the specified value.
+        :param int media_images_width_max: This parameter is used for finding stories whose width of images are less than or equal to the specified value.
+        :param int media_images_height_min: This parameter is used for finding stories whose height of images are greater than or equal to the specified value.
+        :param int media_images_height_max: This parameter is used for finding stories whose height of images are less than or equal to the specified value.
+        :param int media_images_content_length_min: This parameter is used for finding stories whose images content length are greater than or equal to the specified value.
+        :param int media_images_content_length_max: This parameter is used for finding stories whose images content length are less than or equal to the specified value.
+        :param list[str] media_images_format: This parameter is used for finding stories whose images format are the specified value.
         :param int media_videos_count_min: This parameter is used for finding stories whose number of videos is greater than or equal to the specified value.
         :param int media_videos_count_max: This parameter is used for finding stories whose number of videos is less than or equal to the specified value.
         :param list[int] author_id: This parameter is used for finding stories whose author id is the specified value.
@@ -1925,18 +2392,26 @@ class DefaultApi(object):
         :param list[str] source_scopes_state: This parameter is used for finding stories whose source scopes is the specified state/province value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_city: This parameter is used for finding stories whose source scopes is the specified city value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
         :param list[str] source_scopes_level: This parameter is used for finding stories whose source scopes is the specified level value. [Here](https://newsapi.aylien.com/docs/working-with-locations) you can find more information about how [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
-        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count here [https://newsapi.aylien.com/docs/working-with-links-in-count](https://newsapi.aylien.com/docs/working-with-links-in-count).
-        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
-        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks here [https://newsapi.aylien.com/docs/working-with-alexa-ranks](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_links_in_count_min: This parameter is used for finding stories from sources whose Links in count is greater than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_links_in_count_max: This parameter is used for finding stories from sources whose Links in count is less than or equal to the specified value. You can read more about working with Links in count [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        :param int source_rankings_alexa_rank_min: This parameter is used for finding stories from sources whose Alexa rank is greater than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int source_rankings_alexa_rank_max: This parameter is used for finding stories from sources whose Alexa rank is less than or equal to the specified value. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param list[str] source_rankings_alexa_country: This parameter is used for finding stories from sources whose Alexa rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. You can read more about working with Alexa ranks [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        :param int social_shares_count_facebook_min: This parameter is used for finding stories whose Facebook social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_facebook_max: This parameter is used for finding stories whose Facebook social shares count is less than or equal to the specified value.
+        :param int social_shares_count_google_plus_min: This parameter is used for finding stories whose Google+ social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_google_plus_max: This parameter is used for finding stories whose Google+ social shares count is less than or equal to the specified value.
+        :param int social_shares_count_linkedin_min: This parameter is used for finding stories whose LinkedIn social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_linkedin_max: This parameter is used for finding stories whose LinkedIn social shares count is less than or equal to the specified value.
+        :param int social_shares_count_reddit_min: This parameter is used for finding stories whose Reddit social shares count is greater than or equal to the specified value.
+        :param int social_shares_count_reddit_max: This parameter is used for finding stories whose Reddit social shares count is less than or equal to the specified value.
         :param str field: This parameter is used to specify the trend field.
         :return: Trends
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'field']
+        all_params = ['id', 'title', 'body', 'text', 'language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'categories_level', 'entities_title_text', 'entities_title_type', 'entities_title_links_dbpedia', 'entities_body_text', 'entities_body_type', 'entities_body_links_dbpedia', 'sentiment_title_polarity', 'sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'author_name', 'source_id', 'source_name', 'source_domain', 'source_locations_country', 'source_locations_state', 'source_locations_city', 'source_scopes_country', 'source_scopes_state', 'source_scopes_city', 'source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'field']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1954,6 +2429,18 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `media_images_count_min` when calling `list_trends`, must be a value greater than `0.0`")
         if 'media_images_count_max' in params and params['media_images_count_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_images_count_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_width_min' in params and params['media_images_width_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_width_max' in params and params['media_images_width_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_width_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_height_min' in params and params['media_images_height_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_height_max' in params and params['media_images_height_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_height_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_content_length_min' in params and params['media_images_content_length_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'media_images_content_length_max' in params and params['media_images_content_length_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_trends`, must be a value greater than `0.0`")
         if 'media_videos_count_min' in params and params['media_videos_count_min'] <= 0.0:
             raise ValueError("Invalid value for parameter `media_videos_count_min` when calling `list_trends`, must be a value greater than `0.0`")
         if 'media_videos_count_max' in params and params['media_videos_count_max'] <= 0.0:
@@ -1966,6 +2453,22 @@ class DefaultApi(object):
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_trends`, must be a value greater than `0.0`")
         if 'source_rankings_alexa_rank_max' in params and params['source_rankings_alexa_rank_max'] <= 0.0:
             raise ValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_min' in params and params['social_shares_count_facebook_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_facebook_max' in params and params['social_shares_count_facebook_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_min' in params and params['social_shares_count_google_plus_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_google_plus_max' in params and params['social_shares_count_google_plus_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_min' in params and params['social_shares_count_linkedin_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_linkedin_max' in params and params['social_shares_count_linkedin_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_min' in params and params['social_shares_count_reddit_min'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_trends`, must be a value greater than `0.0`")
+        if 'social_shares_count_reddit_max' in params and params['social_shares_count_reddit_max'] <= 0.0:
+            raise ValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_trends`, must be a value greater than `0.0`")
 
         collection_formats = {}
 
@@ -2025,6 +2528,21 @@ class DefaultApi(object):
             query_params['media.images.count.min'] = params['media_images_count_min']
         if 'media_images_count_max' in params:
             query_params['media.images.count.max'] = params['media_images_count_max']
+        if 'media_images_width_min' in params:
+            query_params['media.images.width.min'] = params['media_images_width_min']
+        if 'media_images_width_max' in params:
+            query_params['media.images.width.max'] = params['media_images_width_max']
+        if 'media_images_height_min' in params:
+            query_params['media.images.height.min'] = params['media_images_height_min']
+        if 'media_images_height_max' in params:
+            query_params['media.images.height.max'] = params['media_images_height_max']
+        if 'media_images_content_length_min' in params:
+            query_params['media.images.content_length.min'] = params['media_images_content_length_min']
+        if 'media_images_content_length_max' in params:
+            query_params['media.images.content_length.max'] = params['media_images_content_length_max']
+        if 'media_images_format' in params:
+            query_params['media.images.format[]'] = params['media_images_format']
+            collection_formats['media.images.format[]'] = 'multi'
         if 'media_videos_count_min' in params:
             query_params['media.videos.count.min'] = params['media_videos_count_min']
         if 'media_videos_count_max' in params:
@@ -2075,6 +2593,22 @@ class DefaultApi(object):
         if 'source_rankings_alexa_country' in params:
             query_params['source.rankings.alexa.country[]'] = params['source_rankings_alexa_country']
             collection_formats['source.rankings.alexa.country[]'] = 'multi'
+        if 'social_shares_count_facebook_min' in params:
+            query_params['social_shares_count.facebook.min'] = params['social_shares_count_facebook_min']
+        if 'social_shares_count_facebook_max' in params:
+            query_params['social_shares_count.facebook.max'] = params['social_shares_count_facebook_max']
+        if 'social_shares_count_google_plus_min' in params:
+            query_params['social_shares_count.google_plus.min'] = params['social_shares_count_google_plus_min']
+        if 'social_shares_count_google_plus_max' in params:
+            query_params['social_shares_count.google_plus.max'] = params['social_shares_count_google_plus_max']
+        if 'social_shares_count_linkedin_min' in params:
+            query_params['social_shares_count.linkedin.min'] = params['social_shares_count_linkedin_min']
+        if 'social_shares_count_linkedin_max' in params:
+            query_params['social_shares_count.linkedin.max'] = params['social_shares_count_linkedin_max']
+        if 'social_shares_count_reddit_min' in params:
+            query_params['social_shares_count.reddit.min'] = params['social_shares_count_reddit_min']
+        if 'social_shares_count_reddit_max' in params:
+            query_params['social_shares_count.reddit.max'] = params['social_shares_count_reddit_max']
         if 'field' in params:
             query_params['field'] = params['field']
 
@@ -2087,7 +2621,7 @@ class DefaultApi(object):
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json', 'text/xml'])
+            select_header_accept(['application/json'])
         if not header_params['Accept']:
             del header_params['Accept']
 

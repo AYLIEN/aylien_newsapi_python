@@ -25,6 +25,7 @@ from six import iteritems
 from six.moves import http_client as httplib
 from .version import __version__
 
+
 def singleton(cls, *args, **kw):
     instances = {}
 
@@ -219,7 +220,7 @@ class Configuration(object):
 
     def to_debug_report(self):
         """
-        Gets the essential information for debugging.
+        Gets the essential information pyversion=sys.versionfor debugging.
 
         :return: The report for debugging.
         """
