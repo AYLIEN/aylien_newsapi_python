@@ -31,6 +31,8 @@ import threading
 from datetime import datetime
 from datetime import date
 
+import pytz
+
 # python 2 and python 3 compatibility library
 from six import PY3, integer_types, iteritems, text_type
 from six.moves.urllib.parse import quote
@@ -564,8 +566,11 @@ class ApiClient(object):
         :return: datetime.
         """
         try:
-            from dateutil.parser import parse
-            return parse(string)
+            try:
+                return datetime.strptime(string, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
+            except ValueError:
+                from dateutil.parser import parse
+                return parse(string)
         except ImportError:
             return string
         except ValueError:
