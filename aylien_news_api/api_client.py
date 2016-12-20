@@ -567,7 +567,9 @@ class ApiClient(object):
         """
         try:
             try:
-                return datetime.strptime(string, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
+                values = [string[:4], ] + [string[i:i+2] for i in range(5, 18, 3)]
+                values = map(int, values)
+                return datetime(*values).replace(tzinfo=pytz.UTC)
             except ValueError:
                 from dateutil.parser import parse
                 return parse(string)
