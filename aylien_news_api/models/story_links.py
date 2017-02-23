@@ -1,18 +1,21 @@
 # coding: utf-8
 
-# Copyright 2016 Aylien, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Copyright 2017 Aylien, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+"""
+
 
 from pprint import pformat
 from six import iteritems
@@ -20,7 +23,7 @@ import re
 
 
 class StoryLinks(object):
-    def __init__(self, permalink=None, related_stories=None, coverages=None):
+    def __init__(self, permalink=None, related_stories=None, coverages=None, canonical=None):
         """
         StoryLinks - a model defined in News API
 
@@ -32,19 +35,21 @@ class StoryLinks(object):
         self.api_types = {
             'permalink': 'str',
             'related_stories': 'str',
-            'coverages': 'str'
+            'coverages': 'str',
+            'canonical': 'str'
         }
 
         self.attribute_map = {
             'permalink': 'permalink',
             'related_stories': 'related_stories',
-            'coverages': 'coverages'
+            'coverages': 'coverages',
+            'canonical': 'canonical'
         }
 
         self._permalink = permalink
         self._related_stories = related_stories
         self._coverages = coverages
-
+        self._canonical = canonical
 
     @property
     def permalink(self):
@@ -115,6 +120,29 @@ class StoryLinks(object):
 
         self._coverages = coverages
 
+    @property
+    def canonical(self):
+        """
+        Gets the canonical of this StoryLinks.
+        The story canonical URL
+
+        :return: The canonical of this StoryLinks.
+        :rtype: str
+        """
+        return self._canonical
+
+    @canonical.setter
+    def canonical(self, canonical):
+        """
+        Sets the canonical of this StoryLinks.
+        The story canonical URL
+
+        :param canonical: The canonical of this StoryLinks.
+        :type: str
+        """
+
+        self._canonical = canonical
+
     def to_dict(self):
         """
         Returns the model properties as a dict
@@ -157,6 +185,9 @@ class StoryLinks(object):
         """
         Returns true if both objects are equal
         """
+        if not isinstance(other, StoryLinks):
+            return False
+
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):

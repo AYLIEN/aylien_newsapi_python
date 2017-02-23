@@ -1,18 +1,21 @@
 # coding: utf-8
 
-# Copyright 2016 Aylien, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Copyright 2017 Aylien, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+"""
+
 
 from pprint import pformat
 from six import iteritems
@@ -41,7 +44,6 @@ class Sentiment(object):
 
         self._polarity = polarity
         self._score = score
-
 
     @property
     def polarity(self):
@@ -92,13 +94,10 @@ class Sentiment(object):
         :param score: The score of this Sentiment.
         :type: float
         """
-
-        if not score:
-            raise ValueError("Invalid value for `score`, must not be `None`")
-        if score > 1.0:
-            raise ValueError("Invalid value for `score`, must be a value less than or equal to `1.0`")
-        if score < 0.0:
-            raise ValueError("Invalid value for `score`, must be a value greater than or equal to `0.0`")
+        if score is not None and score > 1:
+            raise ValueError("Invalid value for `score`, must be a value less than or equal to `1`")
+        if score is not None and score < 0:
+            raise ValueError("Invalid value for `score`, must be a value greater than or equal to `0`")
 
         self._score = score
 
@@ -144,6 +143,9 @@ class Sentiment(object):
         """
         Returns true if both objects are equal
         """
+        if not isinstance(other, Sentiment):
+            return False
+
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):

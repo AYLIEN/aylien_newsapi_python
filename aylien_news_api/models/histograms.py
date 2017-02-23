@@ -1,18 +1,21 @@
 # coding: utf-8
 
-# Copyright 2016 Aylien, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Copyright 2017 Aylien, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+"""
+
 
 from pprint import pformat
 from six import iteritems
@@ -50,7 +53,6 @@ class Histograms(object):
         self._interval_end = interval_end
         self._interval_width = interval_width
         self._field = field
-
 
     @property
     def intervals(self):
@@ -149,7 +151,6 @@ class Histograms(object):
         """
         Gets the field of this Histograms.
 
-
         :return: The field of this Histograms.
         :rtype: str
         """
@@ -159,7 +160,6 @@ class Histograms(object):
     def field(self, field):
         """
         Sets the field of this Histograms.
-
 
         :param field: The field of this Histograms.
         :type: str
@@ -209,6 +209,9 @@ class Histograms(object):
         """
         Returns true if both objects are equal
         """
+        if not isinstance(other, Histograms):
+            return False
+
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):

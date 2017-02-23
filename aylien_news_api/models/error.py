@@ -1,18 +1,21 @@
 # coding: utf-8
 
-# Copyright 2016 Aylien, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Copyright 2017 Aylien, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+"""
+
 
 from pprint import pformat
 from six import iteritems
@@ -54,12 +57,10 @@ class Error(object):
         self._title = title
         self._detail = detail
 
-
     @property
     def id(self):
         """
         Gets the id of this Error.
-
 
         :return: The id of this Error.
         :rtype: str
@@ -70,7 +71,6 @@ class Error(object):
     def id(self, id):
         """
         Sets the id of this Error.
-
 
         :param id: The id of this Error.
         :type: str
@@ -83,7 +83,6 @@ class Error(object):
         """
         Gets the links of this Error.
 
-
         :return: The links of this Error.
         :rtype: ErrorLinks
         """
@@ -93,7 +92,6 @@ class Error(object):
     def links(self, links):
         """
         Sets the links of this Error.
-
 
         :param links: The links of this Error.
         :type: ErrorLinks
@@ -106,7 +104,6 @@ class Error(object):
         """
         Gets the status of this Error.
 
-
         :return: The status of this Error.
         :rtype: str
         """
@@ -116,7 +113,6 @@ class Error(object):
     def status(self, status):
         """
         Sets the status of this Error.
-
 
         :param status: The status of this Error.
         :type: str
@@ -129,7 +125,6 @@ class Error(object):
         """
         Gets the code of this Error.
 
-
         :return: The code of this Error.
         :rtype: str
         """
@@ -139,7 +134,6 @@ class Error(object):
     def code(self, code):
         """
         Sets the code of this Error.
-
 
         :param code: The code of this Error.
         :type: str
@@ -152,7 +146,6 @@ class Error(object):
         """
         Gets the title of this Error.
 
-
         :return: The title of this Error.
         :rtype: str
         """
@@ -162,7 +155,6 @@ class Error(object):
     def title(self, title):
         """
         Sets the title of this Error.
-
 
         :param title: The title of this Error.
         :type: str
@@ -175,7 +167,6 @@ class Error(object):
         """
         Gets the detail of this Error.
 
-
         :return: The detail of this Error.
         :rtype: str
         """
@@ -185,7 +176,6 @@ class Error(object):
     def detail(self, detail):
         """
         Sets the detail of this Error.
-
 
         :param detail: The detail of this Error.
         :type: str
@@ -235,6 +225,9 @@ class Error(object):
         """
         Returns true if both objects are equal
         """
+        if not isinstance(other, Error):
+            return False
+
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
