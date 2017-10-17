@@ -1,5 +1,8 @@
 certifi >= 14.05.14
-six >= 1.10
+ndg-httpsclient >= 0.4.3
+pyasn1 >= 0.3.7
+pyopenssl >= 17.3.0
 python_dateutil >= 2.5.3
 setuptools >= 21.0.0
+six >= 1.10
 urllib3 >= 1.15.1
