@@ -28,6 +28,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="AYLIEN News API",
+    author="API support",
     author_email="support@aylien.com",
     url="",
     keywords=["OpenAPI", "OpenAPI-Generator", "AYLIEN News API"],

@@ -110,33 +110,33 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'type' is set
-        if ('type' not in local_var_params or
-                local_var_params['type'] is None):
+        if self.api_client.client_side_validation and ('type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['type'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `type` when calling `list_autocompletes`")  # noqa: E501
         # verify the required parameter 'term' is set
-        if ('term' not in local_var_params or
-                local_var_params['term'] is None):
+        if self.api_client.client_side_validation and ('term' not in local_var_params or  # noqa: E501
+                                                        local_var_params['term'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `term` when calling `list_autocompletes`")  # noqa: E501
 
-        if ('term' in local_var_params and
-                len(local_var_params['term']) < 1):
+        if self.api_client.client_side_validation and ('term' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['term']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `term` when calling `list_autocompletes`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value less than or equal to `100`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_autocompletes`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'type' in local_var_params:
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'term' in local_var_params:
+        if 'term' in local_var_params and local_var_params['term'] is not None:  # noqa: E501
             query_params.append(('term', local_var_params['term']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language', local_var_params['language']))  # noqa: E501
-        if 'per_page' in local_var_params:
+        if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
             query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
 
         header_params = {}
@@ -257,41 +257,41 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'story_count_min' in local_var_params and local_var_params['story_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'story_count_min' in local_var_params and local_var_params['story_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `story_count_min` when calling `list_clusters`, must be a value greater than `0`")  # noqa: E501
-        if 'story_count_max' in local_var_params and local_var_params['story_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'story_count_max' in local_var_params and local_var_params['story_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `story_count_max` when calling `list_clusters`, must be a value greater than `0`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'story_count_min' in local_var_params:
+        if 'story_count_min' in local_var_params and local_var_params['story_count_min'] is not None:  # noqa: E501
             query_params.append(('story_count.min', local_var_params['story_count_min']))  # noqa: E501
-        if 'story_count_max' in local_var_params:
+        if 'story_count_max' in local_var_params and local_var_params['story_count_max'] is not None:  # noqa: E501
             query_params.append(('story_count.max', local_var_params['story_count_max']))  # noqa: E501
-        if 'time_start' in local_var_params:
+        if 'time_start' in local_var_params and local_var_params['time_start'] is not None:  # noqa: E501
             query_params.append(('time.start', local_var_params['time_start']))  # noqa: E501
-        if 'time_end' in local_var_params:
+        if 'time_end' in local_var_params and local_var_params['time_end'] is not None:  # noqa: E501
             query_params.append(('time.end', local_var_params['time_end']))  # noqa: E501
-        if 'earliest_story_start' in local_var_params:
+        if 'earliest_story_start' in local_var_params and local_var_params['earliest_story_start'] is not None:  # noqa: E501
             query_params.append(('earliest_story.start', local_var_params['earliest_story_start']))  # noqa: E501
-        if 'earliest_story_end' in local_var_params:
+        if 'earliest_story_end' in local_var_params and local_var_params['earliest_story_end'] is not None:  # noqa: E501
             query_params.append(('earliest_story.end', local_var_params['earliest_story_end']))  # noqa: E501
-        if 'latest_story_start' in local_var_params:
+        if 'latest_story_start' in local_var_params and local_var_params['latest_story_start'] is not None:  # noqa: E501
             query_params.append(('latest_story.start', local_var_params['latest_story_start']))  # noqa: E501
-        if 'latest_story_end' in local_var_params:
+        if 'latest_story_end' in local_var_params and local_var_params['latest_story_end'] is not None:  # noqa: E501
             query_params.append(('latest_story.end', local_var_params['latest_story_end']))  # noqa: E501
-        if 'location_country' in local_var_params:
+        if 'location_country' in local_var_params and local_var_params['location_country'] is not None:  # noqa: E501
             query_params.append(('location.country', local_var_params['location_country']))  # noqa: E501
             collection_formats['location.country'] = 'multi'  # noqa: E501
-        if 'not_location_country' in local_var_params:
+        if 'not_location_country' in local_var_params and local_var_params['not_location_country'] is not None:  # noqa: E501
             query_params.append(('!location.country', local_var_params['not_location_country']))  # noqa: E501
             collection_formats['!location.country'] = 'multi'  # noqa: E501
 
@@ -342,6 +342,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -458,6 +460,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -558,7 +562,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'clusters', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']  # noqa: E501
+        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'links_permalink', 'not_links_permalink', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'clusters', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'story_published_at', 'story_language', 'per_page']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -573,289 +577,295 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_coverages`, must be a value greater than `0`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value less than or equal to `100`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_coverages`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'title' in local_var_params:
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
             query_params.append(('title', local_var_params['title']))  # noqa: E501
-        if 'body' in local_var_params:
+        if 'body' in local_var_params and local_var_params['body'] is not None:  # noqa: E501
             query_params.append(('body', local_var_params['body']))  # noqa: E501
-        if 'text' in local_var_params:
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
             query_params.append(('text', local_var_params['text']))  # noqa: E501
-        if 'translations_en_title' in local_var_params:
+        if 'translations_en_title' in local_var_params and local_var_params['translations_en_title'] is not None:  # noqa: E501
             query_params.append(('translations.en.title', local_var_params['translations_en_title']))  # noqa: E501
-        if 'translations_en_body' in local_var_params:
+        if 'translations_en_body' in local_var_params and local_var_params['translations_en_body'] is not None:  # noqa: E501
             query_params.append(('translations.en.body', local_var_params['translations_en_body']))  # noqa: E501
-        if 'translations_en_text' in local_var_params:
+        if 'translations_en_text' in local_var_params and local_var_params['translations_en_text'] is not None:  # noqa: E501
             query_params.append(('translations.en.text', local_var_params['translations_en_text']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'links_permalink' in local_var_params and local_var_params['links_permalink'] is not None:  # noqa: E501
+            query_params.append(('links.permalink[]', local_var_params['links_permalink']))  # noqa: E501
+            collection_formats['links.permalink[]'] = 'multi'  # noqa: E501
+        if 'not_links_permalink' in local_var_params and local_var_params['not_links_permalink'] is not None:  # noqa: E501
+            query_params.append(('!links.permalink[]', local_var_params['not_links_permalink']))  # noqa: E501
+            collection_formats['!links.permalink[]'] = 'multi'  # noqa: E501
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language[]', local_var_params['language']))  # noqa: E501
             collection_formats['language[]'] = 'multi'  # noqa: E501
-        if 'not_language' in local_var_params:
+        if 'not_language' in local_var_params and local_var_params['not_language'] is not None:  # noqa: E501
             query_params.append(('!language[]', local_var_params['not_language']))  # noqa: E501
             collection_formats['!language[]'] = 'multi'  # noqa: E501
-        if 'published_at_start' in local_var_params:
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
-        if 'published_at_end' in local_var_params:
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
             query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
-        if 'categories_taxonomy' in local_var_params:
+        if 'categories_taxonomy' in local_var_params and local_var_params['categories_taxonomy'] is not None:  # noqa: E501
             query_params.append(('categories.taxonomy', local_var_params['categories_taxonomy']))  # noqa: E501
-        if 'categories_confident' in local_var_params:
+        if 'categories_confident' in local_var_params and local_var_params['categories_confident'] is not None:  # noqa: E501
             query_params.append(('categories.confident', local_var_params['categories_confident']))  # noqa: E501
-        if 'categories_id' in local_var_params:
+        if 'categories_id' in local_var_params and local_var_params['categories_id'] is not None:  # noqa: E501
             query_params.append(('categories.id[]', local_var_params['categories_id']))  # noqa: E501
             collection_formats['categories.id[]'] = 'multi'  # noqa: E501
-        if 'not_categories_id' in local_var_params:
+        if 'not_categories_id' in local_var_params and local_var_params['not_categories_id'] is not None:  # noqa: E501
             query_params.append(('!categories.id[]', local_var_params['not_categories_id']))  # noqa: E501
             collection_formats['!categories.id[]'] = 'multi'  # noqa: E501
-        if 'categories_level' in local_var_params:
+        if 'categories_level' in local_var_params and local_var_params['categories_level'] is not None:  # noqa: E501
             query_params.append(('categories.level[]', local_var_params['categories_level']))  # noqa: E501
             collection_formats['categories.level[]'] = 'multi'  # noqa: E501
-        if 'not_categories_level' in local_var_params:
+        if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
-        if 'entities_title_text' in local_var_params:
+        if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_text' in local_var_params:
+        if 'not_entities_title_text' in local_var_params and local_var_params['not_entities_title_text'] is not None:  # noqa: E501
             query_params.append(('!entities.title.text[]', local_var_params['not_entities_title_text']))  # noqa: E501
             collection_formats['!entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'entities_title_type' in local_var_params:
+        if 'entities_title_type' in local_var_params and local_var_params['entities_title_type'] is not None:  # noqa: E501
             query_params.append(('entities.title.type[]', local_var_params['entities_title_type']))  # noqa: E501
             collection_formats['entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_type' in local_var_params:
+        if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'entities_title_links_dbpedia' in local_var_params:
+        if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_links_dbpedia' in local_var_params:
+        if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'entities_body_text' in local_var_params:
+        if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_text' in local_var_params:
+        if 'not_entities_body_text' in local_var_params and local_var_params['not_entities_body_text'] is not None:  # noqa: E501
             query_params.append(('!entities.body.text[]', local_var_params['not_entities_body_text']))  # noqa: E501
             collection_formats['!entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'entities_body_type' in local_var_params:
+        if 'entities_body_type' in local_var_params and local_var_params['entities_body_type'] is not None:  # noqa: E501
             query_params.append(('entities.body.type[]', local_var_params['entities_body_type']))  # noqa: E501
             collection_formats['entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_type' in local_var_params:
+        if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'entities_body_links_dbpedia' in local_var_params:
+        if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_links_dbpedia' in local_var_params:
+        if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'sentiment_title_polarity' in local_var_params:
+        if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
-        if 'not_sentiment_title_polarity' in local_var_params:
+        if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.title.polarity', local_var_params['not_sentiment_title_polarity']))  # noqa: E501
-        if 'sentiment_body_polarity' in local_var_params:
+        if 'sentiment_body_polarity' in local_var_params and local_var_params['sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.body.polarity', local_var_params['sentiment_body_polarity']))  # noqa: E501
-        if 'not_sentiment_body_polarity' in local_var_params:
+        if 'not_sentiment_body_polarity' in local_var_params and local_var_params['not_sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.body.polarity', local_var_params['not_sentiment_body_polarity']))  # noqa: E501
-        if 'media_images_count_min' in local_var_params:
+        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] is not None:  # noqa: E501
             query_params.append(('media.images.count.min', local_var_params['media_images_count_min']))  # noqa: E501
-        if 'media_images_count_max' in local_var_params:
+        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] is not None:  # noqa: E501
             query_params.append(('media.images.count.max', local_var_params['media_images_count_max']))  # noqa: E501
-        if 'media_images_width_min' in local_var_params:
+        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] is not None:  # noqa: E501
             query_params.append(('media.images.width.min', local_var_params['media_images_width_min']))  # noqa: E501
-        if 'media_images_width_max' in local_var_params:
+        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] is not None:  # noqa: E501
             query_params.append(('media.images.width.max', local_var_params['media_images_width_max']))  # noqa: E501
-        if 'media_images_height_min' in local_var_params:
+        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] is not None:  # noqa: E501
             query_params.append(('media.images.height.min', local_var_params['media_images_height_min']))  # noqa: E501
-        if 'media_images_height_max' in local_var_params:
+        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] is not None:  # noqa: E501
             query_params.append(('media.images.height.max', local_var_params['media_images_height_max']))  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params:
+        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.min', local_var_params['media_images_content_length_min']))  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params:
+        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.max', local_var_params['media_images_content_length_max']))  # noqa: E501
-        if 'media_images_format' in local_var_params:
+        if 'media_images_format' in local_var_params and local_var_params['media_images_format'] is not None:  # noqa: E501
             query_params.append(('media.images.format[]', local_var_params['media_images_format']))  # noqa: E501
             collection_formats['media.images.format[]'] = 'multi'  # noqa: E501
-        if 'not_media_images_format' in local_var_params:
+        if 'not_media_images_format' in local_var_params and local_var_params['not_media_images_format'] is not None:  # noqa: E501
             query_params.append(('!media.images.format[]', local_var_params['not_media_images_format']))  # noqa: E501
             collection_formats['!media.images.format[]'] = 'multi'  # noqa: E501
-        if 'media_videos_count_min' in local_var_params:
+        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.min', local_var_params['media_videos_count_min']))  # noqa: E501
-        if 'media_videos_count_max' in local_var_params:
+        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.max', local_var_params['media_videos_count_max']))  # noqa: E501
-        if 'author_id' in local_var_params:
+        if 'author_id' in local_var_params and local_var_params['author_id'] is not None:  # noqa: E501
             query_params.append(('author.id[]', local_var_params['author_id']))  # noqa: E501
             collection_formats['author.id[]'] = 'multi'  # noqa: E501
-        if 'not_author_id' in local_var_params:
+        if 'not_author_id' in local_var_params and local_var_params['not_author_id'] is not None:  # noqa: E501
             query_params.append(('!author.id[]', local_var_params['not_author_id']))  # noqa: E501
             collection_formats['!author.id[]'] = 'multi'  # noqa: E501
-        if 'author_name' in local_var_params:
+        if 'author_name' in local_var_params and local_var_params['author_name'] is not None:  # noqa: E501
             query_params.append(('author.name', local_var_params['author_name']))  # noqa: E501
-        if 'not_author_name' in local_var_params:
+        if 'not_author_name' in local_var_params and local_var_params['not_author_name'] is not None:  # noqa: E501
             query_params.append(('!author.name', local_var_params['not_author_name']))  # noqa: E501
-        if 'source_id' in local_var_params:
+        if 'source_id' in local_var_params and local_var_params['source_id'] is not None:  # noqa: E501
             query_params.append(('source.id[]', local_var_params['source_id']))  # noqa: E501
             collection_formats['source.id[]'] = 'multi'  # noqa: E501
-        if 'not_source_id' in local_var_params:
+        if 'not_source_id' in local_var_params and local_var_params['not_source_id'] is not None:  # noqa: E501
             query_params.append(('!source.id[]', local_var_params['not_source_id']))  # noqa: E501
             collection_formats['!source.id[]'] = 'multi'  # noqa: E501
-        if 'source_name' in local_var_params:
+        if 'source_name' in local_var_params and local_var_params['source_name'] is not None:  # noqa: E501
             query_params.append(('source.name[]', local_var_params['source_name']))  # noqa: E501
             collection_formats['source.name[]'] = 'multi'  # noqa: E501
-        if 'not_source_name' in local_var_params:
+        if 'not_source_name' in local_var_params and local_var_params['not_source_name'] is not None:  # noqa: E501
             query_params.append(('!source.name[]', local_var_params['not_source_name']))  # noqa: E501
             collection_formats['!source.name[]'] = 'multi'  # noqa: E501
-        if 'source_domain' in local_var_params:
+        if 'source_domain' in local_var_params and local_var_params['source_domain'] is not None:  # noqa: E501
             query_params.append(('source.domain[]', local_var_params['source_domain']))  # noqa: E501
             collection_formats['source.domain[]'] = 'multi'  # noqa: E501
-        if 'not_source_domain' in local_var_params:
+        if 'not_source_domain' in local_var_params and local_var_params['not_source_domain'] is not None:  # noqa: E501
             query_params.append(('!source.domain[]', local_var_params['not_source_domain']))  # noqa: E501
             collection_formats['!source.domain[]'] = 'multi'  # noqa: E501
-        if 'source_locations_country' in local_var_params:
+        if 'source_locations_country' in local_var_params and local_var_params['source_locations_country'] is not None:  # noqa: E501
             query_params.append(('source.locations.country[]', local_var_params['source_locations_country']))  # noqa: E501
             collection_formats['source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_country' in local_var_params:
+        if 'not_source_locations_country' in local_var_params and local_var_params['not_source_locations_country'] is not None:  # noqa: E501
             query_params.append(('!source.locations.country[]', local_var_params['not_source_locations_country']))  # noqa: E501
             collection_formats['!source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'source_locations_state' in local_var_params:
+        if 'source_locations_state' in local_var_params and local_var_params['source_locations_state'] is not None:  # noqa: E501
             query_params.append(('source.locations.state[]', local_var_params['source_locations_state']))  # noqa: E501
             collection_formats['source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_state' in local_var_params:
+        if 'not_source_locations_state' in local_var_params and local_var_params['not_source_locations_state'] is not None:  # noqa: E501
             query_params.append(('!source.locations.state[]', local_var_params['not_source_locations_state']))  # noqa: E501
             collection_formats['!source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'source_locations_city' in local_var_params:
+        if 'source_locations_city' in local_var_params and local_var_params['source_locations_city'] is not None:  # noqa: E501
             query_params.append(('source.locations.city[]', local_var_params['source_locations_city']))  # noqa: E501
             collection_formats['source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_city' in local_var_params:
+        if 'not_source_locations_city' in local_var_params and local_var_params['not_source_locations_city'] is not None:  # noqa: E501
             query_params.append(('!source.locations.city[]', local_var_params['not_source_locations_city']))  # noqa: E501
             collection_formats['!source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_country' in local_var_params:
+        if 'source_scopes_country' in local_var_params and local_var_params['source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('source.scopes.country[]', local_var_params['source_scopes_country']))  # noqa: E501
             collection_formats['source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_country' in local_var_params:
+        if 'not_source_scopes_country' in local_var_params and local_var_params['not_source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.country[]', local_var_params['not_source_scopes_country']))  # noqa: E501
             collection_formats['!source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_state' in local_var_params:
+        if 'source_scopes_state' in local_var_params and local_var_params['source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('source.scopes.state[]', local_var_params['source_scopes_state']))  # noqa: E501
             collection_formats['source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_state' in local_var_params:
+        if 'not_source_scopes_state' in local_var_params and local_var_params['not_source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.state[]', local_var_params['not_source_scopes_state']))  # noqa: E501
             collection_formats['!source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_city' in local_var_params:
+        if 'source_scopes_city' in local_var_params and local_var_params['source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('source.scopes.city[]', local_var_params['source_scopes_city']))  # noqa: E501
             collection_formats['source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_city' in local_var_params:
+        if 'not_source_scopes_city' in local_var_params and local_var_params['not_source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.city[]', local_var_params['not_source_scopes_city']))  # noqa: E501
             collection_formats['!source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_level' in local_var_params:
+        if 'source_scopes_level' in local_var_params and local_var_params['source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('source.scopes.level[]', local_var_params['source_scopes_level']))  # noqa: E501
             collection_formats['source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_level' in local_var_params:
+        if 'not_source_scopes_level' in local_var_params and local_var_params['not_source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.level[]', local_var_params['not_source_scopes_level']))  # noqa: E501
             collection_formats['!source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params:
+        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.min', local_var_params['source_links_in_count_min']))  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params:
+        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.max', local_var_params['source_links_in_count_max']))  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params:
+        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.min', local_var_params['source_rankings_alexa_rank_min']))  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params:
+        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.max', local_var_params['source_rankings_alexa_rank_max']))  # noqa: E501
-        if 'source_rankings_alexa_country' in local_var_params:
+        if 'source_rankings_alexa_country' in local_var_params and local_var_params['source_rankings_alexa_country'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.country[]', local_var_params['source_rankings_alexa_country']))  # noqa: E501
             collection_formats['source.rankings.alexa.country[]'] = 'multi'  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params:
+        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.min', local_var_params['social_shares_count_facebook_min']))  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params:
+        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.max', local_var_params['social_shares_count_facebook_max']))  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params:
+        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.min', local_var_params['social_shares_count_google_plus_min']))  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params:
+        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.max', local_var_params['social_shares_count_google_plus_max']))  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params:
+        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.min', local_var_params['social_shares_count_linkedin_min']))  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params:
+        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.max', local_var_params['social_shares_count_linkedin_max']))  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params:
+        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.min', local_var_params['social_shares_count_reddit_min']))  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params:
+        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.max', local_var_params['social_shares_count_reddit_max']))  # noqa: E501
-        if 'clusters' in local_var_params:
+        if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
-        if '_return' in local_var_params:
+        if '_return' in local_var_params and local_var_params['_return'] is not None:  # noqa: E501
             query_params.append(('return[]', local_var_params['_return']))  # noqa: E501
             collection_formats['return[]'] = 'multi'  # noqa: E501
-        if 'story_id' in local_var_params:
+        if 'story_id' in local_var_params and local_var_params['story_id'] is not None:  # noqa: E501
             query_params.append(('story_id', local_var_params['story_id']))  # noqa: E501
-        if 'story_url' in local_var_params:
+        if 'story_url' in local_var_params and local_var_params['story_url'] is not None:  # noqa: E501
             query_params.append(('story_url', local_var_params['story_url']))  # noqa: E501
-        if 'story_title' in local_var_params:
+        if 'story_title' in local_var_params and local_var_params['story_title'] is not None:  # noqa: E501
             query_params.append(('story_title', local_var_params['story_title']))  # noqa: E501
-        if 'story_body' in local_var_params:
+        if 'story_body' in local_var_params and local_var_params['story_body'] is not None:  # noqa: E501
             query_params.append(('story_body', local_var_params['story_body']))  # noqa: E501
-        if 'story_published_at' in local_var_params:
+        if 'story_published_at' in local_var_params and local_var_params['story_published_at'] is not None:  # noqa: E501
             query_params.append(('story_published_at', local_var_params['story_published_at']))  # noqa: E501
-        if 'story_language' in local_var_params:
+        if 'story_language' in local_var_params and local_var_params['story_language'] is not None:  # noqa: E501
             query_params.append(('story_language', local_var_params['story_language']))  # noqa: E501
-        if 'per_page' in local_var_params:
+        if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
             query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
 
         header_params = {}
@@ -905,6 +915,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -1016,6 +1028,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -1111,7 +1125,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'interval_start', 'interval_end', 'interval_width', 'field']  # noqa: E501
+        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'links_permalink', 'not_links_permalink', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'interval_start', 'interval_end', 'interval_width', 'field']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1126,273 +1140,279 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_histograms`, must be a value greater than `0`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'title' in local_var_params:
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
             query_params.append(('title', local_var_params['title']))  # noqa: E501
-        if 'body' in local_var_params:
+        if 'body' in local_var_params and local_var_params['body'] is not None:  # noqa: E501
             query_params.append(('body', local_var_params['body']))  # noqa: E501
-        if 'text' in local_var_params:
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
             query_params.append(('text', local_var_params['text']))  # noqa: E501
-        if 'translations_en_title' in local_var_params:
+        if 'translations_en_title' in local_var_params and local_var_params['translations_en_title'] is not None:  # noqa: E501
             query_params.append(('translations.en.title', local_var_params['translations_en_title']))  # noqa: E501
-        if 'translations_en_body' in local_var_params:
+        if 'translations_en_body' in local_var_params and local_var_params['translations_en_body'] is not None:  # noqa: E501
             query_params.append(('translations.en.body', local_var_params['translations_en_body']))  # noqa: E501
-        if 'translations_en_text' in local_var_params:
+        if 'translations_en_text' in local_var_params and local_var_params['translations_en_text'] is not None:  # noqa: E501
             query_params.append(('translations.en.text', local_var_params['translations_en_text']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'links_permalink' in local_var_params and local_var_params['links_permalink'] is not None:  # noqa: E501
+            query_params.append(('links.permalink[]', local_var_params['links_permalink']))  # noqa: E501
+            collection_formats['links.permalink[]'] = 'multi'  # noqa: E501
+        if 'not_links_permalink' in local_var_params and local_var_params['not_links_permalink'] is not None:  # noqa: E501
+            query_params.append(('!links.permalink[]', local_var_params['not_links_permalink']))  # noqa: E501
+            collection_formats['!links.permalink[]'] = 'multi'  # noqa: E501
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language[]', local_var_params['language']))  # noqa: E501
             collection_formats['language[]'] = 'multi'  # noqa: E501
-        if 'not_language' in local_var_params:
+        if 'not_language' in local_var_params and local_var_params['not_language'] is not None:  # noqa: E501
             query_params.append(('!language[]', local_var_params['not_language']))  # noqa: E501
             collection_formats['!language[]'] = 'multi'  # noqa: E501
-        if 'published_at_start' in local_var_params:
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
-        if 'published_at_end' in local_var_params:
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
             query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
-        if 'categories_taxonomy' in local_var_params:
+        if 'categories_taxonomy' in local_var_params and local_var_params['categories_taxonomy'] is not None:  # noqa: E501
             query_params.append(('categories.taxonomy', local_var_params['categories_taxonomy']))  # noqa: E501
-        if 'categories_confident' in local_var_params:
+        if 'categories_confident' in local_var_params and local_var_params['categories_confident'] is not None:  # noqa: E501
             query_params.append(('categories.confident', local_var_params['categories_confident']))  # noqa: E501
-        if 'categories_id' in local_var_params:
+        if 'categories_id' in local_var_params and local_var_params['categories_id'] is not None:  # noqa: E501
             query_params.append(('categories.id[]', local_var_params['categories_id']))  # noqa: E501
             collection_formats['categories.id[]'] = 'multi'  # noqa: E501
-        if 'not_categories_id' in local_var_params:
+        if 'not_categories_id' in local_var_params and local_var_params['not_categories_id'] is not None:  # noqa: E501
             query_params.append(('!categories.id[]', local_var_params['not_categories_id']))  # noqa: E501
             collection_formats['!categories.id[]'] = 'multi'  # noqa: E501
-        if 'categories_level' in local_var_params:
+        if 'categories_level' in local_var_params and local_var_params['categories_level'] is not None:  # noqa: E501
             query_params.append(('categories.level[]', local_var_params['categories_level']))  # noqa: E501
             collection_formats['categories.level[]'] = 'multi'  # noqa: E501
-        if 'not_categories_level' in local_var_params:
+        if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
-        if 'entities_title_text' in local_var_params:
+        if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_text' in local_var_params:
+        if 'not_entities_title_text' in local_var_params and local_var_params['not_entities_title_text'] is not None:  # noqa: E501
             query_params.append(('!entities.title.text[]', local_var_params['not_entities_title_text']))  # noqa: E501
             collection_formats['!entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'entities_title_type' in local_var_params:
+        if 'entities_title_type' in local_var_params and local_var_params['entities_title_type'] is not None:  # noqa: E501
             query_params.append(('entities.title.type[]', local_var_params['entities_title_type']))  # noqa: E501
             collection_formats['entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_type' in local_var_params:
+        if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'entities_title_links_dbpedia' in local_var_params:
+        if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_links_dbpedia' in local_var_params:
+        if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'entities_body_text' in local_var_params:
+        if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_text' in local_var_params:
+        if 'not_entities_body_text' in local_var_params and local_var_params['not_entities_body_text'] is not None:  # noqa: E501
             query_params.append(('!entities.body.text[]', local_var_params['not_entities_body_text']))  # noqa: E501
             collection_formats['!entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'entities_body_type' in local_var_params:
+        if 'entities_body_type' in local_var_params and local_var_params['entities_body_type'] is not None:  # noqa: E501
             query_params.append(('entities.body.type[]', local_var_params['entities_body_type']))  # noqa: E501
             collection_formats['entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_type' in local_var_params:
+        if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'entities_body_links_dbpedia' in local_var_params:
+        if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_links_dbpedia' in local_var_params:
+        if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'sentiment_title_polarity' in local_var_params:
+        if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
-        if 'not_sentiment_title_polarity' in local_var_params:
+        if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.title.polarity', local_var_params['not_sentiment_title_polarity']))  # noqa: E501
-        if 'sentiment_body_polarity' in local_var_params:
+        if 'sentiment_body_polarity' in local_var_params and local_var_params['sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.body.polarity', local_var_params['sentiment_body_polarity']))  # noqa: E501
-        if 'not_sentiment_body_polarity' in local_var_params:
+        if 'not_sentiment_body_polarity' in local_var_params and local_var_params['not_sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.body.polarity', local_var_params['not_sentiment_body_polarity']))  # noqa: E501
-        if 'media_images_count_min' in local_var_params:
+        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] is not None:  # noqa: E501
             query_params.append(('media.images.count.min', local_var_params['media_images_count_min']))  # noqa: E501
-        if 'media_images_count_max' in local_var_params:
+        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] is not None:  # noqa: E501
             query_params.append(('media.images.count.max', local_var_params['media_images_count_max']))  # noqa: E501
-        if 'media_images_width_min' in local_var_params:
+        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] is not None:  # noqa: E501
             query_params.append(('media.images.width.min', local_var_params['media_images_width_min']))  # noqa: E501
-        if 'media_images_width_max' in local_var_params:
+        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] is not None:  # noqa: E501
             query_params.append(('media.images.width.max', local_var_params['media_images_width_max']))  # noqa: E501
-        if 'media_images_height_min' in local_var_params:
+        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] is not None:  # noqa: E501
             query_params.append(('media.images.height.min', local_var_params['media_images_height_min']))  # noqa: E501
-        if 'media_images_height_max' in local_var_params:
+        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] is not None:  # noqa: E501
             query_params.append(('media.images.height.max', local_var_params['media_images_height_max']))  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params:
+        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.min', local_var_params['media_images_content_length_min']))  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params:
+        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.max', local_var_params['media_images_content_length_max']))  # noqa: E501
-        if 'media_images_format' in local_var_params:
+        if 'media_images_format' in local_var_params and local_var_params['media_images_format'] is not None:  # noqa: E501
             query_params.append(('media.images.format[]', local_var_params['media_images_format']))  # noqa: E501
             collection_formats['media.images.format[]'] = 'multi'  # noqa: E501
-        if 'not_media_images_format' in local_var_params:
+        if 'not_media_images_format' in local_var_params and local_var_params['not_media_images_format'] is not None:  # noqa: E501
             query_params.append(('!media.images.format[]', local_var_params['not_media_images_format']))  # noqa: E501
             collection_formats['!media.images.format[]'] = 'multi'  # noqa: E501
-        if 'media_videos_count_min' in local_var_params:
+        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.min', local_var_params['media_videos_count_min']))  # noqa: E501
-        if 'media_videos_count_max' in local_var_params:
+        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.max', local_var_params['media_videos_count_max']))  # noqa: E501
-        if 'author_id' in local_var_params:
+        if 'author_id' in local_var_params and local_var_params['author_id'] is not None:  # noqa: E501
             query_params.append(('author.id[]', local_var_params['author_id']))  # noqa: E501
             collection_formats['author.id[]'] = 'multi'  # noqa: E501
-        if 'not_author_id' in local_var_params:
+        if 'not_author_id' in local_var_params and local_var_params['not_author_id'] is not None:  # noqa: E501
             query_params.append(('!author.id[]', local_var_params['not_author_id']))  # noqa: E501
             collection_formats['!author.id[]'] = 'multi'  # noqa: E501
-        if 'author_name' in local_var_params:
+        if 'author_name' in local_var_params and local_var_params['author_name'] is not None:  # noqa: E501
             query_params.append(('author.name', local_var_params['author_name']))  # noqa: E501
-        if 'not_author_name' in local_var_params:
+        if 'not_author_name' in local_var_params and local_var_params['not_author_name'] is not None:  # noqa: E501
             query_params.append(('!author.name', local_var_params['not_author_name']))  # noqa: E501
-        if 'source_id' in local_var_params:
+        if 'source_id' in local_var_params and local_var_params['source_id'] is not None:  # noqa: E501
             query_params.append(('source.id[]', local_var_params['source_id']))  # noqa: E501
             collection_formats['source.id[]'] = 'multi'  # noqa: E501
-        if 'not_source_id' in local_var_params:
+        if 'not_source_id' in local_var_params and local_var_params['not_source_id'] is not None:  # noqa: E501
             query_params.append(('!source.id[]', local_var_params['not_source_id']))  # noqa: E501
             collection_formats['!source.id[]'] = 'multi'  # noqa: E501
-        if 'source_name' in local_var_params:
+        if 'source_name' in local_var_params and local_var_params['source_name'] is not None:  # noqa: E501
             query_params.append(('source.name[]', local_var_params['source_name']))  # noqa: E501
             collection_formats['source.name[]'] = 'multi'  # noqa: E501
-        if 'not_source_name' in local_var_params:
+        if 'not_source_name' in local_var_params and local_var_params['not_source_name'] is not None:  # noqa: E501
             query_params.append(('!source.name[]', local_var_params['not_source_name']))  # noqa: E501
             collection_formats['!source.name[]'] = 'multi'  # noqa: E501
-        if 'source_domain' in local_var_params:
+        if 'source_domain' in local_var_params and local_var_params['source_domain'] is not None:  # noqa: E501
             query_params.append(('source.domain[]', local_var_params['source_domain']))  # noqa: E501
             collection_formats['source.domain[]'] = 'multi'  # noqa: E501
-        if 'not_source_domain' in local_var_params:
+        if 'not_source_domain' in local_var_params and local_var_params['not_source_domain'] is not None:  # noqa: E501
             query_params.append(('!source.domain[]', local_var_params['not_source_domain']))  # noqa: E501
             collection_formats['!source.domain[]'] = 'multi'  # noqa: E501
-        if 'source_locations_country' in local_var_params:
+        if 'source_locations_country' in local_var_params and local_var_params['source_locations_country'] is not None:  # noqa: E501
             query_params.append(('source.locations.country[]', local_var_params['source_locations_country']))  # noqa: E501
             collection_formats['source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_country' in local_var_params:
+        if 'not_source_locations_country' in local_var_params and local_var_params['not_source_locations_country'] is not None:  # noqa: E501
             query_params.append(('!source.locations.country[]', local_var_params['not_source_locations_country']))  # noqa: E501
             collection_formats['!source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'source_locations_state' in local_var_params:
+        if 'source_locations_state' in local_var_params and local_var_params['source_locations_state'] is not None:  # noqa: E501
             query_params.append(('source.locations.state[]', local_var_params['source_locations_state']))  # noqa: E501
             collection_formats['source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_state' in local_var_params:
+        if 'not_source_locations_state' in local_var_params and local_var_params['not_source_locations_state'] is not None:  # noqa: E501
             query_params.append(('!source.locations.state[]', local_var_params['not_source_locations_state']))  # noqa: E501
             collection_formats['!source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'source_locations_city' in local_var_params:
+        if 'source_locations_city' in local_var_params and local_var_params['source_locations_city'] is not None:  # noqa: E501
             query_params.append(('source.locations.city[]', local_var_params['source_locations_city']))  # noqa: E501
             collection_formats['source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_city' in local_var_params:
+        if 'not_source_locations_city' in local_var_params and local_var_params['not_source_locations_city'] is not None:  # noqa: E501
             query_params.append(('!source.locations.city[]', local_var_params['not_source_locations_city']))  # noqa: E501
             collection_formats['!source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_country' in local_var_params:
+        if 'source_scopes_country' in local_var_params and local_var_params['source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('source.scopes.country[]', local_var_params['source_scopes_country']))  # noqa: E501
             collection_formats['source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_country' in local_var_params:
+        if 'not_source_scopes_country' in local_var_params and local_var_params['not_source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.country[]', local_var_params['not_source_scopes_country']))  # noqa: E501
             collection_formats['!source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_state' in local_var_params:
+        if 'source_scopes_state' in local_var_params and local_var_params['source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('source.scopes.state[]', local_var_params['source_scopes_state']))  # noqa: E501
             collection_formats['source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_state' in local_var_params:
+        if 'not_source_scopes_state' in local_var_params and local_var_params['not_source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.state[]', local_var_params['not_source_scopes_state']))  # noqa: E501
             collection_formats['!source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_city' in local_var_params:
+        if 'source_scopes_city' in local_var_params and local_var_params['source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('source.scopes.city[]', local_var_params['source_scopes_city']))  # noqa: E501
             collection_formats['source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_city' in local_var_params:
+        if 'not_source_scopes_city' in local_var_params and local_var_params['not_source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.city[]', local_var_params['not_source_scopes_city']))  # noqa: E501
             collection_formats['!source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_level' in local_var_params:
+        if 'source_scopes_level' in local_var_params and local_var_params['source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('source.scopes.level[]', local_var_params['source_scopes_level']))  # noqa: E501
             collection_formats['source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_level' in local_var_params:
+        if 'not_source_scopes_level' in local_var_params and local_var_params['not_source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.level[]', local_var_params['not_source_scopes_level']))  # noqa: E501
             collection_formats['!source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params:
+        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.min', local_var_params['source_links_in_count_min']))  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params:
+        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.max', local_var_params['source_links_in_count_max']))  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params:
+        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.min', local_var_params['source_rankings_alexa_rank_min']))  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params:
+        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.max', local_var_params['source_rankings_alexa_rank_max']))  # noqa: E501
-        if 'source_rankings_alexa_country' in local_var_params:
+        if 'source_rankings_alexa_country' in local_var_params and local_var_params['source_rankings_alexa_country'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.country[]', local_var_params['source_rankings_alexa_country']))  # noqa: E501
             collection_formats['source.rankings.alexa.country[]'] = 'multi'  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params:
+        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.min', local_var_params['social_shares_count_facebook_min']))  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params:
+        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.max', local_var_params['social_shares_count_facebook_max']))  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params:
+        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.min', local_var_params['social_shares_count_google_plus_min']))  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params:
+        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.max', local_var_params['social_shares_count_google_plus_max']))  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params:
+        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.min', local_var_params['social_shares_count_linkedin_min']))  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params:
+        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.max', local_var_params['social_shares_count_linkedin_max']))  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params:
+        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.min', local_var_params['social_shares_count_reddit_min']))  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params:
+        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.max', local_var_params['social_shares_count_reddit_max']))  # noqa: E501
-        if 'interval_start' in local_var_params:
+        if 'interval_start' in local_var_params and local_var_params['interval_start'] is not None:  # noqa: E501
             query_params.append(('interval.start', local_var_params['interval_start']))  # noqa: E501
-        if 'interval_end' in local_var_params:
+        if 'interval_end' in local_var_params and local_var_params['interval_end'] is not None:  # noqa: E501
             query_params.append(('interval.end', local_var_params['interval_end']))  # noqa: E501
-        if 'interval_width' in local_var_params:
+        if 'interval_width' in local_var_params and local_var_params['interval_width'] is not None:  # noqa: E501
             query_params.append(('interval.width', local_var_params['interval_width']))  # noqa: E501
-        if 'field' in local_var_params:
+        if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
 
         header_params = {}
@@ -1442,6 +1462,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -1558,6 +1580,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -1658,7 +1682,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'clusters', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']  # noqa: E501
+        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'links_permalink', 'not_links_permalink', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'clusters', '_return', 'story_id', 'story_url', 'story_title', 'story_body', 'boost_by', 'story_language', 'per_page']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1673,289 +1697,295 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_related_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value less than or equal to `100`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_related_stories`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'title' in local_var_params:
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
             query_params.append(('title', local_var_params['title']))  # noqa: E501
-        if 'body' in local_var_params:
+        if 'body' in local_var_params and local_var_params['body'] is not None:  # noqa: E501
             query_params.append(('body', local_var_params['body']))  # noqa: E501
-        if 'text' in local_var_params:
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
             query_params.append(('text', local_var_params['text']))  # noqa: E501
-        if 'translations_en_title' in local_var_params:
+        if 'translations_en_title' in local_var_params and local_var_params['translations_en_title'] is not None:  # noqa: E501
             query_params.append(('translations.en.title', local_var_params['translations_en_title']))  # noqa: E501
-        if 'translations_en_body' in local_var_params:
+        if 'translations_en_body' in local_var_params and local_var_params['translations_en_body'] is not None:  # noqa: E501
             query_params.append(('translations.en.body', local_var_params['translations_en_body']))  # noqa: E501
-        if 'translations_en_text' in local_var_params:
+        if 'translations_en_text' in local_var_params and local_var_params['translations_en_text'] is not None:  # noqa: E501
             query_params.append(('translations.en.text', local_var_params['translations_en_text']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'links_permalink' in local_var_params and local_var_params['links_permalink'] is not None:  # noqa: E501
+            query_params.append(('links.permalink[]', local_var_params['links_permalink']))  # noqa: E501
+            collection_formats['links.permalink[]'] = 'multi'  # noqa: E501
+        if 'not_links_permalink' in local_var_params and local_var_params['not_links_permalink'] is not None:  # noqa: E501
+            query_params.append(('!links.permalink[]', local_var_params['not_links_permalink']))  # noqa: E501
+            collection_formats['!links.permalink[]'] = 'multi'  # noqa: E501
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language[]', local_var_params['language']))  # noqa: E501
             collection_formats['language[]'] = 'multi'  # noqa: E501
-        if 'not_language' in local_var_params:
+        if 'not_language' in local_var_params and local_var_params['not_language'] is not None:  # noqa: E501
             query_params.append(('!language[]', local_var_params['not_language']))  # noqa: E501
             collection_formats['!language[]'] = 'multi'  # noqa: E501
-        if 'published_at_start' in local_var_params:
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
-        if 'published_at_end' in local_var_params:
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
             query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
-        if 'categories_taxonomy' in local_var_params:
+        if 'categories_taxonomy' in local_var_params and local_var_params['categories_taxonomy'] is not None:  # noqa: E501
             query_params.append(('categories.taxonomy', local_var_params['categories_taxonomy']))  # noqa: E501
-        if 'categories_confident' in local_var_params:
+        if 'categories_confident' in local_var_params and local_var_params['categories_confident'] is not None:  # noqa: E501
             query_params.append(('categories.confident', local_var_params['categories_confident']))  # noqa: E501
-        if 'categories_id' in local_var_params:
+        if 'categories_id' in local_var_params and local_var_params['categories_id'] is not None:  # noqa: E501
             query_params.append(('categories.id[]', local_var_params['categories_id']))  # noqa: E501
             collection_formats['categories.id[]'] = 'multi'  # noqa: E501
-        if 'not_categories_id' in local_var_params:
+        if 'not_categories_id' in local_var_params and local_var_params['not_categories_id'] is not None:  # noqa: E501
             query_params.append(('!categories.id[]', local_var_params['not_categories_id']))  # noqa: E501
             collection_formats['!categories.id[]'] = 'multi'  # noqa: E501
-        if 'categories_level' in local_var_params:
+        if 'categories_level' in local_var_params and local_var_params['categories_level'] is not None:  # noqa: E501
             query_params.append(('categories.level[]', local_var_params['categories_level']))  # noqa: E501
             collection_formats['categories.level[]'] = 'multi'  # noqa: E501
-        if 'not_categories_level' in local_var_params:
+        if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
-        if 'entities_title_text' in local_var_params:
+        if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_text' in local_var_params:
+        if 'not_entities_title_text' in local_var_params and local_var_params['not_entities_title_text'] is not None:  # noqa: E501
             query_params.append(('!entities.title.text[]', local_var_params['not_entities_title_text']))  # noqa: E501
             collection_formats['!entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'entities_title_type' in local_var_params:
+        if 'entities_title_type' in local_var_params and local_var_params['entities_title_type'] is not None:  # noqa: E501
             query_params.append(('entities.title.type[]', local_var_params['entities_title_type']))  # noqa: E501
             collection_formats['entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_type' in local_var_params:
+        if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'entities_title_links_dbpedia' in local_var_params:
+        if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_links_dbpedia' in local_var_params:
+        if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'entities_body_text' in local_var_params:
+        if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_text' in local_var_params:
+        if 'not_entities_body_text' in local_var_params and local_var_params['not_entities_body_text'] is not None:  # noqa: E501
             query_params.append(('!entities.body.text[]', local_var_params['not_entities_body_text']))  # noqa: E501
             collection_formats['!entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'entities_body_type' in local_var_params:
+        if 'entities_body_type' in local_var_params and local_var_params['entities_body_type'] is not None:  # noqa: E501
             query_params.append(('entities.body.type[]', local_var_params['entities_body_type']))  # noqa: E501
             collection_formats['entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_type' in local_var_params:
+        if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'entities_body_links_dbpedia' in local_var_params:
+        if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_links_dbpedia' in local_var_params:
+        if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'sentiment_title_polarity' in local_var_params:
+        if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
-        if 'not_sentiment_title_polarity' in local_var_params:
+        if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.title.polarity', local_var_params['not_sentiment_title_polarity']))  # noqa: E501
-        if 'sentiment_body_polarity' in local_var_params:
+        if 'sentiment_body_polarity' in local_var_params and local_var_params['sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.body.polarity', local_var_params['sentiment_body_polarity']))  # noqa: E501
-        if 'not_sentiment_body_polarity' in local_var_params:
+        if 'not_sentiment_body_polarity' in local_var_params and local_var_params['not_sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.body.polarity', local_var_params['not_sentiment_body_polarity']))  # noqa: E501
-        if 'media_images_count_min' in local_var_params:
+        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] is not None:  # noqa: E501
             query_params.append(('media.images.count.min', local_var_params['media_images_count_min']))  # noqa: E501
-        if 'media_images_count_max' in local_var_params:
+        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] is not None:  # noqa: E501
             query_params.append(('media.images.count.max', local_var_params['media_images_count_max']))  # noqa: E501
-        if 'media_images_width_min' in local_var_params:
+        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] is not None:  # noqa: E501
             query_params.append(('media.images.width.min', local_var_params['media_images_width_min']))  # noqa: E501
-        if 'media_images_width_max' in local_var_params:
+        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] is not None:  # noqa: E501
             query_params.append(('media.images.width.max', local_var_params['media_images_width_max']))  # noqa: E501
-        if 'media_images_height_min' in local_var_params:
+        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] is not None:  # noqa: E501
             query_params.append(('media.images.height.min', local_var_params['media_images_height_min']))  # noqa: E501
-        if 'media_images_height_max' in local_var_params:
+        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] is not None:  # noqa: E501
             query_params.append(('media.images.height.max', local_var_params['media_images_height_max']))  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params:
+        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.min', local_var_params['media_images_content_length_min']))  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params:
+        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.max', local_var_params['media_images_content_length_max']))  # noqa: E501
-        if 'media_images_format' in local_var_params:
+        if 'media_images_format' in local_var_params and local_var_params['media_images_format'] is not None:  # noqa: E501
             query_params.append(('media.images.format[]', local_var_params['media_images_format']))  # noqa: E501
             collection_formats['media.images.format[]'] = 'multi'  # noqa: E501
-        if 'not_media_images_format' in local_var_params:
+        if 'not_media_images_format' in local_var_params and local_var_params['not_media_images_format'] is not None:  # noqa: E501
             query_params.append(('!media.images.format[]', local_var_params['not_media_images_format']))  # noqa: E501
             collection_formats['!media.images.format[]'] = 'multi'  # noqa: E501
-        if 'media_videos_count_min' in local_var_params:
+        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.min', local_var_params['media_videos_count_min']))  # noqa: E501
-        if 'media_videos_count_max' in local_var_params:
+        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.max', local_var_params['media_videos_count_max']))  # noqa: E501
-        if 'author_id' in local_var_params:
+        if 'author_id' in local_var_params and local_var_params['author_id'] is not None:  # noqa: E501
             query_params.append(('author.id[]', local_var_params['author_id']))  # noqa: E501
             collection_formats['author.id[]'] = 'multi'  # noqa: E501
-        if 'not_author_id' in local_var_params:
+        if 'not_author_id' in local_var_params and local_var_params['not_author_id'] is not None:  # noqa: E501
             query_params.append(('!author.id[]', local_var_params['not_author_id']))  # noqa: E501
             collection_formats['!author.id[]'] = 'multi'  # noqa: E501
-        if 'author_name' in local_var_params:
+        if 'author_name' in local_var_params and local_var_params['author_name'] is not None:  # noqa: E501
             query_params.append(('author.name', local_var_params['author_name']))  # noqa: E501
-        if 'not_author_name' in local_var_params:
+        if 'not_author_name' in local_var_params and local_var_params['not_author_name'] is not None:  # noqa: E501
             query_params.append(('!author.name', local_var_params['not_author_name']))  # noqa: E501
-        if 'source_id' in local_var_params:
+        if 'source_id' in local_var_params and local_var_params['source_id'] is not None:  # noqa: E501
             query_params.append(('source.id[]', local_var_params['source_id']))  # noqa: E501
             collection_formats['source.id[]'] = 'multi'  # noqa: E501
-        if 'not_source_id' in local_var_params:
+        if 'not_source_id' in local_var_params and local_var_params['not_source_id'] is not None:  # noqa: E501
             query_params.append(('!source.id[]', local_var_params['not_source_id']))  # noqa: E501
             collection_formats['!source.id[]'] = 'multi'  # noqa: E501
-        if 'source_name' in local_var_params:
+        if 'source_name' in local_var_params and local_var_params['source_name'] is not None:  # noqa: E501
             query_params.append(('source.name[]', local_var_params['source_name']))  # noqa: E501
             collection_formats['source.name[]'] = 'multi'  # noqa: E501
-        if 'not_source_name' in local_var_params:
+        if 'not_source_name' in local_var_params and local_var_params['not_source_name'] is not None:  # noqa: E501
             query_params.append(('!source.name[]', local_var_params['not_source_name']))  # noqa: E501
             collection_formats['!source.name[]'] = 'multi'  # noqa: E501
-        if 'source_domain' in local_var_params:
+        if 'source_domain' in local_var_params and local_var_params['source_domain'] is not None:  # noqa: E501
             query_params.append(('source.domain[]', local_var_params['source_domain']))  # noqa: E501
             collection_formats['source.domain[]'] = 'multi'  # noqa: E501
-        if 'not_source_domain' in local_var_params:
+        if 'not_source_domain' in local_var_params and local_var_params['not_source_domain'] is not None:  # noqa: E501
             query_params.append(('!source.domain[]', local_var_params['not_source_domain']))  # noqa: E501
             collection_formats['!source.domain[]'] = 'multi'  # noqa: E501
-        if 'source_locations_country' in local_var_params:
+        if 'source_locations_country' in local_var_params and local_var_params['source_locations_country'] is not None:  # noqa: E501
             query_params.append(('source.locations.country[]', local_var_params['source_locations_country']))  # noqa: E501
             collection_formats['source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_country' in local_var_params:
+        if 'not_source_locations_country' in local_var_params and local_var_params['not_source_locations_country'] is not None:  # noqa: E501
             query_params.append(('!source.locations.country[]', local_var_params['not_source_locations_country']))  # noqa: E501
             collection_formats['!source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'source_locations_state' in local_var_params:
+        if 'source_locations_state' in local_var_params and local_var_params['source_locations_state'] is not None:  # noqa: E501
             query_params.append(('source.locations.state[]', local_var_params['source_locations_state']))  # noqa: E501
             collection_formats['source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_state' in local_var_params:
+        if 'not_source_locations_state' in local_var_params and local_var_params['not_source_locations_state'] is not None:  # noqa: E501
             query_params.append(('!source.locations.state[]', local_var_params['not_source_locations_state']))  # noqa: E501
             collection_formats['!source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'source_locations_city' in local_var_params:
+        if 'source_locations_city' in local_var_params and local_var_params['source_locations_city'] is not None:  # noqa: E501
             query_params.append(('source.locations.city[]', local_var_params['source_locations_city']))  # noqa: E501
             collection_formats['source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_city' in local_var_params:
+        if 'not_source_locations_city' in local_var_params and local_var_params['not_source_locations_city'] is not None:  # noqa: E501
             query_params.append(('!source.locations.city[]', local_var_params['not_source_locations_city']))  # noqa: E501
             collection_formats['!source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_country' in local_var_params:
+        if 'source_scopes_country' in local_var_params and local_var_params['source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('source.scopes.country[]', local_var_params['source_scopes_country']))  # noqa: E501
             collection_formats['source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_country' in local_var_params:
+        if 'not_source_scopes_country' in local_var_params and local_var_params['not_source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.country[]', local_var_params['not_source_scopes_country']))  # noqa: E501
             collection_formats['!source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_state' in local_var_params:
+        if 'source_scopes_state' in local_var_params and local_var_params['source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('source.scopes.state[]', local_var_params['source_scopes_state']))  # noqa: E501
             collection_formats['source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_state' in local_var_params:
+        if 'not_source_scopes_state' in local_var_params and local_var_params['not_source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.state[]', local_var_params['not_source_scopes_state']))  # noqa: E501
             collection_formats['!source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_city' in local_var_params:
+        if 'source_scopes_city' in local_var_params and local_var_params['source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('source.scopes.city[]', local_var_params['source_scopes_city']))  # noqa: E501
             collection_formats['source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_city' in local_var_params:
+        if 'not_source_scopes_city' in local_var_params and local_var_params['not_source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.city[]', local_var_params['not_source_scopes_city']))  # noqa: E501
             collection_formats['!source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_level' in local_var_params:
+        if 'source_scopes_level' in local_var_params and local_var_params['source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('source.scopes.level[]', local_var_params['source_scopes_level']))  # noqa: E501
             collection_formats['source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_level' in local_var_params:
+        if 'not_source_scopes_level' in local_var_params and local_var_params['not_source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.level[]', local_var_params['not_source_scopes_level']))  # noqa: E501
             collection_formats['!source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params:
+        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.min', local_var_params['source_links_in_count_min']))  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params:
+        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.max', local_var_params['source_links_in_count_max']))  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params:
+        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.min', local_var_params['source_rankings_alexa_rank_min']))  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params:
+        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.max', local_var_params['source_rankings_alexa_rank_max']))  # noqa: E501
-        if 'source_rankings_alexa_country' in local_var_params:
+        if 'source_rankings_alexa_country' in local_var_params and local_var_params['source_rankings_alexa_country'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.country[]', local_var_params['source_rankings_alexa_country']))  # noqa: E501
             collection_formats['source.rankings.alexa.country[]'] = 'multi'  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params:
+        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.min', local_var_params['social_shares_count_facebook_min']))  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params:
+        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.max', local_var_params['social_shares_count_facebook_max']))  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params:
+        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.min', local_var_params['social_shares_count_google_plus_min']))  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params:
+        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.max', local_var_params['social_shares_count_google_plus_max']))  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params:
+        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.min', local_var_params['social_shares_count_linkedin_min']))  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params:
+        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.max', local_var_params['social_shares_count_linkedin_max']))  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params:
+        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.min', local_var_params['social_shares_count_reddit_min']))  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params:
+        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.max', local_var_params['social_shares_count_reddit_max']))  # noqa: E501
-        if 'clusters' in local_var_params:
+        if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
-        if '_return' in local_var_params:
+        if '_return' in local_var_params and local_var_params['_return'] is not None:  # noqa: E501
             query_params.append(('return[]', local_var_params['_return']))  # noqa: E501
             collection_formats['return[]'] = 'multi'  # noqa: E501
-        if 'story_id' in local_var_params:
+        if 'story_id' in local_var_params and local_var_params['story_id'] is not None:  # noqa: E501
             query_params.append(('story_id', local_var_params['story_id']))  # noqa: E501
-        if 'story_url' in local_var_params:
+        if 'story_url' in local_var_params and local_var_params['story_url'] is not None:  # noqa: E501
             query_params.append(('story_url', local_var_params['story_url']))  # noqa: E501
-        if 'story_title' in local_var_params:
+        if 'story_title' in local_var_params and local_var_params['story_title'] is not None:  # noqa: E501
             query_params.append(('story_title', local_var_params['story_title']))  # noqa: E501
-        if 'story_body' in local_var_params:
+        if 'story_body' in local_var_params and local_var_params['story_body'] is not None:  # noqa: E501
             query_params.append(('story_body', local_var_params['story_body']))  # noqa: E501
-        if 'boost_by' in local_var_params:
+        if 'boost_by' in local_var_params and local_var_params['boost_by'] is not None:  # noqa: E501
             query_params.append(('boost_by', local_var_params['boost_by']))  # noqa: E501
-        if 'story_language' in local_var_params:
+        if 'story_language' in local_var_params and local_var_params['story_language'] is not None:  # noqa: E501
             query_params.append(('story_language', local_var_params['story_language']))  # noqa: E501
-        if 'per_page' in local_var_params:
+        if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
             query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
 
         header_params = {}
@@ -2007,6 +2037,8 @@ class DefaultApi(object):
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
         :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
@@ -2120,6 +2152,8 @@ class DefaultApi(object):
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
         :param str published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
         :param str categories_taxonomy: This parameter is used for defining the type of the taxonomy for the rest of the categories queries. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
@@ -2215,7 +2249,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'clusters', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']  # noqa: E501
+        all_params = ['id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'language', 'not_language', 'links_permalink', 'not_links_permalink', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max', 'clusters', '_return', 'sort_by', 'sort_direction', 'cursor', 'per_page']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2230,283 +2264,289 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_stories`, must be a value greater than `0`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value less than or equal to `100`")  # noqa: E501
-        if 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `list_stories`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'title' in local_var_params:
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
             query_params.append(('title', local_var_params['title']))  # noqa: E501
-        if 'body' in local_var_params:
+        if 'body' in local_var_params and local_var_params['body'] is not None:  # noqa: E501
             query_params.append(('body', local_var_params['body']))  # noqa: E501
-        if 'text' in local_var_params:
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
             query_params.append(('text', local_var_params['text']))  # noqa: E501
-        if 'translations_en_title' in local_var_params:
+        if 'translations_en_title' in local_var_params and local_var_params['translations_en_title'] is not None:  # noqa: E501
             query_params.append(('translations.en.title', local_var_params['translations_en_title']))  # noqa: E501
-        if 'translations_en_body' in local_var_params:
+        if 'translations_en_body' in local_var_params and local_var_params['translations_en_body'] is not None:  # noqa: E501
             query_params.append(('translations.en.body', local_var_params['translations_en_body']))  # noqa: E501
-        if 'translations_en_text' in local_var_params:
+        if 'translations_en_text' in local_var_params and local_var_params['translations_en_text'] is not None:  # noqa: E501
             query_params.append(('translations.en.text', local_var_params['translations_en_text']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language[]', local_var_params['language']))  # noqa: E501
             collection_formats['language[]'] = 'multi'  # noqa: E501
-        if 'not_language' in local_var_params:
+        if 'not_language' in local_var_params and local_var_params['not_language'] is not None:  # noqa: E501
             query_params.append(('!language[]', local_var_params['not_language']))  # noqa: E501
             collection_formats['!language[]'] = 'multi'  # noqa: E501
-        if 'published_at_start' in local_var_params:
+        if 'links_permalink' in local_var_params and local_var_params['links_permalink'] is not None:  # noqa: E501
+            query_params.append(('links.permalink[]', local_var_params['links_permalink']))  # noqa: E501
+            collection_formats['links.permalink[]'] = 'multi'  # noqa: E501
+        if 'not_links_permalink' in local_var_params and local_var_params['not_links_permalink'] is not None:  # noqa: E501
+            query_params.append(('!links.permalink[]', local_var_params['not_links_permalink']))  # noqa: E501
+            collection_formats['!links.permalink[]'] = 'multi'  # noqa: E501
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
-        if 'published_at_end' in local_var_params:
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
             query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
-        if 'categories_taxonomy' in local_var_params:
+        if 'categories_taxonomy' in local_var_params and local_var_params['categories_taxonomy'] is not None:  # noqa: E501
             query_params.append(('categories.taxonomy', local_var_params['categories_taxonomy']))  # noqa: E501
-        if 'categories_confident' in local_var_params:
+        if 'categories_confident' in local_var_params and local_var_params['categories_confident'] is not None:  # noqa: E501
             query_params.append(('categories.confident', local_var_params['categories_confident']))  # noqa: E501
-        if 'categories_id' in local_var_params:
+        if 'categories_id' in local_var_params and local_var_params['categories_id'] is not None:  # noqa: E501
             query_params.append(('categories.id[]', local_var_params['categories_id']))  # noqa: E501
             collection_formats['categories.id[]'] = 'multi'  # noqa: E501
-        if 'not_categories_id' in local_var_params:
+        if 'not_categories_id' in local_var_params and local_var_params['not_categories_id'] is not None:  # noqa: E501
             query_params.append(('!categories.id[]', local_var_params['not_categories_id']))  # noqa: E501
             collection_formats['!categories.id[]'] = 'multi'  # noqa: E501
-        if 'categories_level' in local_var_params:
+        if 'categories_level' in local_var_params and local_var_params['categories_level'] is not None:  # noqa: E501
             query_params.append(('categories.level[]', local_var_params['categories_level']))  # noqa: E501
             collection_formats['categories.level[]'] = 'multi'  # noqa: E501
-        if 'not_categories_level' in local_var_params:
+        if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
-        if 'entities_title_text' in local_var_params:
+        if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_text' in local_var_params:
+        if 'not_entities_title_text' in local_var_params and local_var_params['not_entities_title_text'] is not None:  # noqa: E501
             query_params.append(('!entities.title.text[]', local_var_params['not_entities_title_text']))  # noqa: E501
             collection_formats['!entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'entities_title_type' in local_var_params:
+        if 'entities_title_type' in local_var_params and local_var_params['entities_title_type'] is not None:  # noqa: E501
             query_params.append(('entities.title.type[]', local_var_params['entities_title_type']))  # noqa: E501
             collection_formats['entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_type' in local_var_params:
+        if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'entities_title_links_dbpedia' in local_var_params:
+        if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_links_dbpedia' in local_var_params:
+        if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'entities_body_text' in local_var_params:
+        if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_text' in local_var_params:
+        if 'not_entities_body_text' in local_var_params and local_var_params['not_entities_body_text'] is not None:  # noqa: E501
             query_params.append(('!entities.body.text[]', local_var_params['not_entities_body_text']))  # noqa: E501
             collection_formats['!entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'entities_body_type' in local_var_params:
+        if 'entities_body_type' in local_var_params and local_var_params['entities_body_type'] is not None:  # noqa: E501
             query_params.append(('entities.body.type[]', local_var_params['entities_body_type']))  # noqa: E501
             collection_formats['entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_type' in local_var_params:
+        if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'entities_body_links_dbpedia' in local_var_params:
+        if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_links_dbpedia' in local_var_params:
+        if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'sentiment_title_polarity' in local_var_params:
+        if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
-        if 'not_sentiment_title_polarity' in local_var_params:
+        if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.title.polarity', local_var_params['not_sentiment_title_polarity']))  # noqa: E501
-        if 'sentiment_body_polarity' in local_var_params:
+        if 'sentiment_body_polarity' in local_var_params and local_var_params['sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.body.polarity', local_var_params['sentiment_body_polarity']))  # noqa: E501
-        if 'not_sentiment_body_polarity' in local_var_params:
+        if 'not_sentiment_body_polarity' in local_var_params and local_var_params['not_sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.body.polarity', local_var_params['not_sentiment_body_polarity']))  # noqa: E501
-        if 'media_images_count_min' in local_var_params:
+        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] is not None:  # noqa: E501
             query_params.append(('media.images.count.min', local_var_params['media_images_count_min']))  # noqa: E501
-        if 'media_images_count_max' in local_var_params:
+        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] is not None:  # noqa: E501
             query_params.append(('media.images.count.max', local_var_params['media_images_count_max']))  # noqa: E501
-        if 'media_images_width_min' in local_var_params:
+        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] is not None:  # noqa: E501
             query_params.append(('media.images.width.min', local_var_params['media_images_width_min']))  # noqa: E501
-        if 'media_images_width_max' in local_var_params:
+        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] is not None:  # noqa: E501
             query_params.append(('media.images.width.max', local_var_params['media_images_width_max']))  # noqa: E501
-        if 'media_images_height_min' in local_var_params:
+        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] is not None:  # noqa: E501
             query_params.append(('media.images.height.min', local_var_params['media_images_height_min']))  # noqa: E501
-        if 'media_images_height_max' in local_var_params:
+        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] is not None:  # noqa: E501
             query_params.append(('media.images.height.max', local_var_params['media_images_height_max']))  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params:
+        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.min', local_var_params['media_images_content_length_min']))  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params:
+        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.max', local_var_params['media_images_content_length_max']))  # noqa: E501
-        if 'media_images_format' in local_var_params:
+        if 'media_images_format' in local_var_params and local_var_params['media_images_format'] is not None:  # noqa: E501
             query_params.append(('media.images.format[]', local_var_params['media_images_format']))  # noqa: E501
             collection_formats['media.images.format[]'] = 'multi'  # noqa: E501
-        if 'not_media_images_format' in local_var_params:
+        if 'not_media_images_format' in local_var_params and local_var_params['not_media_images_format'] is not None:  # noqa: E501
             query_params.append(('!media.images.format[]', local_var_params['not_media_images_format']))  # noqa: E501
             collection_formats['!media.images.format[]'] = 'multi'  # noqa: E501
-        if 'media_videos_count_min' in local_var_params:
+        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.min', local_var_params['media_videos_count_min']))  # noqa: E501
-        if 'media_videos_count_max' in local_var_params:
+        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.max', local_var_params['media_videos_count_max']))  # noqa: E501
-        if 'author_id' in local_var_params:
+        if 'author_id' in local_var_params and local_var_params['author_id'] is not None:  # noqa: E501
             query_params.append(('author.id[]', local_var_params['author_id']))  # noqa: E501
             collection_formats['author.id[]'] = 'multi'  # noqa: E501
-        if 'not_author_id' in local_var_params:
+        if 'not_author_id' in local_var_params and local_var_params['not_author_id'] is not None:  # noqa: E501
             query_params.append(('!author.id[]', local_var_params['not_author_id']))  # noqa: E501
             collection_formats['!author.id[]'] = 'multi'  # noqa: E501
-        if 'author_name' in local_var_params:
+        if 'author_name' in local_var_params and local_var_params['author_name'] is not None:  # noqa: E501
             query_params.append(('author.name', local_var_params['author_name']))  # noqa: E501
-        if 'not_author_name' in local_var_params:
+        if 'not_author_name' in local_var_params and local_var_params['not_author_name'] is not None:  # noqa: E501
             query_params.append(('!author.name', local_var_params['not_author_name']))  # noqa: E501
-        if 'source_id' in local_var_params:
+        if 'source_id' in local_var_params and local_var_params['source_id'] is not None:  # noqa: E501
             query_params.append(('source.id[]', local_var_params['source_id']))  # noqa: E501
             collection_formats['source.id[]'] = 'multi'  # noqa: E501
-        if 'not_source_id' in local_var_params:
+        if 'not_source_id' in local_var_params and local_var_params['not_source_id'] is not None:  # noqa: E501
             query_params.append(('!source.id[]', local_var_params['not_source_id']))  # noqa: E501
             collection_formats['!source.id[]'] = 'multi'  # noqa: E501
-        if 'source_name' in local_var_params:
+        if 'source_name' in local_var_params and local_var_params['source_name'] is not None:  # noqa: E501
             query_params.append(('source.name[]', local_var_params['source_name']))  # noqa: E501
             collection_formats['source.name[]'] = 'multi'  # noqa: E501
-        if 'not_source_name' in local_var_params:
+        if 'not_source_name' in local_var_params and local_var_params['not_source_name'] is not None:  # noqa: E501
             query_params.append(('!source.name[]', local_var_params['not_source_name']))  # noqa: E501
             collection_formats['!source.name[]'] = 'multi'  # noqa: E501
-        if 'source_domain' in local_var_params:
+        if 'source_domain' in local_var_params and local_var_params['source_domain'] is not None:  # noqa: E501
             query_params.append(('source.domain[]', local_var_params['source_domain']))  # noqa: E501
             collection_formats['source.domain[]'] = 'multi'  # noqa: E501
-        if 'not_source_domain' in local_var_params:
+        if 'not_source_domain' in local_var_params and local_var_params['not_source_domain'] is not None:  # noqa: E501
             query_params.append(('!source.domain[]', local_var_params['not_source_domain']))  # noqa: E501
             collection_formats['!source.domain[]'] = 'multi'  # noqa: E501
-        if 'source_locations_country' in local_var_params:
+        if 'source_locations_country' in local_var_params and local_var_params['source_locations_country'] is not None:  # noqa: E501
             query_params.append(('source.locations.country[]', local_var_params['source_locations_country']))  # noqa: E501
             collection_formats['source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_country' in local_var_params:
+        if 'not_source_locations_country' in local_var_params and local_var_params['not_source_locations_country'] is not None:  # noqa: E501
             query_params.append(('!source.locations.country[]', local_var_params['not_source_locations_country']))  # noqa: E501
             collection_formats['!source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'source_locations_state' in local_var_params:
+        if 'source_locations_state' in local_var_params and local_var_params['source_locations_state'] is not None:  # noqa: E501
             query_params.append(('source.locations.state[]', local_var_params['source_locations_state']))  # noqa: E501
             collection_formats['source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_state' in local_var_params:
+        if 'not_source_locations_state' in local_var_params and local_var_params['not_source_locations_state'] is not None:  # noqa: E501
             query_params.append(('!source.locations.state[]', local_var_params['not_source_locations_state']))  # noqa: E501
             collection_formats['!source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'source_locations_city' in local_var_params:
+        if 'source_locations_city' in local_var_params and local_var_params['source_locations_city'] is not None:  # noqa: E501
             query_params.append(('source.locations.city[]', local_var_params['source_locations_city']))  # noqa: E501
             collection_formats['source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_city' in local_var_params:
+        if 'not_source_locations_city' in local_var_params and local_var_params['not_source_locations_city'] is not None:  # noqa: E501
             query_params.append(('!source.locations.city[]', local_var_params['not_source_locations_city']))  # noqa: E501
             collection_formats['!source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_country' in local_var_params:
+        if 'source_scopes_country' in local_var_params and local_var_params['source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('source.scopes.country[]', local_var_params['source_scopes_country']))  # noqa: E501
             collection_formats['source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_country' in local_var_params:
+        if 'not_source_scopes_country' in local_var_params and local_var_params['not_source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.country[]', local_var_params['not_source_scopes_country']))  # noqa: E501
             collection_formats['!source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_state' in local_var_params:
+        if 'source_scopes_state' in local_var_params and local_var_params['source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('source.scopes.state[]', local_var_params['source_scopes_state']))  # noqa: E501
             collection_formats['source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_state' in local_var_params:
+        if 'not_source_scopes_state' in local_var_params and local_var_params['not_source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.state[]', local_var_params['not_source_scopes_state']))  # noqa: E501
             collection_formats['!source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_city' in local_var_params:
+        if 'source_scopes_city' in local_var_params and local_var_params['source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('source.scopes.city[]', local_var_params['source_scopes_city']))  # noqa: E501
             collection_formats['source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_city' in local_var_params:
+        if 'not_source_scopes_city' in local_var_params and local_var_params['not_source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.city[]', local_var_params['not_source_scopes_city']))  # noqa: E501
             collection_formats['!source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_level' in local_var_params:
+        if 'source_scopes_level' in local_var_params and local_var_params['source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('source.scopes.level[]', local_var_params['source_scopes_level']))  # noqa: E501
             collection_formats['source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_level' in local_var_params:
+        if 'not_source_scopes_level' in local_var_params and local_var_params['not_source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.level[]', local_var_params['not_source_scopes_level']))  # noqa: E501
             collection_formats['!source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params:
+        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.min', local_var_params['source_links_in_count_min']))  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params:
+        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.max', local_var_params['source_links_in_count_max']))  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params:
+        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.min', local_var_params['source_rankings_alexa_rank_min']))  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params:
+        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.max', local_var_params['source_rankings_alexa_rank_max']))  # noqa: E501
-        if 'source_rankings_alexa_country' in local_var_params:
+        if 'source_rankings_alexa_country' in local_var_params and local_var_params['source_rankings_alexa_country'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.country[]', local_var_params['source_rankings_alexa_country']))  # noqa: E501
             collection_formats['source.rankings.alexa.country[]'] = 'multi'  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params:
+        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.min', local_var_params['social_shares_count_facebook_min']))  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params:
+        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.max', local_var_params['social_shares_count_facebook_max']))  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params:
+        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.min', local_var_params['social_shares_count_google_plus_min']))  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params:
+        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.max', local_var_params['social_shares_count_google_plus_max']))  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params:
+        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.min', local_var_params['social_shares_count_linkedin_min']))  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params:
+        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.max', local_var_params['social_shares_count_linkedin_max']))  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params:
+        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.min', local_var_params['social_shares_count_reddit_min']))  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params:
+        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.max', local_var_params['social_shares_count_reddit_max']))  # noqa: E501
-        if 'clusters' in local_var_params:
+        if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
-        if '_return' in local_var_params:
+        if '_return' in local_var_params and local_var_params['_return'] is not None:  # noqa: E501
             query_params.append(('return[]', local_var_params['_return']))  # noqa: E501
             collection_formats['return[]'] = 'multi'  # noqa: E501
-        if 'sort_by' in local_var_params:
+        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
             query_params.append(('sort_by', local_var_params['sort_by']))  # noqa: E501
-        if 'sort_direction' in local_var_params:
+        if 'sort_direction' in local_var_params and local_var_params['sort_direction'] is not None:  # noqa: E501
             query_params.append(('sort_direction', local_var_params['sort_direction']))  # noqa: E501
-        if 'cursor' in local_var_params:
+        if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
-        if 'per_page' in local_var_params:
+        if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
             query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
 
         header_params = {}
@@ -2771,267 +2811,267 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_time_series`, must be a value greater than `0`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'title' in local_var_params:
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
             query_params.append(('title', local_var_params['title']))  # noqa: E501
-        if 'body' in local_var_params:
+        if 'body' in local_var_params and local_var_params['body'] is not None:  # noqa: E501
             query_params.append(('body', local_var_params['body']))  # noqa: E501
-        if 'text' in local_var_params:
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
             query_params.append(('text', local_var_params['text']))  # noqa: E501
-        if 'translations_en_title' in local_var_params:
+        if 'translations_en_title' in local_var_params and local_var_params['translations_en_title'] is not None:  # noqa: E501
             query_params.append(('translations.en.title', local_var_params['translations_en_title']))  # noqa: E501
-        if 'translations_en_body' in local_var_params:
+        if 'translations_en_body' in local_var_params and local_var_params['translations_en_body'] is not None:  # noqa: E501
             query_params.append(('translations.en.body', local_var_params['translations_en_body']))  # noqa: E501
-        if 'translations_en_text' in local_var_params:
+        if 'translations_en_text' in local_var_params and local_var_params['translations_en_text'] is not None:  # noqa: E501
             query_params.append(('translations.en.text', local_var_params['translations_en_text']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language[]', local_var_params['language']))  # noqa: E501
             collection_formats['language[]'] = 'multi'  # noqa: E501
-        if 'not_language' in local_var_params:
+        if 'not_language' in local_var_params and local_var_params['not_language'] is not None:  # noqa: E501
             query_params.append(('!language[]', local_var_params['not_language']))  # noqa: E501
             collection_formats['!language[]'] = 'multi'  # noqa: E501
-        if 'categories_taxonomy' in local_var_params:
+        if 'categories_taxonomy' in local_var_params and local_var_params['categories_taxonomy'] is not None:  # noqa: E501
             query_params.append(('categories.taxonomy', local_var_params['categories_taxonomy']))  # noqa: E501
-        if 'categories_confident' in local_var_params:
+        if 'categories_confident' in local_var_params and local_var_params['categories_confident'] is not None:  # noqa: E501
             query_params.append(('categories.confident', local_var_params['categories_confident']))  # noqa: E501
-        if 'categories_id' in local_var_params:
+        if 'categories_id' in local_var_params and local_var_params['categories_id'] is not None:  # noqa: E501
             query_params.append(('categories.id[]', local_var_params['categories_id']))  # noqa: E501
             collection_formats['categories.id[]'] = 'multi'  # noqa: E501
-        if 'not_categories_id' in local_var_params:
+        if 'not_categories_id' in local_var_params and local_var_params['not_categories_id'] is not None:  # noqa: E501
             query_params.append(('!categories.id[]', local_var_params['not_categories_id']))  # noqa: E501
             collection_formats['!categories.id[]'] = 'multi'  # noqa: E501
-        if 'categories_level' in local_var_params:
+        if 'categories_level' in local_var_params and local_var_params['categories_level'] is not None:  # noqa: E501
             query_params.append(('categories.level[]', local_var_params['categories_level']))  # noqa: E501
             collection_formats['categories.level[]'] = 'multi'  # noqa: E501
-        if 'not_categories_level' in local_var_params:
+        if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
-        if 'entities_title_text' in local_var_params:
+        if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_text' in local_var_params:
+        if 'not_entities_title_text' in local_var_params and local_var_params['not_entities_title_text'] is not None:  # noqa: E501
             query_params.append(('!entities.title.text[]', local_var_params['not_entities_title_text']))  # noqa: E501
             collection_formats['!entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'entities_title_type' in local_var_params:
+        if 'entities_title_type' in local_var_params and local_var_params['entities_title_type'] is not None:  # noqa: E501
             query_params.append(('entities.title.type[]', local_var_params['entities_title_type']))  # noqa: E501
             collection_formats['entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_type' in local_var_params:
+        if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'entities_title_links_dbpedia' in local_var_params:
+        if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_links_dbpedia' in local_var_params:
+        if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'entities_body_text' in local_var_params:
+        if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_text' in local_var_params:
+        if 'not_entities_body_text' in local_var_params and local_var_params['not_entities_body_text'] is not None:  # noqa: E501
             query_params.append(('!entities.body.text[]', local_var_params['not_entities_body_text']))  # noqa: E501
             collection_formats['!entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'entities_body_type' in local_var_params:
+        if 'entities_body_type' in local_var_params and local_var_params['entities_body_type'] is not None:  # noqa: E501
             query_params.append(('entities.body.type[]', local_var_params['entities_body_type']))  # noqa: E501
             collection_formats['entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_type' in local_var_params:
+        if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'entities_body_links_dbpedia' in local_var_params:
+        if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_links_dbpedia' in local_var_params:
+        if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'sentiment_title_polarity' in local_var_params:
+        if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
-        if 'not_sentiment_title_polarity' in local_var_params:
+        if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.title.polarity', local_var_params['not_sentiment_title_polarity']))  # noqa: E501
-        if 'sentiment_body_polarity' in local_var_params:
+        if 'sentiment_body_polarity' in local_var_params and local_var_params['sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.body.polarity', local_var_params['sentiment_body_polarity']))  # noqa: E501
-        if 'not_sentiment_body_polarity' in local_var_params:
+        if 'not_sentiment_body_polarity' in local_var_params and local_var_params['not_sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.body.polarity', local_var_params['not_sentiment_body_polarity']))  # noqa: E501
-        if 'media_images_count_min' in local_var_params:
+        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] is not None:  # noqa: E501
             query_params.append(('media.images.count.min', local_var_params['media_images_count_min']))  # noqa: E501
-        if 'media_images_count_max' in local_var_params:
+        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] is not None:  # noqa: E501
             query_params.append(('media.images.count.max', local_var_params['media_images_count_max']))  # noqa: E501
-        if 'media_images_width_min' in local_var_params:
+        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] is not None:  # noqa: E501
             query_params.append(('media.images.width.min', local_var_params['media_images_width_min']))  # noqa: E501
-        if 'media_images_width_max' in local_var_params:
+        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] is not None:  # noqa: E501
             query_params.append(('media.images.width.max', local_var_params['media_images_width_max']))  # noqa: E501
-        if 'media_images_height_min' in local_var_params:
+        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] is not None:  # noqa: E501
             query_params.append(('media.images.height.min', local_var_params['media_images_height_min']))  # noqa: E501
-        if 'media_images_height_max' in local_var_params:
+        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] is not None:  # noqa: E501
             query_params.append(('media.images.height.max', local_var_params['media_images_height_max']))  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params:
+        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.min', local_var_params['media_images_content_length_min']))  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params:
+        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.max', local_var_params['media_images_content_length_max']))  # noqa: E501
-        if 'media_images_format' in local_var_params:
+        if 'media_images_format' in local_var_params and local_var_params['media_images_format'] is not None:  # noqa: E501
             query_params.append(('media.images.format[]', local_var_params['media_images_format']))  # noqa: E501
             collection_formats['media.images.format[]'] = 'multi'  # noqa: E501
-        if 'not_media_images_format' in local_var_params:
+        if 'not_media_images_format' in local_var_params and local_var_params['not_media_images_format'] is not None:  # noqa: E501
             query_params.append(('!media.images.format[]', local_var_params['not_media_images_format']))  # noqa: E501
             collection_formats['!media.images.format[]'] = 'multi'  # noqa: E501
-        if 'media_videos_count_min' in local_var_params:
+        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.min', local_var_params['media_videos_count_min']))  # noqa: E501
-        if 'media_videos_count_max' in local_var_params:
+        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.max', local_var_params['media_videos_count_max']))  # noqa: E501
-        if 'author_id' in local_var_params:
+        if 'author_id' in local_var_params and local_var_params['author_id'] is not None:  # noqa: E501
             query_params.append(('author.id[]', local_var_params['author_id']))  # noqa: E501
             collection_formats['author.id[]'] = 'multi'  # noqa: E501
-        if 'not_author_id' in local_var_params:
+        if 'not_author_id' in local_var_params and local_var_params['not_author_id'] is not None:  # noqa: E501
             query_params.append(('!author.id[]', local_var_params['not_author_id']))  # noqa: E501
             collection_formats['!author.id[]'] = 'multi'  # noqa: E501
-        if 'author_name' in local_var_params:
+        if 'author_name' in local_var_params and local_var_params['author_name'] is not None:  # noqa: E501
             query_params.append(('author.name', local_var_params['author_name']))  # noqa: E501
-        if 'not_author_name' in local_var_params:
+        if 'not_author_name' in local_var_params and local_var_params['not_author_name'] is not None:  # noqa: E501
             query_params.append(('!author.name', local_var_params['not_author_name']))  # noqa: E501
-        if 'source_id' in local_var_params:
+        if 'source_id' in local_var_params and local_var_params['source_id'] is not None:  # noqa: E501
             query_params.append(('source.id[]', local_var_params['source_id']))  # noqa: E501
             collection_formats['source.id[]'] = 'multi'  # noqa: E501
-        if 'not_source_id' in local_var_params:
+        if 'not_source_id' in local_var_params and local_var_params['not_source_id'] is not None:  # noqa: E501
             query_params.append(('!source.id[]', local_var_params['not_source_id']))  # noqa: E501
             collection_formats['!source.id[]'] = 'multi'  # noqa: E501
-        if 'source_name' in local_var_params:
+        if 'source_name' in local_var_params and local_var_params['source_name'] is not None:  # noqa: E501
             query_params.append(('source.name[]', local_var_params['source_name']))  # noqa: E501
             collection_formats['source.name[]'] = 'multi'  # noqa: E501
-        if 'not_source_name' in local_var_params:
+        if 'not_source_name' in local_var_params and local_var_params['not_source_name'] is not None:  # noqa: E501
             query_params.append(('!source.name[]', local_var_params['not_source_name']))  # noqa: E501
             collection_formats['!source.name[]'] = 'multi'  # noqa: E501
-        if 'source_domain' in local_var_params:
+        if 'source_domain' in local_var_params and local_var_params['source_domain'] is not None:  # noqa: E501
             query_params.append(('source.domain[]', local_var_params['source_domain']))  # noqa: E501
             collection_formats['source.domain[]'] = 'multi'  # noqa: E501
-        if 'not_source_domain' in local_var_params:
+        if 'not_source_domain' in local_var_params and local_var_params['not_source_domain'] is not None:  # noqa: E501
             query_params.append(('!source.domain[]', local_var_params['not_source_domain']))  # noqa: E501
             collection_formats['!source.domain[]'] = 'multi'  # noqa: E501
-        if 'source_locations_country' in local_var_params:
+        if 'source_locations_country' in local_var_params and local_var_params['source_locations_country'] is not None:  # noqa: E501
             query_params.append(('source.locations.country[]', local_var_params['source_locations_country']))  # noqa: E501
             collection_formats['source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_country' in local_var_params:
+        if 'not_source_locations_country' in local_var_params and local_var_params['not_source_locations_country'] is not None:  # noqa: E501
             query_params.append(('!source.locations.country[]', local_var_params['not_source_locations_country']))  # noqa: E501
             collection_formats['!source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'source_locations_state' in local_var_params:
+        if 'source_locations_state' in local_var_params and local_var_params['source_locations_state'] is not None:  # noqa: E501
             query_params.append(('source.locations.state[]', local_var_params['source_locations_state']))  # noqa: E501
             collection_formats['source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_state' in local_var_params:
+        if 'not_source_locations_state' in local_var_params and local_var_params['not_source_locations_state'] is not None:  # noqa: E501
             query_params.append(('!source.locations.state[]', local_var_params['not_source_locations_state']))  # noqa: E501
             collection_formats['!source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'source_locations_city' in local_var_params:
+        if 'source_locations_city' in local_var_params and local_var_params['source_locations_city'] is not None:  # noqa: E501
             query_params.append(('source.locations.city[]', local_var_params['source_locations_city']))  # noqa: E501
             collection_formats['source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_city' in local_var_params:
+        if 'not_source_locations_city' in local_var_params and local_var_params['not_source_locations_city'] is not None:  # noqa: E501
             query_params.append(('!source.locations.city[]', local_var_params['not_source_locations_city']))  # noqa: E501
             collection_formats['!source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_country' in local_var_params:
+        if 'source_scopes_country' in local_var_params and local_var_params['source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('source.scopes.country[]', local_var_params['source_scopes_country']))  # noqa: E501
             collection_formats['source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_country' in local_var_params:
+        if 'not_source_scopes_country' in local_var_params and local_var_params['not_source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.country[]', local_var_params['not_source_scopes_country']))  # noqa: E501
             collection_formats['!source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_state' in local_var_params:
+        if 'source_scopes_state' in local_var_params and local_var_params['source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('source.scopes.state[]', local_var_params['source_scopes_state']))  # noqa: E501
             collection_formats['source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_state' in local_var_params:
+        if 'not_source_scopes_state' in local_var_params and local_var_params['not_source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.state[]', local_var_params['not_source_scopes_state']))  # noqa: E501
             collection_formats['!source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_city' in local_var_params:
+        if 'source_scopes_city' in local_var_params and local_var_params['source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('source.scopes.city[]', local_var_params['source_scopes_city']))  # noqa: E501
             collection_formats['source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_city' in local_var_params:
+        if 'not_source_scopes_city' in local_var_params and local_var_params['not_source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.city[]', local_var_params['not_source_scopes_city']))  # noqa: E501
             collection_formats['!source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_level' in local_var_params:
+        if 'source_scopes_level' in local_var_params and local_var_params['source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('source.scopes.level[]', local_var_params['source_scopes_level']))  # noqa: E501
             collection_formats['source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_level' in local_var_params:
+        if 'not_source_scopes_level' in local_var_params and local_var_params['not_source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.level[]', local_var_params['not_source_scopes_level']))  # noqa: E501
             collection_formats['!source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params:
+        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.min', local_var_params['source_links_in_count_min']))  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params:
+        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.max', local_var_params['source_links_in_count_max']))  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params:
+        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.min', local_var_params['source_rankings_alexa_rank_min']))  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params:
+        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.max', local_var_params['source_rankings_alexa_rank_max']))  # noqa: E501
-        if 'source_rankings_alexa_country' in local_var_params:
+        if 'source_rankings_alexa_country' in local_var_params and local_var_params['source_rankings_alexa_country'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.country[]', local_var_params['source_rankings_alexa_country']))  # noqa: E501
             collection_formats['source.rankings.alexa.country[]'] = 'multi'  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params:
+        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.min', local_var_params['social_shares_count_facebook_min']))  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params:
+        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.max', local_var_params['social_shares_count_facebook_max']))  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params:
+        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.min', local_var_params['social_shares_count_google_plus_min']))  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params:
+        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.max', local_var_params['social_shares_count_google_plus_max']))  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params:
+        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.min', local_var_params['social_shares_count_linkedin_min']))  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params:
+        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.max', local_var_params['social_shares_count_linkedin_max']))  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params:
+        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.min', local_var_params['social_shares_count_reddit_min']))  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params:
+        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.max', local_var_params['social_shares_count_reddit_max']))  # noqa: E501
-        if 'published_at_start' in local_var_params:
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
-        if 'published_at_end' in local_var_params:
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
             query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
-        if 'period' in local_var_params:
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
             query_params.append(('period', local_var_params['period']))  # noqa: E501
 
         header_params = {}
@@ -3082,6 +3122,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -3190,6 +3232,8 @@ class DefaultApi(object):
         :param str translations_en_title: This parameter is used for finding stories whose translation title contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_body: This parameter is used for finding stories whose translation body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
         :param str translations_en_text: This parameter is used for finding stories whose translation title or body contains a specific keyword. It supports [boolean operators](https://newsapi.aylien.com/docs/boolean-operators). 
+        :param list[str] links_permalink: This parameter is used to find stories based on their url. 
+        :param list[str] not_links_permalink: This parameter is used to exclude stories based on their url. 
         :param list[str] language: This parameter is used for finding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param list[str] not_language: This parameter is used for excluding stories whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
         :param str published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -3281,7 +3325,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['field', 'id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max']  # noqa: E501
+        all_params = ['field', 'id', 'not_id', 'title', 'body', 'text', 'translations_en_title', 'translations_en_body', 'translations_en_text', 'links_permalink', 'not_links_permalink', 'language', 'not_language', 'published_at_start', 'published_at_end', 'categories_taxonomy', 'categories_confident', 'categories_id', 'not_categories_id', 'categories_level', 'not_categories_level', 'entities_title_text', 'not_entities_title_text', 'entities_title_type', 'not_entities_title_type', 'entities_title_links_dbpedia', 'not_entities_title_links_dbpedia', 'entities_body_text', 'not_entities_body_text', 'entities_body_type', 'not_entities_body_type', 'entities_body_links_dbpedia', 'not_entities_body_links_dbpedia', 'sentiment_title_polarity', 'not_sentiment_title_polarity', 'sentiment_body_polarity', 'not_sentiment_body_polarity', 'media_images_count_min', 'media_images_count_max', 'media_images_width_min', 'media_images_width_max', 'media_images_height_min', 'media_images_height_max', 'media_images_content_length_min', 'media_images_content_length_max', 'media_images_format', 'not_media_images_format', 'media_videos_count_min', 'media_videos_count_max', 'author_id', 'not_author_id', 'author_name', 'not_author_name', 'source_id', 'not_source_id', 'source_name', 'not_source_name', 'source_domain', 'not_source_domain', 'source_locations_country', 'not_source_locations_country', 'source_locations_state', 'not_source_locations_state', 'source_locations_city', 'not_source_locations_city', 'source_scopes_country', 'not_source_scopes_country', 'source_scopes_state', 'not_source_scopes_state', 'source_scopes_city', 'not_source_scopes_city', 'source_scopes_level', 'not_source_scopes_level', 'source_links_in_count_min', 'source_links_in_count_max', 'source_rankings_alexa_rank_min', 'source_rankings_alexa_rank_max', 'source_rankings_alexa_country', 'social_shares_count_facebook_min', 'social_shares_count_facebook_max', 'social_shares_count_google_plus_min', 'social_shares_count_google_plus_max', 'social_shares_count_linkedin_min', 'social_shares_count_linkedin_max', 'social_shares_count_reddit_min', 'social_shares_count_reddit_max']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3296,271 +3340,277 @@ class DefaultApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'field' is set
-        if ('field' not in local_var_params or
-                local_var_params['field'] is None):
+        if self.api_client.client_side_validation and ('field' not in local_var_params or  # noqa: E501
+                                                        local_var_params['field'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `field` when calling `list_trends`")  # noqa: E501
 
-        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_count_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_width_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_height_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_images_content_length_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `media_videos_count_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_links_in_count_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `source_rankings_alexa_rank_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_facebook_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_google_plus_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_linkedin_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_min` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
+        if self.api_client.client_side_validation and 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] <= 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `social_shares_count_reddit_max` when calling `list_trends`, must be a value greater than `0`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'id' in local_var_params:
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id[]', local_var_params['id']))  # noqa: E501
             collection_formats['id[]'] = 'multi'  # noqa: E501
-        if 'not_id' in local_var_params:
+        if 'not_id' in local_var_params and local_var_params['not_id'] is not None:  # noqa: E501
             query_params.append(('!id[]', local_var_params['not_id']))  # noqa: E501
             collection_formats['!id[]'] = 'multi'  # noqa: E501
-        if 'title' in local_var_params:
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
             query_params.append(('title', local_var_params['title']))  # noqa: E501
-        if 'body' in local_var_params:
+        if 'body' in local_var_params and local_var_params['body'] is not None:  # noqa: E501
             query_params.append(('body', local_var_params['body']))  # noqa: E501
-        if 'text' in local_var_params:
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
             query_params.append(('text', local_var_params['text']))  # noqa: E501
-        if 'translations_en_title' in local_var_params:
+        if 'translations_en_title' in local_var_params and local_var_params['translations_en_title'] is not None:  # noqa: E501
             query_params.append(('translations.en.title', local_var_params['translations_en_title']))  # noqa: E501
-        if 'translations_en_body' in local_var_params:
+        if 'translations_en_body' in local_var_params and local_var_params['translations_en_body'] is not None:  # noqa: E501
             query_params.append(('translations.en.body', local_var_params['translations_en_body']))  # noqa: E501
-        if 'translations_en_text' in local_var_params:
+        if 'translations_en_text' in local_var_params and local_var_params['translations_en_text'] is not None:  # noqa: E501
             query_params.append(('translations.en.text', local_var_params['translations_en_text']))  # noqa: E501
-        if 'language' in local_var_params:
+        if 'links_permalink' in local_var_params and local_var_params['links_permalink'] is not None:  # noqa: E501
+            query_params.append(('links.permalink[]', local_var_params['links_permalink']))  # noqa: E501
+            collection_formats['links.permalink[]'] = 'multi'  # noqa: E501
+        if 'not_links_permalink' in local_var_params and local_var_params['not_links_permalink'] is not None:  # noqa: E501
+            query_params.append(('!links.permalink[]', local_var_params['not_links_permalink']))  # noqa: E501
+            collection_formats['!links.permalink[]'] = 'multi'  # noqa: E501
+        if 'language' in local_var_params and local_var_params['language'] is not None:  # noqa: E501
             query_params.append(('language[]', local_var_params['language']))  # noqa: E501
             collection_formats['language[]'] = 'multi'  # noqa: E501
-        if 'not_language' in local_var_params:
+        if 'not_language' in local_var_params and local_var_params['not_language'] is not None:  # noqa: E501
             query_params.append(('!language[]', local_var_params['not_language']))  # noqa: E501
             collection_formats['!language[]'] = 'multi'  # noqa: E501
-        if 'published_at_start' in local_var_params:
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
-        if 'published_at_end' in local_var_params:
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
             query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
-        if 'categories_taxonomy' in local_var_params:
+        if 'categories_taxonomy' in local_var_params and local_var_params['categories_taxonomy'] is not None:  # noqa: E501
             query_params.append(('categories.taxonomy', local_var_params['categories_taxonomy']))  # noqa: E501
-        if 'categories_confident' in local_var_params:
+        if 'categories_confident' in local_var_params and local_var_params['categories_confident'] is not None:  # noqa: E501
             query_params.append(('categories.confident', local_var_params['categories_confident']))  # noqa: E501
-        if 'categories_id' in local_var_params:
+        if 'categories_id' in local_var_params and local_var_params['categories_id'] is not None:  # noqa: E501
             query_params.append(('categories.id[]', local_var_params['categories_id']))  # noqa: E501
             collection_formats['categories.id[]'] = 'multi'  # noqa: E501
-        if 'not_categories_id' in local_var_params:
+        if 'not_categories_id' in local_var_params and local_var_params['not_categories_id'] is not None:  # noqa: E501
             query_params.append(('!categories.id[]', local_var_params['not_categories_id']))  # noqa: E501
             collection_formats['!categories.id[]'] = 'multi'  # noqa: E501
-        if 'categories_level' in local_var_params:
+        if 'categories_level' in local_var_params and local_var_params['categories_level'] is not None:  # noqa: E501
             query_params.append(('categories.level[]', local_var_params['categories_level']))  # noqa: E501
             collection_formats['categories.level[]'] = 'multi'  # noqa: E501
-        if 'not_categories_level' in local_var_params:
+        if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
-        if 'entities_title_text' in local_var_params:
+        if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_text' in local_var_params:
+        if 'not_entities_title_text' in local_var_params and local_var_params['not_entities_title_text'] is not None:  # noqa: E501
             query_params.append(('!entities.title.text[]', local_var_params['not_entities_title_text']))  # noqa: E501
             collection_formats['!entities.title.text[]'] = 'multi'  # noqa: E501
-        if 'entities_title_type' in local_var_params:
+        if 'entities_title_type' in local_var_params and local_var_params['entities_title_type'] is not None:  # noqa: E501
             query_params.append(('entities.title.type[]', local_var_params['entities_title_type']))  # noqa: E501
             collection_formats['entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_type' in local_var_params:
+        if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
-        if 'entities_title_links_dbpedia' in local_var_params:
+        if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_title_links_dbpedia' in local_var_params:
+        if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'entities_body_text' in local_var_params:
+        if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_text' in local_var_params:
+        if 'not_entities_body_text' in local_var_params and local_var_params['not_entities_body_text'] is not None:  # noqa: E501
             query_params.append(('!entities.body.text[]', local_var_params['not_entities_body_text']))  # noqa: E501
             collection_formats['!entities.body.text[]'] = 'multi'  # noqa: E501
-        if 'entities_body_type' in local_var_params:
+        if 'entities_body_type' in local_var_params and local_var_params['entities_body_type'] is not None:  # noqa: E501
             query_params.append(('entities.body.type[]', local_var_params['entities_body_type']))  # noqa: E501
             collection_formats['entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_type' in local_var_params:
+        if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
-        if 'entities_body_links_dbpedia' in local_var_params:
+        if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'not_entities_body_links_dbpedia' in local_var_params:
+        if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
-        if 'sentiment_title_polarity' in local_var_params:
+        if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
-        if 'not_sentiment_title_polarity' in local_var_params:
+        if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.title.polarity', local_var_params['not_sentiment_title_polarity']))  # noqa: E501
-        if 'sentiment_body_polarity' in local_var_params:
+        if 'sentiment_body_polarity' in local_var_params and local_var_params['sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.body.polarity', local_var_params['sentiment_body_polarity']))  # noqa: E501
-        if 'not_sentiment_body_polarity' in local_var_params:
+        if 'not_sentiment_body_polarity' in local_var_params and local_var_params['not_sentiment_body_polarity'] is not None:  # noqa: E501
             query_params.append(('!sentiment.body.polarity', local_var_params['not_sentiment_body_polarity']))  # noqa: E501
-        if 'media_images_count_min' in local_var_params:
+        if 'media_images_count_min' in local_var_params and local_var_params['media_images_count_min'] is not None:  # noqa: E501
             query_params.append(('media.images.count.min', local_var_params['media_images_count_min']))  # noqa: E501
-        if 'media_images_count_max' in local_var_params:
+        if 'media_images_count_max' in local_var_params and local_var_params['media_images_count_max'] is not None:  # noqa: E501
             query_params.append(('media.images.count.max', local_var_params['media_images_count_max']))  # noqa: E501
-        if 'media_images_width_min' in local_var_params:
+        if 'media_images_width_min' in local_var_params and local_var_params['media_images_width_min'] is not None:  # noqa: E501
             query_params.append(('media.images.width.min', local_var_params['media_images_width_min']))  # noqa: E501
-        if 'media_images_width_max' in local_var_params:
+        if 'media_images_width_max' in local_var_params and local_var_params['media_images_width_max'] is not None:  # noqa: E501
             query_params.append(('media.images.width.max', local_var_params['media_images_width_max']))  # noqa: E501
-        if 'media_images_height_min' in local_var_params:
+        if 'media_images_height_min' in local_var_params and local_var_params['media_images_height_min'] is not None:  # noqa: E501
             query_params.append(('media.images.height.min', local_var_params['media_images_height_min']))  # noqa: E501
-        if 'media_images_height_max' in local_var_params:
+        if 'media_images_height_max' in local_var_params and local_var_params['media_images_height_max'] is not None:  # noqa: E501
             query_params.append(('media.images.height.max', local_var_params['media_images_height_max']))  # noqa: E501
-        if 'media_images_content_length_min' in local_var_params:
+        if 'media_images_content_length_min' in local_var_params and local_var_params['media_images_content_length_min'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.min', local_var_params['media_images_content_length_min']))  # noqa: E501
-        if 'media_images_content_length_max' in local_var_params:
+        if 'media_images_content_length_max' in local_var_params and local_var_params['media_images_content_length_max'] is not None:  # noqa: E501
             query_params.append(('media.images.content_length.max', local_var_params['media_images_content_length_max']))  # noqa: E501
-        if 'media_images_format' in local_var_params:
+        if 'media_images_format' in local_var_params and local_var_params['media_images_format'] is not None:  # noqa: E501
             query_params.append(('media.images.format[]', local_var_params['media_images_format']))  # noqa: E501
             collection_formats['media.images.format[]'] = 'multi'  # noqa: E501
-        if 'not_media_images_format' in local_var_params:
+        if 'not_media_images_format' in local_var_params and local_var_params['not_media_images_format'] is not None:  # noqa: E501
             query_params.append(('!media.images.format[]', local_var_params['not_media_images_format']))  # noqa: E501
             collection_formats['!media.images.format[]'] = 'multi'  # noqa: E501
-        if 'media_videos_count_min' in local_var_params:
+        if 'media_videos_count_min' in local_var_params and local_var_params['media_videos_count_min'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.min', local_var_params['media_videos_count_min']))  # noqa: E501
-        if 'media_videos_count_max' in local_var_params:
+        if 'media_videos_count_max' in local_var_params and local_var_params['media_videos_count_max'] is not None:  # noqa: E501
             query_params.append(('media.videos.count.max', local_var_params['media_videos_count_max']))  # noqa: E501
-        if 'author_id' in local_var_params:
+        if 'author_id' in local_var_params and local_var_params['author_id'] is not None:  # noqa: E501
             query_params.append(('author.id[]', local_var_params['author_id']))  # noqa: E501
             collection_formats['author.id[]'] = 'multi'  # noqa: E501
-        if 'not_author_id' in local_var_params:
+        if 'not_author_id' in local_var_params and local_var_params['not_author_id'] is not None:  # noqa: E501
             query_params.append(('!author.id[]', local_var_params['not_author_id']))  # noqa: E501
             collection_formats['!author.id[]'] = 'multi'  # noqa: E501
-        if 'author_name' in local_var_params:
+        if 'author_name' in local_var_params and local_var_params['author_name'] is not None:  # noqa: E501
             query_params.append(('author.name', local_var_params['author_name']))  # noqa: E501
-        if 'not_author_name' in local_var_params:
+        if 'not_author_name' in local_var_params and local_var_params['not_author_name'] is not None:  # noqa: E501
             query_params.append(('!author.name', local_var_params['not_author_name']))  # noqa: E501
-        if 'source_id' in local_var_params:
+        if 'source_id' in local_var_params and local_var_params['source_id'] is not None:  # noqa: E501
             query_params.append(('source.id[]', local_var_params['source_id']))  # noqa: E501
             collection_formats['source.id[]'] = 'multi'  # noqa: E501
-        if 'not_source_id' in local_var_params:
+        if 'not_source_id' in local_var_params and local_var_params['not_source_id'] is not None:  # noqa: E501
             query_params.append(('!source.id[]', local_var_params['not_source_id']))  # noqa: E501
             collection_formats['!source.id[]'] = 'multi'  # noqa: E501
-        if 'source_name' in local_var_params:
+        if 'source_name' in local_var_params and local_var_params['source_name'] is not None:  # noqa: E501
             query_params.append(('source.name[]', local_var_params['source_name']))  # noqa: E501
             collection_formats['source.name[]'] = 'multi'  # noqa: E501
-        if 'not_source_name' in local_var_params:
+        if 'not_source_name' in local_var_params and local_var_params['not_source_name'] is not None:  # noqa: E501
             query_params.append(('!source.name[]', local_var_params['not_source_name']))  # noqa: E501
             collection_formats['!source.name[]'] = 'multi'  # noqa: E501
-        if 'source_domain' in local_var_params:
+        if 'source_domain' in local_var_params and local_var_params['source_domain'] is not None:  # noqa: E501
             query_params.append(('source.domain[]', local_var_params['source_domain']))  # noqa: E501
             collection_formats['source.domain[]'] = 'multi'  # noqa: E501
-        if 'not_source_domain' in local_var_params:
+        if 'not_source_domain' in local_var_params and local_var_params['not_source_domain'] is not None:  # noqa: E501
             query_params.append(('!source.domain[]', local_var_params['not_source_domain']))  # noqa: E501
             collection_formats['!source.domain[]'] = 'multi'  # noqa: E501
-        if 'source_locations_country' in local_var_params:
+        if 'source_locations_country' in local_var_params and local_var_params['source_locations_country'] is not None:  # noqa: E501
             query_params.append(('source.locations.country[]', local_var_params['source_locations_country']))  # noqa: E501
             collection_formats['source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_country' in local_var_params:
+        if 'not_source_locations_country' in local_var_params and local_var_params['not_source_locations_country'] is not None:  # noqa: E501
             query_params.append(('!source.locations.country[]', local_var_params['not_source_locations_country']))  # noqa: E501
             collection_formats['!source.locations.country[]'] = 'multi'  # noqa: E501
-        if 'source_locations_state' in local_var_params:
+        if 'source_locations_state' in local_var_params and local_var_params['source_locations_state'] is not None:  # noqa: E501
             query_params.append(('source.locations.state[]', local_var_params['source_locations_state']))  # noqa: E501
             collection_formats['source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_state' in local_var_params:
+        if 'not_source_locations_state' in local_var_params and local_var_params['not_source_locations_state'] is not None:  # noqa: E501
             query_params.append(('!source.locations.state[]', local_var_params['not_source_locations_state']))  # noqa: E501
             collection_formats['!source.locations.state[]'] = 'multi'  # noqa: E501
-        if 'source_locations_city' in local_var_params:
+        if 'source_locations_city' in local_var_params and local_var_params['source_locations_city'] is not None:  # noqa: E501
             query_params.append(('source.locations.city[]', local_var_params['source_locations_city']))  # noqa: E501
             collection_formats['source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_locations_city' in local_var_params:
+        if 'not_source_locations_city' in local_var_params and local_var_params['not_source_locations_city'] is not None:  # noqa: E501
             query_params.append(('!source.locations.city[]', local_var_params['not_source_locations_city']))  # noqa: E501
             collection_formats['!source.locations.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_country' in local_var_params:
+        if 'source_scopes_country' in local_var_params and local_var_params['source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('source.scopes.country[]', local_var_params['source_scopes_country']))  # noqa: E501
             collection_formats['source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_country' in local_var_params:
+        if 'not_source_scopes_country' in local_var_params and local_var_params['not_source_scopes_country'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.country[]', local_var_params['not_source_scopes_country']))  # noqa: E501
             collection_formats['!source.scopes.country[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_state' in local_var_params:
+        if 'source_scopes_state' in local_var_params and local_var_params['source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('source.scopes.state[]', local_var_params['source_scopes_state']))  # noqa: E501
             collection_formats['source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_state' in local_var_params:
+        if 'not_source_scopes_state' in local_var_params and local_var_params['not_source_scopes_state'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.state[]', local_var_params['not_source_scopes_state']))  # noqa: E501
             collection_formats['!source.scopes.state[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_city' in local_var_params:
+        if 'source_scopes_city' in local_var_params and local_var_params['source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('source.scopes.city[]', local_var_params['source_scopes_city']))  # noqa: E501
             collection_formats['source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_city' in local_var_params:
+        if 'not_source_scopes_city' in local_var_params and local_var_params['not_source_scopes_city'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.city[]', local_var_params['not_source_scopes_city']))  # noqa: E501
             collection_formats['!source.scopes.city[]'] = 'multi'  # noqa: E501
-        if 'source_scopes_level' in local_var_params:
+        if 'source_scopes_level' in local_var_params and local_var_params['source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('source.scopes.level[]', local_var_params['source_scopes_level']))  # noqa: E501
             collection_formats['source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'not_source_scopes_level' in local_var_params:
+        if 'not_source_scopes_level' in local_var_params and local_var_params['not_source_scopes_level'] is not None:  # noqa: E501
             query_params.append(('!source.scopes.level[]', local_var_params['not_source_scopes_level']))  # noqa: E501
             collection_formats['!source.scopes.level[]'] = 'multi'  # noqa: E501
-        if 'source_links_in_count_min' in local_var_params:
+        if 'source_links_in_count_min' in local_var_params and local_var_params['source_links_in_count_min'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.min', local_var_params['source_links_in_count_min']))  # noqa: E501
-        if 'source_links_in_count_max' in local_var_params:
+        if 'source_links_in_count_max' in local_var_params and local_var_params['source_links_in_count_max'] is not None:  # noqa: E501
             query_params.append(('source.links_in_count.max', local_var_params['source_links_in_count_max']))  # noqa: E501
-        if 'source_rankings_alexa_rank_min' in local_var_params:
+        if 'source_rankings_alexa_rank_min' in local_var_params and local_var_params['source_rankings_alexa_rank_min'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.min', local_var_params['source_rankings_alexa_rank_min']))  # noqa: E501
-        if 'source_rankings_alexa_rank_max' in local_var_params:
+        if 'source_rankings_alexa_rank_max' in local_var_params and local_var_params['source_rankings_alexa_rank_max'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.rank.max', local_var_params['source_rankings_alexa_rank_max']))  # noqa: E501
-        if 'source_rankings_alexa_country' in local_var_params:
+        if 'source_rankings_alexa_country' in local_var_params and local_var_params['source_rankings_alexa_country'] is not None:  # noqa: E501
             query_params.append(('source.rankings.alexa.country[]', local_var_params['source_rankings_alexa_country']))  # noqa: E501
             collection_formats['source.rankings.alexa.country[]'] = 'multi'  # noqa: E501
-        if 'social_shares_count_facebook_min' in local_var_params:
+        if 'social_shares_count_facebook_min' in local_var_params and local_var_params['social_shares_count_facebook_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.min', local_var_params['social_shares_count_facebook_min']))  # noqa: E501
-        if 'social_shares_count_facebook_max' in local_var_params:
+        if 'social_shares_count_facebook_max' in local_var_params and local_var_params['social_shares_count_facebook_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.facebook.max', local_var_params['social_shares_count_facebook_max']))  # noqa: E501
-        if 'social_shares_count_google_plus_min' in local_var_params:
+        if 'social_shares_count_google_plus_min' in local_var_params and local_var_params['social_shares_count_google_plus_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.min', local_var_params['social_shares_count_google_plus_min']))  # noqa: E501
-        if 'social_shares_count_google_plus_max' in local_var_params:
+        if 'social_shares_count_google_plus_max' in local_var_params and local_var_params['social_shares_count_google_plus_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.google_plus.max', local_var_params['social_shares_count_google_plus_max']))  # noqa: E501
-        if 'social_shares_count_linkedin_min' in local_var_params:
+        if 'social_shares_count_linkedin_min' in local_var_params and local_var_params['social_shares_count_linkedin_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.min', local_var_params['social_shares_count_linkedin_min']))  # noqa: E501
-        if 'social_shares_count_linkedin_max' in local_var_params:
+        if 'social_shares_count_linkedin_max' in local_var_params and local_var_params['social_shares_count_linkedin_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.linkedin.max', local_var_params['social_shares_count_linkedin_max']))  # noqa: E501
-        if 'social_shares_count_reddit_min' in local_var_params:
+        if 'social_shares_count_reddit_min' in local_var_params and local_var_params['social_shares_count_reddit_min'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.min', local_var_params['social_shares_count_reddit_min']))  # noqa: E501
-        if 'social_shares_count_reddit_max' in local_var_params:
+        if 'social_shares_count_reddit_max' in local_var_params and local_var_params['social_shares_count_reddit_max'] is not None:  # noqa: E501
             query_params.append(('social_shares_count.reddit.max', local_var_params['social_shares_count_reddit_max']))  # noqa: E501
-        if 'field' in local_var_params:
+        if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
 
         header_params = {}

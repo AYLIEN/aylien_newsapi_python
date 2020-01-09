@@ -1,5 +1,6 @@
 # SentimentPolarity
 
+Polarity of the sentiment
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

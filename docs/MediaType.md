@@ -1,5 +1,6 @@
 # MediaType
 
+The type of media
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

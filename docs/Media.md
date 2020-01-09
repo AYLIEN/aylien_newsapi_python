@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content_length** | **int** | The content length of media | [optional] 
-**format** | **str** | The format of media | [optional] 
+**format** | [**MediaFormat**](MediaFormat.md) |  | [optional] 
 **height** | **int** | The height of media | [optional] 
-**type** | **str** | The type of media | [optional] 
+**type** | [**MediaType**](MediaType.md) |  | [optional] 
 **url** | **str** | A URL which points to the media file | [optional] 
 **width** | **int** | The width of media | [optional] 
 

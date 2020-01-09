@@ -34,6 +34,7 @@ from aylien_news_api.models.autocomplete import Autocomplete
 from aylien_news_api.models.autocompletes import Autocompletes
 from aylien_news_api.models.category import Category
 from aylien_news_api.models.category_links import CategoryLinks
+from aylien_news_api.models.category_taxonomy import CategoryTaxonomy
 from aylien_news_api.models.cluster import Cluster
 from aylien_news_api.models.clusters import Clusters
 from aylien_news_api.models.coverages import Coverages
@@ -47,12 +48,16 @@ from aylien_news_api.models.histogram_interval import HistogramInterval
 from aylien_news_api.models.histograms import Histograms
 from aylien_news_api.models.location import Location
 from aylien_news_api.models.media import Media
+from aylien_news_api.models.media_format import MediaFormat
+from aylien_news_api.models.media_type import MediaType
 from aylien_news_api.models.rank import Rank
 from aylien_news_api.models.rankings import Rankings
 from aylien_news_api.models.related_stories import RelatedStories
 from aylien_news_api.models.representative_story import RepresentativeStory
 from aylien_news_api.models.scope import Scope
+from aylien_news_api.models.scope_level import ScopeLevel
 from aylien_news_api.models.sentiment import Sentiment
+from aylien_news_api.models.sentiment_polarity import SentimentPolarity
 from aylien_news_api.models.sentiments import Sentiments
 from aylien_news_api.models.share_count import ShareCount
 from aylien_news_api.models.share_counts import ShareCounts

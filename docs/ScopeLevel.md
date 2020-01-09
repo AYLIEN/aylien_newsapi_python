@@ -1,5 +1,6 @@
 # ScopeLevel
 
+The scope by level
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

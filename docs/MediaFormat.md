@@ -1,5 +1,6 @@
 # MediaFormat
 
+The format of media
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

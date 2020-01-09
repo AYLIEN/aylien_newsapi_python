@@ -1,5 +1,6 @@
 # CategoryTaxonomy
 
+The taxonomy of the category
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
