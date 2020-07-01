@@ -43,13 +43,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_list_coverages(self):
-        """Test case for list_coverages
-
-        List coverages  # noqa: E501
-        """
-        pass
-
     def test_list_histograms(self):
         """Test case for list_histograms
 
@@ -57,10 +50,15 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_list_related_stories(self):
-        """Test case for list_related_stories
+    def test_list_related_stories_get(self):
+        """Test case for list_related_stories_get
 
-        List related stories  # noqa: E501
+        """
+        pass
+
+    def test_list_related_stories_post(self):
+        """Test case for list_related_stories_post
+
         """
         pass
 

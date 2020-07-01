@@ -94,7 +94,7 @@ class Error(object):
 
 
         :param code: The code of this Error.  # noqa: E501
-        :type: str
+        :type code: str
         """
 
         self._code = code
@@ -115,7 +115,7 @@ class Error(object):
 
 
         :param detail: The detail of this Error.  # noqa: E501
-        :type: str
+        :type detail: str
         """
 
         self._detail = detail
@@ -136,7 +136,7 @@ class Error(object):
 
 
         :param id: The id of this Error.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -157,7 +157,7 @@ class Error(object):
 
 
         :param links: The links of this Error.  # noqa: E501
-        :type: ErrorLinks
+        :type links: ErrorLinks
         """
 
         self._links = links
@@ -178,7 +178,7 @@ class Error(object):
 
 
         :param status: The status of this Error.  # noqa: E501
-        :type: str
+        :type status: str
         """
 
         self._status = status
@@ -199,7 +199,7 @@ class Error(object):
 
 
         :param title: The title of this Error.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title

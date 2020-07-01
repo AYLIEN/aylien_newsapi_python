@@ -81,7 +81,7 @@ class Rank(object):
         The country code which the rank is in it  # noqa: E501
 
         :param country: The country of this Rank.  # noqa: E501
-        :type: str
+        :type country: str
         """
 
         self._country = country
@@ -104,7 +104,7 @@ class Rank(object):
         The fetched date of the rank  # noqa: E501
 
         :param fetched_at: The fetched_at of this Rank.  # noqa: E501
-        :type: datetime
+        :type fetched_at: datetime
         """
 
         self._fetched_at = fetched_at
@@ -127,7 +127,7 @@ class Rank(object):
         The rank  # noqa: E501
 
         :param rank: The rank of this Rank.  # noqa: E501
-        :type: int
+        :type rank: int
         """
 
         self._rank = rank

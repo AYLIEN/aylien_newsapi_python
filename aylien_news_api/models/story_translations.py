@@ -34,7 +34,7 @@ class StoryTranslations(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'en': 'StoryTranslationsEn'
+        'en': 'StoryTranslation'
     }
 
     attribute_map = {
@@ -59,7 +59,7 @@ class StoryTranslations(object):
 
 
         :return: The en of this StoryTranslations.  # noqa: E501
-        :rtype: StoryTranslationsEn
+        :rtype: StoryTranslation
         """
         return self._en
 
@@ -69,7 +69,7 @@ class StoryTranslations(object):
 
 
         :param en: The en of this StoryTranslations.  # noqa: E501
-        :type: StoryTranslationsEn
+        :type en: StoryTranslation
         """
 
         self._en = en

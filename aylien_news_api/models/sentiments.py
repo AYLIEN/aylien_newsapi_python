@@ -74,7 +74,7 @@ class Sentiments(object):
 
 
         :param body: The body of this Sentiments.  # noqa: E501
-        :type: Sentiment
+        :type body: Sentiment
         """
 
         self._body = body
@@ -95,7 +95,7 @@ class Sentiments(object):
 
 
         :param title: The title of this Sentiments.  # noqa: E501
-        :type: Sentiment
+        :type title: Sentiment
         """
 
         self._title = title

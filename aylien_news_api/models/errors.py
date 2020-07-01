@@ -69,7 +69,7 @@ class Errors(object):
 
 
         :param errors: The errors of this Errors.  # noqa: E501
-        :type: list[Error]
+        :type errors: list[Error]
         """
 
         self._errors = errors

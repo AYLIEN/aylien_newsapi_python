@@ -74,7 +74,7 @@ class Sentiment(object):
 
 
         :param polarity: The polarity of this Sentiment.  # noqa: E501
-        :type: SentimentPolarity
+        :type polarity: SentimentPolarity
         """
 
         self._polarity = polarity
@@ -97,7 +97,7 @@ class Sentiment(object):
         Polarity score of the sentiment  # noqa: E501
 
         :param score: The score of this Sentiment.  # noqa: E501
-        :type: float
+        :type score: float
         """
         if (self.local_vars_configuration.client_side_validation and
                 score is not None and score > 1):  # noqa: E501

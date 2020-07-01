@@ -121,7 +121,7 @@ class Source(object):
         A general explanation about the source  # noqa: E501
 
         :param description: The description of this Source.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -144,7 +144,7 @@ class Source(object):
         The domain name of the source which is extracted from the source URL  # noqa: E501
 
         :param domain: The domain of this Source.  # noqa: E501
-        :type: str
+        :type domain: str
         """
 
         self._domain = domain
@@ -167,7 +167,7 @@ class Source(object):
         The home page URL of the source  # noqa: E501
 
         :param home_page_url: The home_page_url of this Source.  # noqa: E501
-        :type: str
+        :type home_page_url: str
         """
 
         self._home_page_url = home_page_url
@@ -190,7 +190,7 @@ class Source(object):
         The source id which is a unique value  # noqa: E501
 
         :param id: The id of this Source.  # noqa: E501
-        :type: int
+        :type id: int
         """
 
         self._id = id
@@ -213,7 +213,7 @@ class Source(object):
         The number of websites that link to the source  # noqa: E501
 
         :param links_in_count: The links_in_count of this Source.  # noqa: E501
-        :type: int
+        :type links_in_count: int
         """
 
         self._links_in_count = links_in_count
@@ -236,7 +236,7 @@ class Source(object):
         The source locations which are tend to be the physical locations of the source, e.g. BBC headquarter is located in London.   # noqa: E501
 
         :param locations: The locations of this Source.  # noqa: E501
-        :type: list[Location]
+        :type locations: list[Location]
         """
 
         self._locations = locations
@@ -259,7 +259,7 @@ class Source(object):
         A URL which points to the source logo  # noqa: E501
 
         :param logo_url: The logo_url of this Source.  # noqa: E501
-        :type: str
+        :type logo_url: str
         """
 
         self._logo_url = logo_url
@@ -282,7 +282,7 @@ class Source(object):
         The source name  # noqa: E501
 
         :param name: The name of this Source.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -303,7 +303,7 @@ class Source(object):
 
 
         :param rankings: The rankings of this Source.  # noqa: E501
-        :type: Rankings
+        :type rankings: Rankings
         """
 
         self._rankings = rankings
@@ -326,7 +326,7 @@ class Source(object):
         The source scopes which is tend to be scope locations of the source, e.g. BBC scopes is international.   # noqa: E501
 
         :param scopes: The scopes of this Source.  # noqa: E501
-        :type: list[Scope]
+        :type scopes: list[Scope]
         """
 
         self._scopes = scopes
@@ -349,7 +349,7 @@ class Source(object):
         The title of the home page URL  # noqa: E501
 
         :param title: The title of this Source.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title

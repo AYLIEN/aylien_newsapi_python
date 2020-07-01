@@ -71,7 +71,7 @@ class Summary(object):
         An array of the suggested summary sentences  # noqa: E501
 
         :param sentences: The sentences of this Summary.  # noqa: E501
-        :type: list[str]
+        :type sentences: list[str]
         """
 
         self._sentences = sentences

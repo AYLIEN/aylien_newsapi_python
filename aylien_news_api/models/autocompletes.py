@@ -71,7 +71,7 @@ class Autocompletes(object):
         An array of autocompletes  # noqa: E501
 
         :param autocompletes: The autocompletes of this Autocompletes.  # noqa: E501
-        :type: list[Autocomplete]
+        :type autocompletes: list[Autocomplete]
         """
 
         self._autocompletes = autocompletes

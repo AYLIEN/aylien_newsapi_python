@@ -86,7 +86,7 @@ class ShareCounts(object):
         Facebook shares count  # noqa: E501
 
         :param facebook: The facebook of this ShareCounts.  # noqa: E501
-        :type: list[ShareCount]
+        :type facebook: list[ShareCount]
         """
 
         self._facebook = facebook
@@ -109,7 +109,7 @@ class ShareCounts(object):
         Google Plus shares count  # noqa: E501
 
         :param google_plus: The google_plus of this ShareCounts.  # noqa: E501
-        :type: list[ShareCount]
+        :type google_plus: list[ShareCount]
         """
 
         self._google_plus = google_plus
@@ -132,7 +132,7 @@ class ShareCounts(object):
         LinkedIn shares count  # noqa: E501
 
         :param linkedin: The linkedin of this ShareCounts.  # noqa: E501
-        :type: list[ShareCount]
+        :type linkedin: list[ShareCount]
         """
 
         self._linkedin = linkedin
@@ -155,7 +155,7 @@ class ShareCounts(object):
         Reddit shares count  # noqa: E501
 
         :param reddit: The reddit of this ShareCounts.  # noqa: E501
-        :type: list[ShareCount]
+        :type reddit: list[ShareCount]
         """
 
         self._reddit = reddit

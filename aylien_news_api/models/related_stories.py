@@ -86,7 +86,7 @@ class RelatedStories(object):
         An array of related stories for the input story  # noqa: E501
 
         :param related_stories: The related_stories of this RelatedStories.  # noqa: E501
-        :type: list[Story]
+        :type related_stories: list[Story]
         """
 
         self._related_stories = related_stories
@@ -109,7 +109,7 @@ class RelatedStories(object):
         The input story body  # noqa: E501
 
         :param story_body: The story_body of this RelatedStories.  # noqa: E501
-        :type: str
+        :type story_body: str
         """
 
         self._story_body = story_body
@@ -132,7 +132,7 @@ class RelatedStories(object):
         The input story language  # noqa: E501
 
         :param story_language: The story_language of this RelatedStories.  # noqa: E501
-        :type: str
+        :type story_language: str
         """
 
         self._story_language = story_language
@@ -155,7 +155,7 @@ class RelatedStories(object):
         The input story title  # noqa: E501
 
         :param story_title: The story_title of this RelatedStories.  # noqa: E501
-        :type: str
+        :type story_title: str
         """
 
         self._story_title = story_title

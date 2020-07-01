@@ -81,7 +81,7 @@ class Clusters(object):
         The total number of clusters  # noqa: E501
 
         :param cluster_count: The cluster_count of this Clusters.  # noqa: E501
-        :type: int
+        :type cluster_count: int
         """
 
         self._cluster_count = cluster_count
@@ -104,7 +104,7 @@ class Clusters(object):
         An array of clusters  # noqa: E501
 
         :param clusters: The clusters of this Clusters.  # noqa: E501
-        :type: list[Cluster]
+        :type clusters: list[Cluster]
         """
 
         self._clusters = clusters
@@ -127,7 +127,7 @@ class Clusters(object):
         The next page cursor  # noqa: E501
 
         :param next_page_cursor: The next_page_cursor of this Clusters.  # noqa: E501
-        :type: str
+        :type next_page_cursor: str
         """
 
         self._next_page_cursor = next_page_cursor

@@ -86,7 +86,7 @@ class TimeSeriesList(object):
         The size of each date range expressed as an interval to be added to the lower bound.   # noqa: E501
 
         :param period: The period of this TimeSeriesList.  # noqa: E501
-        :type: str
+        :type period: str
         """
 
         self._period = period
@@ -109,7 +109,7 @@ class TimeSeriesList(object):
         The end published date of the time series  # noqa: E501
 
         :param published_at_end: The published_at_end of this TimeSeriesList.  # noqa: E501
-        :type: datetime
+        :type published_at_end: datetime
         """
 
         self._published_at_end = published_at_end
@@ -132,7 +132,7 @@ class TimeSeriesList(object):
         The start published date of the time series  # noqa: E501
 
         :param published_at_start: The published_at_start of this TimeSeriesList.  # noqa: E501
-        :type: datetime
+        :type published_at_start: datetime
         """
 
         self._published_at_start = published_at_start
@@ -155,7 +155,7 @@ class TimeSeriesList(object):
         An array of time series  # noqa: E501
 
         :param time_series: The time_series of this TimeSeriesList.  # noqa: E501
-        :type: list[TimeSeries]
+        :type time_series: list[TimeSeries]
         """
 
         self._time_series = time_series

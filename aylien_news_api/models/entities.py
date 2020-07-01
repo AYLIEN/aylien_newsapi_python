@@ -76,7 +76,7 @@ class Entities(object):
         An array of extracted entities from the story body  # noqa: E501
 
         :param body: The body of this Entities.  # noqa: E501
-        :type: list[Entity]
+        :type body: list[Entity]
         """
 
         self._body = body
@@ -99,7 +99,7 @@ class Entities(object):
         An array of extracted entities from the story title  # noqa: E501
 
         :param title: The title of this Entities.  # noqa: E501
-        :type: list[Entity]
+        :type title: list[Entity]
         """
 
         self._title = title

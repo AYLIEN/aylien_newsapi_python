@@ -35,38 +35,38 @@ class StoryLinks(object):
     """
     openapi_types = {
         'canonical': 'str',
-        'coverages': 'str',
         'permalink': 'str',
-        'related_stories': 'str'
+        'related_stories': 'str',
+        'clusters': 'str'
     }
 
     attribute_map = {
         'canonical': 'canonical',
-        'coverages': 'coverages',
         'permalink': 'permalink',
-        'related_stories': 'related_stories'
+        'related_stories': 'related_stories',
+        'clusters': 'clusters'
     }
 
-    def __init__(self, canonical=None, coverages=None, permalink=None, related_stories=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, canonical=None, permalink=None, related_stories=None, clusters=None, local_vars_configuration=None):  # noqa: E501
         """StoryLinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._canonical = None
-        self._coverages = None
         self._permalink = None
         self._related_stories = None
+        self._clusters = None
         self.discriminator = None
 
         if canonical is not None:
             self.canonical = canonical
-        if coverages is not None:
-            self.coverages = coverages
         if permalink is not None:
             self.permalink = permalink
         if related_stories is not None:
             self.related_stories = related_stories
+        if clusters is not None:
+            self.clusters = clusters
 
     @property
     def canonical(self):
@@ -86,33 +86,10 @@ class StoryLinks(object):
         The story canonical URL  # noqa: E501
 
         :param canonical: The canonical of this StoryLinks.  # noqa: E501
-        :type: str
+        :type canonical: str
         """
 
         self._canonical = canonical
-
-    @property
-    def coverages(self):
-        """Gets the coverages of this StoryLinks.  # noqa: E501
-
-        The coverages URL  # noqa: E501
-
-        :return: The coverages of this StoryLinks.  # noqa: E501
-        :rtype: str
-        """
-        return self._coverages
-
-    @coverages.setter
-    def coverages(self, coverages):
-        """Sets the coverages of this StoryLinks.
-
-        The coverages URL  # noqa: E501
-
-        :param coverages: The coverages of this StoryLinks.  # noqa: E501
-        :type: str
-        """
-
-        self._coverages = coverages
 
     @property
     def permalink(self):
@@ -132,7 +109,7 @@ class StoryLinks(object):
         The story permalink URL  # noqa: E501
 
         :param permalink: The permalink of this StoryLinks.  # noqa: E501
-        :type: str
+        :type permalink: str
         """
 
         self._permalink = permalink
@@ -155,10 +132,33 @@ class StoryLinks(object):
         The related stories URL  # noqa: E501
 
         :param related_stories: The related_stories of this StoryLinks.  # noqa: E501
-        :type: str
+        :type related_stories: str
         """
 
         self._related_stories = related_stories
+
+    @property
+    def clusters(self):
+        """Gets the clusters of this StoryLinks.  # noqa: E501
+
+        The clusters endpoint URL for this story  # noqa: E501
+
+        :return: The clusters of this StoryLinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._clusters
+
+    @clusters.setter
+    def clusters(self, clusters):
+        """Sets the clusters of this StoryLinks.
+
+        The clusters endpoint URL for this story  # noqa: E501
+
+        :param clusters: The clusters of this StoryLinks.  # noqa: E501
+        :type clusters: str
+        """
+
+        self._clusters = clusters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

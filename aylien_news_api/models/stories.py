@@ -35,15 +35,19 @@ class Stories(object):
     """
     openapi_types = {
         'next_page_cursor': 'str',
-        'stories': 'list[Story]'
+        'stories': 'list[Story]',
+        'published_at_end': 'datetime',
+        'published_at_start': 'datetime'
     }
 
     attribute_map = {
         'next_page_cursor': 'next_page_cursor',
-        'stories': 'stories'
+        'stories': 'stories',
+        'published_at_end': 'published_at.end',
+        'published_at_start': 'published_at.start'
     }
 
-    def __init__(self, next_page_cursor=None, stories=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, next_page_cursor=None, stories=None, published_at_end=None, published_at_start=None, local_vars_configuration=None):  # noqa: E501
         """Stories - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +55,18 @@ class Stories(object):
 
         self._next_page_cursor = None
         self._stories = None
+        self._published_at_end = None
+        self._published_at_start = None
         self.discriminator = None
 
         if next_page_cursor is not None:
             self.next_page_cursor = next_page_cursor
         if stories is not None:
             self.stories = stories
+        if published_at_end is not None:
+            self.published_at_end = published_at_end
+        if published_at_start is not None:
+            self.published_at_start = published_at_start
 
     @property
     def next_page_cursor(self):
@@ -76,7 +86,7 @@ class Stories(object):
         The next page cursor  # noqa: E501
 
         :param next_page_cursor: The next_page_cursor of this Stories.  # noqa: E501
-        :type: str
+        :type next_page_cursor: str
         """
 
         self._next_page_cursor = next_page_cursor
@@ -99,10 +109,56 @@ class Stories(object):
         An array of stories  # noqa: E501
 
         :param stories: The stories of this Stories.  # noqa: E501
-        :type: list[Story]
+        :type stories: list[Story]
         """
 
         self._stories = stories
+
+    @property
+    def published_at_end(self):
+        """Gets the published_at_end of this Stories.  # noqa: E501
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_end of this Stories.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_end
+
+    @published_at_end.setter
+    def published_at_end(self, published_at_end):
+        """Sets the published_at_end of this Stories.
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_end: The published_at_end of this Stories.  # noqa: E501
+        :type published_at_end: datetime
+        """
+
+        self._published_at_end = published_at_end
+
+    @property
+    def published_at_start(self):
+        """Gets the published_at_start of this Stories.  # noqa: E501
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_start of this Stories.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_start
+
+    @published_at_start.setter
+    def published_at_start(self, published_at_start):
+        """Sets the published_at_start of this Stories.
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_start: The published_at_start of this Stories.  # noqa: E501
+        :type published_at_start: datetime
+        """
+
+        self._published_at_start = published_at_start
 
     def to_dict(self):
         """Returns the model properties as a dict"""

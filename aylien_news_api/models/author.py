@@ -81,7 +81,7 @@ class Author(object):
         A URL which points to the author avatar  # noqa: E501
 
         :param avatar_url: The avatar_url of this Author.  # noqa: E501
-        :type: str
+        :type avatar_url: str
         """
 
         self._avatar_url = avatar_url
@@ -104,7 +104,7 @@ class Author(object):
         A unique identification for the author  # noqa: E501
 
         :param id: The id of this Author.  # noqa: E501
-        :type: int
+        :type id: int
         """
 
         self._id = id
@@ -127,7 +127,7 @@ class Author(object):
         The extracted author full name  # noqa: E501
 
         :param name: The name of this Author.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name

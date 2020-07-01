@@ -69,7 +69,7 @@ class ErrorLinks(object):
 
 
         :param about: The about of this ErrorLinks.  # noqa: E501
-        :type: str
+        :type about: str
         """
 
         self._about = about

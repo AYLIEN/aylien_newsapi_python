@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
 import aylien_news_api
 from aylien_news_api.models.representative_story import RepresentativeStory  # noqa: E501
 from aylien_news_api.rest import ApiException
-
 
 class TestRepresentativeStory(unittest.TestCase):
     """RepresentativeStory unit test stubs"""
@@ -29,11 +29,27 @@ class TestRepresentativeStory(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test RepresentativeStory
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = aylien_news_api.models.representative_story.RepresentativeStory()  # noqa: E501
+        if include_optional :
+            return RepresentativeStory(
+                id = 56, 
+                permalink = '0', 
+                published_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                title = '0'
+            )
+        else :
+            return RepresentativeStory(
+        )
+
     def testRepresentativeStory(self):
         """Test RepresentativeStory"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = aylien_news_api.models.representative_story.RepresentativeStory()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

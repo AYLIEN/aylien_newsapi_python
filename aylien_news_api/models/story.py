@@ -174,7 +174,7 @@ class Story(object):
 
 
         :param author: The author of this Story.  # noqa: E501
-        :type: Author
+        :type author: Author
         """
 
         self._author = author
@@ -197,7 +197,7 @@ class Story(object):
         Body of the story  # noqa: E501
 
         :param body: The body of this Story.  # noqa: E501
-        :type: str
+        :type body: str
         """
 
         self._body = body
@@ -220,7 +220,7 @@ class Story(object):
         Suggested categories for the story  # noqa: E501
 
         :param categories: The categories of this Story.  # noqa: E501
-        :type: list[Category]
+        :type categories: list[Category]
         """
 
         self._categories = categories
@@ -243,7 +243,7 @@ class Story(object):
         Character count of the story body  # noqa: E501
 
         :param characters_count: The characters_count of this Story.  # noqa: E501
-        :type: int
+        :type characters_count: int
         """
 
         self._characters_count = characters_count
@@ -266,7 +266,7 @@ class Story(object):
         An array of clusters the story is associated with  # noqa: E501
 
         :param clusters: The clusters of this Story.  # noqa: E501
-        :type: list[int]
+        :type clusters: list[int]
         """
 
         self._clusters = clusters
@@ -287,7 +287,7 @@ class Story(object):
 
 
         :param entities: The entities of this Story.  # noqa: E501
-        :type: Entities
+        :type entities: Entities
         """
 
         self._entities = entities
@@ -310,7 +310,7 @@ class Story(object):
         An array of suggested Story hashtags  # noqa: E501
 
         :param hashtags: The hashtags of this Story.  # noqa: E501
-        :type: list[str]
+        :type hashtags: list[str]
         """
 
         self._hashtags = hashtags
@@ -333,7 +333,7 @@ class Story(object):
         ID of the story which is a unique identification  # noqa: E501
 
         :param id: The id of this Story.  # noqa: E501
-        :type: int
+        :type id: int
         """
 
         self._id = id
@@ -356,7 +356,7 @@ class Story(object):
         Extracted keywords mentioned in the story title or body  # noqa: E501
 
         :param keywords: The keywords of this Story.  # noqa: E501
-        :type: list[str]
+        :type keywords: list[str]
         """
 
         self._keywords = keywords
@@ -379,7 +379,7 @@ class Story(object):
         Language of the story  # noqa: E501
 
         :param language: The language of this Story.  # noqa: E501
-        :type: str
+        :type language: str
         """
 
         self._language = language
@@ -400,7 +400,7 @@ class Story(object):
 
 
         :param links: The links of this Story.  # noqa: E501
-        :type: StoryLinks
+        :type links: StoryLinks
         """
 
         self._links = links
@@ -423,7 +423,7 @@ class Story(object):
         An array of extracted media such as images and videos  # noqa: E501
 
         :param media: The media of this Story.  # noqa: E501
-        :type: list[Media]
+        :type media: list[Media]
         """
 
         self._media = media
@@ -446,7 +446,7 @@ class Story(object):
         Paragraph count of the story body  # noqa: E501
 
         :param paragraphs_count: The paragraphs_count of this Story.  # noqa: E501
-        :type: int
+        :type paragraphs_count: int
         """
 
         self._paragraphs_count = paragraphs_count
@@ -469,7 +469,7 @@ class Story(object):
         Published date of the story  # noqa: E501
 
         :param published_at: The published_at of this Story.  # noqa: E501
-        :type: datetime
+        :type published_at: datetime
         """
 
         self._published_at = published_at
@@ -492,7 +492,7 @@ class Story(object):
         Sentence count of the story body  # noqa: E501
 
         :param sentences_count: The sentences_count of this Story.  # noqa: E501
-        :type: int
+        :type sentences_count: int
         """
 
         self._sentences_count = sentences_count
@@ -513,7 +513,7 @@ class Story(object):
 
 
         :param sentiment: The sentiment of this Story.  # noqa: E501
-        :type: Sentiments
+        :type sentiment: Sentiments
         """
 
         self._sentiment = sentiment
@@ -534,7 +534,7 @@ class Story(object):
 
 
         :param social_shares_count: The social_shares_count of this Story.  # noqa: E501
-        :type: ShareCounts
+        :type social_shares_count: ShareCounts
         """
 
         self._social_shares_count = social_shares_count
@@ -555,7 +555,7 @@ class Story(object):
 
 
         :param source: The source of this Story.  # noqa: E501
-        :type: Source
+        :type source: Source
         """
 
         self._source = source
@@ -576,7 +576,7 @@ class Story(object):
 
 
         :param summary: The summary of this Story.  # noqa: E501
-        :type: Summary
+        :type summary: Summary
         """
 
         self._summary = summary
@@ -599,7 +599,7 @@ class Story(object):
         Title of the story  # noqa: E501
 
         :param title: The title of this Story.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -620,7 +620,7 @@ class Story(object):
 
 
         :param translations: The translations of this Story.  # noqa: E501
-        :type: StoryTranslations
+        :type translations: StoryTranslations
         """
 
         self._translations = translations
@@ -643,7 +643,7 @@ class Story(object):
         Word count of the story body  # noqa: E501
 
         :param words_count: The words_count of this Story.  # noqa: E501
-        :type: int
+        :type words_count: int
         """
 
         self._words_count = words_count

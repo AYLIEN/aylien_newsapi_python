@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
 import aylien_news_api
 from aylien_news_api.models.entities import Entities  # noqa: E501
 from aylien_news_api.rest import ApiException
-
 
 class TestEntities(unittest.TestCase):
     """Entities unit test stubs"""
@@ -29,11 +29,53 @@ class TestEntities(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test Entities
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = aylien_news_api.models.entities.Entities()  # noqa: E501
+        if include_optional :
+            return Entities(
+                body = [
+                    aylien_news_api.models.entity.Entity(
+                        indices = [
+                            [
+                                56
+                                ]
+                            ], 
+                        links = aylien_news_api.models.entity_links.EntityLinks(
+                            dbpedia = '0', ), 
+                        score = 0, 
+                        text = '0', 
+                        types = [
+                            '0'
+                            ], )
+                    ], 
+                title = [
+                    aylien_news_api.models.entity.Entity(
+                        indices = [
+                            [
+                                56
+                                ]
+                            ], 
+                        links = aylien_news_api.models.entity_links.EntityLinks(
+                            dbpedia = '0', ), 
+                        score = 0, 
+                        text = '0', 
+                        types = [
+                            '0'
+                            ], )
+                    ]
+            )
+        else :
+            return Entities(
+        )
+
     def testEntities(self):
         """Test Entities"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = aylien_news_api.models.entities.Entities()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

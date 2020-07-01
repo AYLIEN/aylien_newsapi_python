@@ -69,7 +69,7 @@ class Rankings(object):
 
 
         :param alexa: The alexa of this Rankings.  # noqa: E501
-        :type: list[Rank]
+        :type alexa: list[Rank]
         """
 
         self._alexa = alexa

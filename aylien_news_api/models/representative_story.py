@@ -86,7 +86,7 @@ class RepresentativeStory(object):
         ID of the story which is a unique identification  # noqa: E501
 
         :param id: The id of this RepresentativeStory.  # noqa: E501
-        :type: int
+        :type id: int
         """
 
         self._id = id
@@ -109,7 +109,7 @@ class RepresentativeStory(object):
         The story permalink URL  # noqa: E501
 
         :param permalink: The permalink of this RepresentativeStory.  # noqa: E501
-        :type: str
+        :type permalink: str
         """
 
         self._permalink = permalink
@@ -132,7 +132,7 @@ class RepresentativeStory(object):
         Published date of the story  # noqa: E501
 
         :param published_at: The published_at of this RepresentativeStory.  # noqa: E501
-        :type: datetime
+        :type published_at: datetime
         """
 
         self._published_at = published_at
@@ -155,7 +155,7 @@ class RepresentativeStory(object):
         Title of the story  # noqa: E501
 
         :param title: The title of this RepresentativeStory.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title

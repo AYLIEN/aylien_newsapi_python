@@ -76,7 +76,7 @@ class Autocomplete(object):
         ID of the autocomplete  # noqa: E501
 
         :param id: The id of this Autocomplete.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -99,7 +99,7 @@ class Autocomplete(object):
         Text of the autocomplete  # noqa: E501
 
         :param text: The text of this Autocomplete.  # noqa: E501
-        :type: str
+        :type text: str
         """
 
         self._text = text

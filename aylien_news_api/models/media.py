@@ -96,7 +96,7 @@ class Media(object):
         The content length of media  # noqa: E501
 
         :param content_length: The content_length of this Media.  # noqa: E501
-        :type: int
+        :type content_length: int
         """
 
         self._content_length = content_length
@@ -117,7 +117,7 @@ class Media(object):
 
 
         :param format: The format of this Media.  # noqa: E501
-        :type: MediaFormat
+        :type format: MediaFormat
         """
 
         self._format = format
@@ -140,7 +140,7 @@ class Media(object):
         The height of media  # noqa: E501
 
         :param height: The height of this Media.  # noqa: E501
-        :type: int
+        :type height: int
         """
 
         self._height = height
@@ -161,7 +161,7 @@ class Media(object):
 
 
         :param type: The type of this Media.  # noqa: E501
-        :type: MediaType
+        :type type: MediaType
         """
 
         self._type = type
@@ -184,7 +184,7 @@ class Media(object):
         A URL which points to the media file  # noqa: E501
 
         :param url: The url of this Media.  # noqa: E501
-        :type: str
+        :type url: str
         """
 
         self._url = url
@@ -207,7 +207,7 @@ class Media(object):
         The width of media  # noqa: E501
 
         :param width: The width of this Media.  # noqa: E501
-        :type: int
+        :type width: int
         """
 
         self._width = width

@@ -76,7 +76,7 @@ class HistogramInterval(object):
         Histogram bin  # noqa: E501
 
         :param bin: The bin of this HistogramInterval.  # noqa: E501
-        :type: int
+        :type bin: int
         """
 
         self._bin = bin
@@ -99,7 +99,7 @@ class HistogramInterval(object):
         Histogram bin size  # noqa: E501
 
         :param count: The count of this HistogramInterval.  # noqa: E501
-        :type: int
+        :type count: int
         """
 
         self._count = count

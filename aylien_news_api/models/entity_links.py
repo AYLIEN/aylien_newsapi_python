@@ -71,7 +71,7 @@ class EntityLinks(object):
         A dbpedia resource URL  # noqa: E501
 
         :param dbpedia: The dbpedia of this EntityLinks.  # noqa: E501
-        :type: str
+        :type dbpedia: str
         """
 
         self._dbpedia = dbpedia

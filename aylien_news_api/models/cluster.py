@@ -101,7 +101,7 @@ class Cluster(object):
         Publication date of the earliest story in cluster  # noqa: E501
 
         :param earliest_story: The earliest_story of this Cluster.  # noqa: E501
-        :type: datetime
+        :type earliest_story: datetime
         """
 
         self._earliest_story = earliest_story
@@ -124,7 +124,7 @@ class Cluster(object):
         ID of the cluster which is a unique identification  # noqa: E501
 
         :param id: The id of this Cluster.  # noqa: E501
-        :type: int
+        :type id: int
         """
 
         self._id = id
@@ -147,7 +147,7 @@ class Cluster(object):
         Publication date of the latest story in cluster  # noqa: E501
 
         :param latest_story: The latest_story of this Cluster.  # noqa: E501
-        :type: datetime
+        :type latest_story: datetime
         """
 
         self._latest_story = latest_story
@@ -168,7 +168,7 @@ class Cluster(object):
 
 
         :param location: The location of this Cluster.  # noqa: E501
-        :type: Location
+        :type location: Location
         """
 
         self._location = location
@@ -189,7 +189,7 @@ class Cluster(object):
 
 
         :param representative_story: The representative_story of this Cluster.  # noqa: E501
-        :type: RepresentativeStory
+        :type representative_story: RepresentativeStory
         """
 
         self._representative_story = representative_story
@@ -212,7 +212,7 @@ class Cluster(object):
         Number of stories associated with the cluster  # noqa: E501
 
         :param story_count: The story_count of this Cluster.  # noqa: E501
-        :type: int
+        :type story_count: int
         """
 
         self._story_count = story_count
@@ -235,7 +235,7 @@ class Cluster(object):
         Time of the event  # noqa: E501
 
         :param time: The time of this Cluster.  # noqa: E501
-        :type: datetime
+        :type time: datetime
         """
 
         self._time = time

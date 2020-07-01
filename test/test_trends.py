@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
 import aylien_news_api
 from aylien_news_api.models.trends import Trends  # noqa: E501
 from aylien_news_api.rest import ApiException
-
 
 class TestTrends(unittest.TestCase):
     """Trends unit test stubs"""
@@ -29,11 +29,31 @@ class TestTrends(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test Trends
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = aylien_news_api.models.trends.Trends()  # noqa: E501
+        if include_optional :
+            return Trends(
+                field = '0', 
+                trends = [
+                    aylien_news_api.models.trend.Trend(
+                        count = 56, 
+                        value = '0', )
+                    ], 
+                published_at_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                published_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+            )
+        else :
+            return Trends(
+        )
+
     def testTrends(self):
         """Test Trends"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = aylien_news_api.models.trends.Trends()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

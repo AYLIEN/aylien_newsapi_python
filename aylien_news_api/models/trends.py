@@ -35,15 +35,19 @@ class Trends(object):
     """
     openapi_types = {
         'field': 'str',
-        'trends': 'list[Trend]'
+        'trends': 'list[Trend]',
+        'published_at_end': 'datetime',
+        'published_at_start': 'datetime'
     }
 
     attribute_map = {
         'field': 'field',
-        'trends': 'trends'
+        'trends': 'trends',
+        'published_at_end': 'published_at.end',
+        'published_at_start': 'published_at.start'
     }
 
-    def __init__(self, field=None, trends=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field=None, trends=None, published_at_end=None, published_at_start=None, local_vars_configuration=None):  # noqa: E501
         """Trends - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +55,18 @@ class Trends(object):
 
         self._field = None
         self._trends = None
+        self._published_at_end = None
+        self._published_at_start = None
         self.discriminator = None
 
         if field is not None:
             self.field = field
         if trends is not None:
             self.trends = trends
+        if published_at_end is not None:
+            self.published_at_end = published_at_end
+        if published_at_start is not None:
+            self.published_at_start = published_at_start
 
     @property
     def field(self):
@@ -76,7 +86,7 @@ class Trends(object):
         The field of trends  # noqa: E501
 
         :param field: The field of this Trends.  # noqa: E501
-        :type: str
+        :type field: str
         """
 
         self._field = field
@@ -99,10 +109,56 @@ class Trends(object):
         An array of trends  # noqa: E501
 
         :param trends: The trends of this Trends.  # noqa: E501
-        :type: list[Trend]
+        :type trends: list[Trend]
         """
 
         self._trends = trends
+
+    @property
+    def published_at_end(self):
+        """Gets the published_at_end of this Trends.  # noqa: E501
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_end of this Trends.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_end
+
+    @published_at_end.setter
+    def published_at_end(self, published_at_end):
+        """Sets the published_at_end of this Trends.
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_end: The published_at_end of this Trends.  # noqa: E501
+        :type published_at_end: datetime
+        """
+
+        self._published_at_end = published_at_end
+
+    @property
+    def published_at_start(self):
+        """Gets the published_at_start of this Trends.  # noqa: E501
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_start of this Trends.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_start
+
+    @published_at_start.setter
+    def published_at_start(self, published_at_start):
+        """Sets the published_at_start of this Trends.
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_start: The published_at_start of this Trends.  # noqa: E501
+        :type published_at_start: datetime
+        """
+
+        self._published_at_start = published_at_start
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -76,7 +76,7 @@ class ShareCount(object):
         The number of shares  # noqa: E501
 
         :param count: The count of this ShareCount.  # noqa: E501
-        :type: int
+        :type count: int
         """
 
         self._count = count
@@ -99,7 +99,7 @@ class ShareCount(object):
         The fetched date of the shares  # noqa: E501
 
         :param fetched_at: The fetched_at of this ShareCount.  # noqa: E501
-        :type: datetime
+        :type fetched_at: datetime
         """
 
         self._fetched_at = fetched_at

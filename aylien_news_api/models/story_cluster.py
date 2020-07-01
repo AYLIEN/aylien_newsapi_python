@@ -91,7 +91,7 @@ class StoryCluster(object):
         A unique identification for the cluster  # noqa: E501
 
         :param id: The id of this StoryCluster.  # noqa: E501
-        :type: int
+        :type id: int
         """
 
         self._id = id
@@ -114,7 +114,7 @@ class StoryCluster(object):
         Suggested labels for the cluster  # noqa: E501
 
         :param phrases: The phrases of this StoryCluster.  # noqa: E501
-        :type: list[str]
+        :type phrases: list[str]
         """
 
         self._phrases = phrases
@@ -137,7 +137,7 @@ class StoryCluster(object):
         The cluster score  # noqa: E501
 
         :param score: The score of this StoryCluster.  # noqa: E501
-        :type: float
+        :type score: float
         """
 
         self._score = score
@@ -160,7 +160,7 @@ class StoryCluster(object):
         Size of the cluster  # noqa: E501
 
         :param size: The size of this StoryCluster.  # noqa: E501
-        :type: int
+        :type size: int
         """
 
         self._size = size
@@ -183,7 +183,7 @@ class StoryCluster(object):
         Story ids which are in the cluster  # noqa: E501
 
         :param stories: The stories of this StoryCluster.  # noqa: E501
-        :type: list[int]
+        :type stories: list[int]
         """
 
         self._stories = stories

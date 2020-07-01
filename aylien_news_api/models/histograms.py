@@ -38,7 +38,9 @@ class Histograms(object):
         'interval_end': 'int',
         'interval_start': 'int',
         'interval_width': 'int',
-        'intervals': 'list[HistogramInterval]'
+        'intervals': 'list[HistogramInterval]',
+        'published_at_end': 'datetime',
+        'published_at_start': 'datetime'
     }
 
     attribute_map = {
@@ -46,10 +48,12 @@ class Histograms(object):
         'interval_end': 'interval.end',
         'interval_start': 'interval.start',
         'interval_width': 'interval.width',
-        'intervals': 'intervals'
+        'intervals': 'intervals',
+        'published_at_end': 'published_at.end',
+        'published_at_start': 'published_at.start'
     }
 
-    def __init__(self, field=None, interval_end=None, interval_start=None, interval_width=None, intervals=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field=None, interval_end=None, interval_start=None, interval_width=None, intervals=None, published_at_end=None, published_at_start=None, local_vars_configuration=None):  # noqa: E501
         """Histograms - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +64,8 @@ class Histograms(object):
         self._interval_start = None
         self._interval_width = None
         self._intervals = None
+        self._published_at_end = None
+        self._published_at_start = None
         self.discriminator = None
 
         if field is not None:
@@ -72,6 +78,10 @@ class Histograms(object):
             self.interval_width = interval_width
         if intervals is not None:
             self.intervals = intervals
+        if published_at_end is not None:
+            self.published_at_end = published_at_end
+        if published_at_start is not None:
+            self.published_at_start = published_at_start
 
     @property
     def field(self):
@@ -89,7 +99,7 @@ class Histograms(object):
 
 
         :param field: The field of this Histograms.  # noqa: E501
-        :type: str
+        :type field: str
         """
 
         self._field = field
@@ -112,7 +122,7 @@ class Histograms(object):
         The end interval of the histogram  # noqa: E501
 
         :param interval_end: The interval_end of this Histograms.  # noqa: E501
-        :type: int
+        :type interval_end: int
         """
 
         self._interval_end = interval_end
@@ -135,7 +145,7 @@ class Histograms(object):
         The start interval of the histogram  # noqa: E501
 
         :param interval_start: The interval_start of this Histograms.  # noqa: E501
-        :type: int
+        :type interval_start: int
         """
 
         self._interval_start = interval_start
@@ -158,7 +168,7 @@ class Histograms(object):
         The width of the histogram  # noqa: E501
 
         :param interval_width: The interval_width of this Histograms.  # noqa: E501
-        :type: int
+        :type interval_width: int
         """
 
         self._interval_width = interval_width
@@ -181,10 +191,56 @@ class Histograms(object):
         The intervals of the histograms  # noqa: E501
 
         :param intervals: The intervals of this Histograms.  # noqa: E501
-        :type: list[HistogramInterval]
+        :type intervals: list[HistogramInterval]
         """
 
         self._intervals = intervals
+
+    @property
+    def published_at_end(self):
+        """Gets the published_at_end of this Histograms.  # noqa: E501
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_end of this Histograms.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_end
+
+    @published_at_end.setter
+    def published_at_end(self, published_at_end):
+        """Sets the published_at_end of this Histograms.
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_end: The published_at_end of this Histograms.  # noqa: E501
+        :type published_at_end: datetime
+        """
+
+        self._published_at_end = published_at_end
+
+    @property
+    def published_at_start(self):
+        """Gets the published_at_start of this Histograms.  # noqa: E501
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_start of this Histograms.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_start
+
+    @published_at_start.setter
+    def published_at_start(self, published_at_start):
+        """Sets the published_at_start of this Histograms.
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_start: The published_at_start of this Histograms.  # noqa: E501
+        :type published_at_start: datetime
+        """
+
+        self._published_at_start = published_at_start
 
     def to_dict(self):
         """Returns the model properties as a dict"""

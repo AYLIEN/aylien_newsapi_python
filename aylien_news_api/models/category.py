@@ -36,6 +36,7 @@ class Category(object):
     openapi_types = {
         'confident': 'bool',
         'id': 'str',
+        'label': 'str',
         'level': 'int',
         'links': 'CategoryLinks',
         'score': 'float',
@@ -45,13 +46,14 @@ class Category(object):
     attribute_map = {
         'confident': 'confident',
         'id': 'id',
+        'label': 'label',
         'level': 'level',
         'links': 'links',
         'score': 'score',
         'taxonomy': 'taxonomy'
     }
 
-    def __init__(self, confident=None, id=None, level=None, links=None, score=None, taxonomy=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, confident=None, id=None, label=None, level=None, links=None, score=None, taxonomy=None, local_vars_configuration=None):  # noqa: E501
         """Category - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class Category(object):
 
         self._confident = None
         self._id = None
+        self._label = None
         self._level = None
         self._links = None
         self._score = None
@@ -69,6 +72,8 @@ class Category(object):
             self.confident = confident
         if id is not None:
             self.id = id
+        if label is not None:
+            self.label = label
         if level is not None:
             self.level = level
         if links is not None:
@@ -96,7 +101,7 @@ class Category(object):
         It defines whether the extracted category is confident or not  # noqa: E501
 
         :param confident: The confident of this Category.  # noqa: E501
-        :type: bool
+        :type confident: bool
         """
 
         self._confident = confident
@@ -119,10 +124,33 @@ class Category(object):
         The ID of the category  # noqa: E501
 
         :param id: The id of this Category.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
+
+    @property
+    def label(self):
+        """Gets the label of this Category.  # noqa: E501
+
+        The label of the category  # noqa: E501
+
+        :return: The label of this Category.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this Category.
+
+        The label of the category  # noqa: E501
+
+        :param label: The label of this Category.  # noqa: E501
+        :type label: str
+        """
+
+        self._label = label
 
     @property
     def level(self):
@@ -142,7 +170,7 @@ class Category(object):
         The level of the category  # noqa: E501
 
         :param level: The level of this Category.  # noqa: E501
-        :type: int
+        :type level: int
         """
 
         self._level = level
@@ -163,7 +191,7 @@ class Category(object):
 
 
         :param links: The links of this Category.  # noqa: E501
-        :type: CategoryLinks
+        :type links: CategoryLinks
         """
 
         self._links = links
@@ -186,7 +214,7 @@ class Category(object):
         The score of the category  # noqa: E501
 
         :param score: The score of this Category.  # noqa: E501
-        :type: float
+        :type score: float
         """
 
         self._score = score
@@ -207,7 +235,7 @@ class Category(object):
 
 
         :param taxonomy: The taxonomy of this Category.  # noqa: E501
-        :type: CategoryTaxonomy
+        :type taxonomy: CategoryTaxonomy
         """
 
         self._taxonomy = taxonomy

@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import aylien_news_api
-from aylien_news_api.models.media import Media  # noqa: E501
+from aylien_news_api.models.story_translation import StoryTranslation  # noqa: E501
 from aylien_news_api.rest import ApiException
 
-class TestMedia(unittest.TestCase):
-    """Media unit test stubs"""
+class TestStoryTranslation(unittest.TestCase):
+    """StoryTranslation unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,26 +30,22 @@ class TestMedia(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Media
+        """Test StoryTranslation
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = aylien_news_api.models.media.Media()  # noqa: E501
+        # model = aylien_news_api.models.story_translation.StoryTranslation()  # noqa: E501
         if include_optional :
-            return Media(
-                content_length = 56, 
-                format = 'BMP', 
-                height = 56, 
-                type = 'image', 
-                url = '0', 
-                width = 56
+            return StoryTranslation(
+                body = '0', 
+                title = '0'
             )
         else :
-            return Media(
+            return StoryTranslation(
         )
 
-    def testMedia(self):
-        """Test Media"""
+    def testStoryTranslation(self):
+        """Test StoryTranslation"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

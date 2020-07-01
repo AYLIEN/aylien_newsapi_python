@@ -76,7 +76,7 @@ class TimeSeries(object):
         The count of time series bin  # noqa: E501
 
         :param count: The count of this TimeSeries.  # noqa: E501
-        :type: int
+        :type count: int
         """
 
         self._count = count
@@ -99,7 +99,7 @@ class TimeSeries(object):
         The published date of the time series bin  # noqa: E501
 
         :param published_at: The published_at of this TimeSeries.  # noqa: E501
-        :type: datetime
+        :type published_at: datetime
         """
 
         self._published_at = published_at

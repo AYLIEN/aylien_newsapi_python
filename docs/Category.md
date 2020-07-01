@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **confident** | **bool** | It defines whether the extracted category is confident or not | [optional] 
 **id** | **str** | The ID of the category | [optional] 
+**label** | **str** | The label of the category | [optional] 
 **level** | **int** | The level of the category | [optional] 
 **links** | [**CategoryLinks**](CategoryLinks.md) |  | [optional] 
 **score** | **float** | The score of the category | [optional] 

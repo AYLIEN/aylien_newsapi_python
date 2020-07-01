@@ -81,7 +81,7 @@ class Location(object):
         The city of the location  # noqa: E501
 
         :param city: The city of this Location.  # noqa: E501
-        :type: str
+        :type city: str
         """
 
         self._city = city
@@ -104,7 +104,7 @@ class Location(object):
         The country code of the location. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.   # noqa: E501
 
         :param country: The country of this Location.  # noqa: E501
-        :type: str
+        :type country: str
         """
 
         self._country = country
@@ -127,7 +127,7 @@ class Location(object):
         The state of the location  # noqa: E501
 
         :param state: The state of this Location.  # noqa: E501
-        :type: str
+        :type state: str
         """
 
         self._state = state

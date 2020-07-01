@@ -76,7 +76,7 @@ class Trend(object):
         The count of the trend  # noqa: E501
 
         :param count: The count of this Trend.  # noqa: E501
-        :type: int
+        :type count: int
         """
 
         self._count = count
@@ -99,7 +99,7 @@ class Trend(object):
         The value of the trend  # noqa: E501
 
         :param value: The value of this Trend.  # noqa: E501
-        :type: str
+        :type value: str
         """
 
         self._value = value

@@ -91,7 +91,7 @@ class Entity(object):
         The indices of the entity text  # noqa: E501
 
         :param indices: The indices of this Entity.  # noqa: E501
-        :type: list[list[int]]
+        :type indices: list[list[int]]
         """
 
         self._indices = indices
@@ -112,7 +112,7 @@ class Entity(object):
 
 
         :param links: The links of this Entity.  # noqa: E501
-        :type: EntityLinks
+        :type links: EntityLinks
         """
 
         self._links = links
@@ -135,7 +135,7 @@ class Entity(object):
         The entity score  # noqa: E501
 
         :param score: The score of this Entity.  # noqa: E501
-        :type: float
+        :type score: float
         """
         if (self.local_vars_configuration.client_side_validation and
                 score is not None and score > 1):  # noqa: E501
@@ -164,7 +164,7 @@ class Entity(object):
         The entity text  # noqa: E501
 
         :param text: The text of this Entity.  # noqa: E501
-        :type: str
+        :type text: str
         """
 
         self._text = text
@@ -187,7 +187,7 @@ class Entity(object):
         An array of the dbpedia types  # noqa: E501
 
         :param types: The types of this Entity.  # noqa: E501
-        :type: list[str]
+        :type types: list[str]
         """
 
         self._types = types

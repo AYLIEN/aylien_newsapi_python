@@ -86,7 +86,7 @@ class Scope(object):
         The scope by city  # noqa: E501
 
         :param city: The city of this Scope.  # noqa: E501
-        :type: str
+        :type city: str
         """
 
         self._city = city
@@ -109,7 +109,7 @@ class Scope(object):
         The source scope by country code. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.   # noqa: E501
 
         :param country: The country of this Scope.  # noqa: E501
-        :type: str
+        :type country: str
         """
 
         self._country = country
@@ -130,7 +130,7 @@ class Scope(object):
 
 
         :param level: The level of this Scope.  # noqa: E501
-        :type: ScopeLevel
+        :type level: ScopeLevel
         """
 
         self._level = level
@@ -153,7 +153,7 @@ class Scope(object):
         The scope by state  # noqa: E501
 
         :param state: The state of this Scope.  # noqa: E501
-        :type: str
+        :type state: str
         """
 
         self._state = state

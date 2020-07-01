@@ -23,7 +23,6 @@ from aylien_news_api.models.category_links import CategoryLinks
 from aylien_news_api.models.category_taxonomy import CategoryTaxonomy
 from aylien_news_api.models.cluster import Cluster
 from aylien_news_api.models.clusters import Clusters
-from aylien_news_api.models.coverages import Coverages
 from aylien_news_api.models.entities import Entities
 from aylien_news_api.models.entity import Entity
 from aylien_news_api.models.entity_links import EntityLinks
@@ -52,8 +51,8 @@ from aylien_news_api.models.stories import Stories
 from aylien_news_api.models.story import Story
 from aylien_news_api.models.story_cluster import StoryCluster
 from aylien_news_api.models.story_links import StoryLinks
+from aylien_news_api.models.story_translation import StoryTranslation
 from aylien_news_api.models.story_translations import StoryTranslations
-from aylien_news_api.models.story_translations_en import StoryTranslationsEn
 from aylien_news_api.models.summary import Summary
 from aylien_news_api.models.time_series import TimeSeries
 from aylien_news_api.models.time_series_list import TimeSeriesList
