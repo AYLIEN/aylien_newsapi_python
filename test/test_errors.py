@@ -43,7 +43,8 @@ class TestErrors(unittest.TestCase):
                         detail = '0', 
                         id = '0', 
                         links = aylien_news_api.models.error_links.ErrorLinks(
-                            about = '0', ), 
+                            about = '0', 
+                            docs = '0', ), 
                         status = '0', 
                         title = '0', )
                     ]

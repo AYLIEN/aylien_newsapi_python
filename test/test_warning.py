@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import aylien_news_api
-from aylien_news_api.models.error import Error  # noqa: E501
+from aylien_news_api.models.warning import Warning  # noqa: E501
 from aylien_news_api.rest import ApiException
 
-class TestError(unittest.TestCase):
-    """Error unit test stubs"""
+class TestWarning(unittest.TestCase):
+    """Warning unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,28 +30,25 @@ class TestError(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Error
+        """Test Warning
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = aylien_news_api.models.error.Error()  # noqa: E501
+        # model = aylien_news_api.models.warning.Warning()  # noqa: E501
         if include_optional :
-            return Error(
-                code = '0', 
-                detail = '0', 
-                id = '0', 
+            return Warning(
+                id = null, 
                 links = aylien_news_api.models.error_links.ErrorLinks(
                     about = '0', 
                     docs = '0', ), 
-                status = '0', 
-                title = '0'
+                detail = null
             )
         else :
-            return Error(
+            return Warning(
         )
 
-    def testError(self):
-        """Test Error"""
+    def testWarning(self):
+        """Test Warning"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

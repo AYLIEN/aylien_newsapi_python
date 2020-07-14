@@ -47,7 +47,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 from __future__ import print_function
-import time
+import os
 import aylien_news_api
 from aylien_news_api.rest import ApiException
 from pprint import pprint

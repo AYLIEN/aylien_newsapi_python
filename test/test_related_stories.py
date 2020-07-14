@@ -164,7 +164,9 @@ class TestRelatedStories(unittest.TestCase):
                     ], 
                 story_body = '0', 
                 story_language = '0', 
-                story_title = '0'
+                story_title = '0', 
+                published_at_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                published_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
             return RelatedStories(

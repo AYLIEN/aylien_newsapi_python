@@ -37,17 +37,21 @@ class RelatedStories(object):
         'related_stories': 'list[Story]',
         'story_body': 'str',
         'story_language': 'str',
-        'story_title': 'str'
+        'story_title': 'str',
+        'published_at_end': 'datetime',
+        'published_at_start': 'datetime'
     }
 
     attribute_map = {
         'related_stories': 'related_stories',
         'story_body': 'story_body',
         'story_language': 'story_language',
-        'story_title': 'story_title'
+        'story_title': 'story_title',
+        'published_at_end': 'published_at.end',
+        'published_at_start': 'published_at.start'
     }
 
-    def __init__(self, related_stories=None, story_body=None, story_language=None, story_title=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, related_stories=None, story_body=None, story_language=None, story_title=None, published_at_end=None, published_at_start=None, local_vars_configuration=None):  # noqa: E501
         """RelatedStories - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +61,8 @@ class RelatedStories(object):
         self._story_body = None
         self._story_language = None
         self._story_title = None
+        self._published_at_end = None
+        self._published_at_start = None
         self.discriminator = None
 
         if related_stories is not None:
@@ -67,6 +73,10 @@ class RelatedStories(object):
             self.story_language = story_language
         if story_title is not None:
             self.story_title = story_title
+        if published_at_end is not None:
+            self.published_at_end = published_at_end
+        if published_at_start is not None:
+            self.published_at_start = published_at_start
 
     @property
     def related_stories(self):
@@ -159,6 +169,52 @@ class RelatedStories(object):
         """
 
         self._story_title = story_title
+
+    @property
+    def published_at_end(self):
+        """Gets the published_at_end of this RelatedStories.  # noqa: E501
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_end of this RelatedStories.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_end
+
+    @published_at_end.setter
+    def published_at_end(self, published_at_end):
+        """Sets the published_at_end of this RelatedStories.
+
+        The end of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_end: The published_at_end of this RelatedStories.  # noqa: E501
+        :type published_at_end: datetime
+        """
+
+        self._published_at_end = published_at_end
+
+    @property
+    def published_at_start(self):
+        """Gets the published_at_start of this RelatedStories.  # noqa: E501
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :return: The published_at_start of this RelatedStories.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._published_at_start
+
+    @published_at_start.setter
+    def published_at_start(self, published_at_start):
+        """Sets the published_at_start of this RelatedStories.
+
+        The start of a period in which searched stories were published  # noqa: E501
+
+        :param published_at_start: The published_at_start of this RelatedStories.  # noqa: E501
+        :type published_at_start: datetime
+        """
+
+        self._published_at_start = published_at_start
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,17 +37,19 @@ class Stories(object):
         'next_page_cursor': 'str',
         'stories': 'list[Story]',
         'published_at_end': 'datetime',
-        'published_at_start': 'datetime'
+        'published_at_start': 'datetime',
+        'warnings': 'list[Warning]'
     }
 
     attribute_map = {
         'next_page_cursor': 'next_page_cursor',
         'stories': 'stories',
         'published_at_end': 'published_at.end',
-        'published_at_start': 'published_at.start'
+        'published_at_start': 'published_at.start',
+        'warnings': 'warnings'
     }
 
-    def __init__(self, next_page_cursor=None, stories=None, published_at_end=None, published_at_start=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, next_page_cursor=None, stories=None, published_at_end=None, published_at_start=None, warnings=None, local_vars_configuration=None):  # noqa: E501
         """Stories - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class Stories(object):
         self._stories = None
         self._published_at_end = None
         self._published_at_start = None
+        self._warnings = None
         self.discriminator = None
 
         if next_page_cursor is not None:
@@ -67,6 +70,8 @@ class Stories(object):
             self.published_at_end = published_at_end
         if published_at_start is not None:
             self.published_at_start = published_at_start
+        if warnings is not None:
+            self.warnings = warnings
 
     @property
     def next_page_cursor(self):
@@ -159,6 +164,29 @@ class Stories(object):
         """
 
         self._published_at_start = published_at_start
+
+    @property
+    def warnings(self):
+        """Gets the warnings of this Stories.  # noqa: E501
+
+        Notifies about possible issues that occurred when searching for stories  # noqa: E501
+
+        :return: The warnings of this Stories.  # noqa: E501
+        :rtype: list[Warning]
+        """
+        return self._warnings
+
+    @warnings.setter
+    def warnings(self, warnings):
+        """Sets the warnings of this Stories.
+
+        Notifies about possible issues that occurred when searching for stories  # noqa: E501
+
+        :param warnings: The warnings of this Stories.  # noqa: E501
+        :type warnings: list[Warning]
+        """
+
+        self._warnings = warnings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

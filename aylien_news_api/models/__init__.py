@@ -58,3 +58,4 @@ from aylien_news_api.models.time_series import TimeSeries
 from aylien_news_api.models.time_series_list import TimeSeriesList
 from aylien_news_api.models.trend import Trend
 from aylien_news_api.models.trends import Trends
+from aylien_news_api.models.warning import Warning

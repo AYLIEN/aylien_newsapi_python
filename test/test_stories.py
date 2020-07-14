@@ -164,7 +164,15 @@ class TestStories(unittest.TestCase):
                         words_count = 56, )
                     ], 
                 published_at_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                published_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                published_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                warnings = [
+                    aylien_news_api.models.warning.Warning(
+                        id = null, 
+                        links = aylien_news_api.models.error_links.ErrorLinks(
+                            about = '0', 
+                            docs = '0', ), 
+                        detail = null, )
+                    ]
             )
         else :
             return Stories(

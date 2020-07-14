@@ -37,7 +37,8 @@ class TestErrorLinks(unittest.TestCase):
         # model = aylien_news_api.models.error_links.ErrorLinks()  # noqa: E501
         if include_optional :
             return ErrorLinks(
-                about = '0'
+                about = '0', 
+                docs = '0'
             )
         else :
             return ErrorLinks(
