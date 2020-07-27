@@ -34,9 +34,9 @@ class Warning(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'String',
+        'id': 'str',
         'links': 'ErrorLinks',
-        'detail': 'String'
+        'detail': 'str'
     }
 
     attribute_map = {
@@ -70,7 +70,7 @@ class Warning(object):
         The identfier of the warning, represents its origin.  # noqa: E501
 
         :return: The id of this Warning.  # noqa: E501
-        :rtype: String
+        :rtype: str
         """
         return self._id
 
@@ -81,7 +81,7 @@ class Warning(object):
         The identfier of the warning, represents its origin.  # noqa: E501
 
         :param id: The id of this Warning.  # noqa: E501
-        :type id: String
+        :type id: str
         """
 
         self._id = id
@@ -114,7 +114,7 @@ class Warning(object):
         The detailed description of the warning.  # noqa: E501
 
         :return: The detail of this Warning.  # noqa: E501
-        :rtype: String
+        :rtype: str
         """
         return self._detail
 
@@ -125,7 +125,7 @@ class Warning(object):
         The detailed description of the warning.  # noqa: E501
 
         :param detail: The detail of this Warning.  # noqa: E501
-        :type detail: String
+        :type detail: str
         """
 
         self._detail = detail

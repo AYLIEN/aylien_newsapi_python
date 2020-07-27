@@ -37,11 +37,11 @@ class TestWarning(unittest.TestCase):
         # model = aylien_news_api.models.warning.Warning()  # noqa: E501
         if include_optional :
             return Warning(
-                id = null, 
+                id = '0', 
                 links = aylien_news_api.models.error_links.ErrorLinks(
                     about = '0', 
                     docs = '0', ), 
-                detail = null
+                detail = '0'
             )
         else :
             return Warning(
