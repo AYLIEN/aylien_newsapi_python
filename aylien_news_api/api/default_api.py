@@ -37,6 +37,195 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def advanced_list_stories(self, unknown_base_type, **kwargs):  # noqa: E501
+        """List Stories  # noqa: E501
+
+        The stories endpoint is used to return stories based on the json query you set in your request body. The News API crawler gathers articles in near real-time and stores information about them, or metadata. Below you can see all of the query parameters, and JSON schema for the body, which you can use to narrow down your query.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.advanced_list_stories(unknown_base_type, async_req=True)
+        >>> result = thread.get()
+
+        :param unknown_base_type: /stories body schema to perform an advanced search with logical operators and nested objects.  (required)
+        :type unknown_base_type: UNKNOWN_BASE_TYPE
+        :param published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
+        :type published_at_start: str
+        :param published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
+        :type published_at_end: str
+        :param _return: This parameter is used for specifying return fields.
+        :type _return: list[str]
+        :param sort_by: This parameter is used for changing the order column of the results. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
+        :type sort_by: str
+        :param sort_direction: This parameter is used for changing the order direction of the result. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
+        :type sort_direction: str
+        :param cursor: This parameter is used for finding a specific page. You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results). 
+        :type cursor: str
+        :param per_page: This parameter is used for specifying number of items in each page You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results) 
+        :type per_page: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Stories
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.advanced_list_stories_with_http_info(unknown_base_type, **kwargs)  # noqa: E501
+
+    def advanced_list_stories_with_http_info(self, unknown_base_type, **kwargs):  # noqa: E501
+        """List Stories  # noqa: E501
+
+        The stories endpoint is used to return stories based on the json query you set in your request body. The News API crawler gathers articles in near real-time and stores information about them, or metadata. Below you can see all of the query parameters, and JSON schema for the body, which you can use to narrow down your query.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.advanced_list_stories_with_http_info(unknown_base_type, async_req=True)
+        >>> result = thread.get()
+
+        :param unknown_base_type: /stories body schema to perform an advanced search with logical operators and nested objects.  (required)
+        :type unknown_base_type: UNKNOWN_BASE_TYPE
+        :param published_at_start: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
+        :type published_at_start: str
+        :param published_at_end: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
+        :type published_at_end: str
+        :param _return: This parameter is used for specifying return fields.
+        :type _return: list[str]
+        :param sort_by: This parameter is used for changing the order column of the results. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
+        :type sort_by: str
+        :param sort_direction: This parameter is used for changing the order direction of the result. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
+        :type sort_direction: str
+        :param cursor: This parameter is used for finding a specific page. You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results). 
+        :type cursor: str
+        :param per_page: This parameter is used for specifying number of items in each page You can read more about pagination of results [here](https://newsapi.aylien.com/docs/pagination-of-results) 
+        :type per_page: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Stories, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'unknown_base_type',
+            'published_at_start',
+            'published_at_end',
+            '_return',
+            'sort_by',
+            'sort_direction',
+            'cursor',
+            'per_page'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method advanced_list_stories" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'unknown_base_type' is set
+        if self.api_client.client_side_validation and ('unknown_base_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unknown_base_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unknown_base_type` when calling `advanced_list_stories`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `per_page` when calling `advanced_list_stories`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `per_page` when calling `advanced_list_stories`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
+            query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
+        if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
+            query_params.append(('published_at.end', local_var_params['published_at_end']))  # noqa: E501
+        if '_return' in local_var_params and local_var_params['_return'] is not None:  # noqa: E501
+            query_params.append(('return[]', local_var_params['_return']))  # noqa: E501
+            collection_formats['return[]'] = 'multi'  # noqa: E501
+        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+            query_params.append(('sort_by', local_var_params['sort_by']))  # noqa: E501
+        if 'sort_direction' in local_var_params and local_var_params['sort_direction'] is not None:  # noqa: E501
+            query_params.append(('sort_direction', local_var_params['sort_direction']))  # noqa: E501
+        if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
+            query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
+        if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
+            query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['app_id', 'app_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/stories', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Stories',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def list_autocompletes(self, type, term, **kwargs):  # noqa: E501
         """List autocompletes  # noqa: E501
 
@@ -506,6 +695,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -514,10 +711,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -526,10 +743,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -718,6 +947,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -726,10 +963,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -738,10 +995,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -906,18 +1175,38 @@ class DefaultApi(object):
             'not_categories_label',
             'categories_level',
             'not_categories_level',
+            'entities_title_id',
+            'not_entities_title_id',
+            'entities_title_surface_forms_text',
+            'not_entities_title_surface_forms_text',
             'entities_title_text',
             'not_entities_title_text',
             'entities_title_type',
             'not_entities_title_type',
+            'entities_title_stock_ticker',
+            'not_entities_title_stock_ticker',
             'entities_title_links_dbpedia',
             'not_entities_title_links_dbpedia',
+            'entities_title_links_wikipedia',
+            'not_entities_title_links_wikipedia',
+            'entities_title_links_wikidata',
+            'not_entities_title_links_wikidata',
+            'entities_body_id',
+            'not_entities_body_id',
+            'entities_body_surface_forms_text',
+            'not_entities_body_surface_forms_text',
             'entities_body_text',
             'not_entities_body_text',
             'entities_body_type',
             'not_entities_body_type',
+            'entities_body_stock_ticker',
+            'not_entities_body_stock_ticker',
             'entities_body_links_dbpedia',
             'not_entities_body_links_dbpedia',
+            'entities_body_links_wikipedia',
+            'not_entities_body_links_wikipedia',
+            'entities_body_links_wikidata',
+            'not_entities_body_links_wikidata',
             'sentiment_title_polarity',
             'not_sentiment_title_polarity',
             'sentiment_body_polarity',
@@ -1101,6 +1390,18 @@ class DefaultApi(object):
         if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
+        if 'entities_title_id' in local_var_params and local_var_params['entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('entities.title.id[]', local_var_params['entities_title_id']))  # noqa: E501
+            collection_formats['entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_id' in local_var_params and local_var_params['not_entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.id[]', local_var_params['not_entities_title_id']))  # noqa: E501
+            collection_formats['!entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'entities_title_surface_forms_text' in local_var_params and local_var_params['entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.title.surface_forms.text[]', local_var_params['entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_surface_forms_text' in local_var_params and local_var_params['not_entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.surface_forms.text[]', local_var_params['not_entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
@@ -1113,12 +1414,42 @@ class DefaultApi(object):
         if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
+        if 'entities_title_stock_ticker' in local_var_params and local_var_params['entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.title.stock_ticker[]', local_var_params['entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_stock_ticker' in local_var_params and local_var_params['not_entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.stock_ticker[]', local_var_params['not_entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikipedia' in local_var_params and local_var_params['entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikipedia[]', local_var_params['entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikipedia' in local_var_params and local_var_params['not_entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikipedia[]', local_var_params['not_entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikidata' in local_var_params and local_var_params['entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikidata[]', local_var_params['entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikidata' in local_var_params and local_var_params['not_entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikidata[]', local_var_params['not_entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'entities_body_id' in local_var_params and local_var_params['entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('entities.body.id[]', local_var_params['entities_body_id']))  # noqa: E501
+            collection_formats['entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_id' in local_var_params and local_var_params['not_entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.id[]', local_var_params['not_entities_body_id']))  # noqa: E501
+            collection_formats['!entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'entities_body_surface_forms_text' in local_var_params and local_var_params['entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.body.surface_forms.text[]', local_var_params['entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_surface_forms_text' in local_var_params and local_var_params['not_entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.surface_forms.text[]', local_var_params['not_entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
@@ -1131,12 +1462,30 @@ class DefaultApi(object):
         if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
+        if 'entities_body_stock_ticker' in local_var_params and local_var_params['entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.body.stock_ticker[]', local_var_params['entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_stock_ticker' in local_var_params and local_var_params['not_entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.stock_ticker[]', local_var_params['not_entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikipedia' in local_var_params and local_var_params['entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikipedia[]', local_var_params['entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikipedia' in local_var_params and local_var_params['not_entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikipedia[]', local_var_params['not_entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikidata' in local_var_params and local_var_params['entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikidata[]', local_var_params['entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikidata' in local_var_params and local_var_params['not_entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikidata[]', local_var_params['not_entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
         if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
         if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
@@ -1363,6 +1712,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -1371,10 +1728,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -1383,10 +1760,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -1582,6 +1971,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -1590,10 +1987,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -1602,10 +2019,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -1778,18 +2207,38 @@ class DefaultApi(object):
             'not_categories_label',
             'categories_level',
             'not_categories_level',
+            'entities_title_id',
+            'not_entities_title_id',
+            'entities_title_surface_forms_text',
+            'not_entities_title_surface_forms_text',
             'entities_title_text',
             'not_entities_title_text',
             'entities_title_type',
             'not_entities_title_type',
+            'entities_title_stock_ticker',
+            'not_entities_title_stock_ticker',
             'entities_title_links_dbpedia',
             'not_entities_title_links_dbpedia',
+            'entities_title_links_wikipedia',
+            'not_entities_title_links_wikipedia',
+            'entities_title_links_wikidata',
+            'not_entities_title_links_wikidata',
+            'entities_body_id',
+            'not_entities_body_id',
+            'entities_body_surface_forms_text',
+            'not_entities_body_surface_forms_text',
             'entities_body_text',
             'not_entities_body_text',
             'entities_body_type',
             'not_entities_body_type',
+            'entities_body_stock_ticker',
+            'not_entities_body_stock_ticker',
             'entities_body_links_dbpedia',
             'not_entities_body_links_dbpedia',
+            'entities_body_links_wikipedia',
+            'not_entities_body_links_wikipedia',
+            'entities_body_links_wikidata',
+            'not_entities_body_links_wikidata',
             'sentiment_title_polarity',
             'not_sentiment_title_polarity',
             'sentiment_body_polarity',
@@ -1981,6 +2430,18 @@ class DefaultApi(object):
         if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
+        if 'entities_title_id' in local_var_params and local_var_params['entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('entities.title.id[]', local_var_params['entities_title_id']))  # noqa: E501
+            collection_formats['entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_id' in local_var_params and local_var_params['not_entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.id[]', local_var_params['not_entities_title_id']))  # noqa: E501
+            collection_formats['!entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'entities_title_surface_forms_text' in local_var_params and local_var_params['entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.title.surface_forms.text[]', local_var_params['entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_surface_forms_text' in local_var_params and local_var_params['not_entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.surface_forms.text[]', local_var_params['not_entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
@@ -1993,12 +2454,42 @@ class DefaultApi(object):
         if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
+        if 'entities_title_stock_ticker' in local_var_params and local_var_params['entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.title.stock_ticker[]', local_var_params['entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_stock_ticker' in local_var_params and local_var_params['not_entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.stock_ticker[]', local_var_params['not_entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikipedia' in local_var_params and local_var_params['entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikipedia[]', local_var_params['entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikipedia' in local_var_params and local_var_params['not_entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikipedia[]', local_var_params['not_entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikidata' in local_var_params and local_var_params['entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikidata[]', local_var_params['entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikidata' in local_var_params and local_var_params['not_entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikidata[]', local_var_params['not_entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'entities_body_id' in local_var_params and local_var_params['entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('entities.body.id[]', local_var_params['entities_body_id']))  # noqa: E501
+            collection_formats['entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_id' in local_var_params and local_var_params['not_entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.id[]', local_var_params['not_entities_body_id']))  # noqa: E501
+            collection_formats['!entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'entities_body_surface_forms_text' in local_var_params and local_var_params['entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.body.surface_forms.text[]', local_var_params['entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_surface_forms_text' in local_var_params and local_var_params['not_entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.surface_forms.text[]', local_var_params['not_entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
@@ -2011,12 +2502,30 @@ class DefaultApi(object):
         if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
+        if 'entities_body_stock_ticker' in local_var_params and local_var_params['entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.body.stock_ticker[]', local_var_params['entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_stock_ticker' in local_var_params and local_var_params['not_entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.stock_ticker[]', local_var_params['not_entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikipedia' in local_var_params and local_var_params['entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikipedia[]', local_var_params['entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikipedia' in local_var_params and local_var_params['not_entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikipedia[]', local_var_params['not_entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikidata' in local_var_params and local_var_params['entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikidata[]', local_var_params['entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikidata' in local_var_params and local_var_params['not_entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikidata[]', local_var_params['not_entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
         if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
         if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
@@ -2252,6 +2761,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -2260,10 +2777,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -2272,10 +2809,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -2471,6 +3020,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -2479,10 +3036,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -2491,10 +3068,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -2667,18 +3256,38 @@ class DefaultApi(object):
             'not_categories_label',
             'categories_level',
             'not_categories_level',
+            'entities_title_id',
+            'not_entities_title_id',
+            'entities_title_surface_forms_text',
+            'not_entities_title_surface_forms_text',
             'entities_title_text',
             'not_entities_title_text',
             'entities_title_type',
             'not_entities_title_type',
+            'entities_title_stock_ticker',
+            'not_entities_title_stock_ticker',
             'entities_title_links_dbpedia',
             'not_entities_title_links_dbpedia',
+            'entities_title_links_wikipedia',
+            'not_entities_title_links_wikipedia',
+            'entities_title_links_wikidata',
+            'not_entities_title_links_wikidata',
+            'entities_body_id',
+            'not_entities_body_id',
+            'entities_body_surface_forms_text',
+            'not_entities_body_surface_forms_text',
             'entities_body_text',
             'not_entities_body_text',
             'entities_body_type',
             'not_entities_body_type',
+            'entities_body_stock_ticker',
+            'not_entities_body_stock_ticker',
             'entities_body_links_dbpedia',
             'not_entities_body_links_dbpedia',
+            'entities_body_links_wikipedia',
+            'not_entities_body_links_wikipedia',
+            'entities_body_links_wikidata',
+            'not_entities_body_links_wikidata',
             'sentiment_title_polarity',
             'not_sentiment_title_polarity',
             'sentiment_body_polarity',
@@ -2870,6 +3479,18 @@ class DefaultApi(object):
         if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
+        if 'entities_title_id' in local_var_params and local_var_params['entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('entities.title.id[]', local_var_params['entities_title_id']))  # noqa: E501
+            collection_formats['entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_id' in local_var_params and local_var_params['not_entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.id[]', local_var_params['not_entities_title_id']))  # noqa: E501
+            collection_formats['!entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'entities_title_surface_forms_text' in local_var_params and local_var_params['entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.title.surface_forms.text[]', local_var_params['entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_surface_forms_text' in local_var_params and local_var_params['not_entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.surface_forms.text[]', local_var_params['not_entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
@@ -2882,12 +3503,42 @@ class DefaultApi(object):
         if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
+        if 'entities_title_stock_ticker' in local_var_params and local_var_params['entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.title.stock_ticker[]', local_var_params['entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_stock_ticker' in local_var_params and local_var_params['not_entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.stock_ticker[]', local_var_params['not_entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikipedia' in local_var_params and local_var_params['entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikipedia[]', local_var_params['entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikipedia' in local_var_params and local_var_params['not_entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikipedia[]', local_var_params['not_entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikidata' in local_var_params and local_var_params['entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikidata[]', local_var_params['entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikidata' in local_var_params and local_var_params['not_entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikidata[]', local_var_params['not_entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'entities_body_id' in local_var_params and local_var_params['entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('entities.body.id[]', local_var_params['entities_body_id']))  # noqa: E501
+            collection_formats['entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_id' in local_var_params and local_var_params['not_entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.id[]', local_var_params['not_entities_body_id']))  # noqa: E501
+            collection_formats['!entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'entities_body_surface_forms_text' in local_var_params and local_var_params['entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.body.surface_forms.text[]', local_var_params['entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_surface_forms_text' in local_var_params and local_var_params['not_entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.surface_forms.text[]', local_var_params['not_entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
@@ -2900,12 +3551,30 @@ class DefaultApi(object):
         if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
+        if 'entities_body_stock_ticker' in local_var_params and local_var_params['entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.body.stock_ticker[]', local_var_params['entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_stock_ticker' in local_var_params and local_var_params['not_entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.stock_ticker[]', local_var_params['not_entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikipedia' in local_var_params and local_var_params['entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikipedia[]', local_var_params['entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikipedia' in local_var_params and local_var_params['not_entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikipedia[]', local_var_params['not_entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikidata' in local_var_params and local_var_params['entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikidata[]', local_var_params['entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikidata' in local_var_params and local_var_params['not_entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikidata[]', local_var_params['not_entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
         if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
         if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
@@ -3142,6 +3811,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -3150,10 +3827,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -3162,10 +3859,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -3356,6 +4065,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -3364,10 +4081,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -3376,10 +4113,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -3546,18 +4295,38 @@ class DefaultApi(object):
             'not_categories_label',
             'categories_level',
             'not_categories_level',
+            'entities_title_id',
+            'not_entities_title_id',
+            'entities_title_surface_forms_text',
+            'not_entities_title_surface_forms_text',
             'entities_title_text',
             'not_entities_title_text',
             'entities_title_type',
             'not_entities_title_type',
+            'entities_title_stock_ticker',
+            'not_entities_title_stock_ticker',
             'entities_title_links_dbpedia',
             'not_entities_title_links_dbpedia',
+            'entities_title_links_wikipedia',
+            'not_entities_title_links_wikipedia',
+            'entities_title_links_wikidata',
+            'not_entities_title_links_wikidata',
+            'entities_body_id',
+            'not_entities_body_id',
+            'entities_body_surface_forms_text',
+            'not_entities_body_surface_forms_text',
             'entities_body_text',
             'not_entities_body_text',
             'entities_body_type',
             'not_entities_body_type',
+            'entities_body_stock_ticker',
+            'not_entities_body_stock_ticker',
             'entities_body_links_dbpedia',
             'not_entities_body_links_dbpedia',
+            'entities_body_links_wikipedia',
+            'not_entities_body_links_wikipedia',
+            'entities_body_links_wikidata',
+            'not_entities_body_links_wikidata',
             'sentiment_title_polarity',
             'not_sentiment_title_polarity',
             'sentiment_body_polarity',
@@ -3746,6 +4515,18 @@ class DefaultApi(object):
         if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
+        if 'entities_title_id' in local_var_params and local_var_params['entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('entities.title.id[]', local_var_params['entities_title_id']))  # noqa: E501
+            collection_formats['entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_id' in local_var_params and local_var_params['not_entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.id[]', local_var_params['not_entities_title_id']))  # noqa: E501
+            collection_formats['!entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'entities_title_surface_forms_text' in local_var_params and local_var_params['entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.title.surface_forms.text[]', local_var_params['entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_surface_forms_text' in local_var_params and local_var_params['not_entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.surface_forms.text[]', local_var_params['not_entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
@@ -3758,12 +4539,42 @@ class DefaultApi(object):
         if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
+        if 'entities_title_stock_ticker' in local_var_params and local_var_params['entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.title.stock_ticker[]', local_var_params['entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_stock_ticker' in local_var_params and local_var_params['not_entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.stock_ticker[]', local_var_params['not_entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikipedia' in local_var_params and local_var_params['entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikipedia[]', local_var_params['entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikipedia' in local_var_params and local_var_params['not_entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikipedia[]', local_var_params['not_entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikidata' in local_var_params and local_var_params['entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikidata[]', local_var_params['entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikidata' in local_var_params and local_var_params['not_entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikidata[]', local_var_params['not_entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'entities_body_id' in local_var_params and local_var_params['entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('entities.body.id[]', local_var_params['entities_body_id']))  # noqa: E501
+            collection_formats['entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_id' in local_var_params and local_var_params['not_entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.id[]', local_var_params['not_entities_body_id']))  # noqa: E501
+            collection_formats['!entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'entities_body_surface_forms_text' in local_var_params and local_var_params['entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.body.surface_forms.text[]', local_var_params['entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_surface_forms_text' in local_var_params and local_var_params['not_entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.surface_forms.text[]', local_var_params['not_entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
@@ -3776,12 +4587,30 @@ class DefaultApi(object):
         if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
+        if 'entities_body_stock_ticker' in local_var_params and local_var_params['entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.body.stock_ticker[]', local_var_params['entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_stock_ticker' in local_var_params and local_var_params['not_entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.stock_ticker[]', local_var_params['not_entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikipedia' in local_var_params and local_var_params['entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikipedia[]', local_var_params['entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikipedia' in local_var_params and local_var_params['not_entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikipedia[]', local_var_params['not_entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikidata' in local_var_params and local_var_params['entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikidata[]', local_var_params['entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikidata' in local_var_params and local_var_params['not_entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikidata[]', local_var_params['not_entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
         if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
         if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
@@ -4004,6 +4833,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -4012,10 +4849,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -4024,10 +4881,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -4206,6 +5075,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -4214,10 +5091,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -4226,10 +5123,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -4388,18 +5297,38 @@ class DefaultApi(object):
             'not_categories_label',
             'categories_level',
             'not_categories_level',
+            'entities_title_id',
+            'not_entities_title_id',
+            'entities_title_surface_forms_text',
+            'not_entities_title_surface_forms_text',
             'entities_title_text',
             'not_entities_title_text',
             'entities_title_type',
             'not_entities_title_type',
+            'entities_title_stock_ticker',
+            'not_entities_title_stock_ticker',
             'entities_title_links_dbpedia',
             'not_entities_title_links_dbpedia',
+            'entities_title_links_wikipedia',
+            'not_entities_title_links_wikipedia',
+            'entities_title_links_wikidata',
+            'not_entities_title_links_wikidata',
+            'entities_body_id',
+            'not_entities_body_id',
+            'entities_body_surface_forms_text',
+            'not_entities_body_surface_forms_text',
             'entities_body_text',
             'not_entities_body_text',
             'entities_body_type',
             'not_entities_body_type',
+            'entities_body_stock_ticker',
+            'not_entities_body_stock_ticker',
             'entities_body_links_dbpedia',
             'not_entities_body_links_dbpedia',
+            'entities_body_links_wikipedia',
+            'not_entities_body_links_wikipedia',
+            'entities_body_links_wikidata',
+            'not_entities_body_links_wikidata',
             'sentiment_title_polarity',
             'not_sentiment_title_polarity',
             'sentiment_body_polarity',
@@ -4572,6 +5501,18 @@ class DefaultApi(object):
         if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
+        if 'entities_title_id' in local_var_params and local_var_params['entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('entities.title.id[]', local_var_params['entities_title_id']))  # noqa: E501
+            collection_formats['entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_id' in local_var_params and local_var_params['not_entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.id[]', local_var_params['not_entities_title_id']))  # noqa: E501
+            collection_formats['!entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'entities_title_surface_forms_text' in local_var_params and local_var_params['entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.title.surface_forms.text[]', local_var_params['entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_surface_forms_text' in local_var_params and local_var_params['not_entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.surface_forms.text[]', local_var_params['not_entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
@@ -4584,12 +5525,42 @@ class DefaultApi(object):
         if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
+        if 'entities_title_stock_ticker' in local_var_params and local_var_params['entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.title.stock_ticker[]', local_var_params['entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_stock_ticker' in local_var_params and local_var_params['not_entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.stock_ticker[]', local_var_params['not_entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikipedia' in local_var_params and local_var_params['entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikipedia[]', local_var_params['entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikipedia' in local_var_params and local_var_params['not_entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikipedia[]', local_var_params['not_entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikidata' in local_var_params and local_var_params['entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikidata[]', local_var_params['entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikidata' in local_var_params and local_var_params['not_entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikidata[]', local_var_params['not_entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'entities_body_id' in local_var_params and local_var_params['entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('entities.body.id[]', local_var_params['entities_body_id']))  # noqa: E501
+            collection_formats['entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_id' in local_var_params and local_var_params['not_entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.id[]', local_var_params['not_entities_body_id']))  # noqa: E501
+            collection_formats['!entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'entities_body_surface_forms_text' in local_var_params and local_var_params['entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.body.surface_forms.text[]', local_var_params['entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_surface_forms_text' in local_var_params and local_var_params['not_entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.surface_forms.text[]', local_var_params['not_entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
@@ -4602,12 +5573,30 @@ class DefaultApi(object):
         if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
+        if 'entities_body_stock_ticker' in local_var_params and local_var_params['entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.body.stock_ticker[]', local_var_params['entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_stock_ticker' in local_var_params and local_var_params['not_entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.stock_ticker[]', local_var_params['not_entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikipedia' in local_var_params and local_var_params['entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikipedia[]', local_var_params['entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikipedia' in local_var_params and local_var_params['not_entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikipedia[]', local_var_params['not_entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikidata' in local_var_params and local_var_params['entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikidata[]', local_var_params['entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikidata' in local_var_params and local_var_params['not_entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikidata[]', local_var_params['not_entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
         if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
         if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501
@@ -4835,6 +5824,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -4843,10 +5840,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -4855,10 +5872,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -5041,6 +6070,14 @@ class DefaultApi(object):
         :type categories_level: list[int]
         :param not_categories_level: This parameter is used for excluding stories by categories level. You can read more about working with categories [here](https://newsapi.aylien.com/docs/working-with-categories). 
         :type not_categories_level: list[int]
+        :param entities_title_id: This parameter is used to find stories based on the specified entities `id` in the title of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_id: list[str]
+        :param not_entities_title_id: This parameter is used to exclude stories based on the specified entities `id` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_id: list[str]
+        :param entities_title_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_surface_forms_text: list[str]
+        :param not_entities_title_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_surface_forms_text: list[str]
         :param entities_title_text: This parameter is used to find stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_text: list[str]
         :param not_entities_title_text: This parameter is used to exclude stories based on the specified entities `text` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -5049,10 +6086,30 @@ class DefaultApi(object):
         :type entities_title_type: list[str]
         :param not_entities_title_type: This parameter is used to exclude stories based on the specified entities `type` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_type: list[str]
+        :param entities_title_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_stock_ticker: list[str]
+        :param not_entities_title_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_stock_ticker: list[str]
         :param entities_title_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_title_links_dbpedia: list[str]
         :param not_entities_title_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_title_links_dbpedia: list[str]
+        :param entities_title_links_wikipedia: This parameter is used to find stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikipedia: list[str]
+        :param not_entities_title_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikipedia: list[str]
+        :param entities_title_links_wikidata: This parameter is used to find stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_title_links_wikidata: list[str]
+        :param not_entities_title_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in story titles. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_title_links_wikidata: list[str]
+        :param entities_body_id: This parameter is used to find stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_id: list[str]
+        :param not_entities_body_id: This parameter is used to exclude stories based on the specified entities `id` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_id: list[str]
+        :param entities_body_surface_forms_text: This parameter is used to find stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_surface_forms_text: list[str]
+        :param not_entities_body_surface_forms_text: This parameter is used to exclude stories based on the specified entities `surface_form` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_surface_forms_text: list[str]
         :param entities_body_text: This parameter is used to find stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_text: list[str]
         :param not_entities_body_text: This parameter is used to exclude stories based on the specified entities `text` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
@@ -5061,10 +6118,22 @@ class DefaultApi(object):
         :type entities_body_type: list[str]
         :param not_entities_body_type: This parameter is used to exclude stories based on the specified entities `type` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_type: list[str]
+        :param entities_body_stock_ticker: This parameter is used to find stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_stock_ticker: list[str]
+        :param not_entities_body_stock_ticker: This parameter is used to exclude stories based on the specified entities `stock_ticker` in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_stock_ticker: list[str]
         :param entities_body_links_dbpedia: This parameter is used to find stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type entities_body_links_dbpedia: list[str]
         :param not_entities_body_links_dbpedia: This parameter is used to exclude stories based on the specified entities dbpedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
         :type not_entities_body_links_dbpedia: list[str]
+        :param entities_body_links_wikipedia: This parameter is used to find stories based on the specified entities wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikipedia: list[str]
+        :param not_entities_body_links_wikipedia: This parameter is used to exclude stories based on the specified entities Wikipedia URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikipedia: list[str]
+        :param entities_body_links_wikidata: This parameter is used to find stories based on the specified entities wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type entities_body_links_wikidata: list[str]
+        :param not_entities_body_links_wikidata: This parameter is used to exclude stories based on the specified entities Wikidata URL in the body of stories. You can read more about working with entities [here](https://newsapi.aylien.com/docs/working-with-entities). 
+        :type not_entities_body_links_wikidata: list[str]
         :param sentiment_title_polarity: This parameter is used for finding stories whose title sentiment is the specified value. 
         :type sentiment_title_polarity: str
         :param not_sentiment_title_polarity: This parameter is used for excluding stories whose title sentiment is the specified value. 
@@ -5222,18 +6291,38 @@ class DefaultApi(object):
             'not_categories_label',
             'categories_level',
             'not_categories_level',
+            'entities_title_id',
+            'not_entities_title_id',
+            'entities_title_surface_forms_text',
+            'not_entities_title_surface_forms_text',
             'entities_title_text',
             'not_entities_title_text',
             'entities_title_type',
             'not_entities_title_type',
+            'entities_title_stock_ticker',
+            'not_entities_title_stock_ticker',
             'entities_title_links_dbpedia',
             'not_entities_title_links_dbpedia',
+            'entities_title_links_wikipedia',
+            'not_entities_title_links_wikipedia',
+            'entities_title_links_wikidata',
+            'not_entities_title_links_wikidata',
+            'entities_body_id',
+            'not_entities_body_id',
+            'entities_body_surface_forms_text',
+            'not_entities_body_surface_forms_text',
             'entities_body_text',
             'not_entities_body_text',
             'entities_body_type',
             'not_entities_body_type',
+            'entities_body_stock_ticker',
+            'not_entities_body_stock_ticker',
             'entities_body_links_dbpedia',
             'not_entities_body_links_dbpedia',
+            'entities_body_links_wikipedia',
+            'not_entities_body_links_wikipedia',
+            'entities_body_links_wikidata',
+            'not_entities_body_links_wikidata',
             'sentiment_title_polarity',
             'not_sentiment_title_polarity',
             'sentiment_body_polarity',
@@ -5417,6 +6506,18 @@ class DefaultApi(object):
         if 'not_categories_level' in local_var_params and local_var_params['not_categories_level'] is not None:  # noqa: E501
             query_params.append(('!categories.level[]', local_var_params['not_categories_level']))  # noqa: E501
             collection_formats['!categories.level[]'] = 'multi'  # noqa: E501
+        if 'entities_title_id' in local_var_params and local_var_params['entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('entities.title.id[]', local_var_params['entities_title_id']))  # noqa: E501
+            collection_formats['entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_id' in local_var_params and local_var_params['not_entities_title_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.id[]', local_var_params['not_entities_title_id']))  # noqa: E501
+            collection_formats['!entities.title.id[]'] = 'multi'  # noqa: E501
+        if 'entities_title_surface_forms_text' in local_var_params and local_var_params['entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.title.surface_forms.text[]', local_var_params['entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_surface_forms_text' in local_var_params and local_var_params['not_entities_title_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.surface_forms.text[]', local_var_params['not_entities_title_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.title.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_title_text' in local_var_params and local_var_params['entities_title_text'] is not None:  # noqa: E501
             query_params.append(('entities.title.text[]', local_var_params['entities_title_text']))  # noqa: E501
             collection_formats['entities.title.text[]'] = 'multi'  # noqa: E501
@@ -5429,12 +6530,42 @@ class DefaultApi(object):
         if 'not_entities_title_type' in local_var_params and local_var_params['not_entities_title_type'] is not None:  # noqa: E501
             query_params.append(('!entities.title.type[]', local_var_params['not_entities_title_type']))  # noqa: E501
             collection_formats['!entities.title.type[]'] = 'multi'  # noqa: E501
+        if 'entities_title_stock_ticker' in local_var_params and local_var_params['entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.title.stock_ticker[]', local_var_params['entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_stock_ticker' in local_var_params and local_var_params['not_entities_title_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.stock_ticker[]', local_var_params['not_entities_title_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.title.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_title_links_dbpedia' in local_var_params and local_var_params['entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.title.links.dbpedia[]', local_var_params['entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_title_links_dbpedia' in local_var_params and local_var_params['not_entities_title_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.title.links.dbpedia[]', local_var_params['not_entities_title_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.title.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikipedia' in local_var_params and local_var_params['entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikipedia[]', local_var_params['entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikipedia' in local_var_params and local_var_params['not_entities_title_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikipedia[]', local_var_params['not_entities_title_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.title.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_title_links_wikidata' in local_var_params and local_var_params['entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.title.links.wikidata[]', local_var_params['entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_title_links_wikidata' in local_var_params and local_var_params['not_entities_title_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.title.links.wikidata[]', local_var_params['not_entities_title_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.title.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'entities_body_id' in local_var_params and local_var_params['entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('entities.body.id[]', local_var_params['entities_body_id']))  # noqa: E501
+            collection_formats['entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_id' in local_var_params and local_var_params['not_entities_body_id'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.id[]', local_var_params['not_entities_body_id']))  # noqa: E501
+            collection_formats['!entities.body.id[]'] = 'multi'  # noqa: E501
+        if 'entities_body_surface_forms_text' in local_var_params and local_var_params['entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('entities.body.surface_forms.text[]', local_var_params['entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_surface_forms_text' in local_var_params and local_var_params['not_entities_body_surface_forms_text'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.surface_forms.text[]', local_var_params['not_entities_body_surface_forms_text']))  # noqa: E501
+            collection_formats['!entities.body.surface_forms.text[]'] = 'multi'  # noqa: E501
         if 'entities_body_text' in local_var_params and local_var_params['entities_body_text'] is not None:  # noqa: E501
             query_params.append(('entities.body.text[]', local_var_params['entities_body_text']))  # noqa: E501
             collection_formats['entities.body.text[]'] = 'multi'  # noqa: E501
@@ -5447,12 +6578,30 @@ class DefaultApi(object):
         if 'not_entities_body_type' in local_var_params and local_var_params['not_entities_body_type'] is not None:  # noqa: E501
             query_params.append(('!entities.body.type[]', local_var_params['not_entities_body_type']))  # noqa: E501
             collection_formats['!entities.body.type[]'] = 'multi'  # noqa: E501
+        if 'entities_body_stock_ticker' in local_var_params and local_var_params['entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('entities.body.stock_ticker[]', local_var_params['entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_stock_ticker' in local_var_params and local_var_params['not_entities_body_stock_ticker'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.stock_ticker[]', local_var_params['not_entities_body_stock_ticker']))  # noqa: E501
+            collection_formats['!entities.body.stock_ticker[]'] = 'multi'  # noqa: E501
         if 'entities_body_links_dbpedia' in local_var_params and local_var_params['entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('entities.body.links.dbpedia[]', local_var_params['entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
         if 'not_entities_body_links_dbpedia' in local_var_params and local_var_params['not_entities_body_links_dbpedia'] is not None:  # noqa: E501
             query_params.append(('!entities.body.links.dbpedia[]', local_var_params['not_entities_body_links_dbpedia']))  # noqa: E501
             collection_formats['!entities.body.links.dbpedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikipedia' in local_var_params and local_var_params['entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikipedia[]', local_var_params['entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikipedia' in local_var_params and local_var_params['not_entities_body_links_wikipedia'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikipedia[]', local_var_params['not_entities_body_links_wikipedia']))  # noqa: E501
+            collection_formats['!entities.body.links.wikipedia[]'] = 'multi'  # noqa: E501
+        if 'entities_body_links_wikidata' in local_var_params and local_var_params['entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('entities.body.links.wikidata[]', local_var_params['entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
+        if 'not_entities_body_links_wikidata' in local_var_params and local_var_params['not_entities_body_links_wikidata'] is not None:  # noqa: E501
+            query_params.append(('!entities.body.links.wikidata[]', local_var_params['not_entities_body_links_wikidata']))  # noqa: E501
+            collection_formats['!entities.body.links.wikidata[]'] = 'multi'  # noqa: E501
         if 'sentiment_title_polarity' in local_var_params and local_var_params['sentiment_title_polarity'] is not None:  # noqa: E501
             query_params.append(('sentiment.title.polarity', local_var_params['sentiment_title_polarity']))  # noqa: E501
         if 'not_sentiment_title_polarity' in local_var_params and local_var_params['not_sentiment_title_polarity'] is not None:  # noqa: E501

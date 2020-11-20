@@ -35,15 +35,17 @@ class Trend(object):
     """
     openapi_types = {
         'count': 'int',
-        'value': 'str'
+        'value': 'str',
+        'sentiment': 'AggregatedSentiment'
     }
 
     attribute_map = {
         'count': 'count',
-        'value': 'value'
+        'value': 'value',
+        'sentiment': 'sentiment'
     }
 
-    def __init__(self, count=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, count=None, value=None, sentiment=None, local_vars_configuration=None):  # noqa: E501
         """Trend - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +53,15 @@ class Trend(object):
 
         self._count = None
         self._value = None
+        self._sentiment = None
         self.discriminator = None
 
         if count is not None:
             self.count = count
         if value is not None:
             self.value = value
+        if sentiment is not None:
+            self.sentiment = sentiment
 
     @property
     def count(self):
@@ -103,6 +108,27 @@ class Trend(object):
         """
 
         self._value = value
+
+    @property
+    def sentiment(self):
+        """Gets the sentiment of this Trend.  # noqa: E501
+
+
+        :return: The sentiment of this Trend.  # noqa: E501
+        :rtype: AggregatedSentiment
+        """
+        return self._sentiment
+
+    @sentiment.setter
+    def sentiment(self, sentiment):
+        """Sets the sentiment of this Trend.
+
+
+        :param sentiment: The sentiment of this Trend.  # noqa: E501
+        :type sentiment: AggregatedSentiment
+        """
+
+        self._sentiment = sentiment
 
     def to_dict(self):
         """Returns the model properties as a dict"""

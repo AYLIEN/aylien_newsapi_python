@@ -29,6 +29,13 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_advanced_list_stories(self):
+        """Test case for advanced_list_stories
+
+        List Stories  # noqa: E501
+        """
+        pass
+
     def test_list_autocompletes(self):
         """Test case for list_autocompletes
 

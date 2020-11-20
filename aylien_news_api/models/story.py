@@ -55,7 +55,8 @@ class Story(object):
         'summary': 'Summary',
         'title': 'str',
         'translations': 'StoryTranslations',
-        'words_count': 'int'
+        'words_count': 'int',
+        'license_type': 'int'
     }
 
     attribute_map = {
@@ -80,10 +81,11 @@ class Story(object):
         'summary': 'summary',
         'title': 'title',
         'translations': 'translations',
-        'words_count': 'words_count'
+        'words_count': 'words_count',
+        'license_type': 'license_type'
     }
 
-    def __init__(self, author=None, body=None, categories=None, characters_count=None, clusters=None, entities=None, hashtags=None, id=None, keywords=None, language=None, links=None, media=None, paragraphs_count=None, published_at=None, sentences_count=None, sentiment=None, social_shares_count=None, source=None, summary=None, title=None, translations=None, words_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, author=None, body=None, categories=None, characters_count=None, clusters=None, entities=None, hashtags=None, id=None, keywords=None, language=None, links=None, media=None, paragraphs_count=None, published_at=None, sentences_count=None, sentiment=None, social_shares_count=None, source=None, summary=None, title=None, translations=None, words_count=None, license_type=None, local_vars_configuration=None):  # noqa: E501
         """Story - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -111,6 +113,7 @@ class Story(object):
         self._title = None
         self._translations = None
         self._words_count = None
+        self._license_type = None
         self.discriminator = None
 
         if author is not None:
@@ -157,6 +160,8 @@ class Story(object):
             self.translations = translations
         if words_count is not None:
             self.words_count = words_count
+        if license_type is not None:
+            self.license_type = license_type
 
     @property
     def author(self):
@@ -647,6 +652,29 @@ class Story(object):
         """
 
         self._words_count = words_count
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this Story.  # noqa: E501
+
+        License type of the story  # noqa: E501
+
+        :return: The license_type of this Story.  # noqa: E501
+        :rtype: int
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this Story.
+
+        License type of the story  # noqa: E501
+
+        :param license_type: The license_type of this Story.  # noqa: E501
+        :type license_type: int
+        """
+
+        self._license_type = license_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,7 +37,8 @@ class TestEntityLinks(unittest.TestCase):
         # model = aylien_news_api.models.entity_links.EntityLinks()  # noqa: E501
         if include_optional :
             return EntityLinks(
-                dbpedia = '0'
+                dbpedia = '0', 
+                wikipedia = '0'
             )
         else :
             return EntityLinks(

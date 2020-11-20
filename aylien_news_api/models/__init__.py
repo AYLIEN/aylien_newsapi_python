@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from aylien_news_api.models.aggregated_sentiment import AggregatedSentiment
 from aylien_news_api.models.author import Author
 from aylien_news_api.models.autocomplete import Autocomplete
 from aylien_news_api.models.autocompletes import Autocompletes
@@ -26,15 +27,21 @@ from aylien_news_api.models.clusters import Clusters
 from aylien_news_api.models.entities import Entities
 from aylien_news_api.models.entity import Entity
 from aylien_news_api.models.entity_links import EntityLinks
+from aylien_news_api.models.entity_sentiment import EntitySentiment
+from aylien_news_api.models.entity_surface_form import EntitySurfaceForm
 from aylien_news_api.models.error import Error
 from aylien_news_api.models.error_links import ErrorLinks
 from aylien_news_api.models.errors import Errors
 from aylien_news_api.models.histogram_interval import HistogramInterval
 from aylien_news_api.models.histograms import Histograms
 from aylien_news_api.models.location import Location
+from aylien_news_api.models.logicals import Logicals
 from aylien_news_api.models.media import Media
 from aylien_news_api.models.media_format import MediaFormat
 from aylien_news_api.models.media_type import MediaType
+from aylien_news_api.models.nested_entity import NestedEntity
+from aylien_news_api.models.parameter import Parameter
+from aylien_news_api.models.query import Query
 from aylien_news_api.models.rank import Rank
 from aylien_news_api.models.rankings import Rankings
 from aylien_news_api.models.related_stories import RelatedStories

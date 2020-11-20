@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import aylien_news_api
-from aylien_news_api.models.entity import Entity  # noqa: E501
+from aylien_news_api.models.query import Query  # noqa: E501
 from aylien_news_api.rest import ApiException
 
-class TestEntity(unittest.TestCase):
-    """Entity unit test stubs"""
+class TestQuery(unittest.TestCase):
+    """Query unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,36 +30,30 @@ class TestEntity(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Entity
+        """Test Query
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = aylien_news_api.models.entity.Entity()  # noqa: E501
+        # model = aylien_news_api.models.query.Query()  # noqa: E501
         if include_optional :
-            return Entity(
-                indices = [
-                    [
-                        56
-                        ]
+            return Query(
+                eq = null, 
+                text = null, 
+                _in = [
+                    null
                     ], 
-                links = aylien_news_api.models.entity_links.EntityLinks(
-                    dbpedia = '0', 
-                    wikipedia = '0', ), 
-                text = '0', 
-                stock_ticker = '0', 
-                types = [
-                    '0'
-                    ], 
-                sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
-                    polarity = 'positive', 
-                    confidence = 0, )
+                gt = 1.337, 
+                gte = 1.337, 
+                lt = 1.337, 
+                lte = 1.337, 
+                boost = 1.337
             )
         else :
-            return Entity(
+            return Query(
         )
 
-    def testEntity(self):
-        """Test Entity"""
+    def testQuery(self):
+        """Test Query"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

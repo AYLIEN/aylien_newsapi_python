@@ -45,12 +45,16 @@ class TestEntities(unittest.TestCase):
                                 ]
                             ], 
                         links = aylien_news_api.models.entity_links.EntityLinks(
-                            dbpedia = '0', ), 
-                        score = 0, 
+                            dbpedia = '0', 
+                            wikipedia = '0', ), 
                         text = '0', 
+                        stock_ticker = '0', 
                         types = [
                             '0'
-                            ], )
+                            ], 
+                        sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                            polarity = 'positive', 
+                            confidence = 0, ), )
                     ], 
                 title = [
                     aylien_news_api.models.entity.Entity(
@@ -60,12 +64,16 @@ class TestEntities(unittest.TestCase):
                                 ]
                             ], 
                         links = aylien_news_api.models.entity_links.EntityLinks(
-                            dbpedia = '0', ), 
-                        score = 0, 
+                            dbpedia = '0', 
+                            wikipedia = '0', ), 
                         text = '0', 
+                        stock_ticker = '0', 
                         types = [
                             '0'
-                            ], )
+                            ], 
+                        sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                            polarity = 'positive', 
+                            confidence = 0, ), )
                     ]
             )
         else :

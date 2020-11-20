@@ -34,44 +34,82 @@ class Entity(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'indices': 'list[list[int]]',
         'links': 'EntityLinks',
-        'score': 'float',
         'text': 'str',
-        'types': 'list[str]'
+        'stock_ticker': 'str',
+        'types': 'list[str]',
+        'sentiment': 'EntitySentiment',
+        'surface_forms': 'list[EntitySurfaceForm]'
     }
 
     attribute_map = {
+        'id': 'id',
         'indices': 'indices',
         'links': 'links',
-        'score': 'score',
         'text': 'text',
-        'types': 'types'
+        'stock_ticker': 'stock_ticker',
+        'types': 'types',
+        'sentiment': 'sentiment',
+        'surface_forms': 'surface_forms'
     }
 
-    def __init__(self, indices=None, links=None, score=None, text=None, types=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, indices=None, links=None, text=None, stock_ticker=None, types=None, sentiment=None, surface_forms=None, local_vars_configuration=None):  # noqa: E501
         """Entity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._indices = None
         self._links = None
-        self._score = None
         self._text = None
+        self._stock_ticker = None
         self._types = None
+        self._sentiment = None
+        self._surface_forms = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if indices is not None:
             self.indices = indices
         if links is not None:
             self.links = links
-        if score is not None:
-            self.score = score
         if text is not None:
             self.text = text
+        if stock_ticker is not None:
+            self.stock_ticker = stock_ticker
         if types is not None:
             self.types = types
+        if sentiment is not None:
+            self.sentiment = sentiment
+        if surface_forms is not None:
+            self.surface_forms = surface_forms
+
+    @property
+    def id(self):
+        """Gets the id of this Entity.  # noqa: E501
+
+        The unique ID of the entity  # noqa: E501
+
+        :return: The id of this Entity.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Entity.
+
+        The unique ID of the entity  # noqa: E501
+
+        :param id: The id of this Entity.  # noqa: E501
+        :type id: str
+        """
+
+        self._id = id
 
     @property
     def indices(self):
@@ -118,35 +156,6 @@ class Entity(object):
         self._links = links
 
     @property
-    def score(self):
-        """Gets the score of this Entity.  # noqa: E501
-
-        The entity score  # noqa: E501
-
-        :return: The score of this Entity.  # noqa: E501
-        :rtype: float
-        """
-        return self._score
-
-    @score.setter
-    def score(self, score):
-        """Sets the score of this Entity.
-
-        The entity score  # noqa: E501
-
-        :param score: The score of this Entity.  # noqa: E501
-        :type score: float
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                score is not None and score > 1):  # noqa: E501
-            raise ValueError("Invalid value for `score`, must be a value less than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                score is not None and score < 0):  # noqa: E501
-            raise ValueError("Invalid value for `score`, must be a value greater than or equal to `0`")  # noqa: E501
-
-        self._score = score
-
-    @property
     def text(self):
         """Gets the text of this Entity.  # noqa: E501
 
@@ -170,10 +179,33 @@ class Entity(object):
         self._text = text
 
     @property
+    def stock_ticker(self):
+        """Gets the stock_ticker of this Entity.  # noqa: E501
+
+        The stock_ticker of the entity (might be null)  # noqa: E501
+
+        :return: The stock_ticker of this Entity.  # noqa: E501
+        :rtype: str
+        """
+        return self._stock_ticker
+
+    @stock_ticker.setter
+    def stock_ticker(self, stock_ticker):
+        """Sets the stock_ticker of this Entity.
+
+        The stock_ticker of the entity (might be null)  # noqa: E501
+
+        :param stock_ticker: The stock_ticker of this Entity.  # noqa: E501
+        :type stock_ticker: str
+        """
+
+        self._stock_ticker = stock_ticker
+
+    @property
     def types(self):
         """Gets the types of this Entity.  # noqa: E501
 
-        An array of the dbpedia types  # noqa: E501
+        An array of the entity types  # noqa: E501
 
         :return: The types of this Entity.  # noqa: E501
         :rtype: list[str]
@@ -184,13 +216,55 @@ class Entity(object):
     def types(self, types):
         """Sets the types of this Entity.
 
-        An array of the dbpedia types  # noqa: E501
+        An array of the entity types  # noqa: E501
 
         :param types: The types of this Entity.  # noqa: E501
         :type types: list[str]
         """
 
         self._types = types
+
+    @property
+    def sentiment(self):
+        """Gets the sentiment of this Entity.  # noqa: E501
+
+
+        :return: The sentiment of this Entity.  # noqa: E501
+        :rtype: EntitySentiment
+        """
+        return self._sentiment
+
+    @sentiment.setter
+    def sentiment(self, sentiment):
+        """Sets the sentiment of this Entity.
+
+
+        :param sentiment: The sentiment of this Entity.  # noqa: E501
+        :type sentiment: EntitySentiment
+        """
+
+        self._sentiment = sentiment
+
+    @property
+    def surface_forms(self):
+        """Gets the surface_forms of this Entity.  # noqa: E501
+
+
+        :return: The surface_forms of this Entity.  # noqa: E501
+        :rtype: list[EntitySurfaceForm]
+        """
+        return self._surface_forms
+
+    @surface_forms.setter
+    def surface_forms(self, surface_forms):
+        """Sets the surface_forms of this Entity.
+
+
+        :param surface_forms: The surface_forms of this Entity.  # noqa: E501
+        :type surface_forms: list[EntitySurfaceForm]
+        """
+
+        self._surface_forms = surface_forms
 
     def to_dict(self):
         """Returns the model properties as a dict"""

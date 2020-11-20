@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **title** | **str** | Title of the story | [optional] 
 **translations** | [**StoryTranslations**](StoryTranslations.md) |  | [optional] 
 **words_count** | **int** | Word count of the story body | [optional] 
+**license_type** | **int** | License type of the story | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

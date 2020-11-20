@@ -34,30 +34,40 @@ class EntityLinks(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'dbpedia': 'str'
+        'dbpedia': 'str',
+        'wikipedia': 'str',
+        'wikidata': 'str'
     }
 
     attribute_map = {
-        'dbpedia': 'dbpedia'
+        'dbpedia': 'dbpedia',
+        'wikipedia': 'wikipedia',
+        'wikidata': 'wikidata'
     }
 
-    def __init__(self, dbpedia=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, dbpedia=None, wikipedia=None, wikidata=None, local_vars_configuration=None):  # noqa: E501
         """EntityLinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._dbpedia = None
+        self._wikipedia = None
+        self._wikidata = None
         self.discriminator = None
 
         if dbpedia is not None:
             self.dbpedia = dbpedia
+        if wikipedia is not None:
+            self.wikipedia = wikipedia
+        if wikidata is not None:
+            self.wikidata = wikidata
 
     @property
     def dbpedia(self):
         """Gets the dbpedia of this EntityLinks.  # noqa: E501
 
-        A dbpedia resource URL  # noqa: E501
+        A dbpedia resource URL (deprecated)  # noqa: E501
 
         :return: The dbpedia of this EntityLinks.  # noqa: E501
         :rtype: str
@@ -68,13 +78,59 @@ class EntityLinks(object):
     def dbpedia(self, dbpedia):
         """Sets the dbpedia of this EntityLinks.
 
-        A dbpedia resource URL  # noqa: E501
+        A dbpedia resource URL (deprecated)  # noqa: E501
 
         :param dbpedia: The dbpedia of this EntityLinks.  # noqa: E501
         :type dbpedia: str
         """
 
         self._dbpedia = dbpedia
+
+    @property
+    def wikipedia(self):
+        """Gets the wikipedia of this EntityLinks.  # noqa: E501
+
+        A wikipedia resource URL  # noqa: E501
+
+        :return: The wikipedia of this EntityLinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._wikipedia
+
+    @wikipedia.setter
+    def wikipedia(self, wikipedia):
+        """Sets the wikipedia of this EntityLinks.
+
+        A wikipedia resource URL  # noqa: E501
+
+        :param wikipedia: The wikipedia of this EntityLinks.  # noqa: E501
+        :type wikipedia: str
+        """
+
+        self._wikipedia = wikipedia
+
+    @property
+    def wikidata(self):
+        """Gets the wikidata of this EntityLinks.  # noqa: E501
+
+        A wikidata resource URL  # noqa: E501
+
+        :return: The wikidata of this EntityLinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._wikidata
+
+    @wikidata.setter
+    def wikidata(self, wikidata):
+        """Sets the wikidata of this EntityLinks.
+
+        A wikidata resource URL  # noqa: E501
+
+        :param wikidata: The wikidata of this EntityLinks.  # noqa: E501
+        :type wikidata: str
+        """
+
+        self._wikidata = wikidata
 
     def to_dict(self):
         """Returns the model properties as a dict"""
