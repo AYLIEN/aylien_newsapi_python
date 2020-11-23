@@ -867,6 +867,8 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param interval_start: This parameter is used for setting the start data point of histogram intervals. 
         :type interval_start: int
         :param interval_end: This parameter is used for setting the end data point of histogram intervals. 
@@ -1119,6 +1121,8 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param interval_start: This parameter is used for setting the start data point of histogram intervals. 
         :type interval_start: int
         :param interval_end: This parameter is used for setting the end data point of histogram intervals. 
@@ -1261,6 +1265,7 @@ class DefaultApi(object):
             'social_shares_count_reddit_min',
             'social_shares_count_reddit_max',
             'clusters',
+            'query',
             'interval_start',
             'interval_end',
             'interval_width',
@@ -1620,6 +1625,8 @@ class DefaultApi(object):
         if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'interval_start' in local_var_params and local_var_params['interval_start'] is not None:  # noqa: E501
             query_params.append(('interval.start', local_var_params['interval_start']))  # noqa: E501
         if 'interval_end' in local_var_params and local_var_params['interval_end'] is not None:  # noqa: E501
@@ -1894,6 +1901,8 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
         :type boost_by: str
         :param story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
@@ -2153,6 +2162,8 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
         :type boost_by: str
         :param story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
@@ -2298,6 +2309,7 @@ class DefaultApi(object):
             'story_url',
             'story_title',
             'story_body',
+            'query',
             'boost_by',
             'story_language',
             'per_page'
@@ -2671,6 +2683,8 @@ class DefaultApi(object):
             query_params.append(('story_title', local_var_params['story_title']))  # noqa: E501
         if 'story_body' in local_var_params and local_var_params['story_body'] is not None:  # noqa: E501
             query_params.append(('story_body', local_var_params['story_body']))  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'boost_by' in local_var_params and local_var_params['boost_by'] is not None:  # noqa: E501
             query_params.append(('boost_by', local_var_params['boost_by']))  # noqa: E501
         if 'story_language' in local_var_params and local_var_params['story_language'] is not None:  # noqa: E501
@@ -2943,6 +2957,8 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
         :type boost_by: str
         :param story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
@@ -3202,6 +3218,8 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
         :type boost_by: str
         :param story_language: This parameter is used for setting the language of the story. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes. 
@@ -3347,6 +3365,7 @@ class DefaultApi(object):
             'story_url',
             'story_title',
             'story_body',
+            'query',
             'boost_by',
             'story_language',
             'per_page'
@@ -3720,6 +3739,8 @@ class DefaultApi(object):
             query_params.append(('story_title', local_var_params['story_title']))  # noqa: E501
         if 'story_body' in local_var_params and local_var_params['story_body'] is not None:  # noqa: E501
             query_params.append(('story_body', local_var_params['story_body']))  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'boost_by' in local_var_params and local_var_params['boost_by'] is not None:  # noqa: E501
             query_params.append(('boost_by', local_var_params['boost_by']))  # noqa: E501
         if 'story_language' in local_var_params and local_var_params['story_language'] is not None:  # noqa: E501
@@ -3985,6 +4006,8 @@ class DefaultApi(object):
         :type clusters: list[str]
         :param _return: This parameter is used for specifying return fields.
         :type _return: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param sort_by: This parameter is used for changing the order column of the results. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
         :type sort_by: str
         :param sort_direction: This parameter is used for changing the order direction of the result. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
@@ -4239,6 +4262,8 @@ class DefaultApi(object):
         :type clusters: list[str]
         :param _return: This parameter is used for specifying return fields.
         :type _return: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param sort_by: This parameter is used for changing the order column of the results. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
         :type sort_by: str
         :param sort_direction: This parameter is used for changing the order direction of the result. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
@@ -4382,6 +4407,7 @@ class DefaultApi(object):
             'social_shares_count_reddit_max',
             'clusters',
             '_return',
+            'query',
             'sort_by',
             'sort_direction',
             'cursor',
@@ -4748,6 +4774,8 @@ class DefaultApi(object):
         if '_return' in local_var_params and local_var_params['_return'] is not None:  # noqa: E501
             query_params.append(('return[]', local_var_params['_return']))  # noqa: E501
             collection_formats['return[]'] = 'multi'  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
             query_params.append(('sort_by', local_var_params['sort_by']))  # noqa: E501
         if 'sort_direction' in local_var_params and local_var_params['sort_direction'] is not None:  # noqa: E501
@@ -5005,6 +5033,8 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
         :type published_at_start: str
         :param published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -5247,6 +5277,8 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
         :type published_at_start: str
         :param published_at_end: This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -5383,6 +5415,7 @@ class DefaultApi(object):
             'social_shares_count_reddit_min',
             'social_shares_count_reddit_max',
             'clusters',
+            'query',
             'published_at_start',
             'published_at_end',
             'period'
@@ -5731,6 +5764,8 @@ class DefaultApi(object):
         if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
             query_params.append(('published_at.start', local_var_params['published_at_start']))  # noqa: E501
         if 'published_at_end' in local_var_params and local_var_params['published_at_end'] is not None:  # noqa: E501
@@ -5996,6 +6031,8 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6242,6 +6279,8 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
+        :type query: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -6376,7 +6415,8 @@ class DefaultApi(object):
             'social_shares_count_linkedin_max',
             'social_shares_count_reddit_min',
             'social_shares_count_reddit_max',
-            'clusters'
+            'clusters',
+            'query'
         ]
         all_params.extend(
             [
@@ -6736,6 +6776,8 @@ class DefaultApi(object):
         if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
 

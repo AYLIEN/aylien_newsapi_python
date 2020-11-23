@@ -118,6 +118,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_aggregated_sentiment.py
-test/test_entity_surface_form.py
 tox.ini
