@@ -37,6 +37,7 @@ class TestEntity(unittest.TestCase):
         # model = aylien_news_api.models.entity.Entity()  # noqa: E501
         if include_optional :
             return Entity(
+                id = '0', 
                 indices = [
                     [
                         56
@@ -44,7 +45,8 @@ class TestEntity(unittest.TestCase):
                     ], 
                 links = aylien_news_api.models.entity_links.EntityLinks(
                     dbpedia = '0', 
-                    wikipedia = '0', ), 
+                    wikipedia = '0', 
+                    wikidata = '0', ), 
                 text = '0', 
                 stock_ticker = '0', 
                 types = [
@@ -52,7 +54,18 @@ class TestEntity(unittest.TestCase):
                     ], 
                 sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
                     polarity = 'positive', 
-                    confidence = 0, )
+                    confidence = 0, ), 
+                surface_forms = [
+                    aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                        text = '0', 
+                        indices = [
+                            [
+                                56
+                                ]
+                            ], 
+                        frequency = 0, )
+                    ], 
+                prominence_score = 0
             )
         else :
             return Entity(

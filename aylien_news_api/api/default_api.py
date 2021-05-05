@@ -867,6 +867,10 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param interval_start: This parameter is used for setting the start data point of histogram intervals. 
@@ -1121,6 +1125,10 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param interval_start: This parameter is used for setting the start data point of histogram intervals. 
@@ -1265,6 +1273,8 @@ class DefaultApi(object):
             'social_shares_count_reddit_min',
             'social_shares_count_reddit_max',
             'clusters',
+            'aql',
+            'aql_default_field',
             'query',
             'interval_start',
             'interval_end',
@@ -1625,6 +1635,10 @@ class DefaultApi(object):
         if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
+        if 'aql' in local_var_params and local_var_params['aql'] is not None:  # noqa: E501
+            query_params.append(('aql', local_var_params['aql']))  # noqa: E501
+        if 'aql_default_field' in local_var_params and local_var_params['aql_default_field'] is not None:  # noqa: E501
+            query_params.append(('aql_default_field', local_var_params['aql_default_field']))  # noqa: E501
         if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'interval_start' in local_var_params and local_var_params['interval_start'] is not None:  # noqa: E501
@@ -1901,6 +1915,10 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
@@ -2162,6 +2180,10 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
@@ -2309,6 +2331,8 @@ class DefaultApi(object):
             'story_url',
             'story_title',
             'story_body',
+            'aql',
+            'aql_default_field',
             'query',
             'boost_by',
             'story_language',
@@ -2683,6 +2707,10 @@ class DefaultApi(object):
             query_params.append(('story_title', local_var_params['story_title']))  # noqa: E501
         if 'story_body' in local_var_params and local_var_params['story_body'] is not None:  # noqa: E501
             query_params.append(('story_body', local_var_params['story_body']))  # noqa: E501
+        if 'aql' in local_var_params and local_var_params['aql'] is not None:  # noqa: E501
+            query_params.append(('aql', local_var_params['aql']))  # noqa: E501
+        if 'aql_default_field' in local_var_params and local_var_params['aql_default_field'] is not None:  # noqa: E501
+            query_params.append(('aql_default_field', local_var_params['aql_default_field']))  # noqa: E501
         if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'boost_by' in local_var_params and local_var_params['boost_by'] is not None:  # noqa: E501
@@ -2957,6 +2985,10 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
@@ -3218,6 +3250,10 @@ class DefaultApi(object):
         :type story_title: str
         :param story_body: Body of the article
         :type story_body: str
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param boost_by: This parameter is used for boosting the result by the specified value. 
@@ -3365,6 +3401,8 @@ class DefaultApi(object):
             'story_url',
             'story_title',
             'story_body',
+            'aql',
+            'aql_default_field',
             'query',
             'boost_by',
             'story_language',
@@ -3739,6 +3777,10 @@ class DefaultApi(object):
             query_params.append(('story_title', local_var_params['story_title']))  # noqa: E501
         if 'story_body' in local_var_params and local_var_params['story_body'] is not None:  # noqa: E501
             query_params.append(('story_body', local_var_params['story_body']))  # noqa: E501
+        if 'aql' in local_var_params and local_var_params['aql'] is not None:  # noqa: E501
+            query_params.append(('aql', local_var_params['aql']))  # noqa: E501
+        if 'aql_default_field' in local_var_params and local_var_params['aql_default_field'] is not None:  # noqa: E501
+            query_params.append(('aql_default_field', local_var_params['aql_default_field']))  # noqa: E501
         if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'boost_by' in local_var_params and local_var_params['boost_by'] is not None:  # noqa: E501
@@ -4006,6 +4048,10 @@ class DefaultApi(object):
         :type clusters: list[str]
         :param _return: This parameter is used for specifying return fields.
         :type _return: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param sort_by: This parameter is used for changing the order column of the results. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
@@ -4262,6 +4308,10 @@ class DefaultApi(object):
         :type clusters: list[str]
         :param _return: This parameter is used for specifying return fields.
         :type _return: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param sort_by: This parameter is used for changing the order column of the results. You can read about sorting results [here](https://newsapi.aylien.com/docs/sorting-results). 
@@ -4407,6 +4457,8 @@ class DefaultApi(object):
             'social_shares_count_reddit_max',
             'clusters',
             '_return',
+            'aql',
+            'aql_default_field',
             'query',
             'sort_by',
             'sort_direction',
@@ -4774,6 +4826,10 @@ class DefaultApi(object):
         if '_return' in local_var_params and local_var_params['_return'] is not None:  # noqa: E501
             query_params.append(('return[]', local_var_params['_return']))  # noqa: E501
             collection_formats['return[]'] = 'multi'  # noqa: E501
+        if 'aql' in local_var_params and local_var_params['aql'] is not None:  # noqa: E501
+            query_params.append(('aql', local_var_params['aql']))  # noqa: E501
+        if 'aql_default_field' in local_var_params and local_var_params['aql_default_field'] is not None:  # noqa: E501
+            query_params.append(('aql_default_field', local_var_params['aql_default_field']))  # noqa: E501
         if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
@@ -5033,6 +5089,10 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -5277,6 +5337,10 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param published_at_start: This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
@@ -5415,6 +5479,8 @@ class DefaultApi(object):
             'social_shares_count_reddit_min',
             'social_shares_count_reddit_max',
             'clusters',
+            'aql',
+            'aql_default_field',
             'query',
             'published_at_start',
             'published_at_end',
@@ -5764,6 +5830,10 @@ class DefaultApi(object):
         if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
+        if 'aql' in local_var_params and local_var_params['aql'] is not None:  # noqa: E501
+            query_params.append(('aql', local_var_params['aql']))  # noqa: E501
+        if 'aql_default_field' in local_var_params and local_var_params['aql_default_field'] is not None:  # noqa: E501
+            query_params.append(('aql_default_field', local_var_params['aql_default_field']))  # noqa: E501
         if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'published_at_start' in local_var_params and local_var_params['published_at_start'] is not None:  # noqa: E501
@@ -6031,6 +6101,10 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param async_req: Whether to execute the request asynchronously.
@@ -6279,6 +6353,10 @@ class DefaultApi(object):
         :type social_shares_count_reddit_max: int
         :param clusters: This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters You can read more about working with clustering [here](https://newsapi.aylien.com/docs/working-with-clustering). 
         :type clusters: list[str]
+        :param aql: This parameter is used to supply a query in AYLIEN Query Language. 
+        :type aql: str
+        :param aql_default_field: This parameter is used to supply an optional default field name used in the AQL query. 
+        :type aql_default_field: str
         :param query: This parameter is used to make an advanced query using $and, $or, $not logical operators and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries. value must be a json string. 
         :type query: str
         :param async_req: Whether to execute the request asynchronously.
@@ -6416,6 +6494,8 @@ class DefaultApi(object):
             'social_shares_count_reddit_min',
             'social_shares_count_reddit_max',
             'clusters',
+            'aql',
+            'aql_default_field',
             'query'
         ]
         all_params.extend(
@@ -6776,6 +6856,10 @@ class DefaultApi(object):
         if 'clusters' in local_var_params and local_var_params['clusters'] is not None:  # noqa: E501
             query_params.append(('clusters[]', local_var_params['clusters']))  # noqa: E501
             collection_formats['clusters[]'] = 'multi'  # noqa: E501
+        if 'aql' in local_var_params and local_var_params['aql'] is not None:  # noqa: E501
+            query_params.append(('aql', local_var_params['aql']))  # noqa: E501
+        if 'aql_default_field' in local_var_params and local_var_params['aql_default_field'] is not None:  # noqa: E501
+            query_params.append(('aql_default_field', local_var_params['aql_default_field']))  # noqa: E501
         if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
         if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501

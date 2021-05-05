@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "4.3.1"
+__version__ = "4.4.0"
 
 # import apis into sdk package
 from aylien_news_api.api.default_api import DefaultApi

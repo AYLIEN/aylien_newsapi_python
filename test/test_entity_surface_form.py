@@ -42,7 +42,8 @@ class TestEntitySurfaceForm(unittest.TestCase):
                     [
                         56
                         ]
-                    ]
+                    ], 
+                frequency = 0
             )
         else :
             return EntitySurfaceForm(

@@ -41,7 +41,8 @@ class Entity(object):
         'stock_ticker': 'str',
         'types': 'list[str]',
         'sentiment': 'EntitySentiment',
-        'surface_forms': 'list[EntitySurfaceForm]'
+        'surface_forms': 'list[EntitySurfaceForm]',
+        'prominence_score': 'float'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class Entity(object):
         'stock_ticker': 'stock_ticker',
         'types': 'types',
         'sentiment': 'sentiment',
-        'surface_forms': 'surface_forms'
+        'surface_forms': 'surface_forms',
+        'prominence_score': 'prominence_score'
     }
 
-    def __init__(self, id=None, indices=None, links=None, text=None, stock_ticker=None, types=None, sentiment=None, surface_forms=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, indices=None, links=None, text=None, stock_ticker=None, types=None, sentiment=None, surface_forms=None, prominence_score=None, local_vars_configuration=None):  # noqa: E501
         """Entity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class Entity(object):
         self._types = None
         self._sentiment = None
         self._surface_forms = None
+        self._prominence_score = None
         self.discriminator = None
 
         if id is not None:
@@ -87,6 +90,8 @@ class Entity(object):
             self.sentiment = sentiment
         if surface_forms is not None:
             self.surface_forms = surface_forms
+        if prominence_score is not None:
+            self.prominence_score = prominence_score
 
     @property
     def id(self):
@@ -265,6 +270,35 @@ class Entity(object):
         """
 
         self._surface_forms = surface_forms
+
+    @property
+    def prominence_score(self):
+        """Gets the prominence_score of this Entity.  # noqa: E501
+
+        Describes how relevant an entity is to the article  # noqa: E501
+
+        :return: The prominence_score of this Entity.  # noqa: E501
+        :rtype: float
+        """
+        return self._prominence_score
+
+    @prominence_score.setter
+    def prominence_score(self, prominence_score):
+        """Sets the prominence_score of this Entity.
+
+        Describes how relevant an entity is to the article  # noqa: E501
+
+        :param prominence_score: The prominence_score of this Entity.  # noqa: E501
+        :type prominence_score: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                prominence_score is not None and prominence_score > 1):  # noqa: E501
+            raise ValueError("Invalid value for `prominence_score`, must be a value less than or equal to `1`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                prominence_score is not None and prominence_score < 0):  # noqa: E501
+            raise ValueError("Invalid value for `prominence_score`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._prominence_score = prominence_score
 
     def to_dict(self):
         """Returns the model properties as a dict"""

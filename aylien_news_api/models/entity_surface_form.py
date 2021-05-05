@@ -35,15 +35,17 @@ class EntitySurfaceForm(object):
     """
     openapi_types = {
         'text': 'str',
-        'indices': 'list[list[int]]'
+        'indices': 'list[list[int]]',
+        'frequency': 'int'
     }
 
     attribute_map = {
         'text': 'text',
-        'indices': 'indices'
+        'indices': 'indices',
+        'frequency': 'frequency'
     }
 
-    def __init__(self, text=None, indices=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, text=None, indices=None, frequency=None, local_vars_configuration=None):  # noqa: E501
         """EntitySurfaceForm - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +53,15 @@ class EntitySurfaceForm(object):
 
         self._text = None
         self._indices = None
+        self._frequency = None
         self.discriminator = None
 
         if text is not None:
             self.text = text
         if indices is not None:
             self.indices = indices
+        if frequency is not None:
+            self.frequency = frequency
 
     @property
     def text(self):
@@ -103,6 +108,32 @@ class EntitySurfaceForm(object):
         """
 
         self._indices = indices
+
+    @property
+    def frequency(self):
+        """Gets the frequency of this EntitySurfaceForm.  # noqa: E501
+
+        Amount of entity surface form mentions in the article  # noqa: E501
+
+        :return: The frequency of this EntitySurfaceForm.  # noqa: E501
+        :rtype: int
+        """
+        return self._frequency
+
+    @frequency.setter
+    def frequency(self, frequency):
+        """Sets the frequency of this EntitySurfaceForm.
+
+        Amount of entity surface form mentions in the article  # noqa: E501
+
+        :param frequency: The frequency of this EntitySurfaceForm.  # noqa: E501
+        :type frequency: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                frequency is not None and frequency < 0):  # noqa: E501
+            raise ValueError("Invalid value for `frequency`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._frequency = frequency
 
     def to_dict(self):
         """Returns the model properties as a dict"""

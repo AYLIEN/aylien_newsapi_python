@@ -64,6 +64,7 @@ class TestStories(unittest.TestCase):
                         entities = aylien_news_api.models.entities.Entities(
                             body = [
                                 aylien_news_api.models.entity.Entity(
+                                    id = '0', 
                                     indices = [
                                         [
                                             56
@@ -76,12 +77,20 @@ class TestStories(unittest.TestCase):
                                         ], 
                                     sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
                                         polarity = 'positive', 
-                                        confidence = 0, ), )
+                                        confidence = 0, ), 
+                                    surface_forms = [
+                                        aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                                            text = '0', 
+                                            frequency = 0, )
+                                        ], 
+                                    prominence_score = 0, )
                                 ], 
                             title = [
                                 aylien_news_api.models.entity.Entity(
+                                    id = '0', 
                                     text = '0', 
-                                    stock_ticker = '0', )
+                                    stock_ticker = '0', 
+                                    prominence_score = 0, )
                                 ], ), 
                         hashtags = [
                             '0'
@@ -164,7 +173,8 @@ class TestStories(unittest.TestCase):
                         title = '0', 
                         translations = aylien_news_api.models.story_translations.StoryTranslations(
                             en = aylien_news_api.models.story_translation.StoryTranslation(), ), 
-                        words_count = 56, )
+                        words_count = 56, 
+                        license_type = 56, )
                     ], 
                 published_at_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 published_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

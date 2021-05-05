@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **types** | **list[str]** | An array of the entity types | [optional] 
 **sentiment** | [**EntitySentiment**](EntitySentiment.md) |  | [optional] 
 **surface_forms** | [**list[EntitySurfaceForm]**](EntitySurfaceForm.md) |  | [optional] 
+**prominence_score** | **float** | Describes how relevant an entity is to the article | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

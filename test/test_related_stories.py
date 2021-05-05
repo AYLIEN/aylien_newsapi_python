@@ -63,6 +63,7 @@ class TestRelatedStories(unittest.TestCase):
                         entities = aylien_news_api.models.entities.Entities(
                             body = [
                                 aylien_news_api.models.entity.Entity(
+                                    id = '0', 
                                     indices = [
                                         [
                                             56
@@ -75,12 +76,20 @@ class TestRelatedStories(unittest.TestCase):
                                         ], 
                                     sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
                                         polarity = 'positive', 
-                                        confidence = 0, ), )
+                                        confidence = 0, ), 
+                                    surface_forms = [
+                                        aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                                            text = '0', 
+                                            frequency = 0, )
+                                        ], 
+                                    prominence_score = 0, )
                                 ], 
                             title = [
                                 aylien_news_api.models.entity.Entity(
+                                    id = '0', 
                                     text = '0', 
-                                    stock_ticker = '0', )
+                                    stock_ticker = '0', 
+                                    prominence_score = 0, )
                                 ], ), 
                         hashtags = [
                             '0'
@@ -163,7 +172,8 @@ class TestRelatedStories(unittest.TestCase):
                         title = '0', 
                         translations = aylien_news_api.models.story_translations.StoryTranslations(
                             en = aylien_news_api.models.story_translation.StoryTranslation(), ), 
-                        words_count = 56, )
+                        words_count = 56, 
+                        license_type = 56, )
                     ], 
                 story_body = '0', 
                 story_language = '0', 

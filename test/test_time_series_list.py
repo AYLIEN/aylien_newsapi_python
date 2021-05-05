@@ -43,7 +43,11 @@ class TestTimeSeriesList(unittest.TestCase):
                 time_series = [
                     aylien_news_api.models.time_series.TimeSeries(
                         count = 56, 
-                        published_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        published_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        sentiment = aylien_news_api.models.aggregated_sentiment.AggregatedSentiment(
+                            positive = 56, 
+                            neutral = 56, 
+                            negative = 56, ), )
                     ]
             )
         else :

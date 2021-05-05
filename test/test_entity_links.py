@@ -38,7 +38,8 @@ class TestEntityLinks(unittest.TestCase):
         if include_optional :
             return EntityLinks(
                 dbpedia = '0', 
-                wikipedia = '0'
+                wikipedia = '0', 
+                wikidata = '0'
             )
         else :
             return EntityLinks(

@@ -37,7 +37,29 @@ class TestNestedEntity(unittest.TestCase):
         # model = aylien_news_api.models.nested_entity.NestedEntity()  # noqa: E501
         if include_optional :
             return NestedEntity(
+                id = aylien_news_api.models.query_defines_the_search_query_on_a_field.Query defines the search query on a field(
+                    __eq = null, 
+                    __text = null, 
+                    __in = [
+                        null
+                        ], 
+                    __gt = 1.337, 
+                    __gte = 1.337, 
+                    __lt = 1.337, 
+                    __lte = 1.337, 
+                    __boost = 1.337, ), 
                 name = aylien_news_api.models.query_defines_the_search_query_on_a_field.Query defines the search query on a field(
+                    __eq = null, 
+                    __text = null, 
+                    __in = [
+                        null
+                        ], 
+                    __gt = 1.337, 
+                    __gte = 1.337, 
+                    __lt = 1.337, 
+                    __lte = 1.337, 
+                    __boost = 1.337, ), 
+                surface_forms_text = aylien_news_api.models.query_defines_the_search_query_on_a_field.Query defines the search query on a field(
                     __eq = null, 
                     __text = null, 
                     __in = [
@@ -70,7 +92,18 @@ class TestNestedEntity(unittest.TestCase):
                     __lt = 1.337, 
                     __lte = 1.337, 
                     __boost = 1.337, ), 
-                link_wikipedia = aylien_news_api.models.query_defines_the_search_query_on_a_field.Query defines the search query on a field(
+                links_wikipedia = aylien_news_api.models.query_defines_the_search_query_on_a_field.Query defines the search query on a field(
+                    __eq = null, 
+                    __text = null, 
+                    __in = [
+                        null
+                        ], 
+                    __gt = 1.337, 
+                    __gte = 1.337, 
+                    __lt = 1.337, 
+                    __lte = 1.337, 
+                    __boost = 1.337, ), 
+                links_wikidata = aylien_news_api.models.query_defines_the_search_query_on_a_field.Query defines the search query on a field(
                     __eq = null, 
                     __text = null, 
                     __in = [

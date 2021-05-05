@@ -61,6 +61,7 @@ class TestStory(unittest.TestCase):
                 entities = aylien_news_api.models.entities.Entities(
                     body = [
                         aylien_news_api.models.entity.Entity(
+                            id = '0', 
                             indices = [
                                 [
                                     56
@@ -68,7 +69,8 @@ class TestStory(unittest.TestCase):
                                 ], 
                             links = aylien_news_api.models.entity_links.EntityLinks(
                                 dbpedia = '0', 
-                                wikipedia = '0', ), 
+                                wikipedia = '0', 
+                                wikidata = '0', ), 
                             text = '0', 
                             stock_ticker = '0', 
                             types = [
@@ -76,12 +78,20 @@ class TestStory(unittest.TestCase):
                                 ], 
                             sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
                                 polarity = 'positive', 
-                                confidence = 0, ), )
+                                confidence = 0, ), 
+                            surface_forms = [
+                                aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                                    text = '0', 
+                                    frequency = 0, )
+                                ], 
+                            prominence_score = 0, )
                         ], 
                     title = [
                         aylien_news_api.models.entity.Entity(
+                            id = '0', 
                             text = '0', 
-                            stock_ticker = '0', )
+                            stock_ticker = '0', 
+                            prominence_score = 0, )
                         ], ), 
                 hashtags = [
                     '0'
@@ -173,7 +183,8 @@ class TestStory(unittest.TestCase):
                     en = aylien_news_api.models.story_translation.StoryTranslation(
                         body = '0', 
                         title = '0', ), ), 
-                words_count = 56
+                words_count = 56, 
+                license_type = 56
             )
         else :
             return Story(

@@ -38,7 +38,11 @@ class TestTrend(unittest.TestCase):
         if include_optional :
             return Trend(
                 count = 56, 
-                value = '0'
+                value = '0', 
+                sentiment = aylien_news_api.models.aggregated_sentiment.AggregatedSentiment(
+                    positive = 56, 
+                    neutral = 56, 
+                    negative = 56, )
             )
         else :
             return Trend(
