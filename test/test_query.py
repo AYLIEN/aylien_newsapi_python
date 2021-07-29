@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
-import datetime
 
 import aylien_news_api
 from aylien_news_api.models.query import Query  # noqa: E501
 from aylien_news_api.rest import ApiException
+
 
 class TestQuery(unittest.TestCase):
     """Query unit test stubs"""
@@ -29,33 +29,11 @@ class TestQuery(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Query
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = aylien_news_api.models.query.Query()  # noqa: E501
-        if include_optional :
-            return Query(
-                eq = null, 
-                text = null, 
-                _in = [
-                    null
-                    ], 
-                gt = 1.337, 
-                gte = 1.337, 
-                lt = 1.337, 
-                lte = 1.337, 
-                boost = 1.337
-            )
-        else :
-            return Query(
-        )
-
     def testQuery(self):
         """Test Query"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = aylien_news_api.models.query.Query()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

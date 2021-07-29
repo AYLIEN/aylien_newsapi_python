@@ -35,33 +35,33 @@ class EntitySurfaceForm(object):
     """
     openapi_types = {
         'text': 'str',
-        'indices': 'list[list[int]]',
-        'frequency': 'int'
+        'frequency': 'int',
+        'mentions': 'list[EntityMention]'
     }
 
     attribute_map = {
         'text': 'text',
-        'indices': 'indices',
-        'frequency': 'frequency'
+        'frequency': 'frequency',
+        'mentions': 'mentions'
     }
 
-    def __init__(self, text=None, indices=None, frequency=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, text=None, frequency=None, mentions=None, local_vars_configuration=None):  # noqa: E501
         """EntitySurfaceForm - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._text = None
-        self._indices = None
         self._frequency = None
+        self._mentions = None
         self.discriminator = None
 
         if text is not None:
             self.text = text
-        if indices is not None:
-            self.indices = indices
         if frequency is not None:
             self.frequency = frequency
+        if mentions is not None:
+            self.mentions = mentions
 
     @property
     def text(self):
@@ -85,29 +85,6 @@ class EntitySurfaceForm(object):
         """
 
         self._text = text
-
-    @property
-    def indices(self):
-        """Gets the indices of this EntitySurfaceForm.  # noqa: E501
-
-        The indices of the entity text  # noqa: E501
-
-        :return: The indices of this EntitySurfaceForm.  # noqa: E501
-        :rtype: list[list[int]]
-        """
-        return self._indices
-
-    @indices.setter
-    def indices(self, indices):
-        """Sets the indices of this EntitySurfaceForm.
-
-        The indices of the entity text  # noqa: E501
-
-        :param indices: The indices of this EntitySurfaceForm.  # noqa: E501
-        :type indices: list[list[int]]
-        """
-
-        self._indices = indices
 
     @property
     def frequency(self):
@@ -134,6 +111,29 @@ class EntitySurfaceForm(object):
             raise ValueError("Invalid value for `frequency`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._frequency = frequency
+
+    @property
+    def mentions(self):
+        """Gets the mentions of this EntitySurfaceForm.  # noqa: E501
+
+        Mentions of the entity text  # noqa: E501
+
+        :return: The mentions of this EntitySurfaceForm.  # noqa: E501
+        :rtype: list[EntityMention]
+        """
+        return self._mentions
+
+    @mentions.setter
+    def mentions(self, mentions):
+        """Sets the mentions of this EntitySurfaceForm.
+
+        Mentions of the entity text  # noqa: E501
+
+        :param mentions: The mentions of this EntitySurfaceForm.  # noqa: E501
+        :type mentions: list[EntityMention]
+        """
+
+        self._mentions = mentions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

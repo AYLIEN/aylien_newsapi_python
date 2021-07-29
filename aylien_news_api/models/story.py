@@ -39,7 +39,7 @@ class Story(object):
         'categories': 'list[Category]',
         'characters_count': 'int',
         'clusters': 'list[int]',
-        'entities': 'Entities',
+        'entities': 'list[Entity]',
         'hashtags': 'list[str]',
         'id': 'int',
         'keywords': 'list[str]',
@@ -280,9 +280,10 @@ class Story(object):
     def entities(self):
         """Gets the entities of this Story.  # noqa: E501
 
+        An array of entities  # noqa: E501
 
         :return: The entities of this Story.  # noqa: E501
-        :rtype: Entities
+        :rtype: list[Entity]
         """
         return self._entities
 
@@ -290,9 +291,10 @@ class Story(object):
     def entities(self, entities):
         """Sets the entities of this Story.
 
+        An array of entities  # noqa: E501
 
         :param entities: The entities of this Story.  # noqa: E501
-        :type entities: Entities
+        :type entities: list[Entity]
         """
 
         self._entities = entities
