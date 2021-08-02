@@ -1,10 +1,10 @@
-# RelatedStories
+# DeprecatedRelatedStories
 
-Story containing new V3 entities - available for new_v3_entities feature flag
+Story with deprecated entities
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**related_stories** | [**list[Story]**](Story.md) | An array of related stories for the input story | [optional] 
+**related_stories** | [**list[DeprecatedStory]**](DeprecatedStory.md) | An array of related stories for the input story | [optional] 
 **story_body** | **str** | The input story body | [optional] 
 **story_language** | **str** | The input story language | [optional] 
 **story_title** | **str** | The input story title | [optional] 

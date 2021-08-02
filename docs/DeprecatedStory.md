@@ -1,4 +1,4 @@
-# Story
+# DeprecatedStory
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **categories** | [**list[Category]**](Category.md) | Suggested categories for the story | [optional] 
 **characters_count** | **int** | Character count of the story body | [optional] 
 **clusters** | **list[int]** | An array of clusters the story is associated with | [optional] 
-**entities** | [**list[Entity]**](Entity.md) | An array of entities | [optional] 
+**entities** | [**DeprecatedEntities**](DeprecatedEntities.md) |  | [optional] 
 **hashtags** | **list[str]** | An array of suggested Story hashtags | [optional] 
 **id** | **int** | ID of the story which is a unique identification | [optional] 
 **keywords** | **list[str]** | Extracted keywords mentioned in the story title or body | [optional] 

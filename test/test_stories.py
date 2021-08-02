@@ -61,37 +61,36 @@ class TestStories(unittest.TestCase):
                         clusters = [
                             56
                             ], 
-                        entities = aylien_news_api.models.entities.Entities(
-                            body = [
-                                aylien_news_api.models.entity.Entity(
-                                    id = '0', 
-                                    indices = [
-                                        [
-                                            56
-                                            ]
-                                        ], 
-                                    text = '0', 
-                                    stock_ticker = '0', 
-                                    types = [
-                                        '0'
-                                        ], 
+                        entities = [
+                            aylien_news_api.models.entity.Entity(
+                                id = '0', 
+                                stock_tickers = [
+                                    '0'
+                                    ], 
+                                types = [
+                                    '0'
+                                    ], 
+                                overall_sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                                    polarity = 'positive', 
+                                    confidence = 0, ), 
+                                overall_prominence = 0, 
+                                overall_frequency = 0, 
+                                body = aylien_news_api.models.entity_in_text.EntityInText(
                                     sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
-                                        polarity = 'positive', 
                                         confidence = 0, ), 
                                     surface_forms = [
                                         aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
                                             text = '0', 
-                                            frequency = 0, )
-                                        ], 
-                                    prominence_score = 0, )
-                                ], 
-                            title = [
-                                aylien_news_api.models.entity.Entity(
-                                    id = '0', 
-                                    text = '0', 
-                                    stock_ticker = '0', 
-                                    prominence_score = 0, )
-                                ], ), 
+                                            frequency = 0, 
+                                            mentions = [
+                                                aylien_news_api.models.entity_mention.EntityMention(
+                                                    index = aylien_news_api.models.entity_mention_index.EntityMentionIndex(
+                                                        start = 0, 
+                                                        end = 1, ), )
+                                                ], )
+                                        ], ), 
+                                title = aylien_news_api.models.entity_in_text.EntityInText(), )
+                            ], 
                         hashtags = [
                             '0'
                             ], 

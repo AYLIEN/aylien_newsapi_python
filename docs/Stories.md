@@ -1,5 +1,6 @@
 # Stories
 
+Stories containing new V3 entities - available for new_v3_entities feature flag
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

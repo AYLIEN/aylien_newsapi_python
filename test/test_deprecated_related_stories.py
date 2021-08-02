@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import aylien_news_api
-from aylien_news_api.models.related_stories import RelatedStories  # noqa: E501
+from aylien_news_api.models.deprecated_related_stories import DeprecatedRelatedStories  # noqa: E501
 from aylien_news_api.rest import ApiException
 
-class TestRelatedStories(unittest.TestCase):
-    """RelatedStories unit test stubs"""
+class TestDeprecatedRelatedStories(unittest.TestCase):
+    """DeprecatedRelatedStories unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,15 +30,15 @@ class TestRelatedStories(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test RelatedStories
+        """Test DeprecatedRelatedStories
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = aylien_news_api.models.related_stories.RelatedStories()  # noqa: E501
+        # model = aylien_news_api.models.deprecated_related_stories.DeprecatedRelatedStories()  # noqa: E501
         if include_optional :
-            return RelatedStories(
+            return DeprecatedRelatedStories(
                 related_stories = [
-                    aylien_news_api.models.story.Story(
+                    aylien_news_api.models.deprecated_story.DeprecatedStory(
                         author = aylien_news_api.models.author.Author(
                             avatar_url = '0', 
                             id = 56, 
@@ -60,36 +60,37 @@ class TestRelatedStories(unittest.TestCase):
                         clusters = [
                             56
                             ], 
-                        entities = [
-                            aylien_news_api.models.entity.Entity(
-                                id = '0', 
-                                stock_tickers = [
-                                    '0'
-                                    ], 
-                                types = [
-                                    '0'
-                                    ], 
-                                overall_sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
-                                    polarity = 'positive', 
-                                    confidence = 0, ), 
-                                overall_prominence = 0, 
-                                overall_frequency = 0, 
-                                body = aylien_news_api.models.entity_in_text.EntityInText(
+                        entities = aylien_news_api.models.deprecated_entities.DeprecatedEntities(
+                            body = [
+                                aylien_news_api.models.deprecated_entity.DeprecatedEntity(
+                                    id = '0', 
+                                    indices = [
+                                        [
+                                            56
+                                            ]
+                                        ], 
+                                    text = '0', 
+                                    stock_ticker = '0', 
+                                    types = [
+                                        '0'
+                                        ], 
                                     sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                                        polarity = 'positive', 
                                         confidence = 0, ), 
                                     surface_forms = [
-                                        aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                                        aylien_news_api.models.deprecated_entity_surface_form.DeprecatedEntitySurfaceForm(
                                             text = '0', 
-                                            frequency = 0, 
-                                            mentions = [
-                                                aylien_news_api.models.entity_mention.EntityMention(
-                                                    index = aylien_news_api.models.entity_mention_index.EntityMentionIndex(
-                                                        start = 0, 
-                                                        end = 1, ), )
-                                                ], )
-                                        ], ), 
-                                title = aylien_news_api.models.entity_in_text.EntityInText(), )
-                            ], 
+                                            frequency = 0, )
+                                        ], 
+                                    prominence_score = 0, )
+                                ], 
+                            title = [
+                                aylien_news_api.models.deprecated_entity.DeprecatedEntity(
+                                    id = '0', 
+                                    text = '0', 
+                                    stock_ticker = '0', 
+                                    prominence_score = 0, )
+                                ], ), 
                         hashtags = [
                             '0'
                             ], 
@@ -181,11 +182,11 @@ class TestRelatedStories(unittest.TestCase):
                 published_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
-            return RelatedStories(
+            return DeprecatedRelatedStories(
         )
 
-    def testRelatedStories(self):
-        """Test RelatedStories"""
+    def testDeprecatedRelatedStories(self):
+        """Test DeprecatedRelatedStories"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 
