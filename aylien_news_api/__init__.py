@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "4.4.0"
+__version__ = "4.5.0"
 
 # import apis into sdk package
 from aylien_news_api.api.default_api import DefaultApi
@@ -39,9 +39,17 @@ from aylien_news_api.models.category_links import CategoryLinks
 from aylien_news_api.models.category_taxonomy import CategoryTaxonomy
 from aylien_news_api.models.cluster import Cluster
 from aylien_news_api.models.clusters import Clusters
-from aylien_news_api.models.entities import Entities
+from aylien_news_api.models.deprecated_entities import DeprecatedEntities
+from aylien_news_api.models.deprecated_entity import DeprecatedEntity
+from aylien_news_api.models.deprecated_entity_surface_form import DeprecatedEntitySurfaceForm
+from aylien_news_api.models.deprecated_related_stories import DeprecatedRelatedStories
+from aylien_news_api.models.deprecated_stories import DeprecatedStories
+from aylien_news_api.models.deprecated_story import DeprecatedStory
 from aylien_news_api.models.entity import Entity
+from aylien_news_api.models.entity_in_text import EntityInText
 from aylien_news_api.models.entity_links import EntityLinks
+from aylien_news_api.models.entity_mention import EntityMention
+from aylien_news_api.models.entity_mention_index import EntityMentionIndex
 from aylien_news_api.models.entity_sentiment import EntitySentiment
 from aylien_news_api.models.entity_surface_form import EntitySurfaceForm
 from aylien_news_api.models.error import Error

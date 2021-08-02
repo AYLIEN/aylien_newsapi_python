@@ -38,34 +38,51 @@ class TestEntity(unittest.TestCase):
         if include_optional :
             return Entity(
                 id = '0', 
-                indices = [
-                    [
-                        56
-                        ]
-                    ], 
                 links = aylien_news_api.models.entity_links.EntityLinks(
                     dbpedia = '0', 
                     wikipedia = '0', 
                     wikidata = '0', ), 
-                text = '0', 
-                stock_ticker = '0', 
+                stock_tickers = [
+                    '0'
+                    ], 
                 types = [
                     '0'
                     ], 
-                sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                overall_sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
                     polarity = 'positive', 
                     confidence = 0, ), 
-                surface_forms = [
-                    aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
-                        text = '0', 
-                        indices = [
-                            [
-                                56
-                                ]
-                            ], 
-                        frequency = 0, )
-                    ], 
-                prominence_score = 0
+                overall_prominence = 0, 
+                overall_frequency = 0, 
+                body = aylien_news_api.models.entity_in_text.EntityInText(
+                    sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                        polarity = 'positive', 
+                        confidence = 0, ), 
+                    surface_forms = [
+                        aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                            text = '0', 
+                            frequency = 0, 
+                            mentions = [
+                                aylien_news_api.models.entity_mention.EntityMention(
+                                    index = aylien_news_api.models.entity_mention_index.EntityMentionIndex(
+                                        start = 0, 
+                                        end = 1, ), )
+                                ], )
+                        ], ), 
+                title = aylien_news_api.models.entity_in_text.EntityInText(
+                    sentiment = aylien_news_api.models.entity_sentiment.EntitySentiment(
+                        polarity = 'positive', 
+                        confidence = 0, ), 
+                    surface_forms = [
+                        aylien_news_api.models.entity_surface_form.EntitySurfaceForm(
+                            text = '0', 
+                            frequency = 0, 
+                            mentions = [
+                                aylien_news_api.models.entity_mention.EntityMention(
+                                    index = aylien_news_api.models.entity_mention_index.EntityMentionIndex(
+                                        start = 0, 
+                                        end = 1, ), )
+                                ], )
+                        ], )
             )
         else :
             return Entity(

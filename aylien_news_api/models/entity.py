@@ -35,63 +35,63 @@ class Entity(object):
     """
     openapi_types = {
         'id': 'str',
-        'indices': 'list[list[int]]',
         'links': 'EntityLinks',
-        'text': 'str',
-        'stock_ticker': 'str',
+        'stock_tickers': 'list[str]',
         'types': 'list[str]',
-        'sentiment': 'EntitySentiment',
-        'surface_forms': 'list[EntitySurfaceForm]',
-        'prominence_score': 'float'
+        'overall_sentiment': 'EntitySentiment',
+        'overall_prominence': 'float',
+        'overall_frequency': 'int',
+        'body': 'EntityInText',
+        'title': 'EntityInText'
     }
 
     attribute_map = {
         'id': 'id',
-        'indices': 'indices',
         'links': 'links',
-        'text': 'text',
-        'stock_ticker': 'stock_ticker',
+        'stock_tickers': 'stock_tickers',
         'types': 'types',
-        'sentiment': 'sentiment',
-        'surface_forms': 'surface_forms',
-        'prominence_score': 'prominence_score'
+        'overall_sentiment': 'overall_sentiment',
+        'overall_prominence': 'overall_prominence',
+        'overall_frequency': 'overall_frequency',
+        'body': 'body',
+        'title': 'title'
     }
 
-    def __init__(self, id=None, indices=None, links=None, text=None, stock_ticker=None, types=None, sentiment=None, surface_forms=None, prominence_score=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, links=None, stock_tickers=None, types=None, overall_sentiment=None, overall_prominence=None, overall_frequency=None, body=None, title=None, local_vars_configuration=None):  # noqa: E501
         """Entity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._indices = None
         self._links = None
-        self._text = None
-        self._stock_ticker = None
+        self._stock_tickers = None
         self._types = None
-        self._sentiment = None
-        self._surface_forms = None
-        self._prominence_score = None
+        self._overall_sentiment = None
+        self._overall_prominence = None
+        self._overall_frequency = None
+        self._body = None
+        self._title = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
-        if indices is not None:
-            self.indices = indices
         if links is not None:
             self.links = links
-        if text is not None:
-            self.text = text
-        if stock_ticker is not None:
-            self.stock_ticker = stock_ticker
+        if stock_tickers is not None:
+            self.stock_tickers = stock_tickers
         if types is not None:
             self.types = types
-        if sentiment is not None:
-            self.sentiment = sentiment
-        if surface_forms is not None:
-            self.surface_forms = surface_forms
-        if prominence_score is not None:
-            self.prominence_score = prominence_score
+        if overall_sentiment is not None:
+            self.overall_sentiment = overall_sentiment
+        if overall_prominence is not None:
+            self.overall_prominence = overall_prominence
+        if overall_frequency is not None:
+            self.overall_frequency = overall_frequency
+        if body is not None:
+            self.body = body
+        if title is not None:
+            self.title = title
 
     @property
     def id(self):
@@ -117,29 +117,6 @@ class Entity(object):
         self._id = id
 
     @property
-    def indices(self):
-        """Gets the indices of this Entity.  # noqa: E501
-
-        The indices of the entity text  # noqa: E501
-
-        :return: The indices of this Entity.  # noqa: E501
-        :rtype: list[list[int]]
-        """
-        return self._indices
-
-    @indices.setter
-    def indices(self, indices):
-        """Sets the indices of this Entity.
-
-        The indices of the entity text  # noqa: E501
-
-        :param indices: The indices of this Entity.  # noqa: E501
-        :type indices: list[list[int]]
-        """
-
-        self._indices = indices
-
-    @property
     def links(self):
         """Gets the links of this Entity.  # noqa: E501
 
@@ -161,50 +138,27 @@ class Entity(object):
         self._links = links
 
     @property
-    def text(self):
-        """Gets the text of this Entity.  # noqa: E501
+    def stock_tickers(self):
+        """Gets the stock_tickers of this Entity.  # noqa: E501
 
-        The entity text  # noqa: E501
+        The stock tickers of the entity (might be empty)  # noqa: E501
 
-        :return: The text of this Entity.  # noqa: E501
-        :rtype: str
+        :return: The stock_tickers of this Entity.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._text
+        return self._stock_tickers
 
-    @text.setter
-    def text(self, text):
-        """Sets the text of this Entity.
+    @stock_tickers.setter
+    def stock_tickers(self, stock_tickers):
+        """Sets the stock_tickers of this Entity.
 
-        The entity text  # noqa: E501
+        The stock tickers of the entity (might be empty)  # noqa: E501
 
-        :param text: The text of this Entity.  # noqa: E501
-        :type text: str
-        """
-
-        self._text = text
-
-    @property
-    def stock_ticker(self):
-        """Gets the stock_ticker of this Entity.  # noqa: E501
-
-        The stock_ticker of the entity (might be null)  # noqa: E501
-
-        :return: The stock_ticker of this Entity.  # noqa: E501
-        :rtype: str
-        """
-        return self._stock_ticker
-
-    @stock_ticker.setter
-    def stock_ticker(self, stock_ticker):
-        """Sets the stock_ticker of this Entity.
-
-        The stock_ticker of the entity (might be null)  # noqa: E501
-
-        :param stock_ticker: The stock_ticker of this Entity.  # noqa: E501
-        :type stock_ticker: str
+        :param stock_tickers: The stock_tickers of this Entity.  # noqa: E501
+        :type stock_tickers: list[str]
         """
 
-        self._stock_ticker = stock_ticker
+        self._stock_tickers = stock_tickers
 
     @property
     def types(self):
@@ -230,75 +184,122 @@ class Entity(object):
         self._types = types
 
     @property
-    def sentiment(self):
-        """Gets the sentiment of this Entity.  # noqa: E501
+    def overall_sentiment(self):
+        """Gets the overall_sentiment of this Entity.  # noqa: E501
 
 
-        :return: The sentiment of this Entity.  # noqa: E501
+        :return: The overall_sentiment of this Entity.  # noqa: E501
         :rtype: EntitySentiment
         """
-        return self._sentiment
+        return self._overall_sentiment
 
-    @sentiment.setter
-    def sentiment(self, sentiment):
-        """Sets the sentiment of this Entity.
+    @overall_sentiment.setter
+    def overall_sentiment(self, overall_sentiment):
+        """Sets the overall_sentiment of this Entity.
 
 
-        :param sentiment: The sentiment of this Entity.  # noqa: E501
-        :type sentiment: EntitySentiment
+        :param overall_sentiment: The overall_sentiment of this Entity.  # noqa: E501
+        :type overall_sentiment: EntitySentiment
         """
 
-        self._sentiment = sentiment
+        self._overall_sentiment = overall_sentiment
 
     @property
-    def surface_forms(self):
-        """Gets the surface_forms of this Entity.  # noqa: E501
-
-
-        :return: The surface_forms of this Entity.  # noqa: E501
-        :rtype: list[EntitySurfaceForm]
-        """
-        return self._surface_forms
-
-    @surface_forms.setter
-    def surface_forms(self, surface_forms):
-        """Sets the surface_forms of this Entity.
-
-
-        :param surface_forms: The surface_forms of this Entity.  # noqa: E501
-        :type surface_forms: list[EntitySurfaceForm]
-        """
-
-        self._surface_forms = surface_forms
-
-    @property
-    def prominence_score(self):
-        """Gets the prominence_score of this Entity.  # noqa: E501
+    def overall_prominence(self):
+        """Gets the overall_prominence of this Entity.  # noqa: E501
 
         Describes how relevant an entity is to the article  # noqa: E501
 
-        :return: The prominence_score of this Entity.  # noqa: E501
+        :return: The overall_prominence of this Entity.  # noqa: E501
         :rtype: float
         """
-        return self._prominence_score
+        return self._overall_prominence
 
-    @prominence_score.setter
-    def prominence_score(self, prominence_score):
-        """Sets the prominence_score of this Entity.
+    @overall_prominence.setter
+    def overall_prominence(self, overall_prominence):
+        """Sets the overall_prominence of this Entity.
 
         Describes how relevant an entity is to the article  # noqa: E501
 
-        :param prominence_score: The prominence_score of this Entity.  # noqa: E501
-        :type prominence_score: float
+        :param overall_prominence: The overall_prominence of this Entity.  # noqa: E501
+        :type overall_prominence: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                prominence_score is not None and prominence_score > 1):  # noqa: E501
-            raise ValueError("Invalid value for `prominence_score`, must be a value less than or equal to `1`")  # noqa: E501
+                overall_prominence is not None and overall_prominence > 1):  # noqa: E501
+            raise ValueError("Invalid value for `overall_prominence`, must be a value less than or equal to `1`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                prominence_score is not None and prominence_score < 0):  # noqa: E501
-            raise ValueError("Invalid value for `prominence_score`, must be a value greater than or equal to `0`")  # noqa: E501
+                overall_prominence is not None and overall_prominence < 0):  # noqa: E501
+            raise ValueError("Invalid value for `overall_prominence`, must be a value greater than or equal to `0`")  # noqa: E501
 
-        self._prominence_score = prominence_score
+        self._overall_prominence = overall_prominence
+
+    @property
+    def overall_frequency(self):
+        """Gets the overall_frequency of this Entity.  # noqa: E501
+
+        Amount of entity surface form mentions in the article  # noqa: E501
+
+        :return: The overall_frequency of this Entity.  # noqa: E501
+        :rtype: int
+        """
+        return self._overall_frequency
+
+    @overall_frequency.setter
+    def overall_frequency(self, overall_frequency):
+        """Sets the overall_frequency of this Entity.
+
+        Amount of entity surface form mentions in the article  # noqa: E501
+
+        :param overall_frequency: The overall_frequency of this Entity.  # noqa: E501
+        :type overall_frequency: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                overall_frequency is not None and overall_frequency < 0):  # noqa: E501
+            raise ValueError("Invalid value for `overall_frequency`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._overall_frequency = overall_frequency
+
+    @property
+    def body(self):
+        """Gets the body of this Entity.  # noqa: E501
+
+
+        :return: The body of this Entity.  # noqa: E501
+        :rtype: EntityInText
+        """
+        return self._body
+
+    @body.setter
+    def body(self, body):
+        """Sets the body of this Entity.
+
+
+        :param body: The body of this Entity.  # noqa: E501
+        :type body: EntityInText
+        """
+
+        self._body = body
+
+    @property
+    def title(self):
+        """Gets the title of this Entity.  # noqa: E501
+
+
+        :return: The title of this Entity.  # noqa: E501
+        :rtype: EntityInText
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this Entity.
+
+
+        :param title: The title of this Entity.  # noqa: E501
+        :type title: EntityInText
+        """
+
+        self._title = title
 
     def to_dict(self):
         """Returns the model properties as a dict"""
