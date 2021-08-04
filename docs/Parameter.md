@@ -1,5 +1,6 @@
 # Parameter
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -58,7 +59,8 @@ Name | Type | Description | Notes
 **translations_en_body** | [**Query**](Query.md) |  | [optional] 
 **translations_en_text** | [**Query**](Query.md) |  | [optional] 
 **translations_en_title** | [**Query**](Query.md) |  | [optional] 
-**entity** | [**OneOfNestedEntityLogicals**](OneOfNestedEntityLogicals.md) |  | [optional] 
+**entity** | **dict** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
