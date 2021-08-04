@@ -41,6 +41,8 @@ aylien_news_api/models/media.py
 aylien_news_api/models/media_format.py
 aylien_news_api/models/media_type.py
 aylien_news_api/models/nested_entity.py
+aylien_news_api/models/one_of_related_stories_deprecated_related_stories.py
+aylien_news_api/models/one_of_stories_deprecated_stories.py
 aylien_news_api/models/parameter.py
 aylien_news_api/models/query.py
 aylien_news_api/models/rank.py
@@ -102,6 +104,8 @@ docs/Media.md
 docs/MediaFormat.md
 docs/MediaType.md
 docs/NestedEntity.md
+docs/OneOfRelatedStoriesDeprecatedRelatedStories.md
+docs/OneOfStoriesDeprecatedStories.md
 docs/Parameter.md
 docs/Query.md
 docs/Rank.md
