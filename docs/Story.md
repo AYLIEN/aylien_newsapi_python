@@ -16,7 +16,8 @@ Name | Type | Description | Notes
 **links** | [**StoryLinks**](StoryLinks.md) |  | [optional] 
 **media** | [**list[Media]**](Media.md) | An array of extracted media such as images and videos | [optional] 
 **paragraphs_count** | **int** | Paragraph count of the story body | [optional] 
-**published_at** | **datetime** | Published date of the story | [optional] 
+**published_datetime** | **datetime** | Publication time of the story, if available, otherwise time of acquisition | [optional] 
+**published_at** | **datetime** | Acquisition time of the story | [optional] 
 **sentences_count** | **int** | Sentence count of the story body | [optional] 
 **sentiment** | [**Sentiments**](Sentiments.md) |  | [optional] 
 **social_shares_count** | [**ShareCounts**](ShareCounts.md) |  | [optional] 
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 **translations** | [**StoryTranslations**](StoryTranslations.md) |  | [optional] 
 **words_count** | **int** | Word count of the story body | [optional] 
 **license_type** | **int** | License type of the story | [optional] 
+**industries** | [**list[Category]**](Category.md) | An array of industries categories | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
