@@ -17,6 +17,12 @@ aylien_news_api/models/category_links.py
 aylien_news_api/models/category_taxonomy.py
 aylien_news_api/models/cluster.py
 aylien_news_api/models/clusters.py
+aylien_news_api/models/deprecated_entities.py
+aylien_news_api/models/deprecated_entity.py
+aylien_news_api/models/deprecated_entity_surface_form.py
+aylien_news_api/models/deprecated_related_stories.py
+aylien_news_api/models/deprecated_stories.py
+aylien_news_api/models/deprecated_story.py
 aylien_news_api/models/entity.py
 aylien_news_api/models/entity_in_text.py
 aylien_news_api/models/entity_links.py
@@ -39,7 +45,6 @@ aylien_news_api/models/parameter.py
 aylien_news_api/models/query.py
 aylien_news_api/models/rank.py
 aylien_news_api/models/rankings.py
-aylien_news_api/models/related_stories.py
 aylien_news_api/models/representative_story.py
 aylien_news_api/models/scope.py
 aylien_news_api/models/scope_level.py
@@ -49,8 +54,6 @@ aylien_news_api/models/sentiments.py
 aylien_news_api/models/share_count.py
 aylien_news_api/models/share_counts.py
 aylien_news_api/models/source.py
-aylien_news_api/models/stories.py
-aylien_news_api/models/story.py
 aylien_news_api/models/story_cluster.py
 aylien_news_api/models/story_links.py
 aylien_news_api/models/story_translation.py
@@ -72,6 +75,12 @@ docs/CategoryTaxonomy.md
 docs/Cluster.md
 docs/Clusters.md
 docs/DefaultApi.md
+docs/DeprecatedEntities.md
+docs/DeprecatedEntity.md
+docs/DeprecatedEntitySurfaceForm.md
+docs/DeprecatedRelatedStories.md
+docs/DeprecatedStories.md
+docs/DeprecatedStory.md
 docs/Entity.md
 docs/EntityInText.md
 docs/EntityLinks.md
@@ -94,7 +103,6 @@ docs/Parameter.md
 docs/Query.md
 docs/Rank.md
 docs/Rankings.md
-docs/RelatedStories.md
 docs/RepresentativeStory.md
 docs/Scope.md
 docs/ScopeLevel.md
@@ -104,8 +112,6 @@ docs/Sentiments.md
 docs/ShareCount.md
 docs/ShareCounts.md
 docs/Source.md
-docs/Stories.md
-docs/Story.md
 docs/StoryCluster.md
 docs/StoryLinks.md
 docs/StoryTranslation.md
@@ -132,6 +138,12 @@ test/test_category_taxonomy.py
 test/test_cluster.py
 test/test_clusters.py
 test/test_default_api.py
+test/test_deprecated_entities.py
+test/test_deprecated_entity.py
+test/test_deprecated_entity_surface_form.py
+test/test_deprecated_related_stories.py
+test/test_deprecated_stories.py
+test/test_deprecated_story.py
 test/test_entity.py
 test/test_entity_in_text.py
 test/test_entity_links.py
@@ -154,7 +166,6 @@ test/test_parameter.py
 test/test_query.py
 test/test_rank.py
 test/test_rankings.py
-test/test_related_stories.py
 test/test_representative_story.py
 test/test_scope.py
 test/test_scope_level.py
@@ -164,8 +175,6 @@ test/test_sentiments.py
 test/test_share_count.py
 test/test_share_counts.py
 test/test_source.py
-test/test_stories.py
-test/test_story.py
 test/test_story_cluster.py
 test/test_story_links.py
 test/test_story_translation.py
