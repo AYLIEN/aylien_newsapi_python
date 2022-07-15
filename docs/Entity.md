@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **overall_frequency** | **int** | Amount of entity surface form mentions in the article | [optional] 
 **body** | [**EntityInText**](EntityInText.md) |  | [optional] 
 **title** | [**EntityInText**](EntityInText.md) |  | [optional] 
+**external_ids** | [**ExternalIds**](ExternalIds.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
