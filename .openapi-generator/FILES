@@ -17,6 +17,7 @@ aylien_news_api/models/category_links.py
 aylien_news_api/models/category_taxonomy.py
 aylien_news_api/models/cluster.py
 aylien_news_api/models/clusters.py
+aylien_news_api/models/duns_number.py
 aylien_news_api/models/entity.py
 aylien_news_api/models/entity_in_text.py
 aylien_news_api/models/entity_links.py
@@ -27,6 +28,7 @@ aylien_news_api/models/entity_surface_form.py
 aylien_news_api/models/error.py
 aylien_news_api/models/error_links.py
 aylien_news_api/models/errors.py
+aylien_news_api/models/external_ids.py
 aylien_news_api/models/histogram_interval.py
 aylien_news_api/models/histograms.py
 aylien_news_api/models/location.py
@@ -72,6 +74,7 @@ docs/CategoryTaxonomy.md
 docs/Cluster.md
 docs/Clusters.md
 docs/DefaultApi.md
+docs/DunsNumber.md
 docs/Entity.md
 docs/EntityInText.md
 docs/EntityLinks.md
@@ -82,6 +85,7 @@ docs/EntitySurfaceForm.md
 docs/Error.md
 docs/ErrorLinks.md
 docs/Errors.md
+docs/ExternalIds.md
 docs/HistogramInterval.md
 docs/Histograms.md
 docs/Location.md
@@ -132,6 +136,7 @@ test/test_category_taxonomy.py
 test/test_cluster.py
 test/test_clusters.py
 test/test_default_api.py
+test/test_duns_number.py
 test/test_entity.py
 test/test_entity_in_text.py
 test/test_entity_links.py
@@ -142,6 +147,7 @@ test/test_entity_surface_form.py
 test/test_error.py
 test/test_error_links.py
 test/test_errors.py
+test/test_external_ids.py
 test/test_histogram_interval.py
 test/test_histograms.py
 test/test_location.py

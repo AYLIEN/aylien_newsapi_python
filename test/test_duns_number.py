@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import aylien_news_api
-from aylien_news_api.models.rankings import Rankings  # noqa: E501
+from aylien_news_api.models.duns_number import DunsNumber  # noqa: E501
 from aylien_news_api.rest import ApiException
 
-class TestRankings(unittest.TestCase):
-    """Rankings unit test stubs"""
+class TestDunsNumber(unittest.TestCase):
+    """DunsNumber unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,26 +30,21 @@ class TestRankings(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Rankings
+        """Test DunsNumber
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = aylien_news_api.models.rankings.Rankings()  # noqa: E501
+        # model = aylien_news_api.models.duns_number.DunsNumber()  # noqa: E501
         if include_optional :
-            return Rankings(
-                alexa = [
-                    aylien_news_api.models.rank.Rank(
-                        country = '0', 
-                        fetched_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        rank = 56, )
-                    ]
+            return DunsNumber(
+                id = '0'
             )
         else :
-            return Rankings(
+            return DunsNumber(
         )
 
-    def testRankings(self):
-        """Test Rankings"""
+    def testDunsNumber(self):
+        """Test DunsNumber"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 
